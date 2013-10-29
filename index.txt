@@ -1,0 +1,9 @@
+LICENSE			github clone
+README.md		github clone
+auto-save-list		emacs が作った。 ignore
+gnupack-init.el		自作 2013-10-29
+index.txt		自作 2013-10-29
+init.el			自作 2013-10-29
+my-init.el		自作 2013-10-29
+custom-dn2		自作 2013-10-29 ignore
+log			自作 2013-10-29 ignore
