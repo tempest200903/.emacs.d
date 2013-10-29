@@ -1,0 +1,123 @@
+* TODO emacs-clockreport
+  CLOCK: [2011-08-23 火 10:41]--[2011-08-23 火 10:51] =>  0:10
+  CLOCK: [2011-08-23 火 10:25]--[2011-08-23 火 10:33] =>  0:08
+  CLOCK: [2011-08-22 月 16:12]--[2011-08-22 月 16:25] =>  0:13
+  CLOCK: [2011-08-22 月 10:41]--[2011-08-22 月 11:12] =>  0:31
+  CLOCK: [2011-04-12 火 13:58]--[2011-04-12 火 14:27] =>  0:29
+  CLOCK: [2011-04-05 火 12:33]--[2011-04-05 火 13:02] =>  0:29
+  CLOCK: [2011-04-01 金 20:30]--[2011-04-01 金 20:31] =>  0:01
+  CLOCK: [2011-04-01 金 15:45]--[2011-04-01 金 16:03] =>  0:18
+  CLOCK: [2011-04-01 金 15:12]--[2011-04-01 金 15:35] =>  0:23
+  CLOCK: [2011-03-31 木 14:23]--[2011-03-31 木 14:50] =>  0:27
+  CLOCK: [2011-03-31 木 11:37]--[2011-03-31 木 11:44] =>  0:07
+  CLOCK: [2011-03-10 木 10:15]--[2011-03-10 木 10:41] =>  0:26
+  CLOCK: [2011-03-03 木 14:35]--[2011-03-03 木 14:41] =>  0:06
+  CLOCK: [2011-03-03 木 14:00]--[2011-03-03 木 14:35] =>  0:35
+  CLOCK: [2011-02-17 木 14:08]--[2011-02-17 木 14:22] =>  0:14
+  CLOCK: [2011-02-17 木 10:40]--[2011-02-17 木 11:10] =>  0:30
+  CLOCK: [2011-02-17 木 10:36]--[2011-02-17 木 10:40] =>  0:04
+  CLOCK: [2011-02-08 火 19:51]--[2011-02-08 火 20:03] =>  0:12
+  CLOCK: [2011-02-04 金 18:29]--[2011-02-04 金 18:50] =>  0:21
+  CLOCK: [2011-02-04 金 14:05]--[2011-02-04 金 14:15] =>  0:10
+  CLOCK: [2011-01-31 月 20:05]--[2011-01-31 月 20:13] =>  0:08
+  CLOCK: [2011-01-31 月 19:45]--[2011-01-31 月 19:51] =>  0:06
+  CLOCK: [2011-01-31 月 18:10]--[2011-01-31 月 18:43] =>  0:33
+- [[n:/.emacs.d/inits/]]
+
+#+BEGIN: clocktable :maxlevel 2 :scope file
+Clock summary at [2011-04-06 水 10:07]
+
+| L | Headline               | Time   |
+|---+------------------------+--------|
+|   | *Total time*           | *5:10* |
+|---+------------------------+--------|
+| 1 | TODO emacs-clockreport | 5:10   |
+#+END:
+
+* links
+  [2011-02-08 火 19:53]
+79 matches for ".emacs.d" in buffer: *Open Recent - Edit list*
+      4: [ ]  n:/.emacs.d/inits/emacs-clockreport.org.txt
+      9: [ ]  n:/.emacs.d/inits/my-org-mode.el
+     57: [ ]  n:/.emacs.d/inits/my-keymap.el
+     67: [ ]  n:/.emacs.d/memo/knowhow-emacs.org.txt
+     76: [ ]  n:/.emacs.d/inits/*Mule-Diagnosis*
+     80: [ ]  n:/Upload/dot.emacs.d-snapshot-d20110204/dirs.txt
+     81: [ ]  n:/4-project/myscript/dos/emacs-d-archive.bat
+    102: [ ]  n:/.emacs.d/inits/my-redo+.el
+    103: [ ]  n:/.emacs.d/inits/my-other-window.el
+    104: [ ]  n:/.emacs.d/inits/my-kmacro-save.el
+    105: [ ]  n:/.emacs.d/inits/my-ffap.el
+    124: [ ]  n:/.emacs.d/memo/emacs-crash.org.txt
+    130: [ ]  n:/.emacs.d/inits/my-grep-edit.el
+    131: [ ]  n:/.emacs.d/inits/my-anything.el
+    132: [ ]  n:/.emacs.d/inits/org-mode-agenda-filelist.tsv.txt
+    163: [ ]  n:/.emacs.d/init.el
+    164: [ ]  n:/.emacs.d/inits/experimental-setq.el
+    165: [ ]  n:/.emacs.d/inits/my-ack.el
+    166: [ ]  n:/.emacs.d/inits/my-auto-complete.el
+    167: [ ]  n:/.emacs.d/inits/my-auto-install.el
+    168: [ ]  n:/.emacs.d/inits/my-backup-files.el
+    169: [ ]  n:/.emacs.d/inits/my-beginning-of-indented-line.el
+    170: [ ]  n:/.emacs.d/inits/my-change-mode.el
+    171: [ ]  n:/.emacs.d/inits/my-crontab-mode.el
+    172: [ ]  n:/.emacs.d/inits/my-csv-mode.el
+    173: [ ]  n:/.emacs.d/inits/my-desktop.el
+    174: [ ]  n:/.emacs.d/inits/my-emacs-server.el
+    175: [ ]  n:/.emacs.d/inits/my-escreen.el
+    176: [ ]  n:/.emacs.d/inits/my-file-info.el
+    177: [ ]  n:/.emacs.d/inits/my-find-dired-lisp.el
+    178: [ ]  n:/.emacs.d/inits/my-goto-chg.el
+    179: [ ]  n:/.emacs.d/inits/my-grep.el
+    180: [ ]  n:/.emacs.d/inits/my-howm-optional.el
+    181: [ ]  n:/.emacs.d/inits/my-iimage.el
+    182: [ ]  n:/.emacs.d/inits/my-imcap.el
+    183: [ ]  n:/.emacs.d/inits/my-imenu-tree.el
+    184: [ ]  n:/.emacs.d/inits/my-indent.el
+    185: [ ]  n:/.emacs.d/inits/my-insert-time.el
+    186: [ ]  n:/.emacs.d/inits/my-install-elisp.el
+    187: [ ]  n:/.emacs.d/inits/my-iswitchb.el
+    188: [ ]  n:/.emacs.d/inits/my-keisen.el
+    189: [ ]  n:/.emacs.d/inits/my-keymap-superhyper.el
+    190: [ ]  n:/.emacs.d/inits/my-midnight.el
+    191: [ ]  n:/.emacs.d/inits/my-migemo.el
+    192: [ ]  n:/.emacs.d/inits/my-mswindows-dired-explorer.el
+    193: [ ]  n:/.emacs.d/inits/my-mswindows-dired-shell-execute.el
+    194: [ ]  n:/.emacs.d/inits/my-mswindows-shell-execute.el
+    195: [ ]  n:/.emacs.d/inits/my-mw32-ime.el
+    196: [ ]  n:/.emacs.d/inits/my-os-windows.el
+    197: [ ]  n:/.emacs.d/inits/my-php-mode.el
+    198: [ ]  n:/.emacs.d/inits/my-psvn.el
+    199: [ ]  n:/.emacs.d/inits/my-recentf-mode.el
+    200: [ ]  n:/.emacs.d/inits/my-scroll-conservatively.el
+    201: [ ]  n:/.emacs.d/inits/my-setq.el
+    202: [ ]  n:/.emacs.d/inits/my-time-stamp.el
+    203: [ ]  n:/.emacs.d/inits/my-toggle-truncate-lines.el
+    204: [ ]  n:/.emacs.d/inits/my-toolbar.el
+    205: [ ]  n:/.emacs.d/inits/my-uniquify.el
+    227: [ ]  n:/.emacs.d/inits/keymap-idea.txt
+    228: [ ]  n:/.emacs.d/inits/my-color-moccur.el
+    229: [ ]  n:/.emacs.d/inits/my-crosshairs-mode.el
+    230: [ ]  n:/.emacs.d/inits/my-howm.el
+    231: [ ]  n:/.emacs.d/inits/my-key-chord.el
+    239: [ ]  n:/.emacs.d/inits/my-moccur.el
+    247: [ ]  n:/.emacs.d/inits/my-saveplace.el
+    259: [ ]  n:/.emacs.d/inits/my-bf-mode.el
+    260: [ ]  n:/.emacs.d/.emacs.desktop.lock
+    261: [ ]  n:/.emacs.d/.org-id-locations
+    262: [ ]  n:/.emacs.d/aboutdirectory.org.txt
+    263: [ ]  n:/.emacs.d/anything-c-adaptive-history
+    264: [ ]  n:/.emacs.d/init-loader.el
+    265: [ ]  n:/.emacs.d/inits/my-occur.el
+    266: [ ]  n:/dot.emacs.d-snapshot-d20110117.zip
+    267: [ ]  n:/.emacs.d/dirs.txt
+    268: [ ]  n:/.emacs.d/auto-install.el
+    269: [ ]  n:/.emacs.d/.emacs.desktop
+    428: [ ]  n:/dot.emacs.d-snapshot-d20110117/dirs.txt
+    466: [ ]  n:/.emacs.d/memo/wishlist-emacs.org.txt
+    483: [ ]  n:/.emacs.d/auto-install/anything-config.el
+
+* org-agenda-file-list が多すぎると、検索に時間がかかる。
+  [2011-02-17 木 11:07]
+- [[N:\work\y2011\0116OAH\org-agenda-history-rule.org.txt]]
+  - [[file:n:/work/y2011/0116OAH/org-agenda-history-rule.org.txt::*org-agenda-file-list%20が多すぎると、検索に時間がかかる。][org-agenda-file-list が多すぎると、検索に時間がかかる。]]

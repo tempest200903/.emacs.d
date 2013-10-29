@@ -1,0 +1,9 @@
+ORG_DIR=N:/tool/gnupack/gnupack_devel-11.00/app/emacs/emacs/lisp/org
+
+org-mode-version-8.0.7:
+	rm -rf ${ORG_DIR}/*
+	cp -p N:/download/Emacs/plugin/org-mode/org-8.0.7/lisp/* ${ORG_DIR}/
+
+org-mode-version-7.8.11:
+	rm -rf ${ORG_DIR}/*
+	cp -p N:/tool/gnupack/gnupack_devel-11.00/app/emacs_org_7_8_11/emacs/lisp/org/* ${ORG_DIR}/

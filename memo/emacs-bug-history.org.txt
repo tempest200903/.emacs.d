@@ -1,0 +1,396 @@
+# -*- coding: utf-8-unix;  -*-
+* 〔emacs-bug-history〕                                               :emacs:
+  :PROPERTIES:
+  :CATEGORY: 〈emacs-bug-history〉
+  :END:
+** 〔emacs version〕
+*** 〔emacs version 24.1.1〕
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-03 火 16:22]
+    :END:
+- GNU Emacs 24.1.1 (i386-mingw-nt5.1.2600) of 2012-06-10 on MARVIN
+- [2012-07-03 火 16:24] 試用開始。
+- 手順
+  1. cd N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d ; svn commit
+  2. cd N:\.eamcs.d ; checkout file:///N:/SVNrepo/.emacs.d/trunk 
+  Completed: At revision: 3329
+** 〔gnupack version〕
+*** DONE 〔gnupack version 7.02〕
+    CLOSED: [2012-01-20 金 16:29]
+   [2011-11-21 月 10:27]
+**** emacs version
+- verison gnupack (GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600)  of 2011-08-15 on GNUPACK) 
+**** directory
+- from: N:\download\Emacs\gnupack
+- to: N:\tool\gnupack\gnupack_basic-7.02
+- goto [[file:~/.emacs.d/memo/my-gnupack-customize.org.txt::*my-gnupack-customize][my-gnupack-customize]]
+**** DONE ATOK
+    CLOSED: [2012-01-20 金 16:29]
+    [2012-01-20 金 16:20]
+- GNU Emacs では ATOK インライン表示できない。 gnupack emacs では ATOK インライン表示できる。
+**** DONE shell 
+    CLOSED: [2012-01-20 金 16:29]
+    [2012-01-20 金 16:23]
+- 現象 M-x shell を実行すると、シェルが実行されない。 *Messages* には "apply: Spawning child process: invalid argument" と出力する。
+- デフォルトでは /bin/bash を起動しようとするが Windows にはこれがないので失敗する。
+- C-h v explicit-shell-file-name customize "C:/WINDOWS/system32/cmd.exe" を指定すれば解消する。
+- C-h v explicit-shell-file-name customize "C:/cygwin/bin/bash.exe" を指定するとどうなる？ 実験結果 bash が使える！
+- cmd と bash を使い分けたい。どうすればできるか？
+  (let* ((explicit-shell-file-name "C:/WINDOWS/system32/cmd.exe"))
+    (call-interactively 'shell)
+  )
+  これでできる。ただし、バッファ名 *shell* が存在するとそちらが優先する。
+  事前に *shell* を rename しておけば両方同時に存在できる。
+- goto [[~/.emacs.d/inits/my-shell.el]]
+**** PENDING howm-list-grep-fixed (C-^ s)
+    [2012-01-23 月 11:00]
+- 日本語文字列を指定した場合、エラーは発生しないが常に結果が No match 。
+- シングルバイト文字列を指定した場合、エラーは発生しないが常に結果が1件。
+- howm-list-grep (C-^ g) でも同様。
+- universal-coding-system-argument (C-x RET c) で utf-8 や sjis を指定しても同様。
+**** PENDING howm-directory
+    [2012-01-23 月 17:04]
+- howm-directory ~/howm/ だと格納場所不一致で困る。 ~/howm/ に変更した。
+**** PENDING env HOME
+    [2012-01-25 水 12:06]
+- gnupack emacs を起動するときだけ set HOME=n:\tool\gnupack\gnupack_basic-7.02\home
+  としている。
+- メリットは GNU emacs と gnupack emacs を共存できる。
+- デメリットは clientemacs.exe は $HOME を見るため、どちらか一方としか接続できない。
+  - 引数 --server-file を指定すれば切り替え可能。
+  - --server-file N:\tool\gnupack\gnupack_basic-7.02\home\.emacs.d\server\server
+*** 〔gnupack version 8.00〕
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-25 月 16:05]
+    :END:
+**** 試用期間
+- [2012-12-15 土 11:36] version 10 アクティブバッファ以外の場所に挿入される不具合多発。いったん version 8 に戻す。
+**** emacs version
+- GNU Emacs 23.4.1 (i386-mingw-nt5.1.2600) of 2012-03-24 on VMWIN2
+**** directory
+- from: N:\download\Emacs\gnupack
+- to: N:\tool\gnupack\gnupack_basic-7.02
+- goto [[file:~/.emacs.d/memo/my-gnupack-customize.org.txt::*my-gnupack-customize][my-gnupack-customize]]
+**** .emacs.d
+     :LOGBOOK:
+     TIMESTAMP: [2012-07-04 水 10:06]
+     :END:
+- winmerge N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d N:\.emacs.d
+**** HOME 変更
+     [2012-06-25 月 16:07]
+目的
+$from: N:\tool\gnupack\gnupack_basic-7.02\home
+から
+$to N:\
+に移転する。バージョン番号が変わるとリンク切れになる心配をなくす。
+
+1. N:\ にあるファイルを撤去する。
+.eamcs.d/
+.eshell/
+.subversion/
+
+2. copy $from $to
+.emacs.d/
+.eshell/
+.subversion/
+その他ファイル .*
+
+3. mkdir $to/bak
+
+4. edit N:\.emacs.d\runGnupack.bat
+set EMACS_PROGRAM=N:\tool\gnupack\gnupack_basic-8.00\emacs.exe
+
+5. start N:\.emacs.d\runGnupack.bat
+これでやっても、 HOME は N:\tool\gnupack\gnupack_basic-8.00\home になってしまう。
+
+あきらめて
+HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
+**** setup org-mode
+- copy "C:\Documents and Settings\nakamura\My Documents\download\Emacs\plugin\org-mode\org-7.8.11" N:\tool\gnupack\gnupack_basic-8.00\app\emacs\site-lisp\
+- load N:\tool\gnupack\gnupack_basic-8.00\app\emacs\site-lisp\org-7.8.11\lisp\org.el
+**** M-x view-emacs-news
+# * Changes in Emacs 23.4 on non-free operating systems
+# ** The MS-Windows port can now use more than 500MB of heap.
+# Depending on the available virtual memory, Emacs on Windows can now
+# have up to 2GB of heap space.  This allows, e.g., visiting several
+# large (> 256MB) files in the same session.
+  とあるので、メモリ使用量の制限が緩くなったのだろう。
+- [[file:n:/tool/gnupack/gnupack_basic-7.02/home/.emacs.d/memo/emacs-crush-history.org.txt::*emacs%20crush%20history][emacs-crush-history]] / [[file:n:/tool/gnupack/gnupack_basic-7.02/home/.emacs.d/memo/emacs-crush-history.org.txt::*2012%2006%2025][2012-06-25]] のクラッシュ頻度高い件が解消するかもしれない。様子見する。
+**** PENDING 〔grep が失敗する〕
+     :LOGBOOK:
+     TIMESTAMP: [2012-06-26 火 11:24]
+     :END:
+- M-x grep 
+  - grep -nH メニュー
+  - 0 matches
+- M-x rgrep
+  - /usr/bin/find: paths must precede expression: my-emacs-customize.org.txt.bak
+    Usage: /usr/bin/find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path...] [expression]
+*** 〔gnupack version 9.00〕
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-26 木 14:12]
+    :END:
+**** emacs version
+     [2012-07-26 木 14:12]
+- GNU Emacs 24.1.1 (i386-mingw-nt5.1.2600) of 2012-06-16 on GNUPACK
+**** directory
+     [2012-07-26 木 14:12]
+- from: N:\download\Emacs\gnupack
+- to: N:\tool\gnupack\gnupack_basic-9.00
+- goto [[file:~/.emacs.d/memo/my-gnupack-customize.org.txt::*my-gnupack-customize][my-gnupack-customize]]
+**** 試用期間
+- [2012-07-26 木 14:15] begin
+  - set HOME=N:\ を無視して、 HOME=N:\tool\gnupack\gnupack_basic-9.00\home として扱ってしまう。 N:\.emacs.d が無視されて困る。
+  - とりあえず、 cd  N:\tool\gnupack\gnupack_basic-9.00\home\.emacs.d; svn checkout として試用する。
+- [2012-07-26 木 17:08] end
+  - howm-list-grep-fixed 不具合 が再現するため、試用中止。
+*** 〔gnupack version 10.02〕
+    :LOGBOOK:
+    TIMESTAMP: [2012-12-07 金 10:35]
+    :END:
+**** emacs version
+     :LOGBOOK:
+     TIMESTAMP: [2012-12-07 金 10:35]
+     :END:
+- GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) of 2012-09-22 on GNUPACK
+**** directory
+     :LOGBOOK:
+     TIMESTAMP: [2012-12-07 金 10:36]
+     :END:
+- from: N:\download\Emacs\gnupack
+- to: N:\tool\gnupack\gnupack_basic-10.02
+- goto [[file:~/.emacs.d/memo/my-gnupack-customize.org.txt::*my-gnupack-customize][my-gnupack-customize]]
+**** 試用期間
+- [2012-12-07 金 10:36] begin
+  - とりあえず migemo は有効にしない。
+- [2012-12-14 金 10:37] 入力した文字列がアクティブバッファ以外の場所に挿入される不具合が多発する。  version 8 でも発生していたが、 version 10 のほうが頻度高い気がする。いったん version 8 に戻すか？
+- [2012-12-15 土 11:36] version 10 アクティブバッファ以外の場所に挿入される不具合多発。いったん version 8 に戻す。
+*** 〔GNU Emacs 24.2.1〕
+    :LOGBOOK:
+    TIMESTAMP: [2012-12-26 水 14:37]
+    :END:
+- cd N:\tool\gnupack\gnupack_basic-10.02
+- gnupack 10.02 付属の emacs をリネーム。
+  before N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs 
+  after  N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs-24.2-20120922
+- 暫定ビルドの emacs をリネーム
+  before N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs-24.2-20121201
+  after  N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs
+  [バージョン] emacs-24.2-20121201
+- emacs 起動
+  - M-x emacs-version
+    - GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) of 2012-12-01 on GNUPACK
+- winmerge N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d\memo\emacs-bug-history.org.txt N:\tool\gnupack\gnupack_basic-10.02\home\.emacs.d\memo\emacs-bug-history.org.txt
+- しばらく様子を見る。
+- [2012-12-27 木 10:41]
+  - [[*%E3%80%94%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E4%BB%A5%E5%A4%96%E3%81%AE%E5%A0%B4%E6%89%80%E3%81%AB%E6%8C%BF%E5%85%A5%E3%81%95%E3%82%8C%E3%82%8B%E4%B8%8D%E5%85%B7%E5%90%88%E3%80%95][〔アクティブバッファ以外の場所に挿入される不具合〕]]
+    - 〔GNU Emacs 24.2.1〕 でも不具合発生する。
+  - [[*%E3%80%94howm-list-grep-fixed%20%E4%B8%8D%E5%85%B7%E5%90%88%E3%80%95][〔howm-list-grep-fixed 不具合〕]] 不具合発生する。
+  - [[*%E3%80%94gnupack%20version%208.00%E3%80%95][〔gnupack version 8.00〕]] に戻そう。
+**** install
+- [[N:\download\Emacs\gnupack\emacs-24.2-20121201.exe]] 
+*** PENDING 〔gnupack version 11 のリリースノートを読む〕
+    DEADLINE: <2013-11-17 日>
+    :LOGBOOK:
+    - New deadline from "2013-10-12 土" on [2013-10-15 火 10:11]
+    :END:
+- [2013-08-12 月 15:29] 試用開始。
+- [ ] gnupack のリリースノートを読む。
+  - http://sourceforge.jp/projects/gnupack/news/23929
+    - emacsを 24.2（20121208版）にバージョンアップ．
+    - [[N:\tool\gnupack\gnupack_devel-11.00\最初にお読みください.txt]]
+    - [[N:\tool\gnupack\gnupack_devel-11.00\docs\latest\UsersGuide.html]]
+- [ ] emacs のリリースノートを読む。
+- (emacs-version)
+  GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) of 2012-12-08 on GNUPACK
+** 不具合
+*** org-store-link 不具合
+**** 〔再現する〕
+***** Emacs 23.2.1
+- org-store-link, org-insert-link を使ってリンクを作った。
+  org-open-at-point を実行すると、「 No match - create this as a new
+  heading? (y or n) 」が発生する。
+- 例 [[*][〔解析エンジンバージョン判別〕]] :: 中身は *
+- 前提: customize で (org-link-to-org-use-id nil) にしてある。
+- これでは使いづらい。いったん Emacs 23.2.1 に戻す。
+***** 〔gnupack version 8.00 不具合再現〕
+- 再現した。
+- 例 [[file:n:/howm/2012/06/2012-06-01-100403-0000000000000000.howm.txt::*%E3%80%94daily-m2012-06%E3%80%95][〔dailyplan-m2012-06〕]] ::  中身は *〔daily-m2012-06〕
+- 他の場所では発生しない。
+***** 〔gnupack version 8.00 不具合回避方法〕
+- "**** 〔plan-時間見積もり作成-d2013-03-11〕" という見出しで org-store-link からリンク作成すると、
+  file:n:/howm/2013/03/2013-03-06-152955-0000000000000000.howm.txt::*〔-時間見積もり作成-d2013-03-11〕
+  になる。なぜか先頭の "plan" が抜けている。
+- いったんリンク作成した後、抜けた "plan" を補完してやれば、不具合回避できる。
+- task state の plan と同じ綴りだからか？ 実験してみる。
+  - [[file:~/.emacs.d/inits/my-org-mode-isfenv.el::org-todo-keywords]]
+***** 〔gnupack version 9.00〕
+     :LOGBOOK:
+     TIMESTAMP: [2012-07-26 木 14:15]
+     :END:
+- 再現した。
+- n:/howm/2012/06/2012-06-01-100403-0000000000000000.howm.txt
+  - 〔dailyplan-m2012-06〕
+*** rgrep 不具合
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-03 火 14:09]
+    :END:
+**** 手順
+- 参考 (rgrep REGEXP &optional FILES DIR CONFIRM)
+- 下記S式を C-x C-e (eval-last-sexp) する。
+- testcase.1 英数字文字列を検索する場合
+  - (rgrep "emacs-bug-history" "*.txt" "n:/.emacs.d/memo/")
+- testcase.2 日本語文字列を検索する場合
+  - (rgrep "不具合" "*.txt" "n:/.emacs.d/memo/")
+- testcase.3 日本語文字列を検索する場合
+  - (let ((coding-system-for-read coding-system)
+	  (coding-system-for-write coding-system)
+	  (coding-system-require-warning t)
+	  (current-prefix-arg prefix))
+      (message "")
+      (rgrep "不具合" "*.txt" "n:/.emacs.d/memo/")
+      )))
+
+**** 〔再現する〕
+***** gnupack version 8.00
+- どの testcase もまったくマッチしない。
+- 以下のメッセージが多数出る。
+  # /usr/bin/find: paths must precede expression: 2011/.svn
+  # Usage: /usr/bin/find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path...] [expression]
+- 以下のメッセージが多数出る。
+  # /usr/bin/find: paths must precede expression: 2011/.svn
+  # Usage: /usr/bin/find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path...] [expression]
+***** emacs version 24.1.1 my-init.el revision 3329 
+      :LOGBOOK:
+      TIMESTAMP: [2012-07-03 火 16:35]
+      :END:
+- testcase.1 英数字文字列を検索する場合
+  - 正しくマッチする。ただし、 /dev/null メッセージが大量に出る。
+- testcase.2 日本語文字列を検索する場合
+  - マッチしない。
+***** 〔gnupack version 8.00 -Q〕
+      :LOGBOOK:
+      TIMESTAMP: [2012-07-23 月 15:42]
+      :END:
+- 失敗する。 *Message* buffer に "apply: Spawning child process: invalid argument" と表示する。
+**** 〔再現しない〕
+     :LOGBOOK:
+     TIMESTAMP: [2012-07-03 火 16:21]
+     :END:
+***** 〔emacs version 24.1.1 -Q〕
+      :LOGBOOK:
+      TIMESTAMP: [2012-07-03 火 16:22]
+      :END:
+- testcase.1 英数字文字列を検索する場合
+  - [2012-07-03 火 16:22] 英数字文字列を検索する場合、正しくマッチする。 /dev/null メッセージはでない。
+- testcase.2 日本語文字列を検索する場合
+  - [2012-07-03 火 16:22] 日本語文字列を検索する場合、マッチしない。 no matches found. 
+- goto [[*%E3%80%94emacs%20version%2024.1.1%E3%80%95][〔emacs version 24.1.1〕]]
+- [2012-07-23 月 15:46] (regrep) S式を C-x C-e (eval-last-sexp) すると失敗するが、 M-x rgrep なら失敗しない。
+***** 〔gnupack version 9.00〕
+      :LOGBOOK:
+      TIMESTAMP: [2012-07-26 木 14:40]
+      :END:
+- M-x grep -n -e bug  *.txt 成功
+- M-x grep -n -e バグ *.txt 失敗
+*** 〔howm-list-grep-fixed 不具合〕
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-03 火 19:27]
+    :END:
+**** 再現しない
+***** 〔gnupack version 8.00〕
+- 数ヶ月使っていて特に問題なし。
+**** 再現する
+***** 〔emacs version 24.1.1〕
+- howmS バッファ作成までは成功する。 howmC バッファを更新する際に失敗して下記メッセージを表示する。
+# *Messages*
+# Error in post-command-hook (riffle-post-command): (void-variable inhibit-first-line-modes-regexps)
+***** 〔gnupack version 9.00〕
+      :LOGBOOK:
+      TIMESTAMP: [2012-07-26 木 17:01]
+      :END:
+- howmS バッファ作成までは成功する。 howmC バッファを更新する際に失敗してメッセージを表示しない。
+  - howm-version Its value is "1.3.9.2" 再現する。
+  - howm-version Its value is "1.3.9.1" 再現する。
+***** 〔gnupack version 9.01〕
+      :LOGBOOK:
+      TIMESTAMP: [2012-08-09 木 10:48]
+      :END:
+- [2012-08-09 木 10:48] howm-version Its value is "1.3.9.1"
+  - howmS バッファ作成までは成功する。 howmC バッファを更新する際に失敗してメッセージを表示しない。
+**** テスト手順
+     :LOGBOOK:
+     TIMESTAMP: [2012-08-09 木 10:43]
+     :END:
+- 新しい version が出るたびに howm を配置してテストする。
+- 手順
+  - gnupack.tgz を展開する。
+  - d [[N:\tool\gnupack\gnupack_basic-9.01\app\emacs\site-lisp]]
+  - copy N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d\howm-1.3.9.2 .
+  - emacs 起動。
+  - (require 'howm)
+  - (setq howm-directory "N:/howm/2012/01")
+    - テスト時間短縮のため絞る。
+  - M-x howm-list-grep-fixed
+*** 〔アクティブバッファ以外の場所に挿入される不具合〕
+    :LOGBOOK:
+    TIMESTAMP: [2012-12-26 水 14:21]
+    :END:
+- gnupack version 8.00, gnupack version 10.02 どちらも発生する。 Windows 7 にしてから発生頻度高い気がする。
+- http://d.hatena.ne.jp/ksugita0510/20121201/p1
+  - [emacs] IME変換中の文字列が別フレームに書き込まれるバグを修正
+  - IME変換中の文字列が別フレームに書き込まれるバグを修正したパッチが NTemacsスレ3の367で公開されているとのコメントをいただきました．
+  - 私の環境では，不具合を再現できませんでしたが，2chの方の検証で再現・改修が確認されているとのことなので，ひとまずバイナリをリリースしようと思います．
+  - emacs-24.2
+  - N:\download\Emacs\gnupack\emacs-24.2-20121201.exe
+- [2012-12-26 水 14:23]これを試してみる。
+  - 手順
+  - 今使っている .emacs.d は [[N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d]]
+  - svn commit
+    - Completed: At revision: 3613
+  - gnupack version 10.02 に checkout file:///N:/SVNrepo/.emacs.d/trunk
+  - d [[N:\tool\gnupack\gnupack_basic-10.02\home\.emacs.d]]
+  - cd N:\tool\gnupack\gnupack_basic-10.02
+  - goto: [[*%E3%80%94GNU%20Emacs%2024.2.1%E3%80%95][〔GNU Emacs 24.2.1〕]]
+- 〔GNU Emacs 24.2.1〕 でも不具合発生する。
+*** server-start 不具合
+    :LOGBOOK:
+    TIMESTAMP: [2013-02-07 木 15:30]
+    :END:
+- [[file:~/.emacs.d/inits/my-emacs-server.el::server-start]]
+- M-x server-start
+- [[*%E3%80%94gnupack%20version%208.00%E3%80%95][〔gnupack version 8.00〕]] + .emacs.d (revision 3637) では下記エラーが発生して失敗する。
+#+BEGIN_EXAMPLE 
+Debugger entered--Lisp error: (file-error "make server process failed" "invalid argument" :name "server" :server t :noquery t :sentinel server-sentinel :filter server-process-filter :coding raw-text-unix :family ipv4 :service t :host "127.0.0.1" :plist (:authenticated nil))
+  make-network-process(:name "server" :server t :noquery t :sentinel server-sentinel :filter server-process-filter :coding raw-text-unix :family ipv4 :service t :host "127.0.0.1" :plist (:authenticated nil))
+  apply(make-network-process :name "server" :server t :noquery t :sentinel server-sentinel :filter server-process-filter :coding raw-text-unix (:family ipv4 :service t :host "127.0.0.1" :plist (:authenticated nil)))
+  server-start()
+  eval((server-start))
+  eval-last-sexp-1(nil)
+  eval-last-sexp(nil)
+  call-interactively(eval-last-sexp nil nil)
+#+END_EXAMPLE
+- [[*%E3%80%94gnupack%20version%2010.02%E3%80%95][〔gnupack version 10.02〕]] + .emacs.d (empty) では成功する。
+*** PENDING 〔Spawning child process 失敗する不具合〕
+    :LOGBOOK:
+    TIMESTAMP: [2013-03-02 土 15:03]
+    :END:
+- (compile "./dot layer-level2-model") を eval すると、失敗する。
+- Message は以下の通り。 apply: Spawning child process: resource temporarily unavailable
+- M-x shell も失敗する。
+- Windows XP + 〔gnupack version 8.00〕 では失敗しなかった。
+- [2013-08-12 月 13:08] 以前は外部プロセスの起動が失敗していたが、今は失敗しなくなった。
+  - (compile "./dot layer-level2-model") が成功した。
+  - [[N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d]]
+    Revision: 3817
+    Date: 2013年8月12日 13:03:47
+    Message: howm-1.3.9.2 から howm-1.4.1 に移行する。
+  - howm が原因かどうかは不明。
+*** PENDING 〔auto-save で応答なし〕
+    :LOGBOOK:
+    TIMESTAMP: [2013-09-03 火 11:34]
+    :END:
+- auto-save-mode on で \\isf-mine にあるファイルを auto-save すると、応答なしになる。
+- auto-save-mode off で様子を見る。
+  - (auto-save-mode -1)
+* tail

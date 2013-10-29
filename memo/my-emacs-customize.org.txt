@@ -1,0 +1,2663 @@
+# -*- coding: utf-8-unix;  -*-
+* my-emacs-customize
+#+LAST_UPDATED: 2013-09-20
+** DONE カスタマイズリセット
+   [2011-08-18 木 10:00]
+- 2011-02-11 から 2011-08-17 までのあいだ、"GNU Emacs 23.2.1
+  (i386-mingw-nt5.1.2600) of 2010-05-08 on G41R2F1" をカスタマイズして
+  使っていた。 GC 待ち時間が長くて耐えられない。カスタマイズを無しに戻
+  して再出発する。カスタマイズファイルのリポジトリ格納場所を
+  file:///~/SVNrepo/.emacs.d から
+  file:///~/SVNrepo/.emacs.d/branches/d20110210 に移動した。新しいライ
+  ンを file:///~/SVNrepo/.emacs.d にてはじめる。
+** DONE emacs 本体 version
+   CLOSED: [2012-05-31 木 17:19]
+   [2011-08-18 木 10:10]
+- GNU Emacs 23.3.1
+  - リセットついでに、 "GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600) of
+    2011-03-10 on 3249CTO" に乗り換える。これは ESS (統計ソフトRの開発環
+    境)を組み込んであるもの。
+  - from: N:\download\Emacs\plugin\ESS\emacs-23.3-modified-1.exe
+  - to: N:\tool\emacs-23.3\bin\emacs.exe
+  - url: http://vgoulet.act.ulaval.ca/en/emacs/windows/
+*** org-store-link 不具合
+- [[file:~/.emacs.d/memo/emacs-bug-history.org.txt::*emacs-bug-history][emacs-bug-history]] に移動した。
+** GC
+*** PENDING 1回の GC 時間を短縮したい                            :emacs_core:
+   [2011-08-22 月 15:04]
+- どのモジュールが GC を引き起こすかを調べれば、そのモジュールを無効にするなどの対処ができる。
+- どうやって調べる？
+- http://www.fan.gr.jp/~ring/Meadow/meadow.html
+  - gc-cons-threshold の値 (初期設定では 400,000) を大きくすると、 ガベッジコレクションの頻度が下がり、結果として Emacs の動作が速くなります。
+- 以前の環境で1回の GC 時間が長かった原因は gc-cons-threshold の値が大きすぎたからか？
+  - [[N:\.emacs.d-d20110210\init.el]]
+    - デフォルト値は 400000
+    - デフォルト値の2倍で使っていた。
+    - '(gc-cons-threshold 800000)
+      - org-agenda や howm-mode を最初に使うとき、 gc が頻発する。もう少し増やしてみる。
+  - そうだとすれば、この値を小さくすればいい？
+  - とりあえずこのままでしばらく試す。 GC 時間が長く感じたら調整してみる。
+  - org-mode をロードするとき10回以上点滅する。 threshold を増やしてみる。
+*** DONE ガベージコレクション
+    CLOSED: [2011-08-25 木 15:05]
+   [2011-08-25 木 10:31]
+- ガベージコレクションの開始と終了を Message に表示する。
+- [[file:~/.emacs.d/my-emacs-custom.el::garbage-collection-messages]]
+** CANCELLED MS-IME
+   CLOSED: [2011-08-26 金 14:25]
+   [2011-08-26 金 12:22]
+- http://www-tsujii.is.s.u-tokyo.ac.jp/~yoshinag/tips/dot_emacs.html
+*** CANCELLED IME on/off を mode-line に表示したい。
+    CLOSED: [2011-10-27 木 10:48]
+    [2011-09-05 月 12:26]
+- bookshelf のカスタマイズド Meadow でないと無理そうだ。
+- 「IME on/off を mode-line に表示する」だけのモードを用意しておいて、
+  <non-convert>, <M-kanji> にこのモードを割り当てておけば可能か？
+- http://tech.feedforce.jp/emacs-minor-mode.html
+  - Easy-Mmodeを使ってEmacsのマイナーモードを作る
+#+BEGIN_EXAMPLE
+(easy-mmode-define-minor-mode rsssuite-mode
+;; ドキュメント
+ "This is RSS Suite Mode."
+ ;; 初期値
+ nil;; モード行への表示
+ "RSSSuite"
+ ;; マイナーモード用キーマップの初期値
+ '(("C-cf" . suite-open-formprocess)
+   ("C-cp" . suite-open-pagecontents)
+   ("C-cq" . suite-open-qfd)
+   ("C-ct" . suite-open-template)))
+#+END_EXAMPLE
+- ついでに、 mode on のときは、 hl-line-mode および mode-line の face を変更する。
+- [[file:~/.emacs.d/inits/my-ime-indicator.el::ime-indicator-mode]]
+  - [ ] 問題点。 mode-line の face は全ウィンドウ共通なので、ウィンドウを移ると整合性を維持できない。
+  - [ ] 問題点。 easy-mmode-define-minor-mode の「モード行への表示」を使っても、整合性を維持できない？
+  - [ ] バッファ変数に持つべきか？
+- 実現が難しいので cancelled.
+** 小規模な elisp
+*** DONE emacs 基礎
+   [2011-08-18 木 10:20]
+- [[file:~/.emacs.d/inits/my-setq.el::yes-or-no-p]]
+- [[file:~/.emacs.d/inits/my-toggle-truncate-lines.el::my-toggle-truncate-lines]]
+*** DONE customize.el ファイル
+   [2011-08-18 木 10:21]
+- [[file:~/.emacs.d/my-init.el::setq%20custom-file][file:~/.emacs.d/my-init.el::setq custom-file]]
+- [[N:\.emacs.d\my-emacs-custom.el]]
+*** DONE kill-ring の履歴一覧を見たい                            :emacs_core:
+    CLOSED: [2011-10-27 木 10:51]
+   [2011-08-19 金 10:20]
+- 標準では C-y M-y があるが、履歴を一覧できない。
+- .emacs.d-d20110210 では anything-yank を使っていた。
+- (describe-variable 'kill-ring)
+  - やや時間かかる。
+*** DONE buffer/window/frame を操作するキー割り当て              :emacs_core:
+   [2011-08-19 金 10:21]
+- {It is bound to C-x 5 o} は使いにくい。
+- [[file:~/.emacs.d/inits/my-buffer-window-frame.el::新キー割り当て体系]]
+*** DONE howm-mode buffer title                                   :howm_mode:
+    CLOSED: [2012-07-26 木 11:05]
+    [2011-08-19 金 10:24]
+*** DONE 1回のスクロールで移動する行数                           :emacs_core:
+   [2011-08-19 金 12:14]
+- デフォルトはウィンドウ高さの半分。2行ずつスクロールしたい。
+- [[file:~/.emacs.d/inits/my-setq.el::scroll-step]]
+*** DONE Emacs サーバ                                            :emacs_core:
+   [2011-08-19 金]
+- N:\tool\emacs-23.2\bin\emacsclientw.exe を使うためにあらかじめ server として動作する必要がある。
+- M-x server-start
+- [[N:\.emacs.d\inits\my-emacs-server.el]]
+*** DONE バックアップファイルを隔離する                          :emacs_core:
+   [2011-08-19 金]
+- あちこちに ~ バックアップファイルが散在すると邪魔。
+- [[file:~/.emacs.d/inits/my-backup-files.el::backup-directory-alist]]
+*** DONE ウィンドウ最大化／元に戻すをワンタッチでやりたい        :emacs_core:
+   [2011-08-19 金 14:12]
+- [[file:~/.emacs.d/inits/my-os-windows.el::my-frame-maximize]]
+*** DONE indent で挿入するタブをスペースに変更する
+   [2011-08-19 金 14:29]
+- [[file:~/.emacs.d/my-emacs-custom.el::indent-tabs-mode]]
+  - t から nil に変更する。
+*** DONE buffer name 重複を区別する
+   [2011-08-22 月 11:14]
+- 同じファイル名が複数あるとき、バッファ名が重複しないように自動的に調整する。
+- It is bound to <menu-bar> <options> <uniquify>.
+  (toggle-uniquify-buffer-names &optional INTERACTIVELY)
+- [[file:~/.emacs.d/my-emacs-custom.el::uniquify-buffer-name-style]]
+*** DONE カーソル位置付近にあるファイルパスを find-file に取り込む :emacs_core:
+   [2011-08-22 月 16:39]
+- (org-edit-agenda-file-list) などで必須。
+- [[file:~/.emacs.d/inits/my-keymap-basis.el::find-file-at-point]]
+*** PENDING チューニング                                         :emacs_core:
+**** PENDING 現象
+    [2011-08-23 火 10:04]
+- 下記は起動直後に C-: (org-agenda) したときの *Messages* buffer の内容。
+- vc-svn のところで数秒待たされる。 vc に時間がかかるのか、大量の ageda-file を読み込むこと自体に時間がかかるのか。
+- emacs vc を無効にする方法があれば、試してみる。
+  - N:\howm にある .svn を全て削除してから読み込みしたら体感2秒→1秒に短縮した。
+  - N:\howm をバージョン管理するのはやめたくない。
+  - emacs vc を無効にする。
+- el ファイルごとに時刻を print すれば、処理時間を比較できる？
+- my-init.el を2回ロードしている？
+#+BEGIN_EXAMPLE
+Loading ~/.emacs.d/my-init.el (source)...
+Loading ~/.emacs.d/my-emacs-custom.el (source)...
+Loading paren...done
+Loading ~/.emacs.d/my-emacs-custom.el (source)...done
+Loading ~/.emacs.d/inits/my-org-mode-basis.el (source)...done
+Loading ~/.emacs.d/inits/my-org-mode-isfenv.el (source)...done
+Loading ~/.emacs.d/inits/my-org-mode-map.el (source)...done
+Loading ~/.emacs.d/inits/my-setq.el (source)...done
+Loading ~/.emacs.d/inits/my-toggle-truncate-lines.el (source)...done
+Loading ~/.emacs.d/inits/my-backup-files.el (source)...done
+Loading ~/.emacs.d/inits/my-buffer-window-frame.el (source)...done
+Loading ~/.emacs.d/my-init.el (source)...done
+For information about GNU Emacs and the GNU system, type C-h C-a.
+Loading vc-svn...done
+#+END_EXAMPLE
+**** PENDING vc を無効にする。                              :version_control:
+    [2011-08-24 水 10:51]
+- [[~/tool/emacs-23.2/lisp/vc-hooks.el]]
+  - occur add-hook
+    883:    (add-hook 'mode-line-hook 'vc-mode-line nil t)
+    923:(add-hook 'find-file-hook 'vc-find-file-hook)
+    929:(add-hook 'kill-buffer-hook 'vc-kill-buffer-hook)
+  - おそらく、これを外せばいい。
+  - find-file-hook
+    - customize で変更可能。
+    - 変更前: (recentf-track-opened-file global-font-lock-mode-check-buffers epa-file-find-file-hook vc-find-file-hook)
+    - 変更後: (recentf-track-opened-file global-font-lock-mode-check-buffers epa-file-find-file-hook)
+  - kill-buffer-hook
+    - defined in `C source code' なので、 customize で変更不可能？
+  - mode-line-hook
+    - customize が用意されていない。
+  - [2011-08-24 水 10:56] とりあえず、 find-file-hook の vc-find-file-hook だけ外した。様子を見る。
+*** DONE recentf を使う                                          :emacs_core:
+    [2011-08-23 火 10:46]
+**** DONE recentf を有効にする
+- [[file:~/.emacs.d/inits/my-recentf-mode.el::recentf-mode]]
+**** DONE recentf をカスタマイズする
+- menubar://File/Open Recent が用意される。
+- menubar://File/Open Recent/Options でオプション設定。
+- [[file:~/.emacs.d/my-emacs-custom.el::recentf-max-menu-items]] など。
+**** DONE 存在しないファイルをリストから削除するタイミング
+    [2011-08-24 水 13:38]
+- [[file:~/.emacs.d/my-emacs-custom.el::recentf-auto-cleanup]]
+- [ ] 待ち時間を減らすためには下記チューニングをした方がよさそうだ。あとでやる。
+  - http://homepage.mac.com/zenitani/elisp-j.html
+    #+BEGIN_EXAMPLE
+    一部のファイルを「Recent」メニューに加えたくないときは、 変数
+    recentf-exclude に正規表現を定義しておきます。 次の設定は、Tramp の
+    リモートファイル形式のファイル名 （/ssh:hostname～, /scp:hostname～
+    など）を除外します。
+
+    (setq recentf-exclude '("^/[^/:]+:"))
+
+    recentf は、読み込み時に「Recent」メニューの中の ファイルの有無を
+    チェックして、 存在しないファイルをリストから削除するようです。 こ
+    の機能をオフにする場合は、 recentf-mode をオンにするより先に 次の設
+    定を追加して下さい。
+
+    (setq recentf-auto-cleanup 'never)
+    (recentf-mode 1)
+    #+END_EXAMPLE
+*** DONE 拡張 elisp を導入するための準備                         :emacs_core:
+   [2011-08-23 火 11:01]
+- ロードパス
+  - [[file:~/.emacs.d/my-init.el::load-path]]
+  - [[N:\.emacs.d\elisp]]
+*** DONE 変更箇所へ移動 goto-chg
+   [2011-08-23 火 11:27]
+- [[file:~/.emacs.d/inits/my-goto-chg.el::goto-last-change]]
+- [[N:\.emacs.d\elisp\goto-chg.el]]
+*** DONE other-window, other-frame の逆順を使いたい
+   [2011-08-23 火 13:55]
+- [[file:~/.emacs.d/inits/my-buffer-window-frame.el::新キー割り当て体系]]
+- http://www.fan.gr.jp/~ring/Meadow/meadow.html#previous-window
+  #+BEGIN_EXAMPLE
+  other-window + 負の引数で実現可能です。
+  (define-key ctl-x-map "p"
+    #'(lambda (arg) (interactive "p") (other-window (- arg))))
+  C-x 5 o の逆の動作も同じ要領で。
+  (define-key ctl-x-5-map "p"
+    #'(lambda (arg) (interactive "p") (other-frame (- arg))))
+  #+END_EXAMPLE
+- [[file:~/.emacs.d/inits/my-buffer-window-frame.el::other-window-minus]]
+*** DONE hl-line
+   [2011-08-24 水 14:11]
+- [[file:~/.emacs.d/inits/my-hl-line-mode.el::global-hl-line-mode]]
+*** DONE 最小化したフレームをアクティブにする。
+   [2011-08-24 水 14:19]
+- other-frame は最小化したフレームをスキップするので、この要件を実現できない。
+- raise-frame と [[file:~/tool/emacs-23.2/lisp/frame.el::other-frame]] を組み合わせて自作する。
+*** DONE repeat のキーバインド変更。
+   [2011-08-24 水 15:11]
+- デフォルト キーバインド
+  (repeat)              It is bound to C-x z.
+  (suspend-frame)       It is bound to C-z, C-x C-z.
+- 入れ替える。
+*** DONE 最後に編集した箇所へジャンプする。
+   [2011-08-24 水 15:27]
+- [[file:~/.emacs.d/inits/my-goto-chg.el::goto-last-change]]
+*** DONE hyper/super キーを使う
+    CLOSED: [2012-01-20 金 16:30]
+   [2011-08-24 水 16:38]
+- [[file:~/.emacs.d/inits/my-keymap-superhyper.el::w32-pass-apps-to-system]]
+- capslock キーを super に割り当て可能か？
+  - [[file:~/.emacs.d/inits/my-keymap-superhyper.el::capslock]]
+  - 実験中。
+- レジストリで {変換} キーを {application} キーと交換しておいて、 emacs で hyper か super を割り当てれば便利？
+*** DONE カーソルと一緒に行/領域を動かす
+   [2011-08-24 水 16:37]
+- [[file:~/.emacs.d/inits/my-move-region.el::exchange-lines-up]]
+*** VERIFY cua-selection-mode
+   [2011-08-25 木 12:59]
+- [[file:~/.emacs.d/inits/my-cua-mode.el::my-cua-selection-mode]]
+- [X] messages に cua-mode on/off を表示してほしい。
+- [X] mode-line に cua-mode on/off を表示してほしい。
+  - [[file:~/.emacs.d/inits/my-cua-mode.el::easy-mmode-define-minor-mode]]
+*** DONE 読み取り専用属性onであるファイルを開いたら view-mode on にする。
+   [2011-08-25 木 14:16]
+- http://www.bookshelf.jp/soft/meadow_13.html#SEC97
+- [[file:~/.emacs.d/my-emacs-custom.el::view-read-only]]
+*** DONE 前回セッションのカーソル位置を復元したい
+   CLOSED: [2011-08-25 木 17:13]
+   [2011-08-25 木 17:10]
+- It is bound to <menu-bar> <options> <save-place>.
+  (toggle-save-place-globally &optional INTERACTIVELY)
+- [[file:~/.emacs.d/my-emacs-custom.el::save-place]]
+*** CANCELLED replace+.el
+    CLOSED: [2012-06-01 金 16:47]
+    [2011-09-02 金 13:44]
+- http://www.emacswiki.org/emacs/ReplacePlus
+- M-x auto-install-from-emacswiki "replace+.el"
+- [[file:~/.emacs.d/auto-install/replace%2B.el::replace%2B.el][file:~/.emacs.d/auto-install/replace+.el::replace+.el]]
+  - (require 'replace+)
+- replace+ needs fit-frame.el
+  - [[file:~/.emacs.d/auto-install/fit-frame.el::fit-frame.el]]
+  - (require 'fit-frame)
+- 効用がよく分からない。
+*** DONE shiftキーではなく、「;→アルファベット」で大文字に変換。
+    CLOSED: [2011-12-17 土 10:47]
+    [2011-09-30 金 15:43]
+- http://homepage1.nifty.com/blankspace/emacs/sticky.html
+  - シフトを押しながらキーを打つのではなく、一度シフトを押して離した直後の文字だけが大文字になってくれればいいのです。
+- [[file:~/.emacs.d/inits/my-sticky-shift.el::sticky-key]]
+- 実現済み
+  - ";]" → "}"
+  - ";-" → "_"
+  - ";/" → "?"
+- wishlist
+  - ";:" → "*"
+  - ";@" → "`"
+*** DONE 論理行移動
+    CLOSED: [2011-12-22 木 11:11]
+    [2011-12-21 水 18:09]
+- forward-line, previous-line, previous-logical-line
+- previous-line と previous-logical-line の違いは何？
+*** DONE 単語2個を入れ替える。
+    CLOSED: [2011-09-02 金 15:35]
+    [2011-09-02 金 15:31]
+- url: http://www.emacswiki.org/emacs/QueryExchange
+- [[file:~/.emacs.d/inits/my-replace.el::my-query-exchange]]
+*** DONE 行末の空白を表示する
+    CLOSED: [2012-05-31 木 17:36]
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-22 水 15:47]
+    :END:
+- ;;; 行末の空白を表示 http://www.clear-code.com/blog/2011/2/16.html
+  (setq-default show-trailing-whitespace t)
+- [[file:~/.emacs.d/inits/my-setq.el::show-trailing-whitespace]]
+*** DONE picture-mode 用のコマンドを global に使いたい。
+   [2011-08-23 火 11:57]
+- [[file:~/.emacs.d/inits/my-picture-mode.el::picture-duplicate-line]]
+*** DONE 現在行や選択範囲を複製する機能
+    CLOSED: [2012-07-27 金 10:48]
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-27 金 10:16]
+    :END:
+- http://d.hatena.ne.jp/syohex/20120325/1332641491
+  - Re: Emacsに現在行や選択範囲を複製する機能を付けたら思いのほか作業効率が上がった - Life is very short
+- [[file:~/.emacs.d/inits/my-seq.el::duplicate-thing]]
+- [[file:~/.emacs.d/inits/my-duplicate-thing-package.el]]
+- http://d.hatena.ne.jp/tuto0621/20120613/1339607400
+  - Emacsでプラグインを簡単にインストールするためのpackage.elを使ってみる - おんがえしの日記
+    - 拙作の.elもMELPAからアップロード出来るようになってます。
+      - https://github.com/ongaeshi/duplicate-thing/blob/master/duplicate-thing.el
+      - (package-install 'duplicate-thing)
+*** TODO カッコをつけたり外したりするコマンド
+    :LOGBOOK:
+    TIMESTAMP: [2013-09-10 火 15:50]
+    :END:
+- [[~/.emacs.d/inits/my-yank-special.el]]
+;; カッコをつけたり外したりするコマンドがほしい。特に <!--   -->
+;; Eclipse の C-/
+** install-elisp
+*** DONE auto-install
+   [2011-08-24 水 16:03]
+- [[N:\.emacs.d\inits\my-auto-install.el]]
+*** 自動インストールする仕組み
+    :LOGBOOK:
+    TIMESTAMP: [2012-05-23 水 15:41]
+    :END:
+- 自分用の .emacs を書くときに、以下のようにする。
+(when (not (require 'color-moccur nil t))
+    (progn
+      (install-elisp "http://www.emacswiki.org/emacs/download/color-moccur.el")
+      (install-elisp "http://www.emacswiki.org/emacs/download/moccur-edit.el")
+      )
+(when (require 'color-moccur nil t)
+  (progn
+    (define-key global-map  (kbd "M-s M-c") 'occur-by-moccur)
+    (setq moccur-split-word t)
+    )
+    )
+** init.el 関連
+*** DONE 起動時間を計測する
+    CLOSED: [2012-05-31 木 17:22]
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-29 水 14:59]
+    :END:
+- http://d.hatena.ne.jp/sugyan/20120120/1327037494
+  - (emacs-init-time)
+  - ただ、表示されるのは秒単位で小数点第一位までのようで、そこらへんカスタマイズは出来ないぽい。
+  - (add-hook 'after-init-hook
+    (lambda ()
+    (message "init time: %.3f sec"
+    (float-time (time-subtract after-init-time before-init-time)))))
+    と書いて小数点第三位までを表示するようにした。
+*** DONE defadviceを使ってrequireにかかる時間を計測する
+    CLOSED: [2012-05-31 木 17:23]
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-29 水 15:01]
+    :END:
+- http://d.hatena.ne.jp/sugyan/20120105/1325756767
+  - defadviceを使ってrequireにかかる時間を計測する - すぎゃーんメモ
+#+BEGIN_EXAMPLE
+(defadvice require (around require-benchmark activate)
+  (let* ((before (current-time))
+         (result ad-do-it)
+         (after  (current-time))
+         (time (+ (* (- (nth 1 after) (nth 1 before)) 1000)
+                  (/ (- (nth 2 after) (nth 2 before)) 1000))))
+    (when (> time 50)
+      (message "%s: %d msec" (ad-get-arg 0) time))))
+
+~/.emacs.elの先頭にこんなのを書いておくと、その先のrequireで50ms以上か
+かった場合にmessage出力してくれる(全部出力しているとスゴい数になってし
+まったので適当な閾値で絞った)。
+
+ちなみに設定ファイル分割してinit-loaderで読み込んでいる場合はload関数で
+読み込んでいるので、loadに対してadviceかけてやらないとそれぞれのload時
+間は計測できない。
+#+END_EXAMPLE
+*** auto-load
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-29 水 15:10]
+    :END:
+- http://d.hatena.ne.jp/sugyan/20120103/1325594116
+  - 起動時に必ず読み込む必要ない関数ならautoloadを使う
+    #+BEGIN_EXAMPLE
+    つまり、起動時に読み込むファイルで
+
+    (require 'js2-mode)
+    (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+    と書かれていると 起動時にjs2-mode.elが読み込まれて定義されるが、
+
+    (autoload 'js2-mode "js2-mode" nil t)
+    (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+    と書かれている場合は、起動時ではなく「初めて.jsファイルが開かれたとき」
+    にjs2-mode.elが読み込まれて定義される、ということになる。
+    #+END_EXAMPLE
+** mark-ring
+   [2011-12-16 金 12:34]
+*** DONE mark-ring のサイズを変更する
+    CLOSED: [2011-12-16 金 12:39]
+    [2011-12-16 金 12:34]
+- mark-ring-max customize
+*** PENDING status を変更したときに mark する。
+    [2011-12-16 金 12:17]
+- todo や clock の status を変更したときに mark する。
+- pop-global-mark, set-mark-command ARG などでジャンプできるようにするため。
+- 以下の hook は customize; set-mark-command でカスタマイズ可能。
+  - org-after-todo-state-change-hook
+    - このやり方だとエラー発生。 run-hooks: Wrong number of arguments: ... .
+  - "Org Follow Link Hook"
+  - "Org Occur Hook"
+  - "Imenu After Jump Hook"
+- 以下の hook は customize 提供されていない
+  - (add-hook 'org-clock-in-hook 'set-mark-command)
+  - (add-hook 'org-clock-out-hook 'set-mark-command)
+  - このやり方だとエラー発生。 run-hooks: Wrong number of arguments: ... .
+- Menubar; Options; Customize Emacs; Settings Matching Regexp ...; "Hook" でいろいろ出てくる。
+- 参考 org-mode の hook 一覧。
+  - [[~/.emacs.d/memo/org-mode-hook-list.txt]]
+- [ ] find-tag などでジャンプするとき、 browse-url するときなども再利用する可能性が高いので mark しておきたい。
+** buffer 操作
+   [2011-12-14 水 18:20]
+*** DONE 直前のバッファに切り換えるコマンド
+    CLOSED: [2011-12-14 水 18:02]
+    [2011-12-14 水 18:02]
+- http://d.hatena.ne.jp/rubikitch/20111211/smalldisplay
+- [[file:~/.emacs.d/inits/my-buffer-window-frame.el::switch-to-last-buffer]]
+*** TODO cycle-buffer.el
+    [2011-12-14 水 18:20]
+- http://www.emacswiki.org/emacs/cycle-buffer.el
+- http://www.emacswiki.org/emacs/CycleBuffer
+- M-x install-elisp-from-emacswiki cycle-buffer.el
+- [[file:~/.emacs.d/inits/my-cycle-buffer.el::cycle-buffer.el]]
+** imenu-mode                                                    :imenu_mode:
+*** DONE imenu-mode を有効にする                                 :emacs_core:
+   [2011-08-23 火 10:42]
+- [[file:~/.emacs.d/inits/my-imenu.el::my-imenu-add-to-menubar]]
+  - setkey
+*** DONE imenu-mode アイテム数を設定する
+    [2011-08-24 水 14:06]
+- [[file:~/.emacs.d/my-emacs-custom.el::imenu-max-items]]
+*** DONE imenu を分割ウィンドウに表示する
+    CLOSED: [2011-11-25 金 18:22]
+    [2011-11-25 金 18:22]
+- [[file:~/.emacs.d/inits/my-imenu-tree.el::imenu-tree]]
+** nxml-mode
+   [2011-08-25 木 10:39]
+*** DONE indent サイズ調整
+    [2011-08-25 木 10:40]
+- [[file:~/.emacs.d/my-emacs-custom.el::nxml-child-indent]]
+- [[file:~/.emacs.d/my-emacs-custom.el::nxml-outline-child-indent]]
+*** TODO 一時的にインデントサイズを変更したい。
+    [2011-12-26 月 14:39]
+- 実験中。 ARG で digit-argument を指定した
+(defun my-indent-for-tab-command (ARG) ""
+  (interactive)
+  (let (nxml-child-indent ARG)
+  (indent-for-tab-command)
+  )
+  )
+*** DONE </を入力すると自動的にタグを閉じる
+    CLOSED: [2012-06-04 月 15:11]
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-04 月 11:53]
+    :END:
+- (setq nxml-slash-auto-complete-flag t)
+- customize t
+** dired-mode                                                    :dired_mode:
+   [2011-08-26 金 14:28]
+*** dired-x
+    [2011-08-26 金 14:29]
+- dired-x 導入前: [[N:\.emacs.d\memo\describe-mode-dired-standard.txt]]
+- dired-x 導入後: [[N:\.emacs.d\memo\describe-mode-dired-x.txt]]
+- 差分          : [[N:\.emacs.d\memo\describe-mode-dired-x-diff.txt]]
+*** DONE dired で follow-mode
+    CLOSED: [2011-09-05 月 11:57]
+    [2011-09-05 月 11:46]
+- org-agenda-follow-mode のように、リンク元ウィンドウでカーソル移動すると、リンク先ウィンドウに対応するバッファを表示する。
+- [[file:~/.emacs.d/inits/my-bf-mode.el::bf-mode]]
+- サイズ制限 j か s を押す。
+#+BEGIN_EXAMPLE
+	"completion.el" can not be browsed caused by size over.
+
+	Now, its limited to 30 KByte(s).
+
+	There are 3-ways in order to browse this/these file(s).
+
+	1. JUST THIS ONCE: Type "j"
+	2. THIS SESSION ONLY: Type "s" and input size value
+	3. PERMANENTLY: Adjust a variable "bf-mode-browsing-size" in dot.emacs.
+#+END_EXAMPLE
+*** DONE auto-revert
+    CLOSED: [2011-11-04 金 16:54]
+    [2011-11-04 金 16:53]
+- M-x customize  '(dired-auto-revert-buffer (quote dired-directory-changed-p))
+  - ディレクトリが変化したとき、 dired buffer を revert する。
+*** DONE copy, rename のターゲットを隣の window から取り込む
+    CLOSED: [2011-11-10 木 14:55]
+    [2011-11-10 木 14:53]
+- M-x customize dired-dwim-target
+- [[file:~/.emacs.d/my-emacs-custom.el::dired-dwim-target]]
+*** TODO マークしたファイルを wc するコマンド
+    [2011-11-17 木 12:35]
+- M-x shell-command {It is bound to M-!}
+  "wc -l * > wc-cache.txt"
+  このコマンドで作った wc.txt を bf-mode で見るのが楽。
+  キャッシュされているので2回目からは待たないですむ。
+*** TODO xdoc2txt と連携する
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-27 水 10:05]
+    :END:
+- dired で選択した office ファイルを xdoc2txt 経由でブラウズしたい。
+- grep したい。 moccur や howm でもいい。
+- org-mode hyperlink で特定の文字列までジャンプしたい。
+** org-mode                                                        :org_mode:
+*** DONE org-mode 導入
+   [2011-08-18 木 10:25]
+- [[file:~/.emacs.d/inits/my-org-mode-basis.el::auto-mode-alist]]
+- [[file:~/.emacs.d/inits/my-org-mode-isfenv.el::org-todo-keywords]]
+- [[file:~/.emacs.d/inits/my-org-mode-map.el::org-agenda]]
+- [[file:~/.emacs.d/my-emacs-custom.el::org-agenda-files]]
+- M-x org-version => Org-mode version 7.3
+*** DONE org-mode version 7.7
+    CLOSED: [2011-12-19 月 17:08]
+    [2011-08-25 木 14:44]
+- http://orgmode.org/Changes.html
+  - Date: 2011-07-28 10:37:30 UTC
+  - from: N:\download\Emacs\plugin\org-mode\org-7.7.zip
+  - to: N:\tool\emacs-23.2\site-lisp\org-7.7
+  - remove: N:\tool\emacs-23.2\site-lisp\org-7.3
+- M-x org-version => Org-mode version 7.7
+- [ ] どこが変化したか？ 様子見中。
+  - org-agenda-list の time bar において、現在時刻の行のみ1分単位で表示＆「now」がつく。
+*** org-mode 全般
+**** DONE RESTTIME にブラインドアクセスしたい
+     CLOSED: [2012-06-04 月 15:11]
+   [2011-08-19 金 13:55]
+- C-: C {Configure agenda command}
+- [[file:~/.emacs.d/my-emacs-custom.el::org-agenda-custom-commands]]
+*** org-mode-map および global-map
+    [2011-08-25 木 17:44]
+**** DONE org-mode 関連の global-set-key
+   [2011-08-19 金 11:51]
+- [[file:~/.emacs.d/inits/my-org-mode-map.el::org-clock-goto]] など
+**** DONE agenda files 全てを対象に文字列検索する。
+     CLOSED: [2012-05-31 木 17:38]
+   [2011-08-22 月 11:56]
+- [[file:~/.emacs.d/inits/my-org-mode-map.el::org-occur-in-agenda-files]]
+  - M-s M-a に割り当てた。
+- 2種類ある。何が違う？
+  - C-: / org-agenda-text-search-extra-files
+  - M-s M-a org-occur-in-agenda-files
+**** DONE 短縮 keybind
+     CLOSED: [2011-12-17 土 10:51]
+     [2011-08-25 木 17:45]
+- [[file:~/.emacs.d/inits/my-org-mode-map.el::%E7%9F%AD%E7%B8%AE][file:~/.emacs.d/inits/my-org-mode-map.el::短縮]]
+*** hyperlink 関連
+**** DONE org-store-link で id を使わない。
+   [2011-08-22 月 10:53]
+- id 辞書ファイルに依存してしまい、これが壊れると破綻する。 id 使用を避ける。
+- [[file:~/.emacs.d/my-emacs-custom.el::org-link-to-org-use-id]]
+**** TODO id 辞書ファイルの場所はどこ？
+**** DONE org-mouse-yank-link                                          :tips:
+     CLOSED: [2011-08-25 木 17:35]
+     [2011-08-25 木 17:27]
+- デフォルトでは {It is bound to <drag-mouse-3>, <S-mouse-2>.} に割り当ててある。
+- 文字列を kill してから M-x org-mouse-yank-link すると、 kill-ring 文字列へリンクするアンカーを挿入する。
+  - 例: [[org-mouse-yank-link]]
+- キーボードで M-x org-mouse-yank-link しても動作しない。
+- org-mouse-yank-link と同じことをキーボードで行うコマンドを自作した。
+  - [[file:~/.emacs.d/inits/my-org-mode-hyperlink.el::my-org-yank-link]]
+**** DONE org-insert-link で常に絶対パスを使う。
+     CLOSED: [2011-09-01 木 11:03]
+     [2011-09-01 木 10:56]
+- 移動やコピーしたあとで相対パスが残っているとリンク切れになる。
+- [[file:~/.emacs.d/my-emacs-custom.el::org-link-file-path-type]]
+  - デフォルト値 adaptive を absolute に変更する。
+*** outline 関連
+**** DONE org-insert-heading するときに不活性タイムスタンプを挿入する
+   [2011-08-24 水 10:25]
+- [[file:~/.emacs.d/inits/my-org-mode-insert-inactive-timestamp.el::my-insert-inactive-timestamp]]
+**** DONE speed-command, "+", org-clone-subtree-with-time-shift
+   CLOSED: [2011-08-19 金 10:18]
+   [2011-08-19 金 10:10]
+- [[file:~/.emacs.d/my-emacs-custom.el::org-speed-commands-user]]
+**** DONE org-insert-heading-respect-content するときに時刻を自動的に挿入する
+   [2011-08-19 金 11:52]
+- [[file:~/.emacs.d/inits/my-org-mode-insert-inactive-timestamp.el::my-insert-inactive-timestamp]]
+**** DONE yank した subtree を折りたたむのをやめたい。
+     CLOSED: [2011-08-29 月 15:54]
+     [2011-08-29 月 15:28]
+- [[file:~/.emacs.d/my-emacs-custom.el::org-yank-folded-subtrees]]
+- デフォルトは on. off に変更する。
+*** org-agenda-list 関連
+**** DONE org-agenda で日本の祝日
+   [2011-08-18 木 10:30]
+- [[file:~/.emacs.d/inits/org-mode-holiday.org.txt::*〔日本の祝日〕][〔日本の祝日〕]]
+  - このファイルを org-agenda-file-to-front する。
+**** DONE agenda view 初期対象範囲を7日から2日に変更する
+   [2011-08-19 金 14:12]
+- [[file:~/.emacs.d/my-emacs-custom.el::org-agenda-ndays]]
+  - help: Obsolete, see `org-agenda-span'.
+- 対象範囲少ない方が早い。広げたいときはあとで操作すればいい。
+- [[file:~/.emacs.d/my-emacs-custom.el::org-agenda-span]]
+**** PENDING org-agenda-mode-hook はない？
+   [2011-08-22 月 12:01]
+- org-agenda-mode はあるが、 org-agenda-mode-hook はないようだ。 Org Agenda buffer にキー割り当てしたい場合はどうすればいい？
+- 例: org-agenda でも (define-key org-mode-map (kbd "M-s M-a") 'org-occur-in-agenda-files) を定義したい。
+**** DONE org-agenda-list log mode で clock だけ表示する
+     [2011-08-25 木 10:18]
+- [[file:~/.emacs.d/my-emacs-custom.el::org-agenda-log-mode-items]]
+- (kbd "l") で clock を表示。 (kbd "C-u l") で clock と close を両方表示。
+*** clock 関連
+**** DONE org-clock-out 経過時間0は消去する
+   [2011-08-19 金 18:04]
+- [[file:~/.emacs.d/my-emacs-custom.el::org-clock-out-remove-zero-time-clocks]]
+**** DONE org-clock-in に LOGBOOK を付与する。
+   [2011-08-22 月 11:30]
+- 行数増えるから遅くなるかも？
+- http://hpcgi1.nifty.com/spen/?OrgMode%2FOrganize_Your_Life_In_Plain_Text!
+  タスクは、それが時間計測を開始したときには自動的にSTARTEDに変更されます。
+  Change task state to STARTED when clocking in
+  (setq org-clock-in-switch-to-state "STARTED")
+- [[file:~/.emacs.d/my-emacs-custom.el::org-clock-in-switch-to-state]]
+**** DONE org-clock-in に org-agenda-file-to-front
+     CLOSED: [2012-06-04 月 15:12]
+     :LOGBOOK:
+     TIMESTAMP: [2012-02-28 火 10:30]
+     :END:
+- [[~/.emacs.d/inits/my-org-clock-in.el]]
+  - (add-hook 'org-clock-in-hook 'my-org-agenda-file-to-front)
+  - (defun my-org-agenda-file-to-front () (org-agenda-file-to-front))
+**** DONE タスク終了時に時刻を記録する。
+     CLOSED: [2011-08-25 木 15:01]
+     [2011-08-25 木 14:51]
+- It is bound to <menu-bar> <Org> <Logging work> <Record DONE time>.
+  - これだと記録されないようだ。 at Org-mode version 7.7
+- [[file:~/.emacs.d/my-emacs-custom.el::org-log-done]]
+**** DONE org-agenda-clockreport-mode のカラムをカスタマイズする
+     CLOSED: [2011-08-29 月 10:47]
+     [2011-08-29 月 10:38]
+- org-columns-default-format
+  - デフォルト値は "%25ITEM %TODO %3PRIORITY %TAGS"
+  - howm ではファイル名だけでは分かりにくい。代わりに Category を入れる。
+  - "%30CATEGORY(Category) %48ITEM(Details) %TAGS(Context) %7TODO(To Do) %5Effort(Time){:} %6CLOCKSUM{Total}"
+- [[file:~/.emacs.d/my-emacs-custom.el::org-columns-default-format]]
+**** DONE org-agenda-clockreport-mode のレベルをカスタマイズする
+     CLOSED: [2011-08-29 月 14:22]
+     [2011-08-29 月 10:47]
+- org-agenda-clockreport-parameter-plist
+- (:link t :maxlevel 3)
+**** DONE CLOCK を引き出しにしまう。
+     CLOSED: [2011-08-29 月 14:22]
+     [2011-08-29 月 11:20]
+- '(org-clock-into-drawer "LOGBOOK")
+- [[file:~/.emacs.d/my-emacs-custom.el::org-clock-into-drawer]]
+*** DONE speed-command
+    CLOSED: [2011-12-17 土 10:55]
+    [2011-09-16 金 09:59]
+- if speed-command then n       outline-previous-visible-heading
+  else                  M-n     outline-previous-visible-heading
+- M-]                           next-error
+*** DONE org agenda buffer への switch-to-buffer-other-window
+    CLOSED: [2011-12-17 土 10:55]
+    [2011-09-28 水 10:18]
+- buffer 作成コストがかかるので、再作成しないでバッファ切り替えしたい。
+- cf. [[file:~/.emacs.d/inits/my-grep.el::my-grep-or-switch-to-buffer]]
+- shell-pop のように、バッファ表示をトグルしたい。
+  [[file:~/.emacs.d/auto-install/shell-pop.el::shell-pop]]
+*** TODO view-mode と speed-command を併用したい
+    [2011-10-07 金 16:17]
+- view-mode のキーが speed-command のキーを隠蔽してしまう。
+- speed-command のキー 'p' などが効かない。
+- view-mode は minor-mode なので major-mode より優先度高い。
+- speed-command 用の minor-mode を定義すればいい？
+- hacks. view-mode on を短いキーバインドにしておいて、 view-mode-map と組み合わせる。
+*** DONE variable org-enforce-todo-dependencies とは
+    CLOSED: [2011-10-20 木 11:07]
+    [2011-10-20 木 10:32]
+- t にすると、
+  - 子エントリに未完了タスクが存在する親エントリを DONE にすることをブロックする。
+  - 親エントリが :ORDERED: プロパティを持つ場合、先行する兄弟エントリが完了していない子エントリを DONE にすることをブロックする。
+  - 親エントリが :ORDERED: 付き兄弟エントリによってブロックされる場合、子エントリも親エントリと同様にブロックする。
+- この変数は org.el がロードされる前にセットしておく必要がある。変数を変更したら Emacs を再起動してから反映される。
+*** DONE variable org-log-reschedule とは
+    CLOSED: [2011-10-20 木 11:07]
+    [2011-10-20 木 10:39]
+- non-nil ならば、 schedule の変更履歴を記録する。
+- 例: `Rescheduled from "2011-10-25 火" on [2011-10-20 木 10:39]`
+*** DONE variable org-log-redeadline とは
+    CLOSED: [2011-10-20 木 11:07]
+    [2011-10-20 木 10:41]
+- non-nil ならば、 deadline の変更履歴を記録する。
+*** DONE variable org-agenda-skip-deadline-if-done とは
+    CLOSED: [2011-10-20 木 11:07]
+    [2011-10-20 木 10:44]
+- Non-nil ならば、完了したエントリの deadline を表示しない。
+*** DONE org-clock-display
+    CLOSED: [2011-10-20 木 11:10]
+    [2011-10-20 木 11:07]
+- clock-out したときに org-clock-display を実行したい。
+  - (add-hook 'org-clock-out-hook 'org-clock-display)
+  - [[file:~/.emacs.d/inits/my-org-hook.el::org-clock-out-hook]]
+- clock-in したときに org-clock-display を実行したい。
+  - (add-hook 'org-clock-in-hook 'org-clock-display)
+- 1アクションで org-display-outline-path と org-clock-display を実行したい。
+  - org-speed-command の ' '(スペース)キー。
+  - my-org-display-outline-path を org-speed-commands-user の ' '(スペース)キーに登録する。
+  - [[file:~/.emacs.d/inits/my-org-hook.el::my-org-display-outline-path]]
+- done したときに org-clock-display を実行したい。
+  - (add-hook 'org-after-todo-state-change-hook 'org-clock-display)
+  - customize org-after-todo-state-change-hook
+  - 効果なし。
+- save したときに org-clock-display を実行したい。
+  - [[file:~/.emacs.d/inits/my-org-hook.el::org-clock-out-hook]]
+*** DONE timer の使い方
+    CLOSED: [2012-05-31 木 17:35]
+    [2011-10-27 木 10:57]
+- タイマー開始。 M-x org-timer-set-timer {It is bound to C-c C-x ;}
+- M-x org-timer-set-timer を org-speed-commands-user に登録しておくと便利。
+- デフォルトでは timer が0になったら、 minibuffer に heading を表示するだけ。
+  何かアクションしたら minibuffer は流れてしまう。
+  タイトルバーに表示してほしい。
+- 実験。 timer が stop するときに特定アクションを実行させるには。
+  - (add-hook 'org-timer-stop-hook 'describe-mode)
+    発動しない。 call-interactively が必要か？
+    (remove-hook 'org-timer-stop-hook 'describe-mode)
+- 実験。 clock-in するときに30分の timer を start させる。自動的に。
+  - 他の timer を上書きしてしまうから不便か。中止。
+*** TODO countdown timer for org-agenda
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-14 火 14:26]
+    :END:
+- org-agenda の schedule のうち直近の開始時刻5分前に0になるように timer をセッ
+  トするコマンドが欲しい。
+- 今は Outlook でいちいちアラームを設定しているが、面倒。
+- elisp を書けば可能？
+- schedule の名前を timer の隣に常に表示してくれるとベター。
+- 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
+*** TODO countdown timer for deadline
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-14 火 14:27]
+    :END:
+- 選択したアイテムに deadline が設定されている場合、 deadline 時刻5分前に0に
+  なるように timer をセットするコマンドが欲しい。
+- 今は Outlook でいちいちアラームを設定しているが、面倒。
+- elisp を書けば可能？
+- schedule の名前を timer の隣に常に表示してくれるとベター。
+- 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
+*** DONE calendar-mode と連携する
+    CLOSED: [2012-06-04 月 15:13]
+    [2011-10-31 月 10:15]
+- org-agenda buffer で定義済みの calendar 関連コマンド。
+  - c               org-agenda-goto-calendar
+    - calendar を別ウィンドウで開く。
+    - customize 可能。 "Org Calendar To Agenda Key"
+- calendar buffer で定義済みの org コマンド。
+  - c               org-calendar-goto-agenda
+    - 選択した日付の org-agenda を別ウィンドウで開く。
+    - customize 可能。 "Org Calendar Agenda Action Key"
+  - k               org-agenda-action
+    - 使い方が分からない。
+*** archive の使い方
+    [2011-10-31 月 11:10]
+- 用済みになったがまだ削除まではしたくないノードを org-toggle-archive-tag で ARCHIVE タグをつけておく。
+- このノードは org-cycle などでは開かない。 M-x show-branches ならサブノードまでは開ける。
+- org-search-view では検索対象から外れる。オプションつければ archive を検索対象に含められる？
+  - org-search-view のやり方がわからなければ howm-grep でもいい。
+*** DONE org-emphasis をカスタマイズする
+    CLOSED: [2011-11-01 火 12:36]
+    [2011-11-01 火 12:33]
+- / などで勝手に強調表示にするのが邪魔。URLやファイルパスに登場する。
+- (describe-variable 'org-emphasis-alist)
+  You can customize this variable.
+- Marker character の欄を / から <i> などに置換えればよい。
+  export にも影響する。
+- デフォルト '(org-emphasis-alist (quote (("*" bold "<b>" "</b>") ("/"
+  italic "<i>" "</i>") ("_" underline "<span
+  style=\"text-decoration:underline;\">" "</span>") ("=" org-code
+  "<code>" "</code>" verbatim) ("~" org-verbatim "<code>" "</code>"
+  verbatim) ("+" (:strike-through t) "<del>" "</del>"))))
+- export だけを on/off したい場合は customize org-export-with-emphasize
+*** DONE org-toggle-ordered-property on なら ORDERED をつける。
+    CLOSED: [2011-11-02 水 17:36]
+    [2011-11-02 水 17:29]
+- いちいち PROPERTIES を開かなくても ORDERED か否かが分かるようにする tips.
+- 手動でつけてもいいが、できれば自動的につけたい。
+- customize 可能。 '(org-track-ordered-property-with-tag t)
+*** DONE drawer を追加する
+    CLOSED: [2011-11-08 火 10:31]
+    [2011-11-08 火 10:20]
+- 「- State "DONE"       from "TODO"       [2011-11-01 火 10:51]」が増えていくと邪魔。 drawer に収納したい。
+- M-x customize '(org-log-into-drawer t)
+  デフォルトで定義されている LOGBOOK drawer に収納される。
+  drawer 名を追加したいときは '(org-drawers (quote ("PROPERTIES" "CLOCK" "LOGBOOK"))) を併用する。
+*** CANCELLED 用途不明 様子見する
+    CLOSED: [2012-06-01 金 16:48]
+    [2011-11-08 火 10:23]
+- '(org-indirect-buffer-display (quote other-window))
+*** DONE M-s M-l しようとして誤入力したときに発生する org-decrypt message
+    CLOSED: [2012-06-04 月 15:14]
+    [2011-11-08 火 10:48]
+- <message>
+  org-decrypt: auto-save-mode may cause leakage. Disable it for current buffer? (y or n)
+  org-decrypt: Disabling auto-save-mode for ~/howm/2011/11/2011-11-04-152217-0000000000000000.howm.txt
+  </message>
+- どういう意味？ 邪魔なので無効化したい。
+- auto-encryption-mode が on になっているようだ。何か関係ある？
+- M-x customize auto-encryption-mode
+  - デフォルト値は on だ。使わないので off にしておく。
+  -  '(auto-encryption-mode nil)
+*** tips drawer を閉じる                                               :tips:
+    [2011-11-11 金 15:49]
+- 今まで、 :LOGBOOK: など drawer にカーソル移動して TAB 、を drawer 数ぶん繰り返していた。
+- M-x org-next-link {It is bound to M-g M-n} すれば一発で全て閉じる。このほうが楽。
+*** TODO schedule や deadline の repeat で休日をスキップしたい
+    [2011-11-14 月 10:42]
+- 例えば、 DEADLINE: <2011-11-11 金 +1d> SCHEDULED: <2011-11-11 金 +1d>
+  のような指定でインクリメントすると土曜日になる。このとき、休日ならスキップしたい。
+*** TODO 〔org-mode ハイパーリンク アクセスログ〕                  :wishlist:
+    [2011-11-30 水 10:06]
+- idea Emacs org-mode でハイパーリンクを開くときにアクセスログを記録する。
+- アクセスカウンタ、ページランク、etc.
+- Windows Recent を自動インポートする。
+- タグで絞込み。
+  - person_iwasaki
+- Google like に絞込み。
+  - 期間
+    - 例: find -mtime 3 => 3日以内に更新。
+  - メディアタイプ
+    - 例: filetype:pdf
+  - タイトル intitle:
+- org-open-at-point に hook してカウントする。
+  - カウントをファイルに保存する。
+  - カウントを org-mode の property に保存する。
+    - 例
+      :PROPERTIES:
+      :ACCESSLOG: file_location count atime
+      :END:
+    - file_location ファイルパス
+    - count アクセス回数
+    - atime ファイルの最終アクセス日時. find -atime と同様。
+*** TODO ファイルサーバで勝手に名前が変化するファイルをトレースする。
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-24 火 10:41]
+    :END:
+- ファイルサーバで勝手に名前が変化するファイルをトレースする。
+  - 例: 書籍リスト_20110421.xls 数字部分を補完する。
+*** TODO org-open-at-point を拡張する
+    [2011-12-15 木 12:28]
+- org-open-at-point するときに、 bluewind のように外部プログラムを選択可能にするか、
+  windows エクスプローラのコンテキストメニューを開くようにしたい。
+- とりえあず暫定回避策。 M-s M-w (ffap-copy-string-as-kill) でファイルパスをコピー。
+  bluewind に貼り付ける。
+- anything.el anything-version "1.3.6" ではいろいろなアクションがある。
+*** DONE org の radio-target を howm-mode と併用する
+    CLOSED: [2011-12-17 土 10:12]
+    [2011-12-15 木 19:10]
+- http://www.gfd-dennou.org/member/uwabami/cc-env/Emacs/init-howm.html
+  - goto, come-frome の記号の変更。
+- デフォルトの "> > >", "< < <" は org-mode の radio target と同じなので使いづらい。
+- howm-mode
+  - howm-ref-header
+  - howm-keyword-header
+- org-mode
+  - org-target-regexp
+  - org-radio-target-regexp
+  - org-any-target-regexp
+- [ ] この3個の変数の違いは何？
+- [[file:~/.emacs.d/inits/my-org-mode-target.el]]
+*** TODO org agenda を Outlook 予定表と同期する                    :wishlist:
+    [2011-12-17 土 15:55]
+- スヌーズしてくれるなら Outlook でなくてもいい。 Growl とか？
+- org-outlook.el は予定表ではなくメールを連携するようだ。
+*** DONE export すると timestamp が邪魔
+    CLOSED: [2012-01-31 火 11:01]
+    [2012-01-31 火 10:49]
+- export mindmap してみたら、 ~/.emacs.d/inits/my-org-mode-insert-inactive-timestamp.el で自動挿入した timestamp が邪魔。
+- timestamp を drawer に収納しておけば邪魔にはならない。
+- drawer の種類を増やしたい場合は org-drawers を customize する。とりあえず既存の LOGBOOK を使う。
+- コマンド my-insert-inactive-timestamp を改良した。 timestamp を drawer LOGBOOK に収納する。
+*** DONE hyperlink 不具合
+    CLOSED: [2012-05-31 木 17:40]
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-01 水 10:33]
+    :END:
+- 〔dailyplan-m2012-01〕へのリンクはたどれるが、〔daily_plan-m2012-01〕へのリンクはたどれない。
+  - 操作手順。 org-store-link で作ったリンクを org-insert-link でたどる。
+  - GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600) of 2011-08-15 on GNUPACK, Org-mode version 7.7 にて現象発生。
+  - GNU Emacs 23.2.1 (i386-mingw-nt5.1.2600) of 2010-05-08 on G41R2F1, Org-mode version 7.7 にて現象発生。
+- [ ] 一切カスタマイズしていない生の Emacs で再現テストする。
+- [ ] org-mode 新バージョンがあれば試す。
+- [2012-05-31 木 17:39] 今のところ発生していない。いったん DONE.
+  - GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600) of 2011-08-15 on GNUPACK,  Org-mode version 7.7
+*** DONE org-mode 新バージョン変更点を把握する
+    CLOSED: [2012-05-31 木 17:40]
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-01 水 10:58]
+    :END:
+- http://orgmode.org/Changes.html 英文を読んで自分用サマリを書く。
+*** TODO 不具合 eval: ShellExecute failed: 指定されたファイルが見つかりません。
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-09 木 11:41]
+    :END:
+- [[\\Isf-mine\プロジェクト\■bodais\システム開発\4.設計\インターフェース設計\解析エンジンバージョン.xls]]
+- これを org-open-at-point すると、失敗する。
+  Message には "eval: ShellExecute failed: 指定されたファイルが見つかりません。" と出る。
+*** VERIFY Tips. org-toggle-archive-tag
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-10 金 10:24]
+    :END:
+- org-toggle-archive-tag で ARCHIVE tag を付与した項目は、存在はするが
+  見えない扱いとなる。 org-agenda-list, org-todo-list の検索対象外。
+- 誤った作業をしたとき、作業記録として残しておくが検索対象外にしたいと
+  きに使うとよい。
+*** VERIFY Tips. BEGIN_EXAMPLE と BEGIN_SRC の違い
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-10 金 12:10]
+    :END:
+- BEGIN_SRC は export する際に評価する。 BEGIN_EXAMPLE はしない。
+*** DONE 画像をインライン表示する
+    CLOSED: [2012-05-31 木 17:27]
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-13 月 18:24]
+    :END:
+- http://orgmode.jp/doc-ja/org-ja.html
+  - C-c C-x C-v     (org-toggle-inline-images)
+    - リンクされた画像のインライン表示をトグルします。通常これはリンク
+      に項目名がない画像のみをインライン表示するものです。すなわち、エ
+      クスポート時にインラインになる画像のことです。
+- 実験してみた。
+  - [[~/work/y2012/0102WSS/filelist.org.txt]]
+  - パス区切り文字 '/' と '\' はどちらも許容する。
+  - 絶対パスはNG、相対パスはOK。
+  - 絶対パスを扱えるようにしたい。 n:\foo.jpg はNGだが、 file:n\fooljpg はOK。
+  - ［［］］を省略するとNG。
+- 感想
+  - とても便利。さっと見たいときにいちいち外部ビューアを起動して閉じる手間やエクスポートする手間が省ける。
+*** TODO fill-paragraph                                            :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-15 水 15:56]
+    :END:
+- fill-paragraph で改行を挿入する際、 URL や org-insert-link で挿入した hyperlink は改行しないようにしてほしい。
+*** TODO org-export html に機能を追加したい
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-29 水 18:15]
+    :END:
+- Freemind のツリー折りたたみと同様の機能が org-export html にも欲しい。
+*** DONE org-decrypt の問い合わせが何度も出て邪魔。
+    CLOSED: [2012-08-09 木 18:51]
+    :LOGBOOK:
+    TIMESTAMP: [2012-03-05 月 11:42]
+    :END:
+- org-decrypt: auto-save-mode may cause leakage. Disable it for current buffer? (y or n)
+  - http://lists.gnu.org/archive/html/emacs-orgmode/2011-07/msg00719.html
+    #+BEGIN_EXAMPLE
+    > You can customize this behaviour via
+    >     org-crypt-disable-auto-save
+    >
+    > You probably have it set to 'ask'. Options exist for always
+    > enabling/disabling auto save, and for encrypting the auto-saved
+    > version automatically.
+    #+END_EXAMPLE
+- M-x customize org-crypt-disable-auto-save
+  - Ask から Never (nil) に変更した。様子を見る。
+- [2012-08-09 木 18:51] 発生条件不明。今のところ頻発はしていない。
+*** TODO org-agenda 時間配分から円グラフを生成する                 :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-03-09 金 19:12]
+    :END:
+- aTimeLogger のように1日／1週間／1ヶ月の期間で円グラフを生成する。
+- もしくは、 Toggle, Paymo, QuickLog などにインポートする。
+- QuickLog は複数タグを扱える。
+- あるいはその他のタイムトラッキングツール。
+- Toggle
+  - CSV import / Integrations / Knowledge Base - Toggl Support -
+    http://support.toggl.com/kb/integrations/csv-import
+  - Toggl time tracking - Support and FAQ - API -
+    https://www.toggl.com/public/api
+*** TODO org-timer-start                                           :wishlist:
+- org-timer-start は引数で秒数を指定する。これを分や時間で指定可能にしたい。
+*** TODO hyperlink を EBt のようにナビゲートする                   :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-06 金 11:05]
+    :END:
+- hyperlink を辿るブラウザの手本はいろいろある。
+  - web browser
+  - EBt
+  - FreeMind
+  - etc
+- 実現方法
+  - graphviz
+*** TODO org-open-at-point, ffap-copy-string-as-kill の日本語対応  :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 10:28]
+    :END:
+- coding を適切に設定すれば可能？ 実験してみる。
+*** TODO org-open-at-point, ffap-copy-string-as-kill の dirname 版 :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 10:27]
+    :END:
+- "C:\a\b\c\d.txt" を読み取ったら "C:\a\b\c" を open, copy する。
+*** TODO 月次ノートの相互ハイパーリンクを自動化                    :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 10:41]
+    :END:
+- 例: [[file:n:/howm/2012/04/2012-04-10-103931-0000000000000000.howm.txt::*%E3%80%94bodais%E6%9C%AC%E7%95%AA%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%BA%E6%96%AD-m2012-04%E3%80%95][〔bodais本番サーバ診断-m2012-04〕]], [[file:n:/howm/2012/03/2012-03-01-102547-0000000000000000.howm.txt::*%E3%80%94bodais%E6%9C%AC%E7%95%AA%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%BA%E6%96%AD-m2012-03%E3%80%95][〔bodais本番サーバ診断-m2012-03〕]]
+*** TODO freemind と org-mode の相互変換                           :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 11:03]
+    :END:
+- 手順
+  - freemind から org-mode へ変換
+    - freemind でノードを選択してコピー。
+    - テキストファイルに貼り付け。
+    - コマンド実行すると org-mode の list または heading に変換する。
+  - freemind から org-mode へ変換
+    - list または heading のみを抽出する。
+    - org-export freemind
+    - サンプル
+      - N:\work\y2012\1203HMK\20120404-mdas-pa\temp1-2012-04-05-104742-0000000000000000.org.mm
+      - [[file:N:\work\y2012\0102WSS\WS-y2012-1606.JPG]]
+      - 'TODO' がアイコンに変換されてしまう。
+*** TODO org-store-link 改善                                       :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 16:53]
+    :END:
+- 常に行番号でリンクしてほしい。
+- '[' などの文字が混ざると org-open-at-point が失敗するのを避けるため、行番号にしたい。
+*** TODO 前後移動をリピートする
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-05 火 10:01]
+    :END:
+- C-c C-n, C-c C-p は多用するが連打しにくい。類似のコマンドも同様。
+  - M-g M-n runs the command org-next-link, M-g M-p runs the command org-previous-link
+  - C-c C-n runs the command outline-next-visible-heading, C-c C-p runs the command outline-previous-visible-heading
+  - M-g n runs the command next-error, M-g p runs the command previous-error
+  - C-x } runs the command enlarge-window-horizontally, C-x { runs the command shrink-window-horizontally
+  - M-n runs the command forward-line, M-p runs the command previous-logical-line
+  - C-s runs the command isearch-forward, C-r runs the command isearch-backward
+  - M-g M-] runs the command bm-next, M-g M-[ runs the command bm-previous
+  - C-M-v runs the command scroll-other-window, C-M-S-v runs the command scroll-other-window-down
+  - M-g M-f runs the command highlight-changes-next-change, M-g M-b runs the command highlight-changes-previous-change
+  - bs-cycle-next, bs-cycle-previous
+- 実現したいこと
+  - next/previouse 系のコマンド最初の1回は通常通り入力。2回目以降は M-n/M-p を押せば繰り返し。あるいは <f6>/<f7>
+  - <f5> runs the command repeat を使ってもいいが、反対方向には行けない。
+  - next/previouse 系のコマンドに add-hook しておけば実装可能。
+  - できれば、 C-u 2 C-v や C-u 8 C-n などの引数も繰り返し可能にしたい。
+*** TODO region 範囲内だけ checkbox off する
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-07 木 16:39]
+    :END:
+*** TODO org-agenda-files 軽量化
+- [[file:~/.emacs.d/my-emacs-custom.el::org-agenda-files]]
+- 多くすると検索範囲が広くなり検索で拾いやすくなるが、メモリ使用量が多く動作が緩慢になる。
+- 少なくすると検索範囲が狭い。
+- とりあえず、現状の運用方法。定期的に手動で org-remove-file する。古いほうから順にはずす。
+- 一時的に検索範囲を広げて検索したいことがある。
+  - org-agenda の search と同様に、タグやキーワードを指定してマッチするファイルを一時的に検索範囲に含める。
+  - どうやって実現する？ (let org-agenda-files ... ) ？
+*** TODO hyperlink と imenu の組み合わせ
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-18 月 18:02]
+    :END:
+- 要件。ソースファイルのシンボル定義へハイパーリンクでジャンプしたい。
+- 現状。
+  - org-mode hyperlink で正規表現リンクを使えば、標的のファイルを開いて正規表現にマッチする箇所へジャンプさせることができる。
+  - しかし、最初に見つかった箇所にジャンプするのではなく、関数定義などにジャンプして欲しい。
+  - ジャンプして find-tag すれば結果的に要件を満たす。しかし、あらかじめタグファイルを作っておく必要がある、バージョン管理の都合でタグファイルを作りたくない。
+  - imenu ならタグファイル不要。
+- 暫定対処。
+  - カーソル位置にあるシンボルを読み取って M-x anything-imenu を実行するコマンドを作っておく。
+  - M-s M-w (ffap-copy-string-as-kill) C-t TAB (anything-imenu) C-y (yank)
+  - my-anything-imenu.el
+*** TODO タグ付与自動化                                            :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-19 火 10:21]
+    :END:
+- org heading に "mail to 業務支援部" パターンがあったら自動的に or ワンタッチでタグ section_gyomusien をつけてほしい。
+- 自動にするなら before-save-hook か？
+- C-c ; (org-toggle-comment) で COMMENT ステータスをつけたら、 comment タグも付ける。
+*** TODO タグ着色
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-19 火 10:34]
+    :END:
+- org-agenda などでタグ着色できれば便利そうだ。できれば、タグ1個ごとに異なる色を自動割り当て。
+- M-s h r runs the command highlight-regexp
+*** TODO WBS的な進捗管理                                           :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-20 水 14:51]
+    :END:
+- 時間見積もり、時間実績を heading 毎に定義する機能は org-mode 事態にある。
+- しかし、本格的に進捗管理するには不十分。
+  - プロジェクト全体を見通してどのアクティビティが超過しているのかを把握する
+  - アクティビティの進捗率は何％か把握する
+  - アクティビティを束ねたワークパッケージの進捗率は何％か把握する
+  - 進捗率と計画のずれ具合はどうなっているか把握する
+  - ずれ具合をイナズマ線的に見える化する
+*** TODO ffap-next like な org-open-at-point                       :wishlist:
+- ffap-next は URL を前方検索して発見した URL を開く。つまり、カーソルを URL まであらかじめ移動しておく手間が省ける。
+- これと同じことを org-open-at-point でも実現したい。
+*** TODO タグのリネーム、マージ                                    :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-04 水 11:05]
+    :END:
+*** TODO org-todo-list 絞込み
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-04 水 11:10]
+    :END:
+- 例。指定したレベルより深いアイテムを表示しない。
+*** TODO タスク管理ツール
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-11 水 14:13]
+    :END:
+- 欲しい機能。
+  - OmniFocus のように NextAction 以外を非表示にするビュー。
+  - project の next review date, repeat
+    - 手動で「○○をレビューする。XX月XX日 +1m」と指定すれば運用は可能。いちいち作るのは面倒。
+  - 対応付け例
+    - OmniFocus folder => org file = org level 1
+    - OmniFocus project => org level 2
+    - OmniFocus subproject => org level 3
+    - OmniFocus action list => org level 4
+    - OmniFocus action => org level 5
+*** DONE org-clock-goto のヒストリの数を調整したい
+    CLOSED: [2012-08-09 木 18:53]
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-13 金 15:15]
+    :END:
+- customize  '(org-clock-history-length 13)
+- 多すぎると時間がかかる。
+*** TODO 子タスクが全て "DONE" になったら自動的に親タスクを "DONE" にする
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-18 水 16:42]
+    :END:
+- [[N:\download\Emacs\plugin\org-ja\org-ja.pdf]]
+  - p.63
+    - もしすべての子タスクが終了後、TODO エントリーを自動的にDONE に切り替えたい場合は、以下の設定を行なってください:
+      #+BEGIN_QUOTE
+      (defun org-summary-todo (n-done n-not-done)
+      "すべてのサブツリーが終了するとDONE に切り替え、その他の場合は、TODO になす
+      る。"
+      (let (org-log-done org-log-states) ; 記録「logging」を終了
+      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+      (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+      #+END_QUOTE
+    - 下記S式を eval して実験してみた。 DONE にならない。
+      #+BEGIN_QUOTE
+      (defun org-summary-todo (n-done n-not-done)
+      "すべてのサブツリーが終了するとDONE に切り替え、その他の場合は、TODO になする。"
+      (let
+      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+      (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+      #+END_QUOTE
+*** TODO org-timer-start を時間単位で引数指定する。
+    :LOGBOOK:
+    TIMESTAMP: [2012-08-01 水 10:10]
+    :END:
+- org-timer-start 引数は分単位なので、1時間は(org-timer-start -3600)、2時間は(org-timer-start -7200)。
+- いちいち計算するのは面倒。計算不要にしたい。
+  - M-x my-org-timer-start-hour (interactive) 1
+  - C-u 1 M-x my-org-timer-start-hour
+- もしくは時刻を指定したら逆算する。
+  - 10:00 に M-x my-org-timer-start-hour (interactive) 19:00 を実行すると、9時間のカウントダウンが始まる。
+*** TODO export 言語指定
+    :LOGBOOK:
+    TIMESTAMP: [2012-12-21 金 16:09]
+    :END:
+- org-export-default-language
+- default Its value is "en"
+** ポップアップメニュー
+   [2011-08-25 木 17:38]
+*** PENDING ポップアップメニューを自作したい。
+   [2011-08-25 木 17:39]
+- HINT. grep popup-menu ~/tool/emacs-23.2/lisp/mouse.el
+** howm-mode                                                      :howm_mode:
+*** DONE howm-mode 導入
+   CLOSED: [2011-08-29 月 10:38]
+   [2011-08-29 月 10:27]
+- http://howm.sourceforge.jp/index-j.html
+  ダウンロード: 1.3.9.1 [2011-01-02]
+- from: N:\download\Emacs\plugin\howm\howm-1.3.9.1.tar.gz
+- to: N:\.emacs\howm-1.3.9.1
+- [[file:~/.emacs.d/inits/my-howm.el::require]]
+*** VERIFY 2単語のAND検索
+    [2011-10-26 水 12:45]
+- google のように、2単語のAND検索をしたい。
+- 1文書のAND検索なら M-x howm-list-grep-fixed {It is bound to C-@ s} したあと、
+  M-x howm-view-filter-by-contents {It is bound to G} すれば絞込みできる。
+- 1回の検索で、1行にマッチするAND検索するにはどうすればいい？
+- デフォルトではスペース入力不可。
+  (minibuffer-complete-word) It is bound to SPC, <menu-bar> <minibuf> <space>.
+  が割り当てられているから。
+- M-x howm-list-grep {It is bound to C-@ g, C-c , g}
+  WORD1.*WORD2 と入力すれば、実現可能。ただし、これでは単語入れ替わりはマッチしない。
+  \(WORD1.*WORD2\|WORD2.*WORD1\) が必要。
+** occur 関連                                                    :occur_mode:
+   [2011-08-30 火 14:29]
+*** DONE occur 第2引数 NLINES
+    CLOSED: [2013-08-28 水 13:24]
+    :LOGBOOK:
+    TIMESTAMP: [2013-08-28 水 13:20]
+    :END:
+- (occur "defun\\s +\\(\\S +\\)")
+  #+BEGIN_EXAMPLE 
+  47 matches for "defun\s +\(\S +\)" in buffer: replace.el
+      105:(defun query-replace-descr (string)
+      108:(defun query-replace-read-from (prompt regexp-flag)
+  #+END_EXAMPLE
+  - M-x occur はこれと同じ。
+- (occur "defun\\s +\\(\\S +\\)" "\\1")
+  #+BEGIN_EXAMPLE 
+  query-replace-descr
+  query-replace-read-from
+  #+END_EXAMPLE
+  - 第2引数 NLINES に文字列を与えると、 NLINES を正規表現評価した結果を出力する。
+  - 使用例1 org-mode で (occur "\\(WS.*JPG\\)" "\\1") 
+  - 使用例2 org-agenda で (occur "Clocked: .*.\\([0-9]+:[0-9]+\\)." "\\1")
+*** DONE occur 関連のキーバインド
+    CLOSED: [2011-08-30 火 14:30]
+    [2011-08-30 火 14:30]
+- [[file:~/.emacs.d/inits/my-occur.el::occur-mode-hook]]
+*** PENDING occur buffer を開くとき、自動的に縮小してほしい。
+    [2011-08-30 火 14:30]
+;; ** [2011-06-06 月] TODO occur-mode で自動的に縮小すると便利。
+;; (add-hook 'occur-mode-hook
+;;          (lambda ()
+;;            (fit-window-to-buffer)
+;;          ))
+;; 実験結果: 変化しない。
+;; 自動的にする方法が分からない。とりあえず簡単なキーバインドを定義しておく。
+*** DONE occur buffer に switch する。 occur buffer がない場合は occur 開始する。
+    CLOSED: [2012-06-01 金 16:49]
+    [2011-09-02 金 14:08]
+- http://www.emacswiki.org/emacs/OccurKey
+- [[file:~/.emacs.d/inits/my-occur.el::my-occur-or-switch-to-buffer]]
+*** TODO occur バッファ作成直後に shrink-window-if-larger-than-buffer
+- [[file:~/.emacs.d/inits/my-occur.el::shrink-window-if-larger-than-buffer]]
+*** DONE occur で grep -v したい
+    CLOSED: [2013-08-28 水 13:36]
+    :LOGBOOK:
+    TIMESTAMP: [2013-08-28 水 13:24]
+    :END:
+- 代わりにこうやる。
+  - M-| (shell-command-on-region) grep -nv REGEX
+- fundamental-mode ではなく occur-mode にしてほしい。
+- バッファ名を *Shell Command Output* でなく *Occur* にしてほしい。
+*** TODO occur で grep -v するコマンドを自作する
+#+BEGIN_EXAMPLE 
+(defun occur-reverse (&optional ARGS)
+  (interactive "soccur-reverse: ")
+  (message "shell-command-on-region %s" (concat "grep -nv " ARGS))
+  (shell-command-on-region 0 100 (concat "grep -nv " ARGS))
+)
+#+END_EXAMPLE
+- 未完成。実行すると下記のようになる。
+#+BEGIN_EXAMPLE 
+shell-command-on-region grep -nv a
+(Shell command failed with error)
+shell-command-on-region: Args out of range: 0, 100
+#+END_EXAMPLE
+
+** rename-buffer 関連
+   [2011-09-16 金 10:45]
+*** DONE rename-uniquely
+    CLOSED: [2011-12-19 月 17:36]
+    [2011-09-16 金 10:45]
+- rename-uniquely occur-mode, grep-mode
+  my-buffer-window-frame.el:45:(global-set-key (kbd "<S-f3>") 'rename-uniquely) ;; M-s u の alias.
+  my-grep.el:5:  (progn (define-key grep-mode-map (kbd "u") 'rename-uniquely) "[2011-05-20 金]")
+  my-occur.el:6:  (progn (define-key occur-mode-map (kbd "u") 'rename-uniquely) "[2011-05-20 金]")
+*** TODO rename help
+    [2011-12-19 月 17:35]
+- 例。 C-h f keyboard-quit して Help を見たあと、バッファ名を *Help* から *Help* keyboard-quit に変更したい。
+** popwin.el
+   [2011-08-31 水 18:38]
+*** DONE popwin.el 導入
+    CLOSED: [2011-08-31 水 19:00]
+    [2011-08-31 水 18:38]
+- http://d.hatena.ne.jp/m2ym/touch/20110120/1295524932
+  - eval: (auto-install-from-url "https://github.com/m2ym/popwin-el/raw/master/popwin.el")
+  - [[file:~/.emacs.d/auto-install/popwin.el::popwin.el]]
+  - [[file:~/.emacs.d/inits/my-popwin.el::popwin.el]]
+  ;;     (require 'popwin)
+  ;;     (setq display-buffer-function 'popwin:display-buffer)
+  ;;     (setq popwin:special-display-config ...)
+- http://d.hatena.ne.jp/m2ym/touch/20110228/1298868721
+  - 追加されたコマンド
+    popwin:popup-buffer-tail
+    popwin:find-file
+    popwin:find-file-tail
+    popwin:messsages
+    popwin:stick-popup-window
+    popwin:close-popup-window
+    popwin:select-popup-window
+    popwin:popup-buffer
+    popwin:display-buffer
+    popwin:display-last-buffer
+- http://d.hatena.ne.jp/m2ym/touch/20110709/1310223860
+*** CANCELLED popwin.el を recentf と組み合わせたい
+    CLOSED: [2011-12-17 土 10:47]
+    [2011-08-31 水 19:00]
+- どうやればいい？
+- find-file をポップアップさせたいなら popwin:fine-file
+- recentf をポップアップさせたいなら？
+- anything-recentf があるので不要。
+*** TODO popwin buffer を見た目で区別したい
+    :LOGBOOK:
+    TIMESTAMP: [2012-05-24 木 15:45]
+    :END:
+- mode-line に文字表示するか、 mode-line の色か、 linum の背景色を変えてほしい。
+** isearch-mode                                                :isearch_mode:
+*** DONE Isearch 終了後もハイライトを残す。
+    CLOSED: [2011-09-01 木 10:43]
+    [2011-09-01 木 10:31]
+- Isearch 終了後もハイライトを残す。
+  - http://www.emacswiki.org/emacs/HighlightFromIsearch
+  - Customize option ‘lazy-highlight-cleanup’ to ‘nil’. When you
+    end Isearch, its normal highlighting remains. You can later remove
+    this highlighting using command ‘lazy-highlight-cleanup’.  Use
+    the code below to highlight your Isearch hits only on demand, when
+    you hit a particular key (e.g. ‘C-TAB’) during Isearch. You can
+    remove this highlighting using ‘C-x w r’
+    (‘unhighlight-regexp’). This uses command‘highlight-phrase’
+    from HiLock see HighlightTemporarily.
+  - [[file:~/.emacs.d/my-emacs-custom.el::lazy-highlight-cleanup]]
+  - [[file:~/.emacs.d/inits/my-isearch.el::Lazy%20Highlight][file:~/.emacs.d/inits/my-isearch.el::Lazy Highlight]]
+*** TODO isearch-mode からquery-replace に引き継ぐ
+    [2011-12-21 水 11:03]
+[[file:~/.emacs.d/inits/my-isearch.el::query-replace]]
+;; TODO C-s だと isearch から query-replace に引き継がれるが、 M-s M-q だと引き継がれない。なぜ？
+(define-key isearch-mode-map (kbd "M-s M-q") 'query-replace)
+(define-key isearch-mode-map (kbd "M-s M-r") 'query-replace-regexp)
+
+** eclipse like
+   [2011-09-05 月 12:29]
+*** CANCELLED <C-down-mouse-1> で find-tag
+    CLOSED: [2011-09-05 月 13:49]
+    [2011-09-05 月 12:29]
+- プログラミングモードでは find-tag
+- その他モードでは occur
+- <C-down-mouse-1> キーは既にバインドされている。他のキーを使う。
+  - C-?, M-?, S-? は埋まっている。
+  - <H-mouse-1> は空いている。
+- 参考: http://www.emacswiki.org/emacs/ThingAtPoint
+- [[file:~/tool/emacs-23.2/lisp/thingatpt.el::thingatpt.el]]
+- いまいち使い方が分からない。
+** highlight 関連
+*** DONE 特定キーワードに色をつける
+    CLOSED: [2012-01-25 水 12:29]
+    [2012-01-25 水 12:26]
+- 標準添付 elisp. 起動直後はロードされていない。
+- http://passingloop.tumblr.com/post/15780145232/emacs-hi-lock-mode
+- init.el に記す。
+  (global-hi-lock-mode 1)
+- 定義済みのキーバインド
+  (define-key hi-lock-map "\C-xwi" 'hi-lock-find-patterns)
+  (define-key hi-lock-map "\C-xwl" 'highlight-lines-matching-regexp)
+  (define-key hi-lock-map "\C-xwp" 'highlight-phrase)
+  (define-key hi-lock-map "\C-xwh" 'highlight-regexp)
+  (define-key hi-lock-map "\C-xwr" 'unhighlight-regexp)
+  (define-key hi-lock-map "\C-xwb" 'hi-lock-write-interactive-patterns)
+*** DONE highlight-changes-mode
+   [2011-08-24 水 15:52]
+- [[file:~/.emacs.d/inits/my-keymap-basis.el::highlight-changes-mode]]
+*** TODO highlight-symbol
+    [2011-09-02 金 13:51]
+- url: http://nschum.de/src/emacs/highlight-symbol/
+- from: N:\download\Emacs\plugin\highlight-symbol.el
+- to: [[N:\.emacs.d\elisp\highlight-symbol.el]]
+- [[file:~/.emacs.d/inits/my-highlight-symbol.el::highlight-symbol]]
+- M-x highlight-symbol-at-point でシンボルの face background color を変更する。
+  - 自動的に使われていない色を選択してくれるので便利。
+- [ ] highlight-changes-mode と併用すると、foreground と background が似た色になり文字識別できなくて不便。カスタマイズする。
+  - DeepPink から MediumPurple に変更してみた。
+- [ ] isearch-lazy-highlight と併用すると、両方で同じ色を使うので識別しにくい。カスタマイズする。
+  face                 ((background-color . "DarkOrange") (foreground-color . "black"))
+*** TODO highlight-symbol の拡張
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-08 水 18:09]
+    :END:
+- symbol の代わりに括弧で囲まれた文字列を選択する。
+- org-mode の 〔見出し〕
+*** DONE 任意のテキストを highlight
+    CLOSED: [2011-09-06 火 14:40]
+    [2011-09-06 火 14:19]
+- 導入
+  - [[file:~/.emacs.d/inits/my-highlight.el::highlight]]
+  - [[file:~/.emacs.d/auto-install/highlight.el::highlight.el]]
+  - [[file:~/.emacs.d/auto-install/facemenu%2B.el::facemenu%2B.el][file:~/.emacs.d/auto-install/facemenu+.el::facemenu+.el]]
+  - [[file:~/.emacs.d/auto-install/eyedropper.el::eyedropper.el]]
+  - [[file:~/.emacs.d/auto-install/hexrgb.el::hexrgb.el]]
+- face 変更
+  - face: hl-line
+    - Inherit: highlight --> nil
+    - Background: nil --> cyan
+  - face: highlight
+    - Background: darkseagreen2 --> PaleVioletRed
+*** TODO face の種類を増やす。
+    [2011-09-20 火 19:13]
+- [[file:~/tool/emacs-23.2/lisp/hi-lock.el::hi-pink]]
+  これを真似して追加すればいい？
+*** TODO ファイルを開いたら自動的に特定キーワードに色をつける
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-08 水 16:06]
+    :END:
+- sample
+  - input
+    - model
+      - [[N:\server\vm_bodais3\home\isfactory\bodais\engines\services-ut\scoring1\t496_s1_m809-d20120203\]]
+    - prediction
+      - [[N:\server\vm_bodais3\home\isfactory\bodais\engines\services-ut\scoring1\t496_s1_m842-101\]]
+- この sample で重要なキーワードは「t496_s1_m809-d20120203」,「t496_s1_m842-101」。
+  org-mode の #+TODO: のようにファイルに定義しておいて、ファイルを開いたら自動的に適用してほしい。
+  cf. http://d.hatena.ne.jp/tamura70/20100303/org
+- bold や italic を付与する方式は NG. ファイルパスの途中に登場するので。
+*** TODO バッファを作ったら自動的に特定キーワードに色をつける
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-08 水 18:06]
+    :END:
+- 例。 *Org Agenda* buffer を作ったら自動的に特定キーワードに色をつける
+  - タグに色をつけて識別しやすくする。
+    inturrupt => hi-green
+    pj_1201BOA => hi-blue
+*** TODO highlight-regexp を便利にする
+    :LOGBOOK:
+    TIMESTAMP: [2012-08-01 水 10:56]
+    :END:
+- if mark-active リージョン文字列をデフォルト値にする。
+** 文字数や行数をカウントする
+   [2011-10-06 木 15:22]
+*** バッファ全体の行数をカウントする。
+    [2011-10-06 木 15:23]
+- M-x count-lines-page {It is bound to C-x l}
+*** ページの行数をカウントする
+    [2011-10-31 月 15:00]
+- M-x count-lines-page {It is bound to C-x l}
+- 例: Page has 867 lines (713 + 154)
+  ページ全体が 867 行。カーソルより上が 713 行、カーソルおよび下が 154 行。
+*** DONE region を wc コマンドに入力した結果を簡単に見たい。
+    CLOSED: [2011-08-29 月 16:05]
+    [2011-08-29 月 15:55]
+- [[~/.emacs.d/inits/my-wc.el]]
+- http://d.hatena.ne.jp/handlename/20110415/1302853795
+  - string-widthをインタラクティブに呼び出せるようにする - handlename::blog
+  - リージョン選択時に M-x count-lines-region とすればいい。count-lines-regionはデフォルトでは M-=に割り当てられている。
+*** DONE region を wc コマンドに入力した結果をモードラインに表示する＆リアルタイム更新するマイナーモード。
+    CLOSED: [2011-08-30 火 10:40]
+    [2011-08-29 月 16:05]
+- あるのか？ emacs-wiki を探してみる。
+- http://www.emacswiki.org/emacs/WordCount
+  - Show the number of words in the mode-line
+  - from: N:\download\Emacs\plugin\taiyaki.org\word-count.el
+  - to: [[N:\.emacs.d\elisp\word-count.el]]
+- [[file:~/.emacs.d/inits/my-word-count-mode.el::word-count-mode]]
+*** TODO 桁数を表示したい
+    [2011-10-06 木 15:24]
+- http://www.bookshelf.jp/soft/meadow_26.html
+- M-x ruler-mode
+*** TODO count-lines-page や上記カウント関連の結果を kill-ring にコピーしてほしい :wishlist:
+    [2011-12-22 木 11:43]
+** メニューバー関連
+   [2011-09-14 水 10:45]
+- 参考: imenu.el
+*** TODO メニューバーに register の内容を表示する
+    [2011-09-14 水 10:21]
+- クリックしたらその register を操作する。
+*** TODO メニューバーに ~/.emacs.d/my-init.el の1行個別ロードを表示する
+    [2011-09-14 水 10:38]
+- クリックしたらその elisp ファイルを load する。
+- あるいは、 anything の action に「このファイルを elisp load する」でもいい。
+*** CANCELLED メニューバーに bookmark を表示する
+    CLOSED: [2011-12-17 土 10:44]
+- Buffers や Edit/Paste from Kill Menu と同様、動的に更新する。
+- anything-bookmarks があるので不要。
+*** TODO easymenu.el を試す。
+    [2011-09-14 水 14:29]
+- http://www.emacswiki.org/emacs/EasyMenu
+- [[N:\tool\emacs-23.2\lisp\emacs-lisp\easymenu.el]]
+- 使用頻度の低いコマンドを登録しておく。
+** マクロ関連
+*** DONE マクロ関連のキーバインド。
+    CLOSED: [2011-09-09 金 14:55]
+    [2011-08-29 月 15:58]
+- name-last-kbd-macro --> goto kmacro-name-last-macro
+- [[file:~/.emacs.d/inits/my-keymap-basis.el::insert-kbd-macro]]
+- (kmacro-name-last-macro SYMBOL) {It is bound to C-x C-k n.}
+*** TODO マクロ実行中に数値計算する
+    [2011-09-09 金 14:52]
+- M-: で以下のS式を eval すれば数値計算した結果をバッファに挿入できる。
+  - (insert (number-to-string (+ 1 0)))
+- レジスタを読み書きしたいなら、
+  http://www.bookshelf.jp/texi/elisp-manual-20-2.5-jp/elisp_32.html#SEC524
+** ESS 関連
+   [2011-09-16 金 11:57]
+*** TODO 補完
+    [2011-09-16 金 11:57]
+- as.character などよく使う関数名を補完したい。
+- 参考 auto-complete
+*** TODO Emacs 23.2.1 で ESS
+    [2011-12-05 月 13:58]
+- Emacs 23.2.1 で ESS を使えるようにできないか？
+  - 比較してみる。
+    - winmerge -r N:\tool\emacs-23.2 N:\tool\emacs-23.3
+    - winmerge N:\tool\emacs-23.2\etc\ess N:\tool\emacs-23.3\etc\ess : 右側のみ存在する。
+  - 試しに N:\tool\emacs-23.3\site-lisp\ess を丸ごと N:\tool\emacs-23.2\site-lisp\ess にコピーしてみる。
+  - [[N:\tool\emacs-23.2\site-lisp\ess\ess.el]] 配置する。
+  - Emacs 23.2.1 再起動
+  - ~/.emacs.d/inits/my-ess-mode.el
+    (require 'ess-sp6w-d nil t)
+    の部分は Emacs 23.2.1 では error になるようだ。
+    とりあえず、 emacs23.3-p が成立するときだけこの部分を有効にする。
+  - (require 'ess)
+  - 起動および require でエラーは発生しない。しかし、 M-x ess-mode コマンドが存在しない。
+    ess-mode on にする方法がない。
+  - とりあえず、元に戻す。
+** grep 関連
+   [2011-09-16 金 17:18]
+*** DONE grep-edit.el 導入
+    CLOSED: [2012-08-09 木 18:30]
+    [2011-09-16 金 17:18]
+- [[file:~/.emacs.d/inits/my-grep-edit.el::grep-edit]]
+- [[file:~/.emacs.d/auto-install/grep-edit.el::grep-edit]]
+*** DONE grep-edit.el メニューバー
+    CLOSED: [2012-08-09 木 18:37]
+    [2011-09-16 金 17:20]
+- 以下のコマンドをメニューバーに追加する。
+  - C-c C-e         grep-edit-finish-edit
+  - C-c C-r         grep-edit-remove-change
+  - C-c C-u         grep-edit-remove-all-change
+- Menubar; Grep; grep-edit-finish-edit
+- goto [[file:~/.emacs.d/inits/my-grep-edit.el::grep-edit-finish-edit]]
+*** TODO grep-ack
+    [2011-11-28 月 11:28]
+- grep-ack の方が機能豊富、便利。
+*** DONE auto-highlight-symbol
+    CLOSED: [2012-05-31 木 17:42]
+    :LOGBOOK:
+    TIMESTAMP: [2012-05-23 水 17:55]
+    :END:
+- http://d.hatena.ne.jp/kenbeese/20120513/title
+  auto-highlight-symbol
+  聞いた事なかったので、すぐ知らべて導入した。
+  これはどうやら同じ名前のシンボルをハイライトするみたいだ。
+  しかも、ハイライトしたシンボルを一括で編集できる。
+  かなり便利かも。
+*** TODO grep-edit と同様のことを multi-occur でやりたい
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-04 水 11:03]
+    :END:
+- 実現した。
+  - [[file:~/.emacs.d/auto-install/moccur-edit.el::moccur-edit-mode-in]]
+- [2013-03-11 月 10:05] 変更開始はできるが、変更確定ができない。なぜ？
+*** PENDING grep, lgrep, rgrep でマルチバイト文字列を検索する    :emacs_core:
+    [2011-08-22 月 16:20]
+- M-x rgrep
+- 実行結果例1
+  - "vm_bodais-package-R" 日本語なし
+  - [[~/.emacs.d/memo/sample-grep-output101.txt]]
+- 実行結果例2
+  - "インストール" 日本語あり
+  - [[~/.emacs.d/memo/sample-grep-output102.txt]]
+- あいかわらずマルチバイト文字列ありだと失敗する。
+- 暫定対処
+  1. bluewind cmd
+  2. ack -a キーワード
+  3. 全選択して貼り付け
+- UTF-8, ShiftJIS が混在している場合、 ShiftJIS が文字化けするようだ。
+- [[file:~/.emacs.d/inits/my-color-moccur.el::moccur-grep]]
+  - moccur-grep で代用する。
+  - moccur-grep はスペースを含む文字列検索ができないようだ。スペースを"."に置き換えて入力すれば可能。
+*** DONE grep 系コマンド機能比較
+    CLOSED: [2012-07-26 木 10:59]
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-23 月 16:54]
+    :END:
+| file                    | command                                     | keybind | scope                        | color | follow |
+| my-anything-basis.el    | anything-occur                              | C-t C-o | カレントバッファ             | N     | Y      |
+| my-anything-basis.el    | anything-do-grep                            | C-t C-d | 指定ディレクトリ＋ファイル群 | N     | N      |
+| my-anything-basis.el    | anything-c-moccur-dired-do-moccur-by-moccur | C-M-o   | dired マークしたファイル群   | Y     | Y      |
+| my-anything-c-moccur.el | anything-c-moccur-occur-by-moccur           | C-t C-m | カレントバッファ             | Y     | Y      |
+| my-anything-c-moccur.el | anything-c-moccur-dmoccur                   | C-t d   | 指定ディレクトリ             | Y     | Y      |
+|                         | occur                                       | M-s M-o | カレントバッファ             | N     | N      |
+| my-color-moccur.el      | moccur                                      | M-s M-m | 全バッファ                   | Y     | Y      |
+| my-color-moccur.el      | moccur-grep                                 | M-s M-g | 指定ディレクトリ             | Y     | Y      |
+| my-color-moccur.el      | moccur-grep-find                            | M-s M-f | 指定ツリー                   | Y     | Y      |
+| my-color-moccur.el      | dmoccur                                     | M-s M-d | 指定ディレクトリ             | Y     | Y      |
+| my-occur.el             | multi-occur-in-matching-buffers             | M-s M-b | 全バッファ パターン絞込み    | N     | N      |
+| org-mode                | command org-occur-in-agenda-files           | M-s M-a | org agenda バッファ          | N     | N      |
+- 用途別コマンド索引 (anythingなし/anythingあり)
+  - カレントバッファだけ
+    - occur-by-moccur / anything-c-moccur-occur-by-moccur
+  - 全バッファ
+    - moccur / なし ＊wishlist＊
+  - 指定ディレクトリ
+    - dmoccur / anything-do-grep
+  - 指定ツリー
+    - moccur-grep-find / なし ＊wishlist＊
+  - anything-c-moccur-dmoccur
+    - 何を入力してもヒットしない。
+  - anything-do-grep
+    - 日本語はヒットしない。
+   [2011-09-16 金 15:55]
+- <f5> から <f9> それぞれに、以下の機能を割り当てる。
+  - レジスタ5/6/7/8/9に文字列appleを格納しておく。
+  - <f5> キーで文字列appleを下方向検索ジャンプ。
+  - C-r <f5> キーで文字列appleを上方向検索ジャンプ。
+  - M-s <f5> キーで文字列appleをoccur。
+  - C-h <f5> キーで文字列appleをhighlight。
+  - C-x r <f5> キーで point     にある単語をレジスタ5に格納する。
+  - C-x w <f5> キーで kill-ring にある単語をレジスタ5に格納する。
+- <f11> はレジスタの代わりに point     にある単語を読み取る。
+- <f12> はレジスタの代わりに kill-ring にある単語を読み取る。
+** csv-mode
+   [2011-09-20 火 11:06]
+- http://www.emacswiki.org/emacs/CsvMode
+- http://www.emacswiki.org/emacs/csv-mode.el
+- エラー発生する。
+** timestampe 関連
+   [2011-09-22 木 12:27]
+*** emacs 本体の機能
+    [2011-09-22 木 12:27]
+- M-x customize '(before-save-hook (quote (time-stamp)))
+  - "Before Save Hook" の説明を見るべし。先頭8行に Time-stamp: <> があると保存時に自動書き換えする。
+- 欠点。 M-x goto-last-change で書き換えた Time-stamp にジャンプしてしまう。
+** face
+   [2011-10-06 木 15:25]
+*** face の探し方
+    [2011-10-06 木 15:25]
+- http://www.bookshelf.jp/soft/meadow_26.html
+  - M-x list-faces-display で「 ruler 」を探してそのフェイスを設定すればいい
+  - フェイス名クリックで詳細画面に遷移する。
+** ブラウザ関連
+   [2011-10-20 木 15:23]
+*** google 検索
+    [2011-10-20 木 15:23]
+- from: N:\download\Emacs\plugin\www.bookshelf.jp\google.el
+- to: N:\.emacs.d\elisp\google.el
+- [[file:~/.emacs.d/inits/my-google.el::google]]
+*** ブラウザを firefox に変更する
+    [2011-11-17 木 10:50]
+- M-x customize
+  - '(browse-url-browser-function (quote browse-url-firefox))
+  - '(browse-url-firefox-program "C:\\Program Files\\Mozilla Firefox\\firefox.exe")
+*** ブラウザを chrome に変更する
+    [2012-12-14 金 14:05]
+- M-x customize
+  '(browse-url-browser-function (quote browse-url-chromium))
+  '(browse-url-chromium-program "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")
+** revert
+   [2011-10-25 火 14:43]
+*** auto-revert
+    [2011-10-25 火 14:43]
+- M-x auto-revert-mode, turn-on-auto-revert-mode
+- M-x global-auto-revert-mode
+- M-x auto-revert-tail-mode, turn-on-auto-revert-tail-mode
+- cf. http://nflath.com/2009/10/docview/
+- cf. http://nflath.com/2009/09/emacs-fixes/
+  - dired-mode で auto-revert-mode を on にするには。
+#+BEGIN_EXAMPLE
+(defun turn-on-auto-revert-mode ()
+  (interactive)
+  (auto-revert-mode 1))
+(add-hook 'dired-mode-hook 'turn-on-auto-revert-mode)
+#+END_EXAMPLE
+** linum-mode
+   [2011-10-27 木 10:39]
+- 行数多い org-mode で linum-mode 使うと応答が遅くなる。他の major-mode なら linum-mode 使っても大丈夫。
+- hook する。
+** shell 関連
+   [2011-11-04 金 11:06]
+*** DONE shell-pop.el 導入
+    CLOSED: [2011-11-08 火 11:40]
+    [2011-11-04 金 11:06]
+- http://d.hatena.ne.jp/kyagi/20100221
+- http://www.emacswiki.org/emacs-en/ShellPop
+- http://www.emacswiki.org/emacs/shell-pop.el
+- M-x auto-install-from-emacswiki "shell-pop.el"
+- [[~/.emacs.d/auto-install/shell-pop.el]]
+- [[file:~/.emacs.d/inits/my-shell-pop.el::(require%20'shell-pop)][file:~/.emacs.d/inits/my-shell-pop.el::(require 'shell-pop)]]
+*** TODO 日本語ファイル名の障害
+    [2011-11-08 火 11:40]
+- 障害
+  #+BEGIN_EXAMPLE
+  N:\server\vm_bodais3>pushd N:\Isf-mine\システムソリューション部\サーバ
+  pushd N:\Isf-mine\(以下文字化け)
+  指定されたパスが見つかりません。
+  #+END_EXAMPLE
+- coding 関連の設定を変えて実験してみる。
+*** TODO cmd ではなく cygwin bash を shell-mode で使いたい
+    [2011-12-06 火 12:01]
+- M-x shell してから bash するとおかしくなる。プロンプトが表示されない。
+*** man                                                                :tips:
+    :LOGBOOK:
+    TIMESTAMP: [2012-08-06 月 11:56]
+    :END:
+- M-x man
+** programming 関連
+   [2011-11-04 金 17:10]
+*** TODO comment-region
+    [2011-11-04 金 17:10]
+- 行単位でコメントon/offしたい。
+- いちいち, C-a C-SPC C-n M-; と入力するのは面倒。
+- C-M-; で1行コメントにしたい。マクロで実現。
+  - C-M-; はデフォルト定義済みなので他のキーにして。 M-x comment-indent-new-line {It is bound to C-M-;}
+*** DONE 対応する括弧へカーソルを移動する
+    CLOSED: [2011-11-10 木 14:49]
+    [2011-11-10 木 14:48]
+- [[file:~/.emacs.d/inits/my-programming-defun.el::match-paren]]
+- http://itpro.nikkeibp.co.jp/free/ola/olaacceptor.jsp
+  - vi 「5. 対応する括弧にカーソルが移動する」です。
+*** カレントウィンドウのファイルを実行する
+    [2011-12-01 木 14:10]
+- M-x executable-interpret
+- http://d.hatena.ne.jp/syohex/20111201/1322665378
+  - Emacsには executable-interpretがあるにはあるんですが、直接実行されるファイルに限られること等の問題があった
+*** TODO タグファイルの自動生成
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-16 木 14:27]
+    :END:
+- Meadow/Emacs memo:  プログラム関連 ― 一般用 - http://www.bookshelf.jp/soft/meadow_42.html
+  - 42.4.1 タグファイルの自動生成 (2003/11/18)
+    - タグジャンプする際にTAGS ファイルがなければ TAGS ファイルを作成してくれます．
+    以下を.emacs に追加します．
+(defadvice find-tag (before c-tag-file activate)
+  "Automatically create tags file."
+  (let ((tag-file (concat default-directory "TAGS")))
+    (unless (file-exists-p tag-file)
+      (shell-command "etags *.[ch] *.el .*.el -o TAGS 2>/dev/null"))
+    (visit-tags-table tag-file)))
+詳しい使い方
+普通にM-x find-tagでジャンプします． TAGS ファイルがなければ，作成してくれます．
+** frame 関連
+   [2011-11-09 水 10:41]
+*** フレームのデフォルト値を変更する
+    [2011-11-09 水 10:41]
+- M-x customize "Default Frame Alist"
+  - customize を save できない。原因不明。とりあえず、 elisp でカスタマイズする。
+- http://www.fan.gr.jp/~ring/doc/elisp_20/elisp_29.html#SEC438
+  - 28.3.3 ウィンドウフレームのパラメータ
+- [[file:~/.emacs.d/inits/my-buffer-window-frame.el::default-frame-alist]]
+** comment 関連
+   [2011-11-10 木 10:59]
+*** コメントに改行を挿入する
+    [2011-11-10 木 11:00]
+- M-x comment-indent-new-line
+- [[file:~/.emacs.d/inits/my-keymap-basis.el::comment-indent-new-line]]
+** calc
+   [2011-11-10 木 11:20]
+*** quick-calc
+    [2011-11-10 木 11:20]
+- シンプルな計算機。式1個を貼り付けると実行して終了。計算結果が kill-ring にコピーされているので、そのまま貼り付けできる。
+- cf. http://www.eonet.ne.jp/~3alchemists/Calc/Texinfo/Texi2html/calc-jp_113.html
+  - 結果が整数で、かつ表示基数が 10進ならば、16進や 8進形式でも表示できます。 その整数が 1 -- 126 の範囲なら、ASCII 文字でも表示できます。
+  - 例えば、クォートされた文字 `"x"' はベクトル `[120 ]' を生成します
+*** TODO Excel でセルを範囲選択するとステータスバーに合計などを表示する機能
+- [[file:n:/howm/2013/10/2013-10-15-102205.howm.txt::*%E3%80%94%E9%A1%A7%E5%AE%A2%E3%83%A6%E3%83%BC%E3%82%B6%E8%A7%A3%E6%9E%90%E5%B1%A5%E6%AD%B4-d2013-10-15%E3%80%95][〔顧客ユーザ解析履歴-d2013-10-15〕]] で思いついた。
+- Excel でセルを範囲選択するとステータスバーに平均、データ個数、数値個数、最小値、最大値、合計を表示する機能がある。
+- これと同じ機能を持つ minor-mode があると便利。もしくは anything で計算式を選択する。
+- 参考: [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-wc.el]] リージョン内の行数と文字数をモードラインに表示する（範囲指定時のみ）
+- 入力はリージョン、レジスタ、キルリング、特定の変数、特定のファイル etc.
+- 出力はモードライン、タイトルバー、レジスタ、キルリング、特定の変数、特定のファイル etc.
+- shell でリダイレクトするように入出力を切り替えるイメージ。
+- 「リージョンを特定のファイルに出力するコマンド」と「特定のファイルから読み込んで諸々の計算をするコマンド」と「計算結果をモードラインか popup window に表示するコマンド」を組み合わせればいい？
+- リージョン "1 3 5" を S 式 (+ 1 3 5) に変換するだけ。 emacs-lisp の練習にちょうどいい。
+** モードをカスタマイズする
+*** generic-mode
+    [2011-11-10 木 18:03]
+**** generic-mode 導入
+   [2011-11-10 木 18:03]
+- http://www4.kcn.ne.jp/~boochang/emacs/tips.html
+  - バッチファイルや.INIファイルのモードを追加する
+    .emacsに以下の設定を追加すれば、バッチファイル用のモード (bat-generic-mode) や .INI ファイル用のモード (ini-generic-mode) が追加されます。
+    (require 'generic-x)                    ; 一般的なファイルモード(OS 固有含む)
+    global-font-lock-mode を使用していれば色も付きます。 モードについては他
+    にもいろいろあります。 どのようなものがあるか知りたい場合は、一覧が変数
+    generic-mode-list に格納されているので調べてみて下さい。 (なお、当然で
+    すが、bat-generic-mode などは Windows 用です。 UNIX 用には別のモードが
+    用意されています)
+- (require 'generic-x)
+- generic-mode-list
+  - Its value is ("show-tabs-generic-mode" "rul-generic-mode"
+    "rc-generic-mode" "java-properties-generic-mode"
+    "java-manifest-generic-mode" "vrml-generic-mode"
+    "javascript-generic-mode" "bat-generic-mode" "reg-generic-mode"
+    "ini-generic-mode" "inf-generic-mode" "hosts-generic-mode"
+    "apache-log-generic-mode" "apache-conf-generic-mode"
+    "default-generic-mode")
+- http://www.bookshelf.jp/soft/meadow_41.html
+  - (require 'generic-x)
+    (setq auto-mode-alist (append (list
+                               '("\\.bat$" . bat-generic-mode)
+                               '("\\.ini$" . ini-generic-mode)
+                               auto-mode-alist)))
+- [[file:~/.emacs.d/inits/my-generic-mode.el::generic-x]]
+- http://www.emacswiki.org/emacs/GenericMode
+  - When editing the init files of obscure programs, I often add the following to the first line of the file:
+    # -*- mode: default-generic -*-
+**** バッチファイル
+    [2011-11-10 木 18:04]
+- [[file:~/tool/emacs-23.2/lisp/generic-x.el::bat-generic-mode]]
+  - bat-generic-mode              M-x ... RET
+    Generic mode for MS-Windows batch files.
+  - bat-generic-mode-compile      C-c C-c
+    Run the current BAT file in a compilation buffer.
+[2011-11-10 木 17:56]
+**** モードを作る
+    [2011-11-10 木 18:04]
+- http://d.hatena.ne.jp/buzztaiki/20101219/1292729262
+  - generic.elで俺々モードを作る
+  - generic.el はハイライト程度の簡単なメジャーモードをお手軽に作るためのライブラリです。
+*** AddKeywords
+    [2011-11-10 木 18:26]
+- http://www.emacswiki.org/emacs/AddKeywords
+- (font-lock-add-keywords 'emacs-lisp-mode '(("nil" . font-lock-keyword-face)))
+- [[file:~/.emacs.d/inits/my-emacs-lisp-mode.el::font-lock-add-keywords]]
+- [[file:~/.emacs.d/inits/my-programming-defun.el::font-lock-add-keywords]]
+** MS-Windows
+   [2011-11-10 木 18:14]
+*** 編集中はマウスカーソルが邪魔なのでどうにかする
+- http://www4.kcn.ne.jp/~boochang/emacs/tips.html
+  - (mouse-avoidance-mode)
+- 透過マウスカーソルにしておけばあまり邪魔ではない。
+- 移動したカーソルを元の位置に戻す方が面倒。
+*** w32- で始まる変数名一覧
+- w32-allow-system-shell
+  - Disable startup warning when using "system" shells.
+- w32-alt-is-meta
+- w32-ansi-code-page
+- w32-apps-modifier
+- w32-bdf-filename-alist
+- w32-capslock-is-shiftlock
+- w32-charset-info-alist
+- w32-color-map
+- w32-downcase-file-names
+- w32-enable-caps-lock
+- w32-enable-num-lock
+- w32-enable-palette
+- w32-enable-synthesized-fonts
+- w32-fixed-font-alist
+- w32-get-true-file-attributes
+- w32-grab-focus-on-raise
+- w32-initialized
+- w32-list-proportional-fonts
+- w32-lwindow-modifier
+- w32-mouse-button-tolerance
+- w32-mouse-move-interval
+- w32-num-mouse-buttons
+- w32-pass-alt-to-system
+- w32-pass-apps-to-system
+- w32-pass-extra-mouse-buttons-to-system
+- w32-pass-lwindow-to-system
+- w32-pass-multimedia-buttons-to-system
+- w32-pass-rwindow-to-system
+- w32-phantom-key-code
+- w32-pipe-read-delay
+- w32-quit-key
+- w32-quote-process-args
+- w32-recognize-altgr
+- w32-rwindow-modifier
+- w32-scroll-lock-modifier
+- w32-standard-fontset-spec
+- w32-start-process-inherit-error-mode
+- w32-start-process-share-console
+- w32-start-process-show-window
+- w32-strict-fontnames
+- w32-strict-painting
+- w32-swap-mouse-buttons
+- w32-system-coding-system
+- w32-system-shells
+- w32-use-full-screen-buffer
+- w32-use-visible-system-caret
+- w32-font-dialog
+- w32-valid-locales
+** ido-mode                                                        :ido_mode:
+   [2011-11-17 木 11:07]
+*** ido-mode 導入
+    [2011-11-17 木 11:07]
+- ido-mode を常に使うなら、
+  (when (require 'ido)
+    (ido-mode t)
+    )
+- ido-mode off にして、必要なときだけコマンドを起動するなら、
+  (global-set-key (kbd "C-x z f") 'find-file)
+  (when (require 'ido)
+  (global-set-key (kbd "C-x z i") 'ido-find-file)
+    )
+- ffap, iswitch などとキーバインドが重複するので注意。
+- http://d.hatena.ne.jp/tunefs/20060422/p1
+  - ido-modeを使うときは、iswitchbやdired-x、ffapなどは無効化しておいた方が良い。
+- http://d.hatena.ne.jp/tunefs/20060426/p1
+  - C-x C-f の後、C-d でdired
+  - C-x C-f の後、C-b でswitch-buffer
+  - C-x C-f の後、C-f で通常のfind-file
+  - C-x b の後、C-f でido-find-file
+- http://www.bookshelf.jp/soft/meadow_23.html
+  - (ido-mode 'file)
+  - (ido-mode 'buffer)
+- anything を使っているなら不要。
+** Emacs-gnupack
+   [2011-11-17 木 14:23]
+*** インストール
+    [2011-11-17 木 14:23]
+- [[N:\work\y2011\0103PCS\install-Dev-isfactory5.org.txt]]
+  - url: http://d.hatena.ne.jp/t0m0_tomo/20101208/1291782058
+  - url: http://gnupack.sourceforge.jp/docs/current/UsersGuide_introduction.html
+  - from: N:\tool\gnupack
+  - to: N:\tool\gnupack
+  - installer: no. 展開するだけ。
+- rgrep
+  - 日本語文字列を検索できる。ただし、「grep: NUL: No such file or directory」が大量に出る。
+  - coding を調べる。
+- フォントが見づらい。変更すればいいか。
+** speedbar 関連
+   [2011-11-25 金 18:24]
+*** nw 環境でも使いたい
+    [2011-11-25 金 18:24]
+- http://d.hatena.ne.jp/wadap/20100828/1282984286
+  - nw 環境でも使いたい
+- http://www.emacswiki.org/emacs/sr-speedbar.el
+- [[file:~/.emacs.d/inits/my-sr-speedbar.el::sr-speedbar]]
+- [[~/.emacs.d/auto-install/sr-speedbar.el]]
+- M-x install-elisp-from-emacswiki "sr-speedbar.el"
+** bluewind                                                        :bluewind:
+   :LOGBOOK:
+   - Note taken on [2011-12-16 金 12:58] \\
+   :END:
+   [2011-12-16 金 12:57]
+*** TODO emacs から bluewind を呼び出す
+    [2011-12-16 金 12:58]
+- 今は手動でやっている。ファイル絶対パスや URL をいったんクリップボードにコピーしてから bluewind にペースト。
+*** DONE bluewind から emacs を呼び出す
+    CLOSED: [2012-01-20 金 16:30]
+    [2011-12-16 金 12:58]
+- 単純に emacs でファイルを開くだけなら、 bluewind://ClientEmacs.Exe
+*** TODO BluewindHistory を anything.el で検索する
+    [2011-12-16 金 12:06]
+- アイデア源
+  - [[http://d.hatena.ne.jp/rubikitch/20091208/anythingzsh][anything.elを使ってzshの履歴検索をする - (rubikitch loves (Emacs Ruby CUI Books))]]
+    - zshのコマンドラインからanythingで履歴検索するコードを書いてみた。
+    - これは shell から anything を活用するものだ。 bluewind から同様のことはできるのか？
+- 逆もやりたい。 bluewind がインクリメンタルサーチする対象は「登録済みキーワード」まで。
+  対象を履歴に拡大したい。そうすれば、ファイルパスやURLなどを再利用できる。
+  - BluewindHistory => [[N:\tool\bluewind\Users\nakamura\History.txt]]
+  - 究極的には Quicksilver のようになる？ 全ての検索を1箇所に統合する。
+- どのみち Bluewind をいったん終了するまで BluewindHistory は更新されない。
+  - emacs 起動バッチファイルで、 BluewindHistory から .recentf に転記すればいい？
+    - recentf-save-file Its value is "~/.emacs.d/.recentf"
+    - ~/.emacs.d/.recentf
+    - [[N:\.emacs.d\runEmacs.bat]]
+*** TODO org-mode hyperlink に bluewind scheme を追加する
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-27 金 16:10]
+    :END:
+- "bluewind://]phpMyAdmin_bodais_cloud" を bluewind /paste で実行する。
+** color-moccur.el
+   [2011-12-17 土 16:09]
+*** DONE color-moccur.el 導入
+   CLOSED: [2011-12-17 土 16:13]
+   [2011-12-19 月 10:55]
+- copy N:\.emacs.d-d20110210\inits\my-color-moccur.el [[N:\.emacs.d\inits\my-color-moccur.el]]
+*** DONE 日本語検索成功
+    CLOSED: [2012-08-09 木 18:47]
+    [2011-12-19 月 10:56]
+- anything-c-moccur-occur-by-moccur 日本語検索成功
+- anything-c-moccur-dmoccur 日本語検索失敗
+*** TODO 検索対象
+    [2011-12-19 月 10:57]
+- emacs の auto save file も検索対象に入れてしまう。 例: #my-color-moccur.el#
+- ack のように除外ファイル名を指定したい。
+- サブディレクトリは検索対象にしたいが、ならない。
+** anything.el                                                  :anything_el:
+   [2011-12-14 水 14:04]
+*** DONE anything.el 導入1
+    CLOSED: [2011-12-16 金 11:58]
+    [2011-12-14 水 14:04]
+- http://d.hatena.ne.jp/rubikitch/20100718/anything
+- M-x auto-install-batch
+  anything
+- [[~/.emacs.d/inits/my-anything-minimal.el]]
+  - 手順書どおりだと失敗する。原因不明。
+  - 他の elisp が阻害しているのかもしれない。いったん、他の elisp を全て無効にしてから試す。
+*** DONE anything.el 導入2
+    CLOSED: [2011-12-16 金 11:58]
+    [2011-12-15 木 14:48]
+- 実験する。 他の elisp をなくして最小構成にしてから開始。
+- 手順
+  - 起動する
+    - chdir [[N:\tool\emacs.d-d20111215-anything]]
+      - set HOME=N:\tool\emacs.d-d20111215-anything
+      - [[N:\tool\emacs.d-d20111215-anything\runEmacs.bat]]
+  - version を確認する。
+    - version: GNU Emacs 23.2.1 (i386-mingw-nt5.1.2600)
+  - install-elisp-from-emacswiki コマンドがまだない。 auto-install.el を使えるようにする。
+    - cf. http://d.hatena.ne.jp/rubikitch/20091221/autoinstall
+    - http://www.emacswiki.org/emacs/download/auto-install.el をダウンロードする。
+      <cmd> N:\download\Emacs\plugin\www.emacswiki.org>wget http://www.emacswiki.org/emacs/download/auto-install.el
+    - copy N:\download\Emacs\plugin\www.emacswiki.org\auto-install.el %HOME%\.emacs.d\elisp
+    - .emacs.d\init.el に追記する。
+      (add-to-list 'load-path "~/.emacs.d/elisp")
+      (add-to-list 'load-path "~/.emacs.d/auto-install")
+      (require 'auto-install)
+      (setq auto-install-directory "~/.emacs.d/auto-install/")
+      (auto-install-update-emacswiki-package-name t)
+      (auto-install-compatibility-setup)
+  - anything をインストールする。
+    - cf. http://d.hatena.ne.jp/rubikitch/20100718/anything
+    - M-x auto-install-batch anything
+  - インストール完了後、 (anything-M-x), や C-h m を試す。
+    - ここでも error 発生する。
+    - M-x だけなら発生しない。
+  - そもそも、 M-x auto-install-batch anything でバージョンを指定できないのか？
+    - N:\.emacs.d-d20110210\auto-install\anything.el を見ると、changelogのURLが書いてある。ここにリポジトリがあるかもしれない。
+    - http://repo.or.cz/w/anything-config.git/history/master:/anything.el
+    - できなさそうだ。過去バージョンをダウンロード入手する方法はあきらめる。
+- 仮説 2011年2月に使っていたバージョンを復元してみる。
+  - winmerge N:\.emacs.d-d20110210\auto-install N:\tool\emacs.d-d20111215-anything\.emacs.d\auto-install
+  - 前者 (setq anything-version "1.286") , 後者 (defvar anything-version "1.3.6")
+  - 後者で発生したファイルを前者から抽出して使ってみる。 copy to N:\.emacs.d\auto-install
+  - [[N:\tool\emacs.d-d20111215-anything\.emacs.d\auto-install\revert-anything.bat]]
+  - ipa.el のみ N:\.emacs.d\auto-install に存在する。差異はないので支障なし。
+  - cd N:\.emacs.d\auto-install
+  - emacs 再起動、 load
+  - 成功。 error 発生しない。
+  - anything-version "1.3.6" での不具合記録を分離する。
+  - [[~/.emacs.d/memo/bugreport-anything-version-1.3.6.txt]]
+- anything.el anything-version "1.3.6" ではいろいろなアクションがある。
+  - [[~/.emacs.d/memo/bugreport-anything-version-1.3.6.txt]]
+    - occur (action ("Find file" . anything-find-many-files)
+*** DONE anything.el bug report
+    CLOSED: [2011-12-17 土 10:43]
+    [2011-12-16 金 11:58]
+- [[~/.emacs.d/memo/bugreport-anything-version-1.3.6.txt]]
+  - sent [2011-12-17 土 10:43]
+*** DONE anything.el 導入3
+    CLOSED: [2011-12-19 月 10:41]
+    [2011-12-19 月 10:34]
+- [[~/.emacs.d/memo/bugreport-anything-version-1.3.6.txt]]
+- [[N:\download\Emacs\plugin\anything\anything-config\README]]
+- http://www.emacswiki.org/cgi-bin/wiki/Anything#toc4
+- 手順
+  - $ git clone git://repo.or.cz/anything-config.git
+  - $ view README
+  - $ cp anything-config.el  anything-match-plugin.el  anything.el ~/.emacs.d/elisp/
+- 実験
+  - chdir [[N:\tool\emacs.d-d20111215-anything]]
+  - [[N:\tool\emacs.d-d20111215-anything\.emacs.d\auto-install]] を空にする。
+  - copy N:\download\Emacs\plugin\anything\anything-config\*.el N:\tool\emacs.d-d20111215-anything\.emacs.d\elisp
+  - edit [[N:\tool\emacs.d-d20111215-anything\.emacs.d\init.el]]
+    (add-to-list 'load-path "/path/to/anything/directory")
+    (require 'anything-config)
+  - 成功した！
+*** DONE anything.el 導入4
+    CLOSED: [2011-12-19 月 10:58]
+    [2011-12-19 月 10:41]
+- 本番環境に導入する。
+- anything-version 1.286 を退避する。
+  - [cmd]$ cd N:\.emacs.d\auto-install
+    [cmd]$ move *anything* ..\anything-v1.286
+- anything-version 1.3.6 を導入する。
+  - [cmd]$ copy N:\download\Emacs\plugin\anything\anything-config\*.el N:\.emacs.d\elisp
+*** DONE anything-for-files
+    CLOSED: [2011-12-19 月 11:23]
+    [2011-12-19 月 11:01]
+- locate を外したい。
+- customize anything-for-files-prefered-list
+  - default value is '(anything-c-source-ffap-line anything-c-source-ffap-guesser anything-c-source-buffers-list anything-c-source-recentf anything-c-source-bookmarks anything-c-source-file-cache anything-c-source-files-in-current-dir+ anything-c-source-locate)
+  - anything-c-source-locate を除去する。
+*** DONE elisp load する action                                    :wishlist:
+    CLOSED: [2012-05-08 火 10:31]
+    [2011-12-15 木 10:26]
+- cf. [[*%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AB%20~/.emacs.d/my-init.el%20%E3%81%AE1%E8%A1%8C%E5%80%8B%E5%88%A5%E3%83%AD%E3%83%BC%E3%83%89%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B][メニューバーに ~/.emacs.d/my-init.el の1行個別ロードを表示する]]
+- anything-for-files に "Load Emacs Lisp File" がすでにある。 at anything-version 1.3.6
+*** PENDING 新 version の機能をマージする
+    [2011-12-16 金 12:05]
+*** DONE descbinds-anything.el を試す。
+    CLOSED: [2011-12-17 土 16:06]
+    [2011-12-17 土 16:00]
+- ~/.emacs.d/auto-install/descbinds-anything.el
+- WEB+DB PRESS Vol.58 p.90
+  - descbinds-anything.el をインストールした上で、
+    (descbinds-anything-install) を有効にしていると、 C-h b によるキー
+    バインド一覧表示が Anything インタフェースに置き換わります。
+  - 関数名やキーバインドから絞り込みできる。選択するとコマンドが実行さ
+    れます。
+- [[~/.emacs.d/inits/my-anything-basis.el]]
+*** DONE anything-c-moccur を試す。
+    CLOSED: [2011-12-17 土 16:20]
+- copy N:\.emacs.d-d20110210\inits\my-anything-c-moccur.el [[N:\.emacs.d\inits\my-anything-c-moccur.el]]
+- 前提: インストール済み。 color-moccur.el
+- 実験 日本語検索
+  - (global-set-key (kbd "C-; C-c C-o") 'anything-c-moccur-occur-by-moccur) ;バッファ内検索; 日本語検索成功
+  - (global-set-key (kbd "C-; C-c C-d") 'anything-c-moccur-dmoccur) ;ディレクトリ; 日本語検索失敗
+*** TODO anything-occur で hyperlink を扱う              :wishlist:hyperlink:
+    [2011-12-19 月 11:16]
+- 今のところ、 anything-occur 選択行に Goto line して org-open-at-point して
+  いる。元の位置に戻るには pop-global-mark など。
+- Goto line する直前に mark しておけばいい。自動的に mark する方法はないか？
+- anything-occur \[\[.*xls と入力するのは面倒。
+  コマンド追加 anythig-occur-hyperlink xls のように入力したい。
+*** TODO ソース自作の練習
+    [2011-12-19 月 17:31]
+- anything-occur を手本にソースを読む。
+- [[~/.emacs.d/inits/my-anything-example.el]]
+*** TODO ソース自作の題材                                          :wishlist:
+    [2012-04-10 火 10:08]
+- 〔org-timer-start-snippet〕 を選択・実行するソース。
+- (my-org-yank-link) の拡張。現在は括弧文字は"〔〕"1種類のみ。選択可能
+  にする。もしくは、 (yank-pop) のように連続実行する度に切り替わる。
+*** TODO anything と howm 連携                                     :wishlist:
+    [2011-12-21 水 10:13]
+- howm-find-today, howm-find-yesterday, *howmM:%menu%* buffer の howm title を情報源にする。
+*** anything-follow-mode                                               :tips:
+    [2012-01-10 火 10:13]
+- C-c C-f (anything-follow-mode) on にするとカーソル移動するたびにアクションを実行する。
+  anything-for-files, anything-occur などで C-z を何度も押さなくていい。
+*** TODO my-anything-at-point
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-08 水 18:02]
+    :END:
+- [X] C-u を省略した anything-at-point
+- [ ] mark-active である場合、 region 文字列を引数に渡す。
+*** TODO anythingでのpatternにカーソル位置の単語を使う                 :tips:
+    :LOGBOOK:
+    TIMESTAMP: [2012-02-29 水 15:07]
+    :END:
+- http://d.hatena.ne.jp/sugyan/20120105/1325695371
+  - anythingでのpatternにカーソル位置の単語を使う
+  - :defaultKeywordsに何も指定されずにanythingが呼ばれた場合、
+    thing-at-pointで得たものがM-n(next-history-element)でもってくること
+    ができる、ということ。なので、minibufferのpromptは最初は空っぽでも、
+    M-nで一発でその場のカーソルの単語をもってくることができる。
+*** TODO anything-occur での action                                :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 18:53]
+    :END:
+- anything-occur C-z で選択した行を kill-ring に copy できると便利だ。
+- とりあえず、いったんジャンプして copy したあと pop mark している。
+- あちこちの行を次々 copy する用途に使いたい。
+*** TODO anythingでのpatternにregion文字列を使う
+- 「anythingでのpatternにカーソル位置の単語を使う」と似ている。
+- if `regionがactiveである` then region文字列を使う
+  else カーソル位置の単語を使う
+*** TODO anythingでのpatternに isearch で検索中の文字列を使う
+    :LOGBOOK:
+    TIMESTAMP: [2012-05-08 火 10:33]
+    :END:
+- isearch-mode で M-% (query-replace) が索中の文字列を使うのと同じことを anything で行う。
+*** TODO action getText.Exe
+    :LOGBOOK:
+    TIMESTAMP: [2012-08-02 木 10:11]
+    :END:
+- 選択したファイルの内容をクリップボードに copy する。
+- @mailbody 特化コマンド。
+  - cd N:\4-project\template\mailbody からファイルを選択する。
+  - 第1アクションが「内容をクリップボードに copy する」
+*** TODO anything-minibuffer-history                               :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2013-09-12 木 10:28]
+    :END:
+- M-x anything-minibuffer-history でミニバッファの履歴を取り出せる。
+- アクションが「現在位置に貼り付け」だけしかない。
+- こんなアクションがほしい。
+  - isearch, occur, moccur, org-occur-in-agenda-files などに文字列を渡す。
+  - kill-ring に格納する。
+  - kill-ring に追加格納する。 append-next-kill
+  - register に格納する。
+  - etc.
+*** TODO anything-regexp VS anything-occur
+- 違いは何？
+- anything-regexp からM-% (query-replace) に引継ぎ可能。
+*** TODO anything-migemo
+    :LOGBOOK:
+    TIMESTAMP: [2013-10-03 木 10:42]
+    :END:
+- http://d.hatena.ne.jp/rubikitch/20071225/anythingmigemo
+  - ただし、全候補にmigemo化されたstring-matchをかけるので遅い。正規表現をmemoizeするとか、anything-sourcesを絞るかしないといけない
+- http://d.hatena.ne.jp/Tan90909090/20120928/1348765648
+- http://www.emacswiki.org/emacs/anything-migemo.el
+- 全部 migemo すると遅い。 migemo あり/なしを両方用意しておいて選べるようにしたい。
+- anything-show-kill-ring, anything-occur あたりは日本語検索することが多い。
+- [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-anything-migemo.el]]
+  - ;; [2013-10-03 木] 未完成！ M-x my-anything-migemo しても何も出てこない。
+
+** バージョン管理                                           :version_control:
+*** TODO commit
+    [2011-12-15 木 11:02]
+- C-h a commit しても commit 系のコマンドが見当たらない。
+- vc-update などはあるのに、 vc-commit はないのか？
+- M-x vc-next-action {It is bound to C-x v v} が担当しているようだ。
+** プラットフォーム依存
+*** init.el を複数のプラットフォームで動かす
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-27 金 14:08]
+    :END:
+- http://d.hatena.ne.jp/tuto0621/20120725/1343232098
+  - .emacs.d/init.el を複数のプラットフォームで安定して動かすためのplatform-p - おんがえしの日記
+*** Windows 依存
+    [2011-12-15 木 12:26]
+**** TODO ファイルシステム
+    :LOGBOOK:
+    CLOCK: [2011-12-15 木 12:26]--[2011-12-15 木 13:01] =>  0:35
+    :END:
+    [2011-12-15 木 12:26]
+- パス名の区切り文字を変換するコマンドがほしい。 cygpath のようなもの。
+- 例
+  - p1 [[~/work/y2011/1112URI/20111215-theme/output/output_shopdata-tc101.tsv]]
+  - p2 [[n:\work\y2011\1112URI\20111215-theme\output\output_shopdata-tc101.tsv]]
+  - p1 から p2 へ変換する。 vise versa
+- dired, anything-find-files, recentf などから利用したい。
+**** TODO SendTo
+     :LOGBOOK:
+     TIMESTAMP: [2013-05-09 木 12:55]
+     :END:
+- NPO法人「大雪りばぁねっと。」関連の事件から学ぶこと：　追補 - blechmusikの日記 - http://blechmusik.hatenablog.jp/entry/2013/05/04/003700
+- http://blechmusik.xii.jp/resources/app/ahk_scripts/DropFile/
+- ショートカット, bluewind { N:\tool\DropFile\DropFile.exe Emacs N:\tool\gnupack\gnupack_basic-8.00\app\emacs\emacs\bin\emacs.exe }
+** crush
+   [2011-12-19 月 11:35]
+*** TODO recover-session
+    [2011-12-19 月 11:35]
+- M-x recover-session {It is bound to <menu-bar> <file> <recover-session>}
+- クラッシュしたあと試してみたが、効果がよく分からない。
+*** TODO recover-this-file
+    [2011-12-19 月 11:36]
+- ファイル数が多いといちいち開いてコマンド実行するのは面倒。
+- dired や recentf などから auto save file を収集して一括実行する方法はないか？
+- とりあえず、 auto-save-interval,  auto-save-timeout の数値を小さくしておくか？
+  - auto-save-interval 300 150
+  - auto-save-timeout 30 15
+** ffap
+   [2011-12-27 火 11:14]
+*** TODO ffap 不具合
+    [2011-12-27 火 11:15]
+- "N:\Isf-mine\プロジェクト\■bodais\システム開発\4.設計\インターフェース設計\コード定義〈解析エンジン〉.xls"
+  の先頭で ffap-copy-string-as-kill すると、
+  "N:\Isf-mine\プロジェクト\" までしか選択しない。
+** 他のOSとinit.elを共用する
+*** terminal で利用できないキー
+- [[~/.emacs.d/memo/emacs-in-terminal.org.txt]] : terminal で利用できないキー
+- これを考慮してキーバインドを最適化する。
+*** TODO 文字コード
+    :LOGBOOK:
+    TIMESTAMP: [2012-03-14 水 16:18]
+    :END:
+- ;; -*- coding: utf-8-dos; mode: Emacs-Lisp -*-
+  にしていると unix で warning が出て邪魔。 utf-8-unix に統一したらどうか？
+- 一括変換するスクリプトを用意する。
+  - [[N:\4-project\myscript\cygwin\dos2unix_for_emacs.sh]]
+- アルゴリズム
+  - coding を grep で調べる。
+  - case A. utf-8-dos ならば utf-8-unix に書き換えてリダイレクト。リダイレクトしたついでに LF になる。
+  - case B. utf-8-unix ならば変更しない。
+  - case C. 不明ならば変更しない。
+  - どの case を選択したかレポートする。
+*** TODO インストール自動化
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-04 水 17:38]
+    :END:
+- たとえば、 cd ~/.emacs.d/; make anything を実行すると、
+  必要なパッケージをダウンロードしてきて init.el に登録するようにしたい。
+** php
+*** DONE php-mode
+    CLOSED: [2012-04-19 木 13:53]
+    :LOGBOOK:
+    TIMESTAMP: [2012-03-14 水 16:29]
+    :END:
+- インストール手順 ubuntu
+  - http://bluestar.s32.xrea.com/text/php-mode.php
+  - http://sourceforge.net/projects/php-mode/
+  - アドレスをコピーする。
+    - 例。 http://downloads.sourceforge.net/project/php-mode/php-mode/1.5.0/php-mode-1.5.0.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fphp-mode%2F&ts=1331708277&use_mirror=jaist
+  - $ wget http://downloads.sourceforge.net/project/php-mode/php-mode/1.5.0/php-mode-1.5.0.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fphp-mode%2F&ts=1331708277&use_mirror=jaist
+  - $ unzip php-mode-1.5.0.zip
+  - $ cp *.el ~/.emacs.d/php-mode-1.5.0
+  - emacs byte-compile
+*** TODO php で which-func-mode したい
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-19 木 13:53]
+    :END:
+- 単に M-x which-func-mode するだけでは機能しない。 which-func-mode は C 言語専用？
+*** mmm-mode
+    :LOGBOOK:
+    TIMESTAMP: [2012-03-14 水 16:30]
+    :END:
+- http://bluestar.s32.xrea.com/text/php-mode.php
+  - php ファイルを読みこんだ時、デフォルトでは xml-mode で処理をします
+    が、 php のソース部分 <? と ?> で挟まれた部分だけは、 php-mode で処
+    理をする、という感じ
+*** DONE php manual URL を変更したい
+    CLOSED: [2012-05-18 金 11:50]
+    :LOGBOOK:
+    TIMESTAMP: [2012-05-18 金 11:49]
+    :END:
+- '(php-manual-url "http://www.php.net/manual/ja/")
+** el-get
+*** el-get を導入する
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-04 水 14:01]
+    :END:
+- http://www.clear-code.com/blog/2012/3/20.html
+  #+BEGIN_EXAMPLE
+  el-get
+
+  パッケージ管理ステムとして複数のソースからパッケージをインストールできるel-getを使います。el-getがない場合は自動でインストールします。
+
+  ;; 2012-03-15
+  (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+  (unless (require 'el-get nil t)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+      (end-of-buffer)
+      (eval-print-last-sexp)))
+  ;; レシピ置き場
+  (add-to-list 'el-get-recipe-path
+               (concat (file-name-directory load-file-name) "/el-get/recipes"))
+  ;; 追加のレシピ置き場
+  (add-to-list 'el-get-recipe-path
+               "~/.emacs.d/config/el-get/local-recipes")
+  #+END_EXAMPLE
+- [[file:~/.emacs.d/inits/my-el-get.el::el-get]]
+** makefile-gmake-mode
+*** DONE M-i (tab-to-tab-stop) がタブ文字入力してしまう
+    CLOSED: [2012-04-04 水 20:19]
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-04 水 20:15]
+    :END:
+- タブ文字入力するときは C-i 使う。 M-i は通常通りにタブ文字使わないでほしい。
+- 原因は、 [[file:n:/tool/gnupack/gnupack_basic-7.02/app/emacs/emacs/lisp/progmodes/make-mode.el::(setq%20indent-tabs-mode%20t)][file:n:/tool/gnupack/gnupack_basic-7.02/app/emacs/emacs/lisp/progmodes/make-mode.el::(setq indent-tabs-mode t)]]
+  ここで t に変更しているから。
+- 下記S式で修正できる。
+  - (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode nil)))
+  - やっぱり不便なので元に戻す。 indent-for-tab-command (TAB) まで影響してしまう。
+** TODO emacs 起動スクリプト
+- [[~/.emacs.d/runGnupack.bat]]
+  - [ ] ~/.emacs.d 配下にある *.el ファイルの名前と coding を書き出す。バージョン管理する。
+** flymake
+   :LOGBOOK:
+   TIMESTAMP: [2012-05-08 火 12:48]
+   :END:
+*** flymake php
+    :LOGBOOK:
+    TIMESTAMP: [2012-05-08 火 12:48]
+    :END:
+- http://www.emacswiki.org/emacs/FlymakePhp
+- http://moimoitei.blogspot.jp/2010/05/flymake-in-emacs.html
+  - ここに載っている方法が一番簡単そうだ。日本語解説付き。
+- file:~/.emacs.d/inits/my-flymake.el
+*** flymake php を試す
+** window 操作
+   :LOGBOOK:
+   TIMESTAMP: [2012-05-16 水 18:46]
+   :END:
+*** TODO winner.el
+    :LOGBOOK:
+    TIMESTAMP: [2012-05-16 水 18:47]
+    :END:
+- http://d.hatena.ne.jp/tomoya/20120512/1336832436
+  - ウィンドウ操作の履歴をundo/redoする winner.el。例えば意図せずウィン
+    ドウを閉じてしまったときに、ウィンドウを復活させたりすることができ
+    るのが winner.el です。
+** emacs.exe クラッシュ記録
+   :LOGBOOK:
+   TIMESTAMP: [2012-05-16 水 19:33]
+   :END:
+- クラッシュすると、 Eventvwr (イベントビューア) でソース Application Error のイベントが記録される。
+** 履歴
+   :LOGBOOK:
+   TIMESTAMP: [2012-05-17 木 20:15]
+   :END:
+- http://d.hatena.ne.jp/iiapp/20110319/1300539801
+  - 約3ヶ月前までEmacsの存在すら知らなかった初心者の、気合いの黒ベース環境設定 - monolog
+- http://emacswiki.org/emacs/SaveHist
+  - EmacsWiki: Save Hist
+  - To activate Savehist mode: (savehist-mode 1)
+- http://d.hatena.ne.jp/sandai/20120309/p1
+  - Emacsで扱うログやキャッシュを~/.emacs.dディレクトリ内で管理する - 三等兵
+- customize savehist-mode
+  - default: off
+  - [2012-05-17 木 20:19]: on
+- http://stackoverflow.com/questions/1229142/how-can-i-save-my-mini-buffer-history-in-emacs
+  - It's also worth pointing out that you can persist other variables across sessions by adding them to savehist-additional-variables, like so:
+  - (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
+  - You may also want to customize savehist-file, to pick the location where Emacs saves all this stuff:
+  - (setq savehist-file "~/.emacs.d/tmp/savehist")
+- customize savehist-file
+  - default: ~/.emacs.d/history
+- (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
+  を試してみた。 kill-ring は復元されなかった。他は復元された。
+  ~/.emacs.d/history の中身を見ると、 kill-ring だけ見当たらない。
+- [[file:~/.emacs.d/my-emacs-custom.el::savehist-mode]]
+*** savehist
+** ace-mode
+   :LOGBOOK:
+   TIMESTAMP: [2012-06-18 月 11:09]
+   :END:
+- ~/.emacs.d/inits/my-ace-jump-mode.el
+- http://d.hatena.ne.jp/syohex/20120304/1330822993
+*** CANCELLED 句読点
+    CLOSED: [2012-08-09 木 18:49]
+- tips. MS-IME のプロパティで句読点を「,.」にしておく.半角変換.これで, ace-mode で直接ジャンプできる. isearch でもいちいち IME on にしないですむ.
+  - 実際にやってみると、デメリットがあるため中止する。
+    - IME 変換状況によって全角半角が混在してしまう。人間が補正すれば統一できるが、手間がかかる。
+    - ピリオドは小数点、ファイル名拡張子、IPアドレスなど他の用途で使っている。文章句読点では全角「、。」を使ったほうが区別しやすい。
+- 全角文字にジャンプする ace-mode はないか？
+** 作図
+   :LOGBOOK:
+   TIMESTAMP: [2012-06-19 火 15:26]
+   :END:
+*** cacoo.el
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-19 火 15:26]
+    :END:
+- http://d.hatena.ne.jp/kiwanami/20110303/1299174459
+  - cacoo.el v2.0 リリース - 技術日記＠kiwanami
+  - 通信には wget 、画像変換には ImageMagick を使います。多分Emacs使っているような人は大抵入っているのではないかと思います。
+- https://github.com/kiwanami/emacs-cacoo/blob/master/README.md
+  - Cacoo (http://cacoo.com) で書いた画像を高速に検索したり、バッファの中でインラインで表示したり、編集画面をさっと開くことのできるマイナーモードです。
+- Cacoo 無料プランは保存シート数に上限25があるのがネック。
+*** picture-mode, artist-mode
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-19 火 15:27]
+    :END:
+- 無理がある。
+*** 自作
+    :LOGBOOK:
+    TIMESTAMP: [2012-06-19 火 15:27]
+    :END:
+- SVG ファイルを Firefox は表示できる。かなり遠回りか？
+** 未整理
+   [2011-08-29 月 15:54]
+*** TODO win-switch
+- url: http://www.emacswiki.org/emacs/WinSwitch
+- M-x auto-install-from-emacswiki "win-switch.el"
+- [[file:~/.emacs.d/auto-install/win-switch.el::win-switch]]
+- [[file:~/.emacs.d/inits/my-win-switch.el::win-switch]]
+- 実験中。最初は動作するが、途中から動作しなくなる。
+*** DONE visible-mark.el
+    CLOSED: [2012-08-09 木 18:50]
+    [2011-09-07 水 11:07]
+- M-x auto-install-from-emacswiki visible-mark.el
+- [[file:~/.emacs.d/auto-install/visible-mark.el::visible-mark.el]]
+- [[file:~/.emacs.d/inits/my-visible-mark.el::visible-mark-mode]]
+*** DONE seq ライクな編集
+    CLOSED: [2011-10-27 木 10:55]
+    [2011-09-12 月 12:17]
+- http://d.hatena.ne.jp/rubikitch/20110221
+  - 連番を挿入する方法
+- [[file:~/.emacs.d/inits/my-seq.el::seq]]
+*** TODO list-buffers
+    [2011-10-05 水 10:26]
+- [X] ソートするため "Mode" をクリックすると、ダイアログ「Revert buffer?」が表示されてソートされない。不具合か？
+  - [2011-12-22 木 11:12] 解消した。
+- [ ] 複数バッファを選択してまとめて revert したい。
+*** DONE カレントバッファのファイルパスをクリップボードにコピーする :wishlist:
+    CLOSED: [2012-06-01 金 16:46]
+    [2011-12-22 木 11:13]
+- (kill-new (buffer-file-name))
+- [[file:~/.emacs.d/inits/my-kill-ring-save.el::buffer-file-name]]
+*** DONE deferred.el
+   CLOSED: [2012-01-04 水 15:08]
+   [2012-01-04 水 15:03]
+- http://d.hatena.ne.jp/kiwanami/20101008/1286518936
+  - deferred.el はEmacs Lispでの非同期処理を書きやすくするためのライブラリです。
+- [[file:~/.emacs.d/inits/my-deferred.el::deferred.el]]
+*** DONE カーソル位置のシンボルをハイライトする
+    CLOSED: [2012-01-04 水 15:16]
+    [2012-01-04 水 15:08]
+- http://d.hatena.ne.jp/yuheiomori0718/20111222/1324562208
+- [[file:~/.emacs.d/inits/my-auto-highlight-symbol-mode.el]]
+*** CANCELLED Emacsでメモリ使用量から再起動をおすすめする
+    CLOSED: [2012-05-31 木 17:34]
+    [2012-01-04 水 15:17]
+- http://d.hatena.ne.jp/hitode909/20111223/1324621262
+  - 前提: deferred.el インストール済み。
+  - [[file:~/.emacs.d/inits/my-suggest-restart.el::suggest-restart.el]]
+- cygwin bash 上で ps -aef すると、 bash, ps の2プロセスしか表示されない。
+  emacs プロセスが見えないので、 suggest-restart.el は機能しない。
+*** DONE elisp deubg
+    CLOSED: [2012-05-31 木 17:34]
+   :LOGBOOK:
+   TIMESTAMP: [2012-02-27 月 15:54]
+   :END:
+- (setq debug-on-error t)
+- (setq debug-on-error nil)
+*** TODO putclip_timestamp.bat
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-05 木 10:12]
+    :END:
+- putclip_timestamp.bat と同じことをもっとすばやく実現したい。
+** TODO メール検索
+   :LOGBOOK:
+   TIMESTAMP: [2012-07-13 金 10:10]
+   :END:
+- OutlookExpress で save as したフォーマット
+  - 件名 : xxxx
+  - メリット OutlookExpress テキストからコピーペーストするだけ。
+- 独自フォーマット
+  - mail subject {xxx}
+  - occur や howm の入力が楽。
+- 前者に統一したほうがいいか？ 「 occur や howm の入力が楽。」は検索コマンドを自作すれば解決する。
+** TODO migemo                                                       :migemo:
+   :LOGBOOK:
+   TIMESTAMP: [2012-07-27 金 10:11]
+   :END:
+- もろもろの不具合 ( [[file:n:/.emacs.d/memo/emacs-bug-history.org.txt::*%E3%80%94emacs-bug-history%E3%80%95][〔emacs-bug-history〕]] )により、〔gnupack version 9.00〕は通常用途には使えない。
+- isf-mine ファイル検索専用に〔gnupack version 9.00〕を使う手がある。 migemo, anthing 有効に。
+- 〔gnupack version 9.00〕 を init.el 初期状態で起動する。
+  - 起動直後は C-s で migemo 有効。
+  - 一度 org-mode にした後は、 C-s で migemo 無効。
+  - 回避策はないか？
+  - 再起動したら解消した。
+- package-list-packages で migemo 20130310.2231 available Japanese incremental search through dynamic pattern expansion [github] がある。
+  - Windows では gnupack 使っているからとりあえず足りている。他 OS で migemo 使いたいときは試してみよう。
+** TODO iedt-mode
+   :LOGBOOK:
+   TIMESTAMP: [2012-07-27 金 14:56]
+   :END:
+- http://d.hatena.ne.jp/tototoshi/20120717/1342531319
+  - iedit-mode が便利 - tototoshiの日記
+- [[file:~/.emacs.d/inits/my-iedit-mode-package.el::my-iedit-mode.el]]
+** 日本語文字変換
+   :LOGBOOK:
+   TIMESTAMP: [2012-08-06 月 11:53]
+   :END:
+*** DONE カナ文字の全角半角、ひらがなカタカナ変換
+    CLOSED: [2012-08-06 月 11:57]
+    :LOGBOOK:
+    TIMESTAMP: [2012-08-06 月 11:54]
+    :END:
+- http://aligach.net/diary/20100316.html
+  - あーありがち - Emacsでカナ文字の全角半角、ひらがなカタカナ変換ができることを知った
+  - M-x japanese-hankaku-region
+  - M-x japanese-hiragana-region
+  - M-x japanese-katakana-region
+  - M-x japanese-zenkaku-region
+** page-break-lines
+   :LOGBOOK:
+   TIMESTAMP: [2013-02-13 水 14:04]
+   :END:
+- 導入手順
+  - M-x package-list-packages
+  - page-break-lines  20130201.1817 available Display ugly ^L page breaks as tidy horizontal lines [source: github]
+** openwith
+- 導入手順
+  - M-x package-list-packages
+  - openwith          20120531.1636 available Open files with external programs [source: hg]
+  - install 失敗した？
+#+BEGIN_EXAMPLE 
+In openwith-file-handler:
+openwith.el:95:14:Warning: reference to free variable `openwith-mode'
+openwith.el:144:1:Error: End of file during parsing
+#+END_EXAMPLE
+- カスタマイズ前
+  - jpg -> iview
+  - xls -> 外部関連付けなし
+- (describe-variable 'openwith-associations)
+- http://www.emacswiki.org/emacs/OpenWith
+* troubleshooting
+- [2011-11-04 金 11:06] 障害。 ffap で directory を開くと window 分割が解除されてしまう。なぜ？
+  - いったん、 ffap.el, dired+.el を無効にしてみる。実験中。
+- [2011-11-29 火 11:01] 今のところ、発生していない。 ffap.el 有効、 dired+.el 無効。原因は dired+.el か？
+** crush history
+   :LOGBOOK:
+   TIMESTAMP: [2012-05-14 月 10:21]
+   :END:
+- [2012-05-14 月 10:21]
+** tips
+- (repeat-complex-command ARG) It is bound to <again>, <redo>, C-x M-:, C-x M-ESC.
+  - M-n, M-p で履歴。
+  - 例。 M-x occur "string" したあと、 C-x M-ESC で再実行。 
+    S 式が mini-buffer に出るので、これを編集してから実行できる。
+    S 式をコピーしてメモに張り付けておけば、あとで再利用できる。
+* idea
+** moccur-history 
+- 目的
+  - 検索履歴を収集して索引を作る。 
+- 実現方法
+  - M-x moccur の履歴を読み取る。プログラムから読み取るのが難しければ、手動でファイルに (moccur "mine.*月例会議.*txt" nil) のように記しておき、これを grep でスキャンする。
+  - 「最近」 M-x recentf と同様のことを検索履歴に対して行う。
+  - 「ランキング」 google rank
+  - 「お気に入り」 bookmark
+  - anything-moccur-history
+- 関連
+  - [[*%E3%80%94org-mode%20%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AF%20%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%80%95][〔org-mode ハイパーリンク アクセスログ〕]]
+* tail
+  [2011-08-25 木 17:38]
+** changelog
+*** user-full-name, user-mail-address
+- add-change-log-entry docstring
+  - customize で user-full-name, user-mail-address に文字列を設定してお
+    くと、 C-x 4 a (add-change-log-entry-other-window) で挿入するときに
+    反映される。
+- C-x 4 a (add-change-log-entry-other-window) でカレントディレクトリ以
+  外の Changelog が開いてしまう。 開く Changelog を変更したい場合は、
+  M-x add-change-log-entry で Changelog の場所を指定すれば、次回からは
+  そちらが開く。
+- [emacs]ChangeLogへのエントリ追加時のフォーマットの設定 - コード溜め - http://blog.goo.ne.jp/techu1999/e/ff6e1e80a9bbb1a08f180dc47fb0fdb3
+  #+BEGIN_EXAMPLE
+  ChangeLogを編集するときにC-x 4 aでエントリを追加するときの書式等の設定。
+  emacs20系からは、日付のフォーマットが変ったので下記で以前の形式に戻せる。
+  ;;; Fri Dec  1 00:00:00 2006  
+  (setq add-log-time-format 'current-time-string) 
+  ;;; 名前
+  (setq user-full-name "Hogeo HOGEO")
+  ;;; アドレス
+  (setq user-mail-address "hogeta@hogehoge-univ.ac.jp")
+  #+END_EXAMPLE
+- add-log-time-format default is add-log-iso8601-time-string
+** compile
+- C-z ` (compile) の入力値デフォルトは前回の入力値。
+- ファイル先頭に ' (compile "make class-diagram-MaterialEntity") のような式がある場合、この式を入力値デフォルトに反映してほしい。
+- 前回の入力値を使いたい場合は M-p (previous-history-element) で。
+- http://th.nao.ac.jp/MEMBER/zenitani/elisp-j.html#smart-compile
+  #+BEGIN_QUOTE
+  M-x smart-compile を使った場合、 「*.c」というファイル名の C 言語ファイルに対しては gcc, 「*.java」の Java ファイルに対しては javac... というように、 ファイル名に応じてデフォルトのコンパイルコマンドを変えることができます。 さらに、これらのファイルに対しては、コンパイルコマンドがバッファローカルで定義されます。
+  また、コマンドをファイル中に直接書くこともできます。 smart-compile は変数 compile-command がローカルに定義されていれば、 これを使ってコンパイルコマンドを生成します。 例えば、ファイル先頭のコメント中に
+  -*- compile-command: "echo hi" -*-
+  と書いたり、ファイルの末尾のコメント文中に下のような行を書いておくと
+  Local Variables:
+  compile-command: "echo hi"
+  End: 
+  次回ファイルを開いたときから "echo hi" がコンパイルコマンドに設定されます。
+  #+END_QUOTE
+- download: http://sourceforge.jp/projects/macwiki/svn/view/zenitani/elisp/smart-compile.el?view=co&root=macwiki
+- package に似たようなのはない？
+  - M-x package-list-packages
+    #+BEGIN_QUOTE
+    11 matches for "compile" in buffer: *Packages*
+         71:  auto-async-byte-compile 20130824.1158 available Automatically byte-compile when saved [wiki]
+         74:  auto-compile      20130701.215 available Automatically compile Emacs Lisp libraries [github]
+        230:  compile-bookmarks 0.2         available  Bookmarks for compilation commands
+        953:  mode-compile      2.29        available   Smart command for compiling files
+       1014:  nrepl-decompile   20130726.1043 available Decompilation extension for nrepl.el [github]
+       1379:  smart-compile     20130917.347 available An interface to `compile' [wiki]
+       1387:  smarter-compile   2012.4.9    available  A smarter wrapper for `compile'
+       1642:  yasnippet-bundle  0.6.1       available  Yet another snippet extension (Auto compiled bundle)
+       1726:  compile                       built-in   Run compiler as inferior of Emacs, parse error messages
+       1756:  disass                        built-in   Disassembler for compiled Emacs Lisp code
+       1957:  rcompile                      built-in   Run a compilation on a remote machine
+    #+END_QUOTE
+- とりあえず、 package smart-compile を試してみる。
+  - [[file:~/.emacs.d/memo/package-history.org.txt::*%E3%80%94smart-compile%E3%80%95][〔smart-compile〕]]
+    - [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/vendor/elpa/smart-compile-20130917.347/smart-compile.el]]
+    - [[file:~/.emacs.d/inits/my-smart-compile-package.el::%3B%3B%20my-smart-compile-package.el][file:~/.emacs.d/inits/my-smart-compile-package.el::;; my-smart-compile-package.el]]

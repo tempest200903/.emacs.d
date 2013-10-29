@@ -1,0 +1,36 @@
+* emacs-crush-history
+** 2012-06-01
+  :LOGBOOK:
+  TIMESTAMP: [2012-06-01 金 14:11]
+  :END:
+- dialog
+  # ---------------------------
+  # emacs.exe - アプリケーション エラー
+  # ---------------------------
+  # "0x76f1122e" の命令が "0x00000008" のメモリを参照しました。メモリが "read" になることはできませんでした。
+  # プログラムを終了するには [OK] をクリックしてください
+  # プログラムをデバッグするには [キャンセル] をクリックしてください
+  # ---------------------------
+  # OK   キャンセル   
+  # ---------------------------
+- [[file:N:\work\y2012\0102WSS\WS-y2012-1691.JPG]]
+** 2012-06-25 Emergency
+- GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600) of 2011-08-15 on GNUPACK
+  Emergency (alloc): Warning: past 85% of memory limit
+- 頻繁に emacs がクラッシュする。
+  C-x C-c でシャットダウンする最中にもクラッシュした。
+- [[file:N:\work\y2012\0102WSS\WS-y2012-1786.JPG]]
+  問題が発生したため、 Emacs を終了します。
+- とりあえず、 my-init.el から使用頻度が低い elisp を load しない設定にした。
+- [2012-06-25 月 16:06] [[file:n:/tool/gnupack/gnupack_basic-7.02/home/.emacs.d/memo/my-emacs-customize.org.txt::*gnupack%20version%208%2000][gnupack version 8.00]] を試してみる。
+  - CPU 使用率高く応答なしになったあとクラッシュ。 XML ファイル編集すると頻度高まるようだ。
+** 2013-09-25 Emergency
+- [2013-09-25 水 11:44] Emergency (alloc): Warning: past 85% of memory limit
+- クラッシュはしていないが、5秒くらいフリーズした。
+- 対処
+  - org-agenda-files を減らす。
+  - ~/.emacs.d/my-init.el の一部を無効にする。
+- [2013-09-25 水 11:48] 10秒くらいフリーズした。
+  - タスクマネージャーで見ると emacs.exe メモリ 1,617,244 KB。 かなり多い。
+- [2013-10-03 木 12:47] memory 使用量が多すぎて busy. C-x C-c で終了できない。
+  - タスクマネージャーで見ると emacs.exe メモリ 1GB 以上。 かなり多い。強制終了した。

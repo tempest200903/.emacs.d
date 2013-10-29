@@ -1,0 +1,12 @@
+* my-emacs-org-mode-gtd                                  :emacs:org_mode:gtd:
+  :PROPERTIES:
+  :CATEGORY: 〈my-emacs-org-mode-gtd〉
+  :END:
+** 未整理
+*** PENDING 〔task status を変更する〕
+    [2013-09-04 水 10:09]
+- [[N:\download\http\private\gmail\m2013-09\EmacsOrgModeGtd-d20130829.iit.mm]]
+  - TODO を PLANNING に差し替える
+  - ACTIVE 進行中。 org-clock-in したらこのステータスに移行する
+  - NEXTACTION 次に着手可能
+  - EVENT POSTPONED or SOMEDAY に差し替える

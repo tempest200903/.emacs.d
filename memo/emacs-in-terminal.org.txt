@@ -1,0 +1,35 @@
+# -*- coding: utf-8-dos;  -*-
+* emacs-in-terminal
+#+LAST_UPDATED: 2013-09-10
+** 〔terminal で利用できないキー〕
+   :LOGBOOK:
+   TIMESTAMP: [2012-03-13 火 11:25]
+   :END:
+*** 環境
+- Windows XP, TeraTerm, Ubuntu
+- GNU Emacs 23.1.1 (i486-pc-linux-gnu, GTK+ Version 2.20.1) of 2011-03-04 on palmer, modified by Debian
+*** Alt
+- TeraTerm キーボードの設定で Meta キー on にすれば使える。
+*** describe-key でも反応しない
+- <C-/>
+  - undo を一発でできないと不便。 <C-M-z> が空いているので割り当てる。 <C-M-z> は左手に集中しすぎて押しにくい。 <C-M-]> はどうか。
+- <non-convert>, <convert>
+- <C-ファンクションキー>
+- <C-@>
+- <C-right>, <C-M-right> など
+- Super, Hyper
+- <C-1>, <C-x C-1> など
+  - <C-1> の代わりに <M-1> が使える。
+- <C-M-g>
+  - <C-g> 扱いとなる。
+*** 他のキーと区別がつかない。
+- <C-h> は <DEL> 扱いとなる。
+  - (cond (view-mode scroll-down) (t backward-delete-char-untabify))
+  - describe-key C-h 
+- <M-_> は <M-\> 扱いとなる。 (?)
+*** <M-ファンクションキー>
+- <M-F4> で TeraTerm 終了するおそれがあるので事実上使用不可。
+*** 未調査
+- <C-S-backspace>
+  - デフォルトでは kill-whole-line が割り当てられている。
+

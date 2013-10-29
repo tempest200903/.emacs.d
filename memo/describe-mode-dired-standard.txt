@@ -1,0 +1,392 @@
+Enabled minor modes: Auto-Compression Auto-Encryption Blink-Cursor
+Column-Number File-Name-Shadow Font-Lock Global-Font-Lock Line-Number
+Menu-Bar Mouse-Wheel Recentf Show-Paren Size-Indication Tooltip
+Transient-Mark
+
+(Information about these minor modes follows the major mode info.)
+
+Dired by name mode:
+Mode for "editing" directory listings.
+In Dired, you are "editing" a list of the files in a directory and
+  (optionally) its subdirectories, in the format of `ls -lR'.
+  Each directory is a page: use C-x [ and C-x ] to move pagewise.
+"Editing" means that you can run shell commands on files, visit,
+  compress, load or byte-compile them, change their file attributes
+  and insert subdirectories into the same buffer.  You can "mark"
+  files for later commands or "flag" them for deletion, either file
+  by file or all files matching certain criteria.
+You can move using the usual cursor motion commands.
+Letters no longer insert themselves.  Digits are prefix arguments.
+Instead, type d to flag a file for Deletion.
+Type m to Mark a file or subdirectory for later commands.
+  Most commands operate on the marked files and use the current file
+  if no files are marked.  Use a numeric prefix argument to operate on
+  the next ARG (or previous -ARG if ARG<0) files, or just `1'
+  to operate on the current file only.  Prefix arguments override marks.
+  Mark-using commands display a list of failures afterwards.  Type ?
+  to see why something went wrong.
+Type u to Unmark a file or all files of a subdirectory.
+Type DEL to back up one line and unflag.
+Type x to eXecute the deletions requested.
+Type RET to Find the current line's file
+  (or dired it in another buffer, if it is a directory).
+Type o to find file or dired directory in Other window.
+Type i to Insert a subdirectory in this buffer.
+Type R to Rename a file or move the marked files to another directory.
+Type C to Copy files.
+Type s to toggle Sorting by name/date or change the `ls' switches.
+Type g to read all currently expanded directories aGain.
+  This retains all marks and hides subdirs again that were hidden before.
+SPC and DEL can be used to move down and up by lines.
+
+If Dired ever gets confused, you can either type g to read the
+directories again, type l to relist a single or the marked files or a
+subdirectory, or type M-x dired-build-subdir-alist to parse the buffer
+again for the directory tree.
+
+Customization variables (rename this buffer and type C-h v on each line
+for more info):
+
+  `dired-listing-switches'
+  `dired-trivial-filenames'
+  `dired-shrink-to-fit'
+  `dired-marker-char'
+  `dired-del-marker'
+  `dired-keep-marker-rename'
+  `dired-keep-marker-copy'
+  `dired-keep-marker-hardlink'
+  `dired-keep-marker-symlink'
+
+Hooks (use C-h v to see their documentation):
+
+  `dired-before-readin-hook'
+  `dired-after-readin-hook'
+  `dired-mode-hook'
+  `dired-load-hook'
+
+Keybindings:
+key             binding
+---             -------
+
+0 .. 9          digit-argument
+e .. f          dired-find-file
+
+RET             dired-find-file
+C-n             dired-next-line
+C-o             dired-display-file
+C-p             dired-previous-line
+C-t             Prefix Command
+C-x             Prefix Command
+ESC             Prefix Command
+SPC             dired-next-line
+!               dired-do-shell-command
+#               dired-flag-auto-save-files
+$               dired-hide-subdir
+%               Prefix Command
+&               dired-do-async-shell-command
+*               Prefix Command
++               dired-create-directory
+-               negative-argument
+.               dired-clean-directory
+:               Prefix Command
+<               dired-prev-dirline
+=               dired-diff
+>               dired-next-dirline
+?               dired-summary
+A               dired-do-search
+B               dired-do-byte-compile
+C               dired-do-copy
+D               dired-do-delete
+G               dired-do-chgrp
+H               dired-do-hardlink
+L               dired-do-load
+M               dired-do-chmod
+O               dired-do-chown
+P               dired-do-print
+Q               dired-do-query-replace-regexp
+R               dired-do-rename
+S               dired-do-symlink
+T               dired-do-touch
+U               dired-unmark-all-marks
+X               dired-do-shell-command
+Z               dired-do-compress
+^               dired-up-directory
+a               dired-find-alternate-file
+d               dired-flag-file-deletion
+g               revert-buffer
+h               describe-mode
+i               dired-maybe-insert-subdir
+j               dired-goto-file
+k               dired-do-kill-lines
+l               dired-do-redisplay
+m               dired-mark
+n               dired-next-line
+o               dired-find-file-other-window
+p               dired-previous-line
+q               quit-window
+s               dired-sort-toggle-or-edit
+t               dired-toggle-marks
+u               dired-unmark
+v               dired-view-file
+w               dired-copy-filename-as-kill
+x               dired-do-flagged-delete
+y               dired-show-file-type
+~               dired-flag-backup-files
+DEL             dired-unmark-backward
+<down>          dired-next-line
+<follow-link>   mouse-face
+<mouse-2>       dired-mouse-find-file-other-window
+<remap>         Prefix Command
+<up>            dired-previous-line
+
+C-t C-t         image-dired-dired-insert-marked-thumbs
+C-t .           image-dired-display-thumb
+C-t a           image-dired-display-thumbs-append
+C-t c           image-dired-dired-comment-files
+C-t d           image-dired-display-thumbs
+C-t e           image-dired-dired-edit-comment-and-tags
+C-t f           image-dired-mark-tagged-files
+C-t i           image-dired-dired-display-image
+C-t j           image-dired-jump-thumbnail-buffer
+C-t r           image-dired-delete-tag
+C-t t           image-dired-tag-files
+C-t x           image-dired-dired-display-external
+
+C-x C-q         dired-toggle-read-only
+
+C-M-d           dired-tree-down
+C-M-n           dired-next-subdir
+C-M-p           dired-prev-subdir
+C-M-u           dired-tree-up
+M-$             dired-hide-all
+M-=             dired-backup-diff
+M-s             Prefix Command
+M-{             dired-prev-marked-file
+M-}             dired-next-marked-file
+M-DEL           dired-unmark-all-files
+
+M-s a           Prefix Command
+M-s f           Prefix Command
+
+% &             dired-flag-garbage-files
+% C             dired-do-copy-regexp
+% H             dired-do-hardlink-regexp
+% R             dired-do-rename-regexp
+% S             dired-do-symlink-regexp
+% d             dired-flag-files-regexp
+% g             dired-mark-files-containing-regexp
+% l             dired-downcase
+% m             dired-mark-files-regexp
+% r             dired-do-rename-regexp
+% u             dired-upcase
+
+* C-n           dired-next-marked-file
+* C-p           dired-prev-marked-file
+* !             dired-unmark-all-marks
+* %             dired-mark-files-regexp
+* *             dired-mark-executables
+* /             dired-mark-directories
+* ?             dired-unmark-all-files
+* @             dired-mark-symlinks
+* c             dired-change-marks
+* m             dired-mark
+* s             dired-mark-subdir-files
+* t             dired-toggle-marks
+* u             dired-unmark
+* DEL           dired-unmark-backward
+
+: d             epa-dired-do-decrypt
+: e             epa-dired-do-encrypt
+: s             epa-dired-do-sign
+: v             epa-dired-do-verify
+
+<remap> <advertised-undo>       dired-undo
+<remap> <undo>                  dired-undo
+
+M-s f C-s       dired-isearch-filenames
+M-s f ESC       Prefix Command
+
+M-s a C-s       dired-do-isearch
+M-s a ESC       Prefix Command
+
+M-s f C-M-s     dired-isearch-filenames-regexp
+
+M-s a C-M-s     dired-do-isearch-regexp
+
+
+
+Auto-Compression minor mode (no indicator):
+Toggle automatic file compression and uncompression.
+With prefix argument ARG, turn auto compression on if positive, else off.
+Return the new status of auto compression (non-nil means on).
+
+Auto-Encryption minor mode (no indicator):
+Toggle automatic file encryption and decryption.
+With prefix argument ARG, turn auto encryption on if positive, else off.
+Return the new status of auto encryption (non-nil means on).
+
+Blink-Cursor minor mode (no indicator):
+Toggle blinking cursor mode.
+With a numeric argument, turn blinking cursor mode on if ARG is positive,
+otherwise turn it off.  When blinking cursor mode is enabled, the
+cursor of the selected window blinks.
+
+Note that this command is effective only when Emacs
+displays through a window system, because then Emacs does its own
+cursor display.  On a text-only terminal, this is not implemented.
+
+Column-Number minor mode (no indicator):
+Toggle Column Number mode.
+With ARG, turn Column Number mode on if ARG is positive,
+otherwise turn it off.  When Column Number mode is enabled, the
+column number appears in the mode line.
+
+File-Name-Shadow minor mode (no indicator):
+Toggle File-Name Shadow mode.
+When active, any part of a filename being read in the minibuffer
+that would be ignored (because the result is passed through
+`substitute-in-file-name') is given the properties in
+`file-name-shadow-properties', which can be used to make
+that portion dim, invisible, or otherwise less visually noticeable.
+
+With prefix argument ARG, turn on if positive, otherwise off.
+Returns non-nil if the new state is enabled.
+
+Font-Lock minor mode (no indicator):
+Toggle Font Lock mode.
+With arg, turn Font Lock mode off if and only if arg is a non-positive
+number; if arg is nil, toggle Font Lock mode; anything else turns Font
+Lock on.
+(Font Lock is also known as "syntax highlighting".)
+
+When Font Lock mode is enabled, text is fontified as you type it:
+
+ - Comments are displayed in `font-lock-comment-face';
+ - Strings are displayed in `font-lock-string-face';
+ - Certain other expressions are displayed in other faces according to the
+   value of the variable `font-lock-keywords'.
+
+To customize the faces (colors, fonts, etc.) used by Font Lock for
+fontifying different parts of buffer text, use M-x customize-face.
+
+You can enable Font Lock mode in any major mode automatically by turning on in
+the major mode's hook.  For example, put in your ~/.emacs:
+
+ (add-hook 'c-mode-hook 'turn-on-font-lock)
+
+Alternatively, you can use Global Font Lock mode to automagically turn on Font
+Lock mode in buffers whose major mode supports it and whose major mode is one
+of `font-lock-global-modes'.  For example, put in your ~/.emacs:
+
+ (global-font-lock-mode t)
+
+Where major modes support different levels of fontification, you can use
+the variable `font-lock-maximum-decoration' to specify which level you
+generally prefer.  When you turn Font Lock mode on/off the buffer is
+fontified/defontified, though fontification occurs only if the buffer is
+less than `font-lock-maximum-size'.
+
+To add your own highlighting for some major mode, and modify the highlighting
+selected automatically via the variable `font-lock-maximum-decoration', you can
+use `font-lock-add-keywords'.
+
+To fontify a buffer, without turning on Font Lock mode and regardless of buffer
+size, you can use M-x font-lock-fontify-buffer.
+
+To fontify a block (the function or paragraph containing point, or a number of
+lines around point), perhaps because modification on the current line caused
+syntactic change on other lines, you can use M-o M-o.
+
+See the variable `font-lock-defaults-alist' for the Font Lock mode default
+settings.  You can set your own default settings for some mode, by setting a
+buffer local value for `font-lock-defaults', via its mode hook.
+
+The above is the default behavior of `font-lock-mode'; you may specify
+your own function which is called when `font-lock-mode' is toggled via
+`font-lock-function'. 
+
+Global-Font-Lock minor mode (no indicator):
+Toggle Font-Lock mode in every possible buffer.
+With prefix ARG, turn Global-Font-Lock mode on if and only if
+ARG is positive.
+Font-Lock mode is enabled in all buffers where
+`turn-on-font-lock-if-desired' would do it.
+See `font-lock-mode' for more information on Font-Lock mode.
+
+Line-Number minor mode (no indicator):
+Toggle Line Number mode.
+With ARG, turn Line Number mode on if ARG is positive, otherwise
+turn it off.  When Line Number mode is enabled, the line number
+appears in the mode line.
+
+Line numbers do not appear for very large buffers and buffers
+with very long lines; see variables `line-number-display-limit'
+and `line-number-display-limit-width'.
+
+Menu-Bar minor mode (no indicator):
+Toggle display of a menu bar on each frame.
+This command applies to all frames that exist and frames to be
+created in the future.
+With a numeric argument, if the argument is positive,
+turn on menu bars; otherwise, turn off menu bars.
+
+Mouse-Wheel minor mode (no indicator):
+Toggle mouse wheel support.
+With prefix argument ARG, turn on if positive, otherwise off.
+Return non-nil if the new state is enabled.
+
+Recentf minor mode (no indicator):
+Toggle recentf mode.
+With prefix argument ARG, turn on if positive, otherwise off.
+Returns non-nil if the new state is enabled.
+
+When recentf mode is enabled, it maintains a menu for visiting files
+that were operated on recently.
+
+Show-Paren minor mode (no indicator):
+Toggle Show Paren mode.
+With prefix ARG, turn Show Paren mode on if and only if ARG is positive.
+Returns the new status of Show Paren mode (non-nil means on).
+
+When Show Paren mode is enabled, any matching parenthesis is highlighted
+in `show-paren-style' after `show-paren-delay' seconds of Emacs idle time.
+
+Size-Indication minor mode (no indicator):
+Toggle Size Indication mode.
+With ARG, turn Size Indication mode on if ARG is positive,
+otherwise turn it off.  When Size Indication mode is enabled, the
+size of the accessible part of the buffer appears in the mode line.
+
+Tooltip minor mode (no indicator):
+Toggle Tooltip mode.
+With ARG, turn Tooltip mode on if and only if ARG is positive.
+When this minor mode is enabled, Emacs displays help text
+in a pop-up window for buttons and menu items that you put the mouse on.
+(However, if `tooltip-use-echo-area' is non-nil, this and
+all pop-up help appears in the echo area.)
+
+When Tooltip mode is disabled, Emacs displays one line of
+the help text in the echo area, and does not make a pop-up window.
+
+Transient-Mark minor mode (no indicator):
+Toggle Transient Mark mode.
+With ARG, turn Transient Mark mode on if ARG is positive, off otherwise.
+
+In Transient Mark mode, when the mark is active, the region is highlighted.
+Changing the buffer "deactivates" the mark.
+So do certain other operations that set the mark
+but whose main purpose is something else--for example,
+incremental search, <, and >.
+
+You can also deactivate the mark by typing C-g or
+M-ESC ESC.
+
+Many commands change their behavior when Transient Mark mode is in effect
+and the mark is active, by acting on the region instead of their usual
+default part of the buffer's text.  Examples of such commands include
+M-;, M-x flush-lines, M-x keep-lines, M-%, C-M-%, M-x ispell, and C-x u.
+Invoke C-h d and type "transient" or
+"mark.*active" at the prompt, to see the documentation of
+commands which are sensitive to the Transient Mark mode.
+
+[back]

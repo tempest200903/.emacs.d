@@ -1,0 +1,140 @@
+#+LAST_UPDATED: 2013-10-28
+* 〔my-org-mode-history〕                                           :private:
+  :PROPERTIES:
+  :CATEGORY: 〈my-org-mode-history〉
+  :END:
+** 〔org-mode version 8.0.7 を試す〕
+- 目的:  n:/howm/2013/09/2013-09-03-114221.howm.txt 〔ORGMODE-Markdown を試す〕
+- 前に使っていた M-x org-version => Org-mode version 7.8.11
+  - "n:/tool/gnupack/gnupack_devel-11.00/app/emacs/emacs/lisp/org/org.el"
+- ダウンロード元の最新リリースは release_8.0.7
+  - http://orgmode.org/ Stable version 8.0.7 (August 2013)
+- Org-mode version 8.0.7 をダウンロードする。
+- N:\download\Emacs\plugin\org-mode\org-8.0.7.zip
+  - [[N:\download\Emacs\plugin\org-mode\]]
+- Org-mode version 7.8.11 をいったんどかす。
+  - move N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\lisp\org N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_7_8_11\emacs\lisp
+  - xcopy /e N:\download\Emacs\plugin\org-mode\org-8.0.7\lisp\* N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\lisp\org
+  - (load "N:/tool/gnupack/gnupack_devel-11.00/app/emacs/emacs/lisp/org/org.el")
+- M-x org-version => Org-mode version 8.0.7 (8.0.7-dist @ n:/tool/gnupack/gnupack_devel-11.00/app/emacs/emacs/lisp/org/)
+- make -f [[~/.emacs.d/memo/Makefile-org-mode-switch]]
+** 〔前のバージョンに戻す〕
+- [[*%E3%80%94%E4%B8%8D%E5%85%B7%E5%90%884%20%E3%83%9A%E3%83%BC%E3%82%B8%E5%86%85%E3%83%AA%E3%83%B3%E3%82%AF%20org-export%20HTML%E3%80%95][〔不具合4 ページ内リンク org-export HTML〕]] が不便なので。前のバージョンに戻す。
+- mkdir N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_8_0_7\emacs\lisp\org
+- move N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\lisp\org\* N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_8_0_7\emacs\lisp\org\
+- del /q N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\lisp\org\*
+- xcopy N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_8_0_7\emacs\lisp\org\* N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\lisp\org\
+- ※ org ディレクトリのシンボリックリンクを試したがダメだった。
+- [2013-09-10 火 14:41] いちいちファイルコピーするより、 init.el に (load) を2個書いておいて、無効にしたい方をコメントアウトすればいいのでは？
+- [[~/.emacs.d/memo/org-mode-switch.sh]]
+- [[C:\Users\nakamura\Documents\download\Emacs\gnupack\gnupack_devel-11.00\app\emacs\emacs\lisp\org\org.el]]
+  - (defconst org-version "7.8.11" "The version number of the file org.el.")
+** 不具合
+*** 〔不具合1 M-x org-customize〕
+- org-mode version 8.0.7
+- M-x org-customize が失敗する。
+  - message: setq: Cannot open load file: org-remember
+  - Org-mode version 7.8.11 にはある。
+    - N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_7_8_11\emacs\lisp\org\org-remember.el
+  - Org-mode version 8.0.7 にはない。
+    - N:\download\Emacs\plugin\org-mode\org-8.0.7\lisp
+  - 暫定処置。
+    - copy N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_7_8_11\emacs\lisp\org\org-remember.el N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\lisp\org
+    - これで解消した。
+*** DONE 〔不具合2 anything-org-keywords〕
+    CLOSED: [2013-09-05 木 19:03]
+    :LOGBOOK:
+    CLOCK: [2013-09-05 木 18:55]--[2013-09-05 木 19:03] =>  0:08
+    CLOCK: [2013-09-05 木 18:37]--[2013-09-05 木 18:51] =>  0:14
+    :END:
+- org-mode version 8.0.7
+- (anything-org-keywords) { It is bound to C-t C-c C-y } 
+- message: org-split-string: Symbol's function definition is void: org-get-current-options
+- message: org-split-string: Symbol's function definition is void: org-get-current-options
+- [[file:~/.emacs.d/inits/my-org-mode-map.el::anything-org-keywords]]
+- [[file:~/.emacs.d/elisp/anything-config.el::defun%20anything-org-keywords][file:~/.emacs.d/elisp/anything-config.el::defun anything-org-keywords]]
+- [[file:~/.emacs.d/elisp/anything-config.el::defun%20anything-c-org-keywords-init][file:~/.emacs.d/elisp/anything-config.el::defun anything-c-org-keywords-init]]
+#+BEGIN_EXAMPLE
+(defun anything-c-org-keywords-init ()
+  (unless (anything-attr 'keywords-examples)
+    (require 'org)
+    (anything-attrset 'keywords-examples
+                      (append
+                       (mapcar
+                        (lambda (x)
+                          (string-match "^#\\+\\(\\([A-Z_]+:?\\).*\\)" x)
+                          (cons (match-string 2 x) (match-string 1 x)))
+                        (org-split-string (org-get-current-options) "\n"))
+                       (mapcar 'list org-additional-option-like-keywords)))
+#+END_EXAMPLE
+- org-split-string が org-mode version 8.0.7 にはない。
+- cd 'N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_7_8_11\emacs\lisp'
+- "defun org-get-current-options"
+  - ack -a "defun org-get-current-options"
+  - [[N:\tool\gnupack\gnupack_devel-11.00\app\emacs_org_7_8_11\emacs\lisp\org\org-exp.el]]
+  - [[file:n:/tool/gnupack/gnupack_devel-11.00/app/emacs_org_7_8_11/emacs/lisp/org/org-exp.el::defun%20org-get-current-options][file:n:/tool/gnupack/gnupack_devel-11.00/app/emacs_org_7_8_11/emacs/lisp/org/org-exp.el::defun org-get-current-options]]
+  - 暫定対処。ここにべた書きする。
+    - [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-anything-c-static-keywords.el]]
+*** TODO 〔不具合3 BEGIN_EXAMPLE Mark〕
+    :LOGBOOK:
+    CLOCK: [2013-09-05 木 19:08]--[2013-09-05 木 19:09] =>  0:01
+    :END:
+- "#+BEGIN_EXAMPLE" - "#+END_EXAMPLE" の間で C-@ C-e すると Mark が消えてしまう。
+*** TODO 〔不具合4 ページ内リンク org-export HTML〕
+    :LOGBOOK:
+    CLOCK: [2013-09-18 水 13:38]--[2013-09-18 水 13:55] =>  0:17
+    :END:
+- Org-mode version 7.8.11
+  - HTML でページ内リンクになる。
+- Org-mode version 8.0.7
+  - HTML でページ内リンクにならない。
+- export 以外は新しい version を使いたい。
+- Org-mode version 8.0.7 を load して、 export だけ Org-mode version 7.8.11 を使うことができるか？
+- Org Mode マニュアル - http://orgmode.jp/doc-ja/org-ja.html#g_t_00e3_0083_0090_00e3_0083_0083_00e3_0083_0081_00e5_0087_00a6_00e7_0090_0086
+#+BEGIN_QUOTE
+  #!/bin/sh
+     # -*- mode: shell-script -*-
+     #
+     # org-mode でファイルを抽出する
+     #
+     DIR=`pwd`
+     FILES=""
+     ORGINSTALL="~/src/org/lisp/org-install.el"
+     
+     # tangleする必要があるそれぞれの引数をクォーテーションで囲む
+     for i in $@; do
+         FILES="$FILES \"$i\""
+     done
+     
+     emacs -Q --batch -l $ORGINSTALL \
+     --eval "(progn
+     (add-to-list 'load-path (expand-file-name \"~/src/org/lisp/\"))
+     (add-to-list 'load-path (expand-file-name \"~/src/org/contrib/lisp/\"))
+     (require 'org)(require 'org-exp)(require 'ob)(require 'ob-tangle)
+     (mapc (lambda (file)
+            (find-file (expand-file-name file \"$DIR\"))
+            (org-babel-tangle)
+            (kill-buffer)) '($FILES)))" 2>&1 |grep tangled
+#+END_QUOTE
+- [[~/.emacs.d/script/emacs-batch-sample101.sh]]
+- M-x org-export-as-html-batch
+#+BEGIN_EXAMPLE
+org-export-as-html-batch is a compiled Lisp function in `org-html.el'.
+
+(org-export-as-html-batch)
+
+Call the function `org-export-as-html'.
+This function can be used in batch processing as:
+emacs   --batch
+        --load=$HOME/lib/emacs/org.el
+        --eval "(setq org-export-headline-levels 2)"
+        --visit=MyFile --funcall org-export-as-html-batch
+
+[back]
+#+END_EXAMPLE
+** 〔org-mode version 8.0.3 を試す〕
+   :LOGBOOK:
+   TIMESTAMP: [2013-09-17 火 10:37]
+   :END:
+- [[N:\download\http\private\gmail\m2013-09\EmacsOrgModeReleaseNote-d20130829.iit.mm]]
+  - Allow writing an agenda to an .org file // Agenda を org ファイルに保存するコマンド

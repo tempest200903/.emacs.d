@@ -1,0 +1,38 @@
+# -*- coding: utf-8-unix;  -*-
+* howm-history
+** howm-1.3.9.2
+   :LOGBOOK:
+   TIMESTAMP: [2012-07-26 木 16:52]
+   :END:
+- [[N:\tool\gnupack\gnupack_basic-9.00\home\.emacs.d\howm-1.3.9.2]]
+- http://howm.sourceforge.jp/README-test-j.html#label-18
+  - 更新記録
+      C-c , e (howm-remember)
+      C-c , b (howm-list-buffers)
+      C-c , x (howm-list-mark-ring)
+      C-c , o (howm-occur)
+- [[~/.emacs.d/inits/my-howm.el]]
+- howm-directory
+** howm-1.4.1
+   :LOGBOOK:
+   TIMESTAMP: [2013-08-12 月 12:51]
+   :END:
+- 手順
+  - cd N:\download\Emacs\plugin\howm
+  - wget http://howm.sourceforge.jp/a/howm-1.4.1.tar.gz
+  - unpack
+  - move to N:\tool\gnupack\gnupack_basic-8.00\app\emacs\site-lisp\howm-1.4.1
+  - [[n:/tool/gnupack/gnupack_basic-8.00/home/.emacs.d/inits/my-howm.el]]
+    < (setq load-path (cons "~/.emacs.d/howm-1.3.9.2" load-path))
+    < (load "~/.emacs.d/howm-1.3.9.2/howm")
+    > ;
+  - emacs 再起動
+  - M-x emacs-version
+    - GNU Emacs 23.4.1 (i386-mingw-nt6.1.7601) of 2012-03-24 on VMWIN2
+  - M-x howm-version
+    - howm-1.4.1
+  - N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d\howm-1.3.9.2 を削除。
+  - svn commit: howm-1.3.9.2 から howm-1.4.1 に移行する。
+- 不具合
+  - [[file:~/.emacs.d/memo/emacs-bug-history.org.txt::*%E3%80%94Spawning%20child%20process%20%E5%A4%B1%E6%95%97%E3%81%99%E3%82%8B%E4%B8%8D%E5%85%B7%E5%90%88%E3%80%95][〔Spawning child process 失敗する不具合〕]]
+    - [2013-08-12 月 13:08] 以前は外部プロセスの起動が失敗していたが、今は失敗しなくなった。

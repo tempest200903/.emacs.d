@@ -1,0 +1,26 @@
+diff Bb N:/.emacs.d/memo/describe-mode-dired-standard.txt N:/.emacs.d/memo/describe-mode-dired-x.txt
+99a100
+> F               dired-do-find-marked-files
+101a103
+> I               dired-info
+103a106
+> N               dired-man
+110a114
+> V               dired-do-run-mail
+111a116
+> Y               dired-do-relsymlink
+160a166
+> M-!             dired-smart-shell-command
+161a168
+> M-(             dired-mark-sexp
+162a170,171
+> M-G             dired-goto-subdir
+> M-o             dired-omit-mode
+175a185
+> % Y             dired-do-relsymlink-regexp
+186a197
+> * (             dired-mark-sexp
+187a199
+> * .             dired-mark-extension
+190a203
+> * O             dired-mark-omitted

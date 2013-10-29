@@ -1,0 +1,257 @@
+* color-theme
+** 感想
+*** color-theme-standard
+- 無難な配色。
+- customize
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1579.JPG]]
+  - ボタン立体表示されない。
+*** color-theme-blue-eshell
+- anything 使用中
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1572.JPG]]
+  - カーソルが何行目にあるのか見えない。
+*** color-theme-emacs-21
+- anything 使用中
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1573.JPG]]
+  - カーソルが何行目にあるのか見える。行全体がハイライト。
+*** color-theme-midnight
+- anything 使用中
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1574.JPG]]
+  - カーソルが何行目にあるのか見える。行全体がハイライト。
+- 最終行より後ろ
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1576.JPG]]
+  - 明暗差が多すぎる。
+*** color-theme-blue-gnus
+- anything 使用中
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1575.JPG]]
+  - カーソルが何行目にあるのか見える。行全体がハイライト。
+- 最終行より後ろ
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1577.JPG]]
+  - 明暗差なし。ちょうどいい。
+*** color-theme-clarity
+- customize
+  - [[file:N:\work\y2012\0102WSS\WS-y2012-1580.JPG]]
+  - ボタン立体表示あり。
+  - 最終行より後ろに明暗差あり。
+*** color-theme-emacs-nw
+- [[file:N:\work\y2012\0102WSS\WS-y2012-1581.JPG]]
+- 地味。
+** catalog
+- apropos-command color-theme-
+  #+BEGIN_EXAMPLE 
+  color-theme-aalto-dark        M-x ... RET
+     Color theme by Jari Aalto, created 2001-03-08.
+  color-theme-aalto-light       M-x ... RET
+     Color theme by Jari Aalto, created 2001-03-08.
+  color-theme-aliceblue         M-x ... RET
+     Color theme by Girish Bharadwaj, created 2002-03-27.
+  color-theme-analyze-defun     M-x ... RET
+     Once you have a color-theme printed, check for missing faces.
+  color-theme-andreas           M-x ... RET
+     Color theme by Andreas Busch, created 2003-02-06.
+  color-theme-arjen             M-x ... RET
+     Color theme by awiersma, created 2001-08-27.
+  color-theme-bharadwaj         M-x ... RET
+     Color theme by Girish Bharadwaj, created 2001-03-28.
+  color-theme-bharadwaj-slate   M-x ... RET
+     Color theme by Girish Bharadwaj, created 2002-05-06.
+  color-theme-billw             M-x ... RET
+     Cornsilk on black.
+  color-theme-black-on-gray     M-x ... RET
+     Color theme by sbhojwani, created 2002-04-03.
+  color-theme-blippblopp        M-x ... RET
+     Color theme by Thomas Sicheritz-Ponten, created 2001-03-12.
+  color-theme-blue-eshell       M-x ... RET
+     Color theme for eshell faces only.
+  color-theme-blue-gnus         M-x ... RET
+     Color theme for gnus and message faces only.
+  color-theme-blue-mood         M-x ... RET
+     Color theme by Nelson Loyola, created 2002-04-15.
+  color-theme-blue-sea          M-x ... RET
+     The grey on midnight blue theme.
+  color-theme-calm-forest       M-x ... RET
+     Color theme by Artur Hefczyc, created 2003-04-18.
+  color-theme-charcoal-black    M-x ... RET
+     Color theme by Lars Chr. Hausmann, created 2003-03-24.
+  color-theme-clarity           M-x ... RET
+     White on black color theme by Richard Wellum, created 2003-01-16.
+  color-theme-classic           M-x ... RET
+     Color theme by Frederic Giroud, created 2001-01-18.
+  color-theme-comidia           M-x ... RET
+     Color theme by Marcelo Dias de Toledo, created 2001-12-17.
+  color-theme-compare           M-x ... RET
+     Compare two color themes.
+  color-theme-dark-blue         M-x ... RET
+     Color theme by Chris McMahan, created 2001-09-09.
+  color-theme-dark-blue2        M-x ... RET
+     Color theme by Chris McMahan, created 2002-04-12.
+  color-theme-dark-erc          M-x ... RET
+     Color theme for erc faces only.
+  color-theme-dark-font-lock    M-x ... RET
+     Color theme for font-lock faces only.
+  color-theme-dark-gnus         M-x ... RET
+     Color theme for gnus and message faces only.
+  color-theme-dark-green        M-x ... RET
+     Color theme by ces93, created 2002-03-30.
+  color-theme-dark-info         M-x ... RET
+     Color theme for info, help and apropos faces.
+  color-theme-dark-laptop       M-x ... RET
+     Color theme by Laurent Michel, created 2001-05-24.
+  color-theme-deep-blue         M-x ... RET
+     Color theme by Tomas Cerha, created 2001-11-13.
+  color-theme-describe          M-x ... RET
+     Describe color theme listed at point.
+  color-theme-digital-ofs1      M-x ... RET
+     Color theme by Gareth Owen, created 2001-06-13.
+  color-theme-emacs-21          M-x ... RET
+     Color theme used by Emacs 21.1.
+  color-theme-emacs-nw          M-x ... RET
+     Follow emacs21's color-theme, with -nw getting 100% compatibility. 
+  color-theme-euphoria          M-x ... RET
+     Color theme by oGLOWo, created 2000-04-19.
+  color-theme-example           M-x ... RET
+     Example theme. Carbon copy of color-theme-gnome contributed by Jonadab.
+  color-theme-feng-shui         M-x ... RET
+     Color theme by walterh@rocketmail.com (www.xanadb.com), created
+  color-theme-fischmeister      M-x ... RET
+     The light colors on a grey blackground.
+  color-theme-gnome             M-x ... RET
+     Wheat on darkslategrey scheme.
+  color-theme-gnome2            M-x ... RET
+     Wheat on darkslategrey scheme.
+  color-theme-goldenrod         M-x ... RET
+     Brown color theme.  Very different from the others.
+  color-theme-gray1             M-x ... RET
+     Color theme by Paul Pulli, created 2001-10-19.
+  color-theme-gray30            M-x ... RET
+     Color theme by Girish Bharadwaj, created 2002-04-22.
+  color-theme-greiner           M-x ... RET
+     Color theme by Kevin Greiner, created 2000-06-13.
+  color-theme-gtk-ide           M-x ... RET
+     Color theme by Gordon Messmer, created 2001-02-07.
+  color-theme-high-contrast     M-x ... RET
+     High contrast color theme, maybe for the visually impaired.
+  color-theme-hober             M-x ... RET
+     Does all sorts of crazy stuff.
+  color-theme-infodoc           M-x ... RET
+     Color theme by Frederic Giroud, created 2001-01-18.
+  color-theme-initialize        M-x ... RET
+     Initialize the color theme package by loading color-theme-libraries.
+  color-theme-install-at-mouse  M-x ... RET
+     Install color theme clicked upon using the mouse.
+  color-theme-install-at-point  M-x ... RET
+     Install color theme at point.
+  color-theme-install-at-point-for-current-frame M-x ... RET
+     Install color theme at point for current frame only.
+  color-theme-jb-simple         M-x ... RET
+     Color theme by jeff, created 2000-06-14.
+  color-theme-jedit-grey        M-x ... RET
+     Color theme by Gordon Messmer, created 2001-02-07.
+  color-theme-jonadabian        M-x ... RET
+     Dark blue background.
+  color-theme-jonadabian-slate  M-x ... RET
+     Another slate-and-wheat color theme by Jonadab the Unsightly One.
+  color-theme-jsc-dark          M-x ... RET
+     Color theme by John S Cooper, created 2000-06-11.
+  color-theme-jsc-light         M-x ... RET
+     Color theme by John S Cooper, created 2000-06-08.
+  color-theme-jsc-light2        M-x ... RET
+     Color theme by John S Cooper, created 2001-10-29.
+  color-theme-katester          M-x ... RET
+     Color theme by walterh@rocketmail.com, created 2001-12-12.
+  color-theme-kingsajz          M-x ... RET
+     Color theme by Olgierd "Kingsajz" Ziolko, created 2001-12-04.
+  color-theme-late-night        M-x ... RET
+     Color theme by Alex Schroeder, created 2003-08-07.
+  color-theme-lawrence          M-x ... RET
+     Color theme by lawrence mitchell <wence@gmx.li>.
+  color-theme-ld-dark           M-x ... RET
+     Dark Color theme by Linh Dang, created 2001-11-06.
+  color-theme-lethe             M-x ... RET
+     Color theme by Ivica Loncar, created 2002-08-02.
+  color-theme-marine            M-x ... RET
+     Color theme by Girish Bharadwaj, created 2001-06-22.
+  color-theme-marquardt         M-x ... RET
+     Color theme by Colin Marquardt, created 2000-10-25.
+  color-theme-matrix            M-x ... RET
+     Color theme by walterh@rocketmail.com, created 2003-10-16.
+  color-theme-midnight          M-x ... RET
+     Color theme by Gordon Messmer, created 2001-02-07.
+  color-theme-mistyday          M-x ... RET
+     Color theme by K.C. Hari Kumar, created 2001-06-13.
+  color-theme-montz             M-x ... RET
+     Color theme by Brady Montz, created 2001-03-08.
+  color-theme-oswald            M-x ... RET
+     Color theme by Tom Oswald, created 2001-04-18.
+  color-theme-parus             M-x ... RET
+     Color theme by Jon K Hellan, created 2000-11-01.
+  color-theme-pierson           M-x ... RET
+     Black on White color theme by Dan L. Pierson, created 2000-06-08.
+  color-theme-pok-wob           M-x ... RET
+     White-on-Black by S. Pokrovsky.
+  color-theme-pok-wog           M-x ... RET
+     Low-contrast White-on-Gray by S.Pokrovsky.
+  color-theme-print             M-x ... RET
+     Print the current color theme function.
+  color-theme-ramangalahy       M-x ... RET
+     Color theme by Solofo Ramangalahy, created 2000-10-18.
+  color-theme-raspopovic        M-x ... RET
+     Color theme by Pedja Raspopovic, created 2000-10-19.
+  color-theme-renegade          M-x ... RET
+     Renegade BBS styled color theme. Works well in X and terminals.
+  color-theme-resolve           M-x ... RET
+     Color theme by Damien Elmes, created 2002-04-24.
+  color-theme-retro-green       M-x ... RET
+     Plain green on black faces for those longing for the good old days.
+  color-theme-retro-orange      M-x ... RET
+     Plain orange on black faces for those longing for the good old days.
+  color-theme-robin-hood        M-x ... RET
+     `color-theme-gnome2' with navajo white on green.
+  color-theme-rotor             M-x ... RET
+     Black on Beige color theme by Jinwei Shen, created 2000-06-08.
+  color-theme-ryerson           M-x ... RET
+     White on midnightblue scheme.
+  color-theme-salmon-font-lock  M-x ... RET
+     Color theme for font-lock faces only.
+  color-theme-scintilla         M-x ... RET
+     Color theme by Gordon Messmer, created 2001-02-07.
+  color-theme-select            <menu-bar> <tools> <Color Themes>
+     Displays a special buffer for selecting and installing a color theme.
+  color-theme-shaman            M-x ... RET
+     Color theme by shaman, created 2002-11-11.
+  color-theme-simple-1          M-x ... RET
+     Black background.
+  color-theme-sitaramv-nt       M-x ... RET
+     Black foreground on white background.
+  color-theme-sitaramv-solaris  M-x ... RET
+     White on a midnight blue background.  Lots of yellow and orange.
+  color-theme-snow              M-x ... RET
+     Color theme by Nicolas Rist, created 2001-03-08.
+  color-theme-snowish           M-x ... RET
+     Color theme by Girish Bharadwaj, created 2001-05-17.
+  color-theme-standard          <M-pause>
+     Emacs default colors.
+  color-theme-submit            M-x ... RET
+     Submit your color-theme to the maintainer.
+  color-theme-subtle-blue       M-x ... RET
+     Color theme by Chris McMahan, created 2001-09-06.
+  color-theme-subtle-hacker     M-x ... RET
+     Subtle Hacker Color Theme.
+  color-theme-taming-mr-arneson M-x ... RET
+     Color theme by Erik Arneson, created 2001-06-12.
+  color-theme-taylor            M-x ... RET
+     Color theme by Art Taylor, created 2000-10-20.
+  color-theme-tty-dark          M-x ... RET
+     Color theme by Oivvio Polite, created 2002-02-01.  Good for tty display.
+  color-theme-vim-colors        M-x ... RET
+     Color theme by Michael Soulier, created 2003-03-26.
+  color-theme-whateveryouwant   M-x ... RET
+     Color theme by Fabien Penso, created 2002-05-02.
+  color-theme-wheat             M-x ... RET
+     Default colors on a wheat background.
+  color-theme-word-perfect      M-x ... RET
+     White on blue background, based on WordPerfect 5.1.
+  color-theme-xemacs            M-x ... RET
+     XEmacs standard colors.
+  color-theme-xp                M-x ... RET
+     Color theme by Girish Bharadwaj, created 2002-04-25.
+  #+END_EXAMPLE

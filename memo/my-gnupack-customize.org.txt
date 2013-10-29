@@ -1,0 +1,251 @@
+#+LAST_UPDATED: 2013-10-28
+* 〔my-gnupack-customize〕                                          :private:
+  :PROPERTIES:
+  :CATEGORY: 〈my-gnupack-customize〉
+  :END:
+** comefrom
+   [2011-11-21 月 10:35]
+- comefrom: [[file:n:/.emacs.d/memo/my-emacs-customize.org.txt::*gnupack][gnupack]]
+** シーズン1
+*** VERIFY gnupack emacs 本体 version
+   [2011-11-21 月 10:34]
+- from: N:\download\Emacs\gnupack
+- to: N:\tool\gnupack\gnupack_basic-7.02
+- 特に何も指定しないで起動すると、 HOME はここになる。
+  - [[c:/tool/gnupack/gnupack_basic-7.02/home]]
+  - HOME を変更可能か？
+  - とりあえず、しばらくは GNU Emacs 23.2.1 と gnupack_basic-7.02 を区別するため HOME はこのままにする。
+  - svn copy file:///N:/SVNrepo/.emacs.d/trunk file:///N:/SVNrepo/.emacs.d/ file:///N:/SVNrepo/.emacs.d/branches/d20111121-gnupack
+  - chdir [[N:\tool\gnupack\gnupack_basic-7.02\home\.emacs.d]]
+  - svn checkout file:///N:/SVNrepo/.emacs.d/branches/d20111121-gnupack
+  - gnupack にもともとあった init.el は gnupack-init.el にリネームした。
+  - init.el から gnupack-init.el を load する。
+- C-h C-a emacs-version
+  - 表示は GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600)
+  - GNU Emacs 23.3 であった org-mode のハイパーリンク不具合は解消しているか？
+    - Emacs 23.3.1 の不具合。 org-store-link, org-insert-link を使うとこうなる。
+      [[*][〔解析エンジンバージョン判別〕]]
+    - 解消している。
+*** tasklist
+    [2011-11-21 月 10:36]
+**** DONE emacs lisp 継承
+    CLOSED: [2011-11-21 月 10:52]
+    [2011-11-21 月 10:39]
+- emacs $HOME/.emacs.d から gnupack $HOME/.emacs.d にコピーする。
+- これは一時的な措置。最終的には emacs $HOME/.emacs.d に統合する。
+**** DONE default font
+    CLOSED: [2011-11-21 月 10:52]
+    [2011-11-21 月 10:38]
+- screenshot
+  N:\work\y2011\0102WSS\WS-y2011-1494.JPG
+  N:\work\y2011\0102WSS\WS-y2011-1493.JPG
+- emacs $HOME/.emacs.d をコピーしたら解消した。
+**** DONE init error
+    CLOSED: [2011-11-21 月 10:52]
+    [2011-11-21 月 10:48]
+- 現象
+  - error: Diary file `~/howm/2011/diary-y2011.txt' does not exist
+- 対処
+  - 変数 howm-directory の値を変更。"~/howm/" から "N:/howm/" へ。
+  - (setq howm-directory "N:/howm/")
+  - あとで元に戻す。
+  - customize "Howm Keyword File", "Howm History File" なども "~" を使っている。保留。
+- 現象
+  - M-x org-time-stamp-inactive {It is bound to C-c !} が失敗する。このとき、 *Messages* に
+    diary-check-diary-file: Diary file `~/howm/2011/diary-y2011.txt' does not exist
+    とひょうじされる。
+  - とりあえずダミーのファイルを作ることで回避する。
+**** DONE activate
+    CLOSED: [2011-11-21 月 10:52]
+    [2011-11-21 月 10:51]
+- activate N:\tool\gnupack\gnupack_basic-7.02\emacs.exe
+  だと二重起動する。
+- activate N:\tool\gnupack\gnupack_basic-7.02\app\emacs\emacs\bin\emacs.exe
+  だと二重起動しない。
+- runGnupack.bat を用意する。
+- N:\.emacs.d\runEmacs.bat
+**** DONE C-@ , が効かない
+    CLOSED: [2011-11-21 月 11:17]
+    [2011-11-21 月 10:53]
+- C-@ , が効かない。 Mark set するだけ。
+- M-x howm-menu は効く。
+- C-@ の扱いが違うのか？
+- C-@ C-h が効かない。 Mark set するだけ。
+- とりあえず、 howm prefix を変更する。
+  - [[file:~/.emacs.d/inits/my-howm.el::howm%20prefix][file:~/.emacs.d/inits/my-howm.el::howm prefix]]
+- (setq howm-prefix "\C-;") => error: Invalid modifier in string
+- (setq howm-prefix "\C-z") => 有効.
+- (setq howm-prefix "\C-^") => 有効.
+- 有効な modifier が他に見つからない。とりあえずこれでいく。
+**** PENDING grep で日本語検索
+    [2011-11-21 月 10:57]
+- ok
+- rgrep で NUL が邪魔。
+- Emacs 23.2 の .emacs.d を引き継いだら、 UTF-8 ファイルが日本語検索でヒットしない。
+  shift_jis ファイルはヒットする。
+**** VERIFY make-frame-command でフレームを作ると、背景色が黒になる
+    [2011-11-21 月 11:28]
+- [[N:\work\y2011\0102WSS\WS-y2011-1495.JPG]]
+  - 上が最初のフレーム。下があとから作ったフレーム。
+- とりあえず、  M-x apropos-command "color-theme-" でいろいろなカラーテーマが用意されている。
+  M-x color-theme-select による一覧では表示されないテーマがあるようだ。
+- M-x color-theme-standard のように実行すれば、フレーム増やしても継承される。
+- init.el に (call-interactively 'color-theme-standard) と書いても反映されない。
+- init.el に (color-theme-standard) と書いても反映されない??。
+- M-x customize "Frame Background Mode" で "automatic" から "light" に変更するとどうなる？
+**** DONE org-mode version 6.33x
+    CLOSED: [2011-11-21 月 11:43]
+    [2011-11-21 月 11:40]
+- copy N:\tool\emacs-23.2\site-lisp\org-7.7 N:\tool\gnupack\gnupack_basic-7.02\app\emacs\site-lisp
+** シーズン2
+   [2011-11-25 金 19:17]
+*** 初期状態
+    [2011-11-25 金 19:23]
+- 初期状態から開始する。
+  シーズン1の N:\tool\gnupack\gnupack_basic-7.02\home\.emacs.d を破棄。
+  いったん .emacs.d.bak に置いた。
+  リポジトリは file:///N:/SVNrepo/.emacs.d/branches/d20111121-gnupack
+- gnupack に付属した init.el を gnupack-init.el にリネームして
+  N:\tool\gnupack\gnupack_basic-7.02\home\.emacs.d
+  に配置した。それ以外は空にする。
+- リポジトリは file:///N:/SVNrepo/.emacs.d/branches/d20111125-gnupack
+- シーズン1で発生した障害の切り分けを行う。
+- 起動は N:\tool\gnupack\gnupack_basic-7.02\home\.emacs.d\runGnupack.bat で行うこと。
+- N:\tool\gnupack\gnupack_basic-7.02\home\.emacs.d\init.el には
+  (load "~/.emacs.d/gnupack-init.el")
+  だけ書いておく。
+- gnupack-init.el には自分にとっているもの、要らないものがある。
+  elisp 式単位で仕分けして移動する。
+*** customize
+    [2011-11-25 金 19:23]
+- custom-set-variables などが init.el に書き込まれる。分離したい。
+- init.el 先頭にこれを書く。
+  (setq custom-file "~/.emacs.d/my-emacs-custom.el")
+  (load custom-file)
+*** フォントを変える
+    [2011-11-26 土 10:15]
+- default "Migu 1M" から "ＭＳ ゴシック" に変更した。
+*** grep 系コマンドで日本語文字列を検索する
+    [2011-11-25 金 19:23]
+**** step.0
+     [2011-11-25 金 19:24]
+- 準備
+  - サンプルファイル
+    - 〈utf-8-dos〉             N:\tool\gnupack\gnupack_basic-7.02\home\sample\utf8-sample.txt
+    - 〈japanese-cp932-dos〉    N:\tool\gnupack\gnupack_basic-7.02\home\sample\cp932-sample.txt
+**** step.1
+- 前提条件
+  - gnupack-init.el 変更なし。
+  - C-x C-f N:\tool\gnupack\gnupack_basic-7.02\home\sample\
+***** 新規ファイルの文字コード
+      [2011-11-26 土 10:35]
+- 手順
+  - C-x C-f N:\tool\gnupack\gnupack_basic-7.02\home\sample\new.txt
+  - MS-IME で "ひらがな" と入力して保存。
+- 結果
+  - 〈utf-8-unix〉
+  - バッチファイルから入出力するために、 〈utf-8-dos〉 にしたほうがいいか？
+  - (prefer-coding-system 'utf-8-dos) してあるのに、なぜ unix ?
+***** rgrep
+     [2011-11-25 金 19:25]
+- 手順
+  - M-x rgrep ひらがな
+- 結果
+  #+BEGIN_EXAMPLE
+  find . {中略} -exec grep -i -n -e \ひ\ら\が\な {} NUL \;
+  ./cp932-sample.txt:1:cp932 ひらがな
+  grep: NUL: No such file or directory
+  grep: NUL: No such file or directory
+  #+END_EXAMPLE
+- NUL を消すには、 M-x customize '(grep-find-template "find . <X> -type f <F> -exec grep <C> -n -e <R> {} NUL \;"))
+  ここの NUL を /dev/null に書き換える。
+  変数 grep-find-template は grep.el を load する前は存在しないようだ。
+- 結果
+  〈japanese-cp932-dos〉 はヒットするが 〈utf-8-dos〉 はヒットしない。
+***** lgrep
+     [2011-11-26 土 10:11]
+- 手順
+  - C-x C-f N:\tool\gnupack\gnupack_basic-7.02\home\sample\
+  - M-x lgrep ひらがな
+- 結果
+  #+BEGIN_EXAMPLE
+  cp932-sample.txt:1:cp932 ひらがな
+  grep: NUL: No such file or directory
+  #+END_EXAMPLE
+- NUL を消すには、どうすればいい？
+- 結果
+  〈japanese-cp932-dos〉 はヒットするが 〈utf-8-dos〉 はヒットしない。
+**** emacs から外部プロセスに渡す文字列の文字コードはどれか？
+      [2011-11-26 土 10:37]
+- 手順
+  - M-x cd N:\tool\gnupack\gnupack_basic-7.02\home\sample
+  - M-! C:/WINDOWS/system32/cmd.exe /c echo ひらがな > cmd-input.txt
+- 結果
+  - 〈japanese-cp932-dos〉
+- 考察
+  - ここが cp932 ならファイルも cp932 にしないと検索ヒットしない？
+  - ack ならどうか。
+- 手順
+  - M-! perl N:/tool/perl-ack/ack-standalone.pl -a ひらがな > ack1.txt
+- 結果
+  - 〈japanese-cp932〉 のみヒット。
+- 手順
+  - cmd.exe にて N:\tool\gnupack\gnupack_basic-7.02\home\sample>N:\4-project\myscript\dos\ack-standalone.bat -a ひらがな
+- 結果
+  - 〈utf8〉 のみヒット。
+- 調査
+  - websearch emacs 外部プロセス 文字コード
+    - http://lisperblog.blogspot.com/2009/04/man.html
+      - 変数 default-process-coding-system => Its value is (cp932 . cp932)
+      - 仮説。この変数を変えてからやればよい？
+      - C-x RET c       universal-coding-system-argument
+        このコマンドの直後に実行するコマンドだけ文字コードを変える。
+- 手順
+  - C-x RET c utf-8
+  - M-! perl N:/tool/perl-ack/ack-standalone.pl -a ひらがな > ack2.txt
+- 結果
+  - 〈utf8〉 のみヒット。
+- 手順
+  - C-x RET c utf-8
+  - M-x rgrep ひらがな
+  - 全てヒットしない。
+- 手順
+  - C-x RET c utf-8
+  - M-x grep ひらがな
+  - 〈utf8〉 のみヒット。
+- 考察
+  - cmd.exe 上だと文字コードを指定する方法はない？
+  - emacs 上だと文字コードを指定する方法がある。
+  - ack 結果を grep buffer に出力したい。どうすればいい？
+- 手順
+  - C-x RET c utf-8
+  - M-x grep perl N:/tool/perl-ack/ack-standalone.pl -a ひらがな *.txt
+  - 失敗。メッセージは ack-standalone.pl: Ignoring 7 arguments on the command-line while acting as a filter.
+- 手順
+  - C-x RET c utf-8
+  - M-x grep C:/WINDOWS/system32/cmd.exe /c call N:\4-project\myscript\dos\ack-standalone.bat ひらがな
+  - 失敗。メッセージは ack-standalone.pl: Ignoring 7 arguments on the command-line while acting as a filter.
+- 考察
+  - ack の特性。パイプから入力があると、引数を無視する。
+    - N:\tool\perl-ack\ack-standalone.pl
+  - Emacs がパイプを open してしまうからか？
+  - あとで実験。 ack-standalone.bat or ack-standalone.sh に cat /dev/null > /dev/null を書いてみる。
+**** xxx
+- 手順
+  - gnupack-init.el に記された coding 関係の変数を1箇所ずついじって試す。
+*** cp932 以外の文字列を検索する 
+    [2011-11-26 土 10:30]
+- [[http://skalldan.wordpress.com/2011/11/09/ntemacs-%E3%81%A7-utf-8-%E3%81%AA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%82%92%E8%A9%A6%E8%A1%8C%E9%8C%AF%E8%AA%A4/][NTEmacs で UTF-8 な環境構築を試行錯誤 | Amrta]]
+  #+BEGIN_EXAMPLE
+  ところが、utf8.txt の末尾に以下の一文を追加したとする。
+  $ cat utf8.txt
+  % -*- coding: utf-8 -*-
+  我思う故に我あり
+  cōgitō ergō sum
+  この場合、同様にして「cōgitō」を検索しても正しい結果が返ってこない。
+  http://skalldan.files.wordpress.com/2011/11/wpid-ntemacs_grep_2.png?w=584
+  単に “c” を含む文字列がヒットしている。これは NTEmacs から外部プロ
+  セスへ引数として渡せる文字列はコードページに依存するためだそうである
+  (外部プロセスに渡せる文字列は cp932 に制限される)。
+  #+END_EXAMPLE
+

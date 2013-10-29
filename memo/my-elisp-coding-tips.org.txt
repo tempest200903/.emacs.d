@@ -1,0 +1,12 @@
+* my-elisp-coding-tips
+** interactive
+- Emacsの関数 - メモ用なWiki - Seesaa Wiki（ウィキ） - http://w.livedoor.jp/whiteflare503/d/Emacs%a4%ce%b4%d8%bf%f4
+  - `*'	カレントバッファが読み出し専用であるとエラーを通知する。 「スペシャル」。
+    - 使用例
+      #+BEGIN_EXAMPLE
+      (defun my-move-char-left ()
+        (interactive "*")
+        (transpose-chars 1)
+        (left-char 2)
+        )
+      #+END_EXAMPLE

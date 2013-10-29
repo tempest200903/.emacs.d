@@ -1,0 +1,14 @@
+* my-elisp-coding-rule
+** elisp のコーディングルール
+*** tips define-key global-map と global-set-key は同義。
+   [2011-08-24 水 15:55]
+- 検索のため、前者に統一した方がいいかも。 grep define-key で全てのキー割り当てが見つかる。
+*** ファイル構成
+    [2011-08-24 水 16:14]
+- コメントの on/off は M-; (comment-dwim) で行う。
+- 1行目は buffer local variables を記す。
+  例
+  ;; -*- coding: utf-8-dos; mode: Emacs-Lisp -*-
+- 2行目はルーラー。 C-u 70 =
+  ;; ======================================================================
+  80 桁目までに折り返すための目安。

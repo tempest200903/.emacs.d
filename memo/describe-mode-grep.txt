@@ -1,0 +1,237 @@
+Enabled minor modes: Auto-Compression Auto-Encryption Blink-Cursor
+Column-Number File-Name-Shadow Font-Lock Global-Font-Lock
+Global-Hl-Line Global-Visible-Mark Line-Number Menu-Bar Mouse-Wheel
+Recentf Show-Paren Size-Indication Tooltip Transient-Mark Visible-Mark
+
+(Information about these minor modes follows the major mode info.)
+
+Grep mode:
+Sets `grep-last-buffer' and `compilation-window-height'.
+
+In addition to any hooks its parent mode `compilation-mode' might have run,
+this mode runs the hook `grep-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+C-c             Prefix Command
+TAB             compilation-next-error
+RET             compile-goto-error
+ESC             Prefix Command
+SPC             scroll-up
+g               recompile
+n               next-error-no-select
+p               previous-error-no-select
+q               quit-window
+{               compilation-previous-file
+}               compilation-next-file
+DEL             scroll-down
+<backtab>       compilation-previous-error
+<follow-link>   mouse-face
+<mouse-2>       compile-goto-error
+
+C-c C-c         compile-goto-error
+C-c C-f         next-error-follow-minor-mode
+C-c C-k         kill-compilation
+
+M-n             compilation-next-error
+M-p             compilation-previous-error
+M-{             compilation-previous-file
+M-}             compilation-next-file
+
+
+
+Auto-Compression minor mode (no indicator):
+Toggle automatic file compression and uncompression.
+With prefix argument ARG, turn auto compression on if positive, else off.
+Return the new status of auto compression (non-nil means on).
+
+Auto-Encryption minor mode (no indicator):
+Toggle automatic file encryption and decryption.
+With prefix argument ARG, turn auto encryption on if positive, else off.
+Return the new status of auto encryption (non-nil means on).
+
+Blink-Cursor minor mode (no indicator):
+Toggle blinking cursor mode.
+With a numeric argument, turn blinking cursor mode on if ARG is positive,
+otherwise turn it off.  When blinking cursor mode is enabled, the
+cursor of the selected window blinks.
+
+Note that this command is effective only when Emacs
+displays through a window system, because then Emacs does its own
+cursor display.  On a text-only terminal, this is not implemented.
+
+Column-Number minor mode (no indicator):
+Toggle Column Number mode.
+With ARG, turn Column Number mode on if ARG is positive,
+otherwise turn it off.  When Column Number mode is enabled, the
+column number appears in the mode line.
+
+File-Name-Shadow minor mode (no indicator):
+Toggle File-Name Shadow mode.
+When active, any part of a filename being read in the minibuffer
+that would be ignored (because the result is passed through
+`substitute-in-file-name') is given the properties in
+`file-name-shadow-properties', which can be used to make
+that portion dim, invisible, or otherwise less visually noticeable.
+
+With prefix argument ARG, turn on if positive, otherwise off.
+Returns non-nil if the new state is enabled.
+
+Font-Lock minor mode (no indicator):
+Toggle Font Lock mode.
+With arg, turn Font Lock mode off if and only if arg is a non-positive
+number; if arg is nil, toggle Font Lock mode; anything else turns Font
+Lock on.
+(Font Lock is also known as "syntax highlighting".)
+
+When Font Lock mode is enabled, text is fontified as you type it:
+
+ - Comments are displayed in `font-lock-comment-face';
+ - Strings are displayed in `font-lock-string-face';
+ - Certain other expressions are displayed in other faces according to the
+   value of the variable `font-lock-keywords'.
+
+To customize the faces (colors, fonts, etc.) used by Font Lock for
+fontifying different parts of buffer text, use M-x customize-face.
+
+You can enable Font Lock mode in any major mode automatically by turning on in
+the major mode's hook.  For example, put in your ~/.emacs:
+
+ (add-hook 'c-mode-hook 'turn-on-font-lock)
+
+Alternatively, you can use Global Font Lock mode to automagically turn on Font
+Lock mode in buffers whose major mode supports it and whose major mode is one
+of `font-lock-global-modes'.  For example, put in your ~/.emacs:
+
+ (global-font-lock-mode t)
+
+Where major modes support different levels of fontification, you can use
+the variable `font-lock-maximum-decoration' to specify which level you
+generally prefer.  When you turn Font Lock mode on/off the buffer is
+fontified/defontified, though fontification occurs only if the buffer is
+less than `font-lock-maximum-size'.
+
+To add your own highlighting for some major mode, and modify the highlighting
+selected automatically via the variable `font-lock-maximum-decoration', you can
+use `font-lock-add-keywords'.
+
+To fontify a buffer, without turning on Font Lock mode and regardless of buffer
+size, you can use M-x font-lock-fontify-buffer.
+
+To fontify a block (the function or paragraph containing point, or a number of
+lines around point), perhaps because modification on the current line caused
+syntactic change on other lines, you can use M-o M-o.
+
+See the variable `font-lock-defaults-alist' for the Font Lock mode default
+settings.  You can set your own default settings for some mode, by setting a
+buffer local value for `font-lock-defaults', via its mode hook.
+
+The above is the default behavior of `font-lock-mode'; you may specify
+your own function which is called when `font-lock-mode' is toggled via
+`font-lock-function'. 
+
+Global-Font-Lock minor mode (no indicator):
+Toggle Font-Lock mode in every possible buffer.
+With prefix ARG, turn Global-Font-Lock mode on if and only if
+ARG is positive.
+Font-Lock mode is enabled in all buffers where
+`turn-on-font-lock-if-desired' would do it.
+See `font-lock-mode' for more information on Font-Lock mode.
+
+Global-Hl-Line minor mode (no indicator):
+Global minor mode to highlight the line about point in the current window.
+With ARG, turn Global-Hl-Line mode on if ARG is positive, off otherwise.
+
+Global-Hl-Line mode uses the functions `global-hl-line-unhighlight' and
+`global-hl-line-highlight' on `pre-command-hook' and `post-command-hook'.
+
+Global-Visible-Mark minor mode (no indicator):
+Toggle Visible-Mark mode in every possible buffer.
+With prefix ARG, turn Global-Visible-Mark mode on if and only if
+ARG is positive.
+Visible-Mark mode is enabled in all buffers where
+`visible-mark-mode-maybe' would do it.
+See `visible-mark-mode' for more information on Visible-Mark mode.
+
+Line-Number minor mode (no indicator):
+Toggle Line Number mode.
+With ARG, turn Line Number mode on if ARG is positive, otherwise
+turn it off.  When Line Number mode is enabled, the line number
+appears in the mode line.
+
+Line numbers do not appear for very large buffers and buffers
+with very long lines; see variables `line-number-display-limit'
+and `line-number-display-limit-width'.
+
+Menu-Bar minor mode (no indicator):
+Toggle display of a menu bar on each frame.
+This command applies to all frames that exist and frames to be
+created in the future.
+With a numeric argument, if the argument is positive,
+turn on menu bars; otherwise, turn off menu bars.
+
+Mouse-Wheel minor mode (no indicator):
+Toggle mouse wheel support.
+With prefix argument ARG, turn on if positive, otherwise off.
+Return non-nil if the new state is enabled.
+
+Recentf minor mode (no indicator):
+Toggle recentf mode.
+With prefix argument ARG, turn on if positive, otherwise off.
+Returns non-nil if the new state is enabled.
+
+When recentf mode is enabled, it maintains a menu for visiting files
+that were operated on recently.
+
+Show-Paren minor mode (no indicator):
+Toggle Show Paren mode.
+With prefix ARG, turn Show Paren mode on if and only if ARG is positive.
+Returns the new status of Show Paren mode (non-nil means on).
+
+When Show Paren mode is enabled, any matching parenthesis is highlighted
+in `show-paren-style' after `show-paren-delay' seconds of Emacs idle time.
+
+Size-Indication minor mode (no indicator):
+Toggle Size Indication mode.
+With ARG, turn Size Indication mode on if ARG is positive,
+otherwise turn it off.  When Size Indication mode is enabled, the
+size of the accessible part of the buffer appears in the mode line.
+
+Tooltip minor mode (no indicator):
+Toggle Tooltip mode.
+With ARG, turn Tooltip mode on if and only if ARG is positive.
+When this minor mode is enabled, Emacs displays help text
+in a pop-up window for buttons and menu items that you put the mouse on.
+(However, if `tooltip-use-echo-area' is non-nil, this and
+all pop-up help appears in the echo area.)
+
+When Tooltip mode is disabled, Emacs displays one line of
+the help text in the echo area, and does not make a pop-up window.
+
+Transient-Mark minor mode (no indicator):
+Toggle Transient Mark mode.
+With ARG, turn Transient Mark mode on if ARG is positive, off otherwise.
+
+In Transient Mark mode, when the mark is active, the region is highlighted.
+Changing the buffer "deactivates" the mark.
+So do certain other operations that set the mark
+but whose main purpose is something else--for example,
+incremental search, <, and >.
+
+You can also deactivate the mark by typing C-g or
+M-ESC ESC.
+
+Many commands change their behavior when Transient Mark mode is in effect
+and the mark is active, by acting on the region instead of their usual
+default part of the buffer's text.  Examples of such commands include
+M-;, M-x flush-lines, M-x keep-lines, M-%, C-M-%, M-x ispell, and C-x u.
+Invoke C-h d and type "transient" or
+"mark.*active" at the prompt, to see the documentation of
+commands which are sensitive to the Transient Mark mode.
+
+Visible-Mark minor mode (no indicator):
+A mode to make the mark visible.
+
+[back]

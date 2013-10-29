@@ -1,0 +1,98 @@
+# -*- coding: utf-8-dos;  -*-
+#+LAST_UPDATED: 2012-03-29
+* org-speed-commands-user
+  [2012-03-29 木 10:10]
+#+BEGIN_EXAMPLE 
+User-defined Speed commands
+===========================
++   org-clone-subtree-with-time-shift
+K   org-cut-subtree
+N   org-narrow-to-subtree
+Z   org-save-all-org-buffers
+W   widen
+q   org-kill-note-or-show-branches
+:   org-set-tags-command
+U   org-clock-mark-default-task
+V   (describe-variable (quote org-speed-commands-user))
+s   org-schedule
+d   org-deadline
+J   my-org-clock-goto-u
+P   org-set-property
+E   org-set-effort
+[   org-occur-link-in-agenda-files
+=   my-org-display-outline-path
+T   org-timer-set-timer
+a   org-attach
+A   org-toggle-archive-tag
+`   org-toggle-ordered-property
+Y   org-paste-special
+Q   org-columns
+z   org-add-note
+k   org-copy-subtree
+B   show-branches
+,   org-timer-pause-or-continue
+0   org-timer-start
+_   org-timer-stop
+
+Built-in Speed commands
+=======================
+
+Outline Navigation
+------------------
+n   (org-speed-move-safe (quote outline-next-visible-heading))
+p   (org-speed-move-safe (quote outline-previous-visible-heading))
+f   (org-speed-move-safe (quote org-forward-same-level))
+b   (org-speed-move-safe (quote org-backward-same-level))
+u   (org-speed-move-safe (quote outline-up-heading))
+j   org-goto
+g   (org-refile t)
+
+Outline Visibility
+------------------
+c   org-cycle
+C   org-shifttab
+    org-display-outline-path
+
+Outline Structure Editing
+-------------------------
+U   org-shiftmetaup
+D   org-shiftmetadown
+r   org-metaright
+l   org-metaleft
+R   org-shiftmetaright
+L   org-shiftmetaleft
+i   (progn (forward-char 1) (call-interactively (quote org-insert-heading-respect-content)))
+^   org-sort
+w   org-refile
+a   org-archive-subtree-default-with-confirmation
+.   org-mark-subtree
+
+Clock Commands
+--------------
+I   org-clock-in
+O   org-clock-out
+
+Meta Data Editing
+-----------------
+t   org-todo
+0   (org-priority 32)
+1   (org-priority 65)
+2   (org-priority 66)
+3   (org-priority 67)
+;   org-set-tags-command
+e   org-set-effort
+
+Agenda Views etc
+----------------
+v   org-agenda
+/   org-sparse-tree
+
+Misc
+----
+o   org-open-at-point
+?   org-speed-command-help
+<   (org-agenda-set-restriction-lock (quote subtree))
+>   (org-agenda-remove-restriction-lock)
+
+[back]
+#+END_EXAMPLE
