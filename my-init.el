@@ -8,7 +8,8 @@
 (load custom-file)
 ;; ----------------------------------------------------------------------
 ;; * color
-(set-background-color "white")
+;; Emacsの設定 (フォント) http://tcnksm.sakura.ne.jp/blog/2012/04/02/emacs/
+(set-background-color "#eeeeee")
 (set-foreground-color "black")
 ;; ----------------------------------------------------------------------
 ;; * global
