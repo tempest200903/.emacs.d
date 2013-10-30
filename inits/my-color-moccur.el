@@ -1,4 +1,4 @@
-p;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; ----------------------------------------------------------------------
 ;; * [2010-11-04 月]
 ;; インストール。
@@ -19,3 +19,4 @@ p;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
     (add-to-list 'dmoccur-exclusion-mask ".git")
     )
   )
+

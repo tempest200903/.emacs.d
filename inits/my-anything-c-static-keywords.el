@@ -1,0 +1,70 @@
+;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; #+LAST_UPDATED: 2013-10-24
+;; ============================================================================
+;; * [2011-12-22 木] 自作 elisp. 固定の文字列を入力する anything-c-source
+(defun my-anything-c-static-keywords-insert (keyword)
+  (insert keyword)
+  )
+(setf my-anything-c-source-static-keywords
+      '((name . "my-anything-c-source-static-keywords")
+        (candidates . (
+                       "#+BEGIN_EXAMPLE"
+                       "#+END_EXAMPLE"
+                       "#+BEGIN_QUOTE"
+                       "#+END_QUOTE"
+                       "vm_bodais5(211.17.181.228)"
+                       "vm_bodais6(211.17.181.226)"
+                       "〈〉"
+                       "《》"
+                       "〔〕"
+                       "【】"
+                       "［］"
+                       "- 正: - 誤:"
+                       ":LOGBOOK: :END:"
+                       "* clocktable #+BEGIN: clocktable :maxlevel 4 :scope file #+END:"
+                       "#+LAST_UPDATED: "
+                       "- checkbox [/]"
+                       "sheets(\"\")"
+                       "# -*- coding: utf-8-unix; mode: org; -*-"
+                       ";; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-"
+                       "# -*- coding: utf-8-dos; -*-"
+                       ))
+        (action . my-anything-c-static-keywords-insert)))
+
+                       ;; "#+TITLE:     "
+                       ;; "#+AUTHOR:    "
+                       ;; "#+EMAIL:     "
+                       ;; "#+DATE:      "
+                       ;; "#+DESCRIPTION:"
+                       ;; "#+KEYWORDS:"
+                       ;; "#+LANGUAGE:  "
+                       ;; "#+OPTIONS:   H:%d num: toc: \\n: @: :: |: ^: -: f: *: <:"
+                       ;; "#+OPTIONS:   TeX: LaTeX: skip: d: todo: pri: tags:"
+                       ;; "#+EXPORT_SELECT_TAGS: "
+                       ;; "#+EXPORT_EXCLUDE_TAGS: "
+                       ;; "#+LINK_UP:   "
+                       ;; "#+LINK_HOME: "
+                       ;; "#+XSLT:"
+                       ;; "#+CATEGORY:  "
+                       ;; "#+SEQ_TODO:  "
+                       ;; "#+TYP_TODO:  "
+                       ;; "#+PRIORITIES: "
+                       ;; "#+DRAWERS:   "
+                       ;; "#+STARTUP:       "
+                       ;; "#+TAGS:      "
+                       ;; "#+FILETAGS:  "
+                       ;; "#+ARCHIVE:   "
+                       ;; "#+LINK:      "
+
+(defun my-anything-static-keywords ()
+  "固定のキーワードを入力する anything-c-source"
+  (interactive)
+  (anything-other-buffer '(my-anything-c-source-static-keywords)
+                         "*my-anything-c-source-static-keywords"))
+
+(global-set-key (kbd "C-t C-:") 'my-anything-static-keywords)
+;; [2013-07-12 金] (kbd "C-t C-c C-i") から (kbd "C-t C-j") に変更。ダメ、 org-mode では (kbd "C-t C-j") は (anything-org-headlines) に使用済み。
+;; [2013-07-12 金] (kbd "C-t C-c C-i") から (kbd "C-t C-1") 
+;; TODO minibuffer に文字列を挿入する
+;; TODO クリップボードに文字列を上書きする
+;; TODO クリップボードに文字列を追加する

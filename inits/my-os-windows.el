@@ -51,3 +51,4 @@
   (interactive)
   (w32-send-sys-command SC_RESTORE))
 ;; ----------------------------------------------------------------------
+(provide 'my-os-windows)

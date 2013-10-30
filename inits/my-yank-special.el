@@ -81,17 +81,23 @@
   )
 (global-set-key (kbd "C-z C-.") 'my-yank-with-xml-tag)
 
-(defun my-yank-with-link-occur () "yank with link occur"
-  (interactive "*")
-  (my-yank-with-bracket "[[elisp:(occur \"" "\")]]")
-  )
-(define-key org-mode-map (kbd "C-z C-o") 'my-yank-with-link-occur)
+(when (require 'org-mode nil t)
+  (progn
 
-(defun my-yank-with-link-org-occur () "yank with link org-occur"
-  (interactive "*")
-  (my-yank-with-bracket "[[elisp:(org-occur-in-agenda-files \"" "\")]]")
+    (defun my-yank-with-link-occur () "yank with link occur"
+      (interactive "*")
+      (my-yank-with-bracket "[[elisp:(occur \"" "\")]]")
+      )
+    (define-key org-mode-map (kbd "C-z C-o") 'my-yank-with-link-occur)
+
+    (defun my-yank-with-link-org-occur () "yank with link org-occur"
+      (interactive "*")
+      (my-yank-with-bracket "[[elisp:(org-occur-in-agenda-files \"" "\")]]")
+      )
+    (define-key org-mode-map  (kbd "C-z M-s M-a") 'my-yank-with-link-org-occur)
+
+    )
   )
-(define-key org-mode-map  (kbd "C-z M-s M-a") 'my-yank-with-link-org-occur)
 
 ;; 以下、 erb 用。
 
