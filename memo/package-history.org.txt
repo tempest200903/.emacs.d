@@ -5,4 +5,13 @@
    [2013-10-29 火]
 ** color-moccur
    [2013-10-29 火]
-color-moccur	     20120811.... available  multi-buffer occur (grep) mode [github]
+- color-moccur	     20120811.... available  multi-buffer occur (grep) mode [github]
+** goto-last-change
+   [2013-10-30 水]
+- goto-last-change   20121115.... available  Move point through buffer-undo-list positions [wiki]
+** redo+
+   [2013-10-31 木]
+- redo+              20131019.554 available  Redo/undo system for Emacs [wiki]
+** memory
+- memory-usage       0.2          available  Analyze the memory usage of Emacs in various ways
+- M-x memory-usage

@@ -62,19 +62,19 @@
 ;; (defun my-org-mode-map-init ()
 ;;   "org-mode-map 初期化"
 ;;   "* outline 関連"
-;;   (define-key org-mode-map (kbd "M-[") 'outline-previous-visible-heading)
-;;   (define-key org-mode-map (kbd "M-]") 'outline-next-visible-heading)
+  (define-key org-mode-map (kbd "M-[") 'outline-previous-visible-heading)
+  (define-key org-mode-map (kbd "M-]") 'outline-next-visible-heading)
 
 ;;   "* checkbox 関連"
 ;;   "org-mouse は emacs 本体付属。 require 必要。"
-;;   (when (require 'org-mouse nil t)
-;;     (define-key org-mode-map (kbd "C-z C-]") 'org-mouse-insert-checkbox) ;; alias of C-u C-c C-c
-;;     )
+   (when (require 'org-mouse nil t)
+     (define-key org-mode-map (kbd "C-z C-]") 'org-mouse-insert-checkbox) ;; alias of C-u C-c C-c
+     )
    (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
 ;;   "* link 関連"
 ;;   (define-key org-mode-map (kbd "C-c C-x l") 'my-org-convert-to-link) "前提: my-org-mode-hyperlink.el"
-;;   (define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
-;;   (define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
+  (define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
+  (define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
 
 ;;   ;; * カレントバッファから hyperlink を occur するキーボード変換。 C-c C-SPC で元の位置に戻れる。
 ;;   (define-key org-mode-map (kbd "M-s [") (kbd "C-z C-SPC C-x 1 M-s o \\[ \\[ RET C-x o C-c C-f"))

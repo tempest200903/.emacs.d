@@ -27,5 +27,6 @@
   (catch 'error (org-speed-move-safe (quote outline-previous-visible-heading)))
   )
 ;; ----------------------------------------------------------------------
-;; 空いているキー
+;; speed 空いているキー
 ;; y
+;; Z

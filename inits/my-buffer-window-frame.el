@@ -121,6 +121,11 @@
 (global-set-key (kbd "C-t C-6") 'next-multiframe-window)
 (global-set-key (kbd "<C-f7>") 'fit-window-to-buffer)
 (global-set-key (kbd "C-t C-7") 'fit-window-to-buffer)
+(global-set-key (kbd "<C-f8>") 'tabbar-backward-tab)
+(global-set-key (kbd "C-t C-8") 'tabbar-backward-tab)
+(global-set-key (kbd "<C-f9>") 'tabbar-forward-tab)
+(global-set-key (kbd "C-t C-9") 'tabbar-forward-tab)
+
 (global-set-key (kbd "C-z <C-f2>") 'my-toggle-window-split)
 
 ;; emacs-nw では function key を使えないので。実験中。

@@ -1,0 +1,5 @@
+* read-it-later
+** [2013-10-30 水]
+- flycheck-list-errorsがよい - Life is very short -^- http://d.hatena.ne.jp/syohex/20131029/1383022788
+- termitを Emacsから使うための設定 - Life is very short -^- http://d.hatena.ne.jp/syohex/20131029/1383053709
+- Emacsでのテキストハイライトの話 - $shibayu36->blog; -^- http://shibayu36.hatenablog.com/entry/2013/10/29/221427
