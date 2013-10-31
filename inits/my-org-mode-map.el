@@ -16,17 +16,17 @@
 ;; 『Emacs org-modeを使ってみる: (1) インストール - 屯遁のパズルとプログラミングの日記』 http://d.hatena.ne.jp/tamura70/20100203/org
 ;; キーバインドの設定
 (require 'org)
-  (progn
-    (define-key global-map (kbd "C-c l") 'org-store-link)
-    (define-key global-map (kbd "C-:") 'org-agenda)
-    (define-key global-map (kbd "C-x C-:") 'my-org-agenda-list-switch-to-buffer)
-    (define-key global-map (kbd "M-g M-j") 'org-clock-goto)
-    (define-key global-map (kbd "M-g M-u") 'my-org-clock-goto-u)
-    (define-key global-map (kbd "M-g M-h") 'my-org-clock-goto-default)
-    (define-key global-map (kbd "M-s M-a") 'org-occur-in-agenda-files)
-    (define-key global-map (kbd "C-z C-u") 'org-time-stamp-inactive)
-    (define-key global-map (kbd "C-c b") 'org-iswitchb) ; cf. http://orgmode.org/manual/Activation.html#Activation
-    )
+(progn
+  (define-key global-map (kbd "C-c l")   'org-store-link)
+  (define-key global-map (kbd "C-:")     'org-agenda)
+  (define-key global-map (kbd "C-x C-:") 'my-org-agenda-list-switch-to-buffer)
+  (define-key global-map (kbd "M-g M-j") 'org-clock-goto)
+  (define-key global-map (kbd "M-g M-u") 'my-org-clock-goto-u)
+  (define-key global-map (kbd "M-g M-h") 'my-org-clock-goto-default)
+  (define-key global-map (kbd "M-s M-a") 'org-occur-in-agenda-files)
+  (define-key global-map (kbd "C-z C-u") 'org-time-stamp-inactive)
+  (define-key global-map (kbd "C-c b")   'org-iswitchb) ; cf. http://orgmode.org/manual/Activation.html#Activation
+  )
 ;; ----------------------------------------------------------------------
 ;; * org-mode-map
 (define-key org-mode-map (kbd "C-c C-x d") 'org-clock-mark-default-task)
@@ -62,26 +62,26 @@
 ;; (defun my-org-mode-map-init ()
 ;;   "org-mode-map 初期化"
 ;;   "* outline 関連"
-  (define-key org-mode-map (kbd "M-[") 'outline-previous-visible-heading)
-  (define-key org-mode-map (kbd "M-]") 'outline-next-visible-heading)
+(define-key org-mode-map (kbd "M-[") 'outline-previous-visible-heading)
+(define-key org-mode-map (kbd "M-]") 'outline-next-visible-heading)
 
 ;;   "* checkbox 関連"
 ;;   "org-mouse は emacs 本体付属。 require 必要。"
-   (when (require 'org-mouse nil t)
-     (define-key org-mode-map (kbd "C-z C-]") 'org-mouse-insert-checkbox) ;; alias of C-u C-c C-c
-     )
-   (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
+(when (require 'org-mouse nil t)
+  (define-key org-mode-map (kbd "C-z C-]") 'org-mouse-insert-checkbox) ;; alias of C-u C-c C-c
+  )
+(define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
 ;;   "* link 関連"
 ;;   (define-key org-mode-map (kbd "C-c C-x l") 'my-org-convert-to-link) "前提: my-org-mode-hyperlink.el"
-  (define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
-  (define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
+(define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
+(define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
 
 ;;   ;; * カレントバッファから hyperlink を occur するキーボード変換。 C-c C-SPC で元の位置に戻れる。
-;;   (define-key org-mode-map (kbd "M-s [") (kbd "C-z C-SPC C-x 1 M-s o \\[ \\[ RET C-x o C-c C-f"))
+(define-key org-mode-map (kbd "M-s [") (kbd "C-z C-SPC C-x 1 M-s o \\[ \\[ RET C-x o C-c C-f"))
 
 ;;   "* yank 関連"
-  (define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link) "org-evaluate-time-range をデフォルトの C-c C-y から C-c y に移動した。"
-;;   (define-key org-mode-map (kbd "C-z C-c C-y") 'my-org-yank-file-link)
+(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link) "org-evaluate-time-range をデフォルトの C-c C-y から C-c y に移動した。"
+(define-key org-mode-map (kbd "C-z C-c C-y") 'my-org-yank-file-link)
 
 ;;   "* clock 関連"
 ;;   (define-key org-mode-map (kbd "C-c C-x d") 'org-clock-mark-default-task)
@@ -95,14 +95,14 @@
 ;;   "* time 関連"
 ;;   (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
 ;;   "* mark-ring 関連"
-;;   (define-key org-mode-map (kbd "C-c C-SPC") 'org-mark-ring-goto)
+(define-key org-mode-map (kbd "C-c C-SPC") 'org-mark-ring-goto)
 ;;   ;; C-c & は押しにくいので alias. (pop-global-mark) {It is bound to C-x C-@} に似せる。
 ;;   ;; C-c C-o で行って C-c C-SPC で帰る。 "
-;;   (define-key org-mode-map (kbd "C-z C-SPC") 'org-mark-ring-push)
+(define-key org-mode-map (kbd "C-z C-SPC") 'org-mark-ring-push)
 ;;   ;; C-c % は押しにくいので alias. (set-mark-command ARG) {It is bound to C-@}
 ;;   ;; ほとんどの場合、 set-mark-command で十分。何が違う？
 ;;   "* その他"
-;;   (define-key org-mode-map (kbd "C-c C-x ]") 'org-edit-agenda-file-list)
+(define-key org-mode-map (kbd "C-c C-x ]") 'org-edit-agenda-file-list)
 ;;   (define-key org-mode-map (kbd "C-c C-x C-e") 'org-table-export)
 ;;   (define-key org-mode-map (kbd "C-z C-c C-:") (kbd "C-: a 7 b C-u l R w")) ;; for orgweek
 ;;   "前提: my-org-clock-display.el"

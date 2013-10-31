@@ -1,17 +1,12 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; ======================================================================
-;; * [2011-08-24 水] auto-install を導入する。
-;; ** インストール手順
+;; * [2011-08-24 水] auto-install インストール手順
 ;; url: http://d.hatena.ne.jp/rubikitch/20091221/autoinstall
 ;; 1. 下記 elisp を実行する。
 ;; 2. 自動的に ~/.emacs.d/auto-install/ ディレクトリが作られる。
-;;
-(when (not (require 'auto-install nil t))
-  (progn
-    (install-elisp-from-emacswiki "auto-install.el")
-    )
-  )
-;;
+;; ----------------------------------------------------------------------
+;; * [2013-10-31 木] auto-install インストール手順
+;; M-x package-list-packages auto-install
 (when (require 'auto-install nil t)
   (progn
     (setq auto-install-directory "~/.emacs.d/auto-install/")

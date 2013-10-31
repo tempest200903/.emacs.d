@@ -1,15 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-keymap-basis.el
 ;; ======================================================================
-;; * [2011-08-24 水] C-z のキーバインド変更。
-;; - デフォルト キーバインド
-;;   (repeat)              It is bound to C-x z.
-;;   (suspend-frame)       It is bound to C-z, C-x C-z.
-;; - suspend-frame => my-buffer-window-frame.el にて別のキーバインド
-;; - <f4> kmacro-end-or-call-macro に類似しているので、 <f5> repeat にする。
-;; - これで C-z と C-x C-z が空いた。 prefix として使う。
-;; (global-unset-key (kbd "C-z"))
-;; (global-unset-key (kbd "C-x C-z"))
 (define-key global-map (kbd "<f5>") 'repeat)
 
 (define-key global-map (kbd "C-;") 'repeat) ;; 連打しやすいキーバインドにしたい。 
@@ -167,6 +158,7 @@
 (define-key global-map (kbd "C-h C-x C-b")      'describe-prefix-bindings)
 (define-key global-map (kbd "C-h C-z C-f")      'describe-face)
 (define-key global-map (kbd "C-h C-x C-t")      'describe-text-properties)
+(define-key global-map (kbd "C-h C-x C-u")      'customize)
 (define-key global-map (kbd "C-h C-x C-o")      'org-customize)
 (define-key global-map (kbd "C-h C-s")          'customize-save-customized)
 (when (require 'my-describehilit-chg nil t)
@@ -201,3 +193,21 @@
 ;; (kbd "C-M-z") is undefined ;; prefix に使用可能。
 ;; <C-M-backspace>
 ;; (kbd "C-z C-z") is undefined
+;; ----------------------------------------------------------------------
+;; * [2013-10-31 木] auto-load my-copy-line
+;; ~/.emacs.d/inits/my-copy-line.el
+(autoload 'my-copy-line "my-copy-line" nil t) 
+(autoload 'my-copy-line "my-join-line-next" nil t)
+(global-set-key (kbd "C-z C-w") 'my-copy-line)
+(global-set-key (kbd "C-z C-k") 'kill-whole-line)
+					; Tips. C-z C-k C-; C-; ... で範囲拡大。
+(global-set-key (kbd "C-z C-j") 'my-join-line-next) 
+					; Tips. C-z C-j C-; C-; ... で範囲拡大。
+;; * [2013-10-31 木]
+(autoload 'redo "redo+" nil t) 
+(define-key global-map (kbd "C-/") 'undo)
+(define-key global-map (kbd "C-x C-/") 'redo)
+;; ----------------------------------------------------------------------
+;; * [2013-10-31 木]
+(define-key global-map (kbd "C-z a r") 'align-regexp)
+;; ----------------------------------------------------------------------

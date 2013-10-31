@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-toggle-truncate-lines.el
 ;; ======================================================================
 ;; * [2011-02-28]
 ;; url:http://ubulog.blogspot.com/2007/09/emacsonoff.html
@@ -11,3 +12,5 @@
     (setq truncate-lines t))
   (recenter))
 (global-set-key (kbd "C-z C-q") 'my-toggle-truncate-lines) 
+
+(provide 'my-toggle-truncate-lines)

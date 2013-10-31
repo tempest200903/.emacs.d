@@ -22,8 +22,12 @@
 ;; C-u 1 M-x join-line          現在行と直後の行をつなげる。あいだの空白を削除する。
 ;; 後者の方をよく使うので、 C-u なしで使えるようにする。
 ;; ----------------------------------------------------------------------
-(global-set-key (kbd "C-z C-w") 'my-copy-line)
-(global-set-key (kbd "C-z C-k") 'kill-whole-line)
-					; Tips. C-z C-k C-; C-; ... で範囲拡大。
-(global-set-key (kbd "C-z C-j") 'my-join-line-next) 
-					; Tips. C-z C-j C-; C-; ... で範囲拡大。
+;; * [2013-10-31 木] my-keymap-basis.el に移転する。
+;; (global-set-key (kbd "C-z C-w") 'my-copy-line)
+;; (global-set-key (kbd "C-z C-k") 'kill-whole-line)
+;; 					; Tips. C-z C-k C-; C-; ... で範囲拡大。
+;; (global-set-key (kbd "C-z C-j") 'my-join-line-next) 
+;; 					; Tips. C-z C-j C-; C-; ... で範囲拡大。
+;; ----------------------------------------------------------------------
+(message "loaded my-copy-line")
+(provide 'my-copy-line)
