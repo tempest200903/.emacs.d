@@ -36,3 +36,25 @@
 - 不具合
   - [[file:~/.emacs.d/memo/emacs-bug-history.org.txt::*%E3%80%94Spawning%20child%20process%20%E5%A4%B1%E6%95%97%E3%81%99%E3%82%8B%E4%B8%8D%E5%85%B7%E5%90%88%E3%80%95][〔Spawning child process 失敗する不具合〕]]
     - [2013-08-12 月 13:08] 以前は外部プロセスの起動が失敗していたが、今は失敗しなくなった。
+** 実験
+- 現状
+  - '(howm-directory "N:/howm/")
+  - '(howm-file-name-format "%Y/%m/%Y-%m-%d-%H%M%S.howm.txt")
+- これだとメモが多すぎて時間長すぎる。
+- 実験
+  - '(howm-directory "N:/howm/2013/11")
+  - '(howm-file-name-format "%Y-%m-%d-%H%M%S.howm.txt")
+  - メリット
+    - 検索時間短縮
+  - デメリット
+- デメリットを解消する方法
+  - 下記を試す。 [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-howm.el]]
+    - http://howm.sourceforge.jp/README-j.html
+      - 検索
+        - 対象ディレクトリの追加
+          - 全文検索のとき, メモに加えて指定ディレクトリ以下も再帰的に探す
+          - (setq howm-search-path '("~/Mail" "~/News"))
+          - (setq howm-search-other-dir t) ;; 下記のトグルの初期値 (t か nil)
+          - M-x howm-toggle-search-other-dir で, 上記ディレクトリを検索対象にするかしないかトグル
+        - 1か月ごとに howm-directory 書き換えが必要。
+

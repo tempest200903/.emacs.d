@@ -3,9 +3,9 @@
 ;; ======================================================================
 (define-key global-map (kbd "<f5>") 'repeat)
 
-(define-key global-map (kbd "C-;") 'repeat) ;; 連打しやすいキーバインドにしたい。 
+(define-key global-map (kbd "C-;") 'repeat) ;; 連打しやすいキーバインドにしたい。
 ;; [2013-09-10 火] 実験中。
-;; 便利な例1。 C-u 8 C-x TAB C-; C-; 
+;; 便利な例1。 C-u 8 C-x TAB C-; C-;
 ;; 便利な例1。 M-g M-n C-; C-;
 
 ;; (global-unset-key (kbd "C-t"))
@@ -179,7 +179,7 @@
 ;; (kbd "C-h C-l") is undefined
 ;; (kbd "C-h C-q") is undefined
 ;; (kbd "C-h C-r") is undefined
-;; (kbd "C-h C-s") 
+;; (kbd "C-h C-s")
 ;; (kbd "C-h C-u") is undefined
 ;; (kbd "C-h C-v") is undefined
 ;; (kbd "C-h C-y") is undefined
@@ -193,21 +193,36 @@
 ;; (kbd "C-M-z") is undefined ;; prefix に使用可能。
 ;; <C-M-backspace>
 ;; (kbd "C-z C-z") is undefined
+;; (kbd "<C-M-attn>") is undefined
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] auto-load my-copy-line
 ;; ~/.emacs.d/inits/my-copy-line.el
-(autoload 'my-copy-line "my-copy-line" nil t) 
-(autoload 'my-copy-line "my-join-line-next" nil t)
-(global-set-key (kbd "C-z C-w") 'my-copy-line)
-(global-set-key (kbd "C-z C-k") 'kill-whole-line)
+(autoload 'my-copy-line "my-copy-line" nil t)
+(autoload 'my-join-line-next "my-copy-line" nil t)
+(define-key global-map (kbd "C-z C-w") 'my-copy-line)
+(define-key global-map (kbd "C-z C-k") 'kill-whole-line)
 					; Tips. C-z C-k C-; C-; ... で範囲拡大。
-(global-set-key (kbd "C-z C-j") 'my-join-line-next) 
+(define-key global-map (kbd "C-z C-j") 'my-join-line-next)
 					; Tips. C-z C-j C-; C-; ... で範囲拡大。
 ;; * [2013-10-31 木]
-(autoload 'redo "redo+" nil t) 
+(autoload 'redo "redo+" nil t)
 (define-key global-map (kbd "C-/") 'undo)
 (define-key global-map (kbd "C-x C-/") 'redo)
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木]
 (define-key global-map (kbd "C-z a r") 'align-regexp)
 ;; ----------------------------------------------------------------------
+;; * [2013-11-01 金]
+(autoload 'kill-region-or-backward-kill-word "my-backward-kill-word" nil t)
+(autoload 'kill-word-at-point "my-backward-kill-word" nil t)
+(define-key global-map (kbd "C-w") 'kill-region-or-backward-kill-word)
+(define-key global-map (kbd "C-z C-d") 'kill-word-at-point)
+;; ----------------------------------------------------------------------
+;; * [2013-11-01 金]
+(autoload 'my-goto-line-with-linum-mode "my-goto-line" nil t)
+(define-key global-map (kbd "M-g M-g") 'my-goto-line-with-linum-mode)
+;; ----------------------------------------------------------------------
+;; * [2013-11-01 金]
+;; (autoload 'my-cua-selection-mode "my-cua-mode" nil t)
+;; (define-key global-map (kbd "C-z C-\\") 'my-cua-selection-mode)
+(define-key global-map (kbd "C-z C-\\") 'cua-selection-mode)

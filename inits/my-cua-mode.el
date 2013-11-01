@@ -1,6 +1,8 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-cua-mode.el
 ;; ======================================================================
 ;; * [2011-08-25 木 13:00] モード定義
+;;;###autoload
 (defun my-cua-selection-mode (arg)
   (interactive "P")
   (cua-selection-mode arg)
@@ -28,7 +30,6 @@
                                   )
                                 )
                               )
-(global-set-key (kbd "C-z C-\\") 'cua-selection-indicator-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2011-09-20 火] cua-set-rectangle-mark {It is bound to <C-return>} が
 ;; org-mode の org-insert-heading-respect-content {It is bound to <C-return>}
@@ -39,3 +40,7 @@
 (require 'cua-base)
 ;; ----------------------------------------------------------------------
 ;; TODO cua-set-rectangle-mark {It is bound to <C-return>} の状態を mode-line に表示する。
+;; ----------------------------------------------------------------------
+;; * [2013-11-01 金] provide
+(provide 'my-cua-mode)
+;; (global-set-key (kbd "C-z C-\\") 'cua-selection-indicator-mode)

@@ -32,4 +32,7 @@
 *** 未調査
 - <C-S-backspace>
   - デフォルトでは kill-whole-line が割り当てられている。
-
+- <C-M-return>
+*** terminal で利用できないキーを使ったら warning したい               :tips:
+- デフォルト emacs で narrow-to-region を実行すると、 warning が出て、続行するか訊かれて yes or no で答える。
+- これと同様のことをやりたい。

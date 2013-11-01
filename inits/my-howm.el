@@ -1,7 +1,7 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; =============================================================================
 ;; #+TITLE: .emacs.d／inits／my-howm.el
-;; #+LAST_UPDATED: 2013-10-20
+;; #+LAST_UPDATED: 2013-11-01
 ;; ----------------------------------------------------------------------------
 ;; * [2010-10-04 月] howm 1.3.9(?) 使用開始
 ;; [2013-08-12 月] N:\tool\gnupack\gnupack_devel-11.00\app\emacs\site-lisp\howm-1.4.1   使用開始
@@ -95,10 +95,23 @@
       (switch-to-buffer-other-window "*howmS*")
     (call-interactively 'howm-list-grep-fixed)))
 (global-set-key (kbd "C-^ C-s") 'my-howmS-or-switch-to-buffer)
-;; ----------------------------------------------------------------------
+;; ----------------------------------------------------------------------
 ;; * [2012-07-26 木] howm-1.3.9.2
 (define-key global-map (kbd "C-^ e") 'howm-remember)
 (define-key global-map (kbd "C-^ b") 'howm-list-buffers)
 (define-key global-map (kbd "C-^ x") 'howm-list-mark-ring)
 (define-key global-map (kbd "C-^ o") 'howm-occur)
+;; ----------------------------------------------------------------------
+;; * [2013-11-01 金] http://howm.sourceforge.jp/README-j.html 対象ディレクトリの追加
+(setq howm-search-path '("N:/howm/2013/10" "N:/howm/2013/09"))
+(setq howm-search-other-dir t) ;; howm-toggle-search-other-dir のトグルの初期値 (t か nil)
+(define-key global-map (kbd "C-^ C-t") 'howm-toggle-search-other-dir)
+;; ----------------------------------------------------------------------
+;; * [2013-11-01 金] http://howm.sourceforge.jp/README-j.html テンプレートの変更
+(setq howm-template "= %title%cursor
+%date %file
+#+LAST_UPDATED: 
 
+")
+(setq howm-template-date-format "[%Y-%m-%d %H:%M]")
+(setq howm-template-file-format ">>> %s")

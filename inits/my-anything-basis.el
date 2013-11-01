@@ -94,3 +94,6 @@
 ;; * [2012-05-22 火] n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/10-anything.el
 ;; 候補が多いときに体感速度を早くする
 (setq anything-quick-update t)
+;; ----------------------------------------------------------------------
+;; * [2013-11-01 金] autoload
+(global-set-key (kbd "C-t C-:") 'my-anything-static-keywords)

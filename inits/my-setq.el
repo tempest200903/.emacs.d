@@ -1,18 +1,18 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; inits/my-setq.el
+;; my-setq.el
 ;; ======================================================================
 ;; * [2010-10-18 月]
 ;; cf. url: http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
 ;; "yes or no"を"y or n"に
 (fset 'yes-or-no-p 'y-or-n-p)
-;; ;;
-;; ;; ------------------------------------------------------------------
-;; ;; * [2010-10-18 月]
-;; ;; cf. url: http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
-;; ;; 対応するカッコをハイライト
-;; (show-paren-mode 1)
-;; ;;
-;; ;; ------------------------------------------------------------------
+;;
+;; ------------------------------------------------------------------
+;; * [2010-10-18 月]
+;; cf. url: http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
+;; 対応するカッコをハイライト
+(show-paren-mode 1)
+;;
+;; ------------------------------------------------------------------
 ;; ;; * [2010-10-18 月]
 ;; ;; cf. WEB+DB PRESS Vol.58
 ;; ;; url: http://gihyo.jp/magazine/wdpress/archive/2010/vol58
@@ -39,38 +39,6 @@
 ;; (setq scroll-conservatively 35
 ;;       scroll-margin 0
 ;;       scroll-step 2)
-;; ;;
-;; ;; ------------------------------------------------------------------
-;; ;; * [2010-10-18 月]
-;; ;; cf. WEB+DB PRESS Vol.58 url: http://gihyo.jp/magazine/wdpress/archive/2010/vol58
-;; ;; 全てのバッファで行番号を表示する。
-;; ;; (global-linum-mode) だとトグルしてしまう。 (global-linum-mode 1) なら常にOn。
-;; ;; (global-linum-mode 1)
-;; ;; (global-linum-mode 0)
-;; ;; クラッシュ回避実験中。 http://d.hatena.ne.jp/dionore/20091206/1260119803
-;; ;; linum-mode on で行数の多いファイルを org-mode で編集していると、極端にカーソル移動が遅くなる。
-;; ;; linum-mode off にすると遅くならないかんじがする。
-;; ;;
-;; ;; ------------------------------------------------------------------
-;; ;; * [2010-11-18 木]
-;; ;; cf. url: http://www.gnu.org/software/emacs/manual/html_node/emacs/Misc-File-Ops.html
-;; ;; You can tell Emacs to use the Trash by changing the variable delete-by-moving-to-trash to t.
-;; ;; This applies to file deletion via M-x delete-file, as well as M-x delete-directory
-;; ;; and file deletion in Dired.
-;; ;; ファイルを削除する代わりにゴミ箱へ送る。
-;; ;; (setq delete-by-moving-to-trash t)
-;; ;; ------------------------------------------------------------------
-;; ;; * [2010-11-30 火] cf. url:
-;; ;; http://www.gnu.org/software/emacs/manual/html_node/emacs/Operating-on-Files.html
-;; ;; Commands which ask for a destination directory, such as those
-;; ;; which copy and rename files or create links for them, try to guess
-;; ;; the default target directory for the operation. Normally, they
-;; ;; suggest the Dired buffer's default directory, but if the variable
-;; ;; dired-dwim-target is non-nil, and if there is another Dired buffer
-;; ;; displayed in the next window, that other buffer's directory is
-;; ;; suggested instead.
-;; ;; 訳 dired コピー先ディレクトリを隣の dired buffer から得る。
-;; ;; (setq dired-dwim-target t)
 ;; ;; ----------------------------------------------------------------------------
 ;; ;; * [2010-10-18 月]
 ;; ;; カラム番号をモードラインに表示する。

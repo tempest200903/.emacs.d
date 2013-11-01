@@ -1,5 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;; #+LAST_UPDATED: 2013-10-23
+;; my-init
+;; #+LAST_UPDATED: 2013-11-01
 ;; ----------------------------------------------------------------------
 ;; * init.el begin
 ;; ** custom
@@ -24,14 +25,13 @@
 (when "2013-10-30" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when "2013-10-30" (load "~/.emacs.d/inits/my-kill-ring-save"))
 (when "2013-10-30" (load "~/.emacs.d/inits/my-toggle-truncate-lines"))
+(when "2013-11-01" (load "~/.emacs.d/inits/my-time-stamp"))
 (when "2013-10-31" (require 'my-occur))         ;; ~/.emacs.d/inits/my-occur.el
-;; * autoload を記したので、以下の load は不要になった。
-;; (when "2013-10-29" (load "~/.emacs.d/inits/my-copy-line")) 
-;; (when "2013-10-31" (require 'my-redo))          ;; ~/.emacs.d/inits/my-redo.el
 ;; ----------------------------------------------------------------------
 ;; * anything
 (when "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))
-(when "2013-10-30" (load "~/.emacs.d/inits/my-anything-c-static-keywords"))
+;; (when "2013-10-30" (load "~/.emacs.d/inits/my-anything-c-static-keywords")) ;; autoload
+(when "2013-11-01" (load "~/.emacs.d/inits/my-anything-show-buffer"))
 ;; ----------------------------------------------------------------------
 ;; * mode specific
 ;; ** org-mode
@@ -39,12 +39,13 @@
 (when "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-map"))
 (when "2013-10-29" (load "~/.emacs.d/inits/my-org-speed"))
 (when "2013-10-29" (load "~/.emacs.d/inits/my-org-hook"))
-(when "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-buffer"))
+;; (when "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-buffer")) ;; autoload
 (when "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-hyperlink"))
-(when "2013-10-29" (load "~/.emacs.d/inits/my-workmanager"))
 (when "2013-10-30" (load "~/.emacs.d/inits/my-org-mode-isfenv"))
+(when "2013-10-29" (load "~/.emacs.d/inits/my-workmanager"))
 ;; ** howm-mode
 (when "2013-10-29" (load "~/.emacs.d/inits/my-howm"))
 ;; ----------------------------------------------------------------------
 ;; * init.el end
 (when "2013-10-29" (load "~/.emacs.d/inits/my-benchmark"))
+(switch-to-buffer "*Messages*")

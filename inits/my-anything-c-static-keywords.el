@@ -1,7 +1,8 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-10-24
+;; #+LAST_UPDATED: 2013-11-01
 ;; ============================================================================
 ;; * [2011-12-22 木] 自作 elisp. 固定の文字列を入力する anything-c-source
+;;;###autoload
 (defun my-anything-c-static-keywords-insert (keyword)
   (insert keyword)
   )
@@ -28,6 +29,10 @@
                        "# -*- coding: utf-8-unix; mode: org; -*-"
                        ";; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-"
                        "# -*- coding: utf-8-dos; -*-"
+                       "#+OPTIONS: ^:nil                ; html export で `_` を変換したくない場合はこれを指定する。"
+                       ";;;###autoload"
+                       "- comefrom: previous month: "
+                       "- goto: next month: "
                        ))
         (action . my-anything-c-static-keywords-insert)))
 
@@ -56,15 +61,18 @@
                        ;; "#+ARCHIVE:   "
                        ;; "#+LINK:      "
 
+;;;###autoload
 (defun my-anything-static-keywords ()
   "固定のキーワードを入力する anything-c-source"
   (interactive)
   (anything-other-buffer '(my-anything-c-source-static-keywords)
                          "*my-anything-c-source-static-keywords"))
 
-(global-set-key (kbd "C-t C-:") 'my-anything-static-keywords)
-;; [2013-07-12 金] (kbd "C-t C-c C-i") から (kbd "C-t C-j") に変更。ダメ、 org-mode では (kbd "C-t C-j") は (anything-org-headlines) に使用済み。
-;; [2013-07-12 金] (kbd "C-t C-c C-i") から (kbd "C-t C-1") 
+;; (global-set-key (kbd "C-t C-:") 'my-anything-static-keywords)
+;; ----------------------------------------------------------------------
 ;; TODO minibuffer に文字列を挿入する
 ;; TODO クリップボードに文字列を上書きする
 ;; TODO クリップボードに文字列を追加する
+;; ----------------------------------------------------------------------
+;; [2013-11-01 金] provide
+(provide 'my-anything-c-static-keywords)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8-unix;  -*-
 * my-emacs-customize
-#+LAST_UPDATED: 2013-09-20
+#+LAST_UPDATED: 2013-11-01
 ** DONE カスタマイズリセット
    [2011-08-18 木 10:00]
 - 2011-02-11 から 2011-08-17 までのあいだ、"GNU Emacs 23.2.1
@@ -390,7 +390,7 @@ Loading vc-svn...done
 読み込んでいるので、loadに対してadviceかけてやらないとそれぞれのload時
 間は計測できない。
 #+END_EXAMPLE
-*** auto-load
+*** TODO 〔auto-load〕
     :LOGBOOK:
     TIMESTAMP: [2012-02-29 水 15:10]
     :END:
@@ -410,6 +410,10 @@ Loading vc-svn...done
     と書かれている場合は、起動時ではなく「初めて.jsファイルが開かれたとき」
     にjs2-mode.elが読み込まれて定義される、ということになる。
     #+END_EXAMPLE
+- 依存関係
+  - init.el -> my-init.el -> my-keymap-basis.el ->(autoload) -> my-goto-line.el 
+  - init.el -> my-init.el -> my-org-mode-map.el ->(autoload) -> my-org-mode-hyperlink.el
+  - (autoload) より右側は遅延評価。
 ** mark-ring
    [2011-12-16 金 12:34]
 *** DONE mark-ring のサイズを変更する

@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2011-10-03
+;; my-time-stamp.el
+;; #+LAST_UPDATED: 2013-11-01
 ;;=============================================================================
 ;; cf. url: "http://homepage.mac.com/zenitani/elisp-j.html"
 (require 'time-stamp)

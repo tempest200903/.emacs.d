@@ -1,5 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;; #+LAST_UPDATED: 2013-10-23
+;; my-org-mode-map.el
+;; #+LAST_UPDATED: 2013-11-01
 ;; ----------------------------------------------------------------------
 ;; http://hpcgi1.nifty.com/spen/index.cgi?OrgMode%2fManual1#i2
 ;; * [2010-11-01 月] 汎用的に使うので global-map
@@ -19,7 +20,9 @@
 (progn
   (define-key global-map (kbd "C-c l")   'org-store-link)
   (define-key global-map (kbd "C-:")     'org-agenda)
+  (autoload 'my-org-agenda-list-switch-to-buffer "my-org-mode-buffer")
   (define-key global-map (kbd "C-x C-:") 'my-org-agenda-list-switch-to-buffer)
+  (define-key global-map (kbd "C-M-:") 'my-org-agenda-list-switch-to-buffer)
   (define-key global-map (kbd "M-g M-j") 'org-clock-goto)
   (define-key global-map (kbd "M-g M-u") 'my-org-clock-goto-u)
   (define-key global-map (kbd "M-g M-h") 'my-org-clock-goto-default)
@@ -85,13 +88,15 @@
 
 ;;   "* clock 関連"
 ;;   (define-key org-mode-map (kbd "C-c C-x d") 'org-clock-mark-default-task)
-;;   "* org anything 関連"
-;;   (when (require 'anything nil t)
-;;     (define-key org-mode-map (kbd "C-t C-c C-y") 'anything-org-keywords)
-;;                                         ; It is bound to <menu-bar> <Anything> <Org:> <Org keywords>.
-;;     (define-key org-mode-map (kbd "C-t C-j") 'anything-org-headlines)
-;;                                         ; It is bound to <menu-bar> <Anything> <Org:> <Org headlines>.
-;;     )
+
+  ;; "* org anything 関連"
+  (when (require 'anything nil t)
+    (define-key org-mode-map (kbd "C-t C-c C-y") 'anything-org-keywords)
+                                        ; It is bound to <menu-bar> <Anything> <Org:> <Org keywords>.
+    (define-key org-mode-map (kbd "C-t C-j") 'anything-org-headlines)
+                                        ; It is bound to <menu-bar> <Anything> <Org:> <Org headlines>.
+    )
+
 ;;   "* time 関連"
 ;;   (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
 ;;   "* mark-ring 関連"
@@ -130,3 +135,5 @@
 ;;   )
 ;; (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-map-init)
 ;; ;; ----------------------------------------------------------------------
+;; * [2013-11-01 金] 空いているキーバインド
+;; (kbd "C-c z")

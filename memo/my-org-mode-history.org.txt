@@ -1,4 +1,4 @@
-#+LAST_UPDATED: 2013-10-28
+#+LAST_UPDATED: 2013-11-01
 * 〔my-org-mode-history〕                                           :private:
   :PROPERTIES:
   :CATEGORY: 〈my-org-mode-history〉
@@ -138,3 +138,9 @@ emacs   --batch
    :END:
 - [[N:\download\http\private\gmail\m2013-09\EmacsOrgModeReleaseNote-d20130829.iit.mm]]
   - Allow writing an agenda to an .org file // Agenda を org ファイルに保存するコマンド
+** TODO wishlist 見出しリネームするとハイパーリンクが切れる
+- リネーム前の名前を archive に退避する。
+- M-x org-open-at-point する際に、行き先が見つからなければ archive から探す。
+- org-mode で実装済みか？ 実験してみる。実験結果： no.
+
+
