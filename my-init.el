@@ -20,12 +20,14 @@
 (when "2013-10-29" (load "~/.emacs.d/inits/my-color-moccur"))
 (when "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
 (when "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
-(when "2013-10-29" (load "~/.emacs.d/inits/my-copy-line"))
 (when "2013-10-29" (load "~/.emacs.d/inits/my-yank-special"))
 (when "2013-10-30" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when "2013-10-30" (load "~/.emacs.d/inits/my-kill-ring-save"))
 (when "2013-10-30" (load "~/.emacs.d/inits/my-toggle-truncate-lines"))
-(when "2013-10-30" (load "~/.emacs.d/inits/my-redo"))
+(when "2013-10-31" (require 'my-occur))         ;; ~/.emacs.d/inits/my-occur.el
+;; * autoload を記したので、以下の load は不要になった。
+;; (when "2013-10-29" (load "~/.emacs.d/inits/my-copy-line")) 
+;; (when "2013-10-31" (require 'my-redo))          ;; ~/.emacs.d/inits/my-redo.el
 ;; ----------------------------------------------------------------------
 ;; * anything
 (when "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))

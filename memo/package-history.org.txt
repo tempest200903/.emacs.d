@@ -15,3 +15,7 @@
 ** memory
 - memory-usage       0.2          available  Analyze the memory usage of Emacs in various ways
 - M-x memory-usage
+** auto-install
+- auto-install       20130824.... available  Auto install elisp file [wiki]
+** graphviz-dot-mode
+- graphviz-dot-mode  20120821.... available  Mode for the dot-language used by graphviz (att). [github]
