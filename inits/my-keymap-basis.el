@@ -226,3 +226,7 @@
 ;; (autoload 'my-cua-selection-mode "my-cua-mode" nil t)
 ;; (define-key global-map (kbd "C-z C-\\") 'my-cua-selection-mode)
 (define-key global-map (kbd "C-z C-\\") 'cua-selection-mode)
+;; ----------------------------------------------------------------------
+;; * [2013-11-03 日]
+(autoload 'my-rename-file-and-buffer "my-rename-file-and-buffer" nil t)
+(define-key global-map (kbd "C-x RET C-w")	'my-rename-file-and-buffer)

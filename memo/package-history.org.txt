@@ -5,17 +5,28 @@
    [2013-10-29 火]
 ** color-moccur
    [2013-10-29 火]
-- color-moccur	     20120811.... available  multi-buffer occur (grep) mode [github]
+- [X] color-moccur	     20120811.... available  multi-buffer occur (grep) mode [github]
 ** goto-last-change
    [2013-10-30 水]
-- goto-last-change   20121115.... available  Move point through buffer-undo-list positions [wiki]
+- [X] goto-last-change   20121115.... available  Move point through buffer-undo-list positions [wiki]
 ** redo+
    [2013-10-31 木]
-- redo+              20131019.554 available  Redo/undo system for Emacs [wiki]
+- [X] redo+              20131019.554 available  Redo/undo system for Emacs [wiki]
 ** memory
-- memory-usage       0.2          available  Analyze the memory usage of Emacs in various ways
-- M-x memory-usage
+   [2013-11-01 金]
+- [X] memory-usage       0.2          available  Analyze the memory usage of Emacs in various ways
+- [X] M-x memory-usage
 ** auto-install
-- auto-install       20130824.... available  Auto install elisp file [wiki]
+   [2013-11-01 金]
+- [X] auto-install       20130824.... available  Auto install elisp file [wiki]
 ** graphviz-dot-mode
-- graphviz-dot-mode  20120821.... available  Mode for the dot-language used by graphviz (att). [github]
+   [2013-11-01 金]
+- [X] graphviz-dot-mode  20120821.... available  Mode for the dot-language used by graphviz (att). [github]
+** simplenote
+   [2013-11-02 土]
+- [X] simplenote	     20130416.... available  Interact with simple-note.appspot.com [github]
+** markdown-mode
+   [2013-11-02 土]
+- [X]  markdown-mode	     20131005.... available  Emacs Major mode for Markdown-formatted text files [git]
+- [X]  markdown-mode+     20120829.710 available  extra functions for markdown-mode [github]
+- ~/.emacs.d/inits/my-markdown-mode.el

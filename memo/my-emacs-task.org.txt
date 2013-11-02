@@ -1,0 +1,8 @@
+#+LAST_UPDATED: 2013-11-02
+
+* my-emacs-task
+** ~/.emacs.d/inits/my-howm.el
+- [[~/.emacs.d/inits/my-howm.el]]
+# ;; (setq howm-search-path '("N:/howm/2013/10" "N:/howm/2013/09"))
+# ;; (setq howm-search-other-dir t) ;; howm-toggle-search-other-dir のトグルの初期値 (t か nil)
+# ;; TODO 変数 howm-search-path の設定を my-emacs-custom.el に移動する。
