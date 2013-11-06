@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-auto-install.el
 ;; ======================================================================
 ;; * [2011-08-24 水] auto-install インストール手順
 ;; url: http://d.hatena.ne.jp/rubikitch/20091221/autoinstall
@@ -17,3 +18,6 @@
     (auto-install-compatibility-setup)
     )
   )
+;; ----------------------------------------------------------------------
+;; * [2013-11-05 火] provide
+(provide 'my-auto-install)

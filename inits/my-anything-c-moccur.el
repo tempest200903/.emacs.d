@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2012-07-24
+;; #+LAST_UPDATED: 2013-11-05
 ;; #+TITLE: my-anything-c-moccur.el
 ;; ============================================================================
 ;; * [2011-05-12 木] anything-c-moccur.el 導入
@@ -40,7 +40,12 @@
 ;; M-x customize-group anything-c-moccur
 ;;
 ;; でも可能です。
-
+;; ----------------------------------------------------------------------
+;; * [2013-11-05 火] インストール手順。
+;; (auto-install-from-url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
+;; この URL は消失しているようだ。
+;; copy N:\download\Emacs\plugin\svn.coderepos.org\anything-c-moccur\anything-c-moccur.el ~/.emacs.d/manual-install
+;; ----------------------------------------------------------------------
 (require 'color-moccur)
 (setq moccur-split-word t) ;; default
 (require 'anything-c-moccur)

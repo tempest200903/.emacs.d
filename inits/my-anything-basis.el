@@ -53,6 +53,8 @@
 ;; * [2012-05-20 日] キーマップ isearch-mode-map
 ;; * [2012-05-20 日] cf. n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/05-util.el
 ;; isearch から anything-occur に移行する。
+;; cf. N:\tool\gnupack\gnupack_devel-11.00\home\.emacs.d.subversion\elisp\anything-c-moccur.el
+(autoload 'anything-c-moccur-from-isearch "my-anything-c-moccur" nil t)
 (define-key isearch-mode-map (kbd "C-t") 'anything-c-moccur-from-isearch)
 ;; ----------------------------------------------------------------------
 ;; * [2012-05-20 日] キーマップ dired-mode
@@ -96,4 +98,5 @@
 (setq anything-quick-update t)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] autoload
+(autoload 'my-anything-static-keywords "my-anything-static-keywords" nil t)
 (global-set-key (kbd "C-t C-:") 'my-anything-static-keywords)
