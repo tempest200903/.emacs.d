@@ -30,3 +30,10 @@
 - [X]  markdown-mode	     20131005.... available  Emacs Major mode for Markdown-formatted text files [git]
 - [X]  markdown-mode+     20120829.710 available  extra functions for markdown-mode [github]
 - ~/.emacs.d/inits/my-markdown-mode.el
+** popwin
+- [X]   popwin             20130329.... available  Popup Window Manager. [github]
+- [X] n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-popwin.el
+** free-keys
+- http://d.hatena.ne.jp/syohex/20131104/1383541335
+- free-keys          20131104.2   available  Show free keybindings for modkeys or prefixes [github]
+- M-x free-keys

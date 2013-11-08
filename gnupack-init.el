@@ -24,13 +24,11 @@
    (w32-ime-initialize)
 
    ;; IME OFF時の初期カーソルカラー
-   ;; (set-cursor-color "red")
+   (set-cursor-color "red")
 
    ;; IME ON/OFF時のカーソルカラー
-   ;; (add-hook 'input-method-activate-hook
-   ;;           (lambda() (set-cursor-color "green")))
-   ;; (add-hook 'input-method-inactivate-hook
-   ;;           (lambda() (set-cursor-color "red")))
+   (add-hook 'input-method-activate-hook (lambda() (set-cursor-color "green")))
+   (add-hook 'input-method-inactivate-hook (lambda() (set-cursor-color "red")))
 
    ;; バッファ切り替え時にIME状態を引き継ぐ
    (setq w32-ime-buffer-switch-p nil)
@@ -472,6 +470,8 @@
 
 ;; ------------------------------------------------------------------------
 ;; @ migemo/cmigemo
+;; [2013-11-07 木] migemo したあと self-insert-command が遅くなる現象を回避したい。いったん migemo 無効にして様子を見る。
+(when nil
    (setq migemo-command (concat (getenv "INST_DIR")
                                 "\\app\\cmigemo\\cmigemo"))
    (setq migemo-options '("-q" "--emacs"))
@@ -485,6 +485,7 @@
    (setq migemo-coding-system 'utf-8-unix)
    (load-library "migemo")
    (migemo-init)
+)
 
 ;; ------------------------------------------------------------------------
 ;; @ color-theme

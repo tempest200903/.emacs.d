@@ -230,3 +230,7 @@
 ;; * [2013-11-03 日]
 (autoload 'my-rename-file-and-buffer "my-rename-file-and-buffer" nil t)
 (define-key global-map (kbd "C-x RET C-w")	'my-rename-file-and-buffer)
+;; ----------------------------------------------------------------------
+;; * [2013-11-07 木] my-toggle-truncate-lines.el
+(autoload 'my-toggle-truncate-lines "my-toggle-truncate-lines" nil t)
+(global-set-key (kbd "C-z C-q") 'my-toggle-truncate-lines) 

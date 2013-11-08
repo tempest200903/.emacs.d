@@ -1,4 +1,4 @@
-#+LAST_UPDATED: 2013-11-01
+#+LAST_UPDATED: 2013-11-07
 * 〔my-org-mode-history〕                                           :private:
   :PROPERTIES:
   :CATEGORY: 〈my-org-mode-history〉
@@ -144,3 +144,12 @@ emacs   --batch
 - org-mode で実装済みか？ 実験してみる。実験結果： no.
 
 
+** customize org-agenda-custom-commands 
+- [2013-11-07 木 10:45] default: '(("n" "Agenda and all TODO's" ((agenda "") (alltodo))))
+- [2013-11-07 木 10:48] 実験中
+#+BEGIN_EXAMPLE
+'(
+  ("n"  "Agenda and all TODO's" ((agenda "") (alltodo))         )
+  (":s" "tag svn"               ((tags "svn" ))                 )
+ )
+#+END_EXAMPLE

@@ -1,15 +1,18 @@
-|-----------------+------------+--------+-----------------------------------------|
-| LICENSE         | 2013-10-29 | add    | github clone                            |
-| README.md       | 2013-10-29 | add    | github clone                            |
-| auto-save-list  | 2013-10-29 | ignore | emacs が作った。 ignore                 |
-| gnupack-init.el | 2013-10-29 | add    | gnupack 付属の init.el をリネームした。 |
-| index.txt       | 2013-10-29 | add    | 自作                                    |
-| init.el         | 2013-10-29 | add    | 自作                                    |
-| my-init.el      | 2013-10-29 | add    | 自作                                    |
-| custom-dn2      | 2013-10-29 | ignore | 自作 ignore                             |
-| log             | 2013-10-29 | ignore | 自作 ignore                             |
-| auto-install    | 2013-11-01 | add    | auto-install が作った。                 |
-| elpa            | 2013-11-01 | add    | package が作った。                      |
-| url             | 2013-11-01 | add    | package が作った。                      |
-|                 |            |        |                                         |
-|-----------------+------------+--------+-----------------------------------------|
+# -*- coding: utf-8-unix; mode: org; -*-
+* index
+|-----------------+------------+----------+------------------------------------------------------------------|
+| (dummy)         | .......... | ........ | ................................................................ |
+| LICENSE         | 2013-10-29 | add      | github clone                                                     |
+| README.md       | 2013-10-29 | add      | github clone                                                     |
+| auto-save-list  | 2013-10-29 | ignore   | emacs が作った。 ignore                                          |
+| gnupack-init.el | 2013-10-29 | add      | gnupack 付属の init.el をリネームした。                          |
+| index.txt       | 2013-10-29 | add      | 自作                                                             |
+| init.el         | 2013-10-29 | add      | 自作                                                             |
+| my-init.el      | 2013-10-29 | add      | 自作                                                             |
+| custom-dn2      | 2013-10-29 | ignore   | 自作 ignore                                                      |
+| log             | 2013-10-29 | ignore   | 自作 ignore                                                      |
+| auto-install    | 2013-11-01 | add      | auto-install が作った。                                          |
+| elpa            | 2013-11-01 | add      | package が作った。                                               |
+| url             | 2013-11-01 | add      | package が作った。                                               |
+| manual-install  | 2013-11-05 | add      | 自作。手動でインストールする elisp を配置する。                  |
+|-----------------+------------+----------+------------------------------------------------------------------|
