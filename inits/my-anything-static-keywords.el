@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-11-07
+;; #+LAST_UPDATED: 2013-11-08
 ;; ============================================================================
 ;; * [2011-12-22 木] 自作 elisp. 固定の文字列を入力する anything-c-source
 ;;;###autoload
@@ -36,6 +36,7 @@
                        "@tyamazaki said: "
                        "@nakamura said: "
                        "@matsuo said: "
+                       "@wimvipa said: "
                        ))
         (action . my-anything-c-static-keywords-insert)))
 
@@ -70,8 +71,6 @@
   (interactive)
   (anything-other-buffer '(my-anything-c-source-static-keywords)
                          "*my-anything-c-source-static-keywords"))
-
-;; (global-set-key (kbd "C-t C-:") 'my-anything-static-keywords)
 ;; ----------------------------------------------------------------------
 ;; TODO minibuffer に文字列を挿入する
 ;; TODO クリップボードに文字列を上書きする
