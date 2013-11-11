@@ -1,0 +1,36 @@
+#+LAST_UPDATED: 2013-11-07
+
+* my-emacs-task
+** ~/.emacs.d/inits/my-howm.el
+- [[~/.emacs.d/inits/my-howm.el]]
+# ;; (setq howm-search-path '("N:/howm/2013/10" "N:/howm/2013/09"))
+# ;; (setq howm-search-other-dir t) ;; howm-toggle-search-other-dir のトグルの初期値 (t か nil)
+# ;; TODO 変数 howm-search-path の設定を my-emacs-custom.el に移動する。
+** ~/.emacs.d/inits/my-anything-basis.el
+- (define-key isearch-mode-map (kbd "C-t") 'anything-c-moccur-from-isearch)
+  これを利用可能にするべし。
+** DONE org-mode link を相対パスから絶対パスに変更する
+   CLOSED: [2013-11-06 水 13:55]
+- org-occur-link-in-agenda-files は相対パスを見つけられない。
+- http://orgmode.jp/doc-ja/org-ja.html
+  - C-u C-c C-l 接頭辞C-uを付けてC-c C-lが呼び出されたときは、ファイル
+    へのリンクが挿入され、ファイル名の補完を利用することができます。リ
+    ンクされたファイルがカレントディレクトリにあるときや、カレントディ
+    レクトリのサブディレクトリにあるとき、あるいはパスが‘../’を使って
+    相対パスで書かれているときは、ファイルへのパスは、現在のOrg-modeファ
+    イルからの相対パスとして挿入されます。それ以外の場合は絶対パスが使
+    われ、可能であれば、ホームディレクトリには‘~/’が使われます。2つの
+    C-uを付けることによって、絶対パス表記を明確に指定することができます。
+- C-u C-u C-c C-l で必ず絶対パス表記になるか？
+  - 絶対パス表記にはなるが、リンクの中身は相対パスのまま。
+** 無駄な locate
+- anything-for-files Help
+  - ffap -> recentf -> buffer -> bookmark -> file-cache -> files-in-current-dir -> locate.
+- locate を source から外すべし。
+** 〔xml schema 検証したい〕
+   [2013-11-07 木 14:35]
+- help rng-validate-mode
+  - Minor mode performing continual validation against a RELAX NG schema.
+  - rng-validate-mode は RELAX NG schema による検証を行うようだ。
+  - xml schema による検証はないか？
+- [[file:n:/howm/2013/11/2013-11-05-173331.howm.txt::*%E3%80%94xml%20schema%E3%80%95][〔xml schema〕]]
