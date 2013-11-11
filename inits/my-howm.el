@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-11-05
+;; #+LAST_UPDATED: 2013-11-09
 ;; my-howm.el
 ;; ----------------------------------------------------------------------------
 ;; * [2010-10-04 月] howm 1.3.9(?) 使用開始
@@ -36,14 +36,11 @@
 (add-hook 'markdown-mode-hook 'howm-mode)
 ;; ----------------------------------------------------------------------------
 ;; * [2011-01-11 火] 複数ディレクトリを使いたい
-;; ** 使い方
 ;; その場で入力したディレクトリを, howm の【一覧モードで閲覧】
 ;; url: http://howm.sourceforge.jp/cgi-bin/hiki/hiki.cgi?SearchSpecifiedPath
 ;; ちなみに, 一覧バッファで G を押すと絞り込み検索ができます.
 ;; 更新時刻順でソートする版
 ;; howm-directory と同様にソートする版. howm-1.3.9.1 でテスト.
-;; ** 評価
-;; ファイル数が多いと、一覧が出るまで数秒かかる。フリーズしたように見えるがしばらく待つべし。
 (defun my-howm-view-directory (dir)
   (interactive "DDirectory: ")
   (let ((howm-directory dir))

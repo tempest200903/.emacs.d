@@ -6,7 +6,7 @@
 ;; ----------------------------------------------------------------------
 (setq anything-command-map-prefix-key "C-t")
 ;; ----------------------------------------------------------------------
-;; (require 'anything-config)
+(require 'anything-config)
 ;; goat-pc では error 発生。 make-directory: Creating directory: no such file or directory, c:/DOCUME~1/nakamura/LOCALS~1/Temp/Emacs/babel-8976A3b
 ;; emacs 起動完了後に eval すれば error 発生しない。なぜ？
 ;; dn2 では error 発生。emacs 起動完了後に eval しても error 発生。

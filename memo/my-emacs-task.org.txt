@@ -1,4 +1,4 @@
-#+LAST_UPDATED: 2013-11-07
+#+LAST_UPDATED: 2013-11-09
 
 * my-emacs-task
 ** ~/.emacs.d/inits/my-howm.el
@@ -34,3 +34,6 @@
   - rng-validate-mode は RELAX NG schema による検証を行うようだ。
   - xml schema による検証はないか？
 - [[file:n:/howm/2013/11/2013-11-05-173331.howm.txt::*%E3%80%94xml%20schema%E3%80%95][〔xml schema〕]]
+** TODO inits/my-*.el で require に失敗したら message に failure NAME を出力するべし
+- どこで require 失敗したのかを把握したい。
+- 例: n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-color-moccur.el

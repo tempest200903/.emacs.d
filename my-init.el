@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
 ;; my-init
-;; #+LAST_UPDATED: 2013-11-07
+;; #+LAST_UPDATED: 2013-11-09
 ;; ----------------------------------------------------------------------
 ;; * init.el begin
 ;; ** custom
@@ -10,12 +10,12 @@
 ;; ** load path
 (when t    "2013-10-29" (add-to-list 'load-path "~/.emacs.d/manual-install"))
 (when t    "2013-11-05" (add-to-list 'load-path "~/.emacs.d/inits"))
-;; ----------------------------------------------------------------------
-;; * color
-(when t    "2013-10-30" (load "~/.emacs.d/inits/my-color"))
+(when t    "2013-11-09" (add-to-list 'load-path "~/.emacs.d/elpa/anything-20130606.946"))
 ;; ----------------------------------------------------------------------
 ;; * global
+(when t    "2013-11-09" (load "~/.emacs.d/inits/my-auto-install"))
 (when t    "2013-11-05" (load "~/.emacs.d/inits/my-autoload"))
+(when t    "2013-11-09" (load "~/.emacs.d/inits/my-child-process"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-unset-key"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-setq"))
@@ -26,11 +26,13 @@
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-yank-special"))
 (when t    "2013-10-30" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when t    "2013-10-30" (load "~/.emacs.d/inits/my-kill-ring-save"))
-;; (when t    "2013-10-30" (load "~/.emacs.d/inits/my-toggle-truncate-lines")) ;; autoload
 (when t    "2013-11-01" (load "~/.emacs.d/inits/my-time-stamp"))
 (when t    "2013-11-06" (load "~/.emacs.d/inits/my-popwin"))
-(when t    "2013-10-31" (require 'my-occur nil t))                              ;; ~/.emacs.d/inits/my-occur.el
+(when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
 (when t    "2013-11-05" (require 'redo+ nil t))                                 ;; ~/.emacs.d/inits/my-redo.el
+;; ----------------------------------------------------------------------
+;; * color
+(when t    "2013-10-30" (load "~/.emacs.d/inits/my-color"))
 ;; ----------------------------------------------------------------------
 ;; * anything
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))
@@ -53,3 +55,4 @@
 ;; * init.el end
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-benchmark"))
 (switch-to-buffer "*Messages*")
+;; ----------------------------------------------------------------------
