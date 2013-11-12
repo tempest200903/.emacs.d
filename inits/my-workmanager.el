@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-11-07
+;; #+LAST_UPDATED: 2013-11-11
 ;; my-workmanager.el
 ;; ======================================================================
 
@@ -11,7 +11,7 @@
   )
 
 (defun my-workmanager-collect ()
-  "ファイルを読み取って集計する。"
+  "ファイルを読み取って集計する。 n:/work/myscript/ruby/workmanager_time_collect.bat"
   (interactive)
    (shell-command "n:/work/myscript/ruby/workmanager_time_collect.bat")
   )
