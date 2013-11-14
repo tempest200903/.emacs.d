@@ -83,6 +83,7 @@
 
 ;; next-error It is bound to C-}, C-x `, M-g n, M-g M-n. C-x ` はなくてもいい。別の割り当てをする。
 (define-key global-map (kbd "C-z `")   'compile)
+(define-key global-map (kbd "C-z C-z")   'recompile)
 
 ;; ----------------------------------------------------------------------
 ;; * [2011-11-10 木] コメントに改行を挿入する

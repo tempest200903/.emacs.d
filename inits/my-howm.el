@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-11-09
+;; #+LAST_UPDATED: 2013-11-13
 ;; my-howm.el
 ;; ----------------------------------------------------------------------------
 ;; * [2010-10-04 月] howm 1.3.9(?) 使用開始
@@ -91,3 +91,5 @@
 ;; ~/.emacs.d/custom-dn2/my-emacs-custom.el
 ;; (setq howm-file-name-format "%Y/%m/%Y-%m-%d-%H%M%S.howm.txt") ;; howm のファイル名
 ;; (setq howm-file-name-format "%Y-%m-%d-%H%M%S.howm.txt")
+;; ----------------------------------------------------------------------
+(provide 'my-howm)
