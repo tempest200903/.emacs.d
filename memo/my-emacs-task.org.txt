@@ -1,4 +1,4 @@
-#+LAST_UPDATED: 2013-11-14
+#+LAST_UPDATED: 2013-11-21
 
 * my-emacs-task
 ** ~/.emacs.d/inits/my-howm.el
@@ -37,8 +37,8 @@
 ** TODO inits/my-*.el で require に失敗したら message に failure NAME を出力するべし
 - どこで require 失敗したのかを把握したい。
 - 例: n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-color-moccur.el
-** TODO 〔org-mode バッティングに早く確実に気付く〕
-- comefrome: [[file:n:/howm/2012/02/2012-02-23-105059-0000000000000000.howm.txt::*%E3%80%94org-mode%20%E3%83%90%E3%83%83%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AB%E6%97%A9%E3%81%8F%E7%A2%BA%E5%AE%9F%E3%81%AB%E6%B0%97%E4%BB%98%E3%81%8F%E3%80%95][〔org-mode バッティングに早く確実に気付く〕]]
+** TODO 〔org-mode 予定のバッティングに早く確実に気付く〕
+- comefrome: [[file:n:/howm/2012/02/2012-02-23-105059-0000000000000000.howm.txt::*%E3%80%94org-mode%20%E4%BA%88%E5%AE%9A%E3%81%AE%E3%83%90%E3%83%83%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AB%E6%97%A9%E3%81%8F%E7%A2%BA%E5%AE%9F%E3%81%AB%E6%B0%97%E4%BB%98%E3%81%8F%E3%80%95][〔org-mode 予定のバッティングに早く確実に気付く〕]]
 - バッティングに早く確実に気付くためにはどうすればいい？
 - 手動
   - C-c C-s (org-schedule) した直後に日付のところで C-c C-o (org-open-at-point) してバッティングの有無を見る。

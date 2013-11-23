@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
 ;; my-org-mode-map.el
-;; #+LAST_UPDATED: 2013-11-01
+;; #+LAST_UPDATED: 2013-11-15
 ;; ----------------------------------------------------------------------
 ;; http://hpcgi1.nifty.com/spen/index.cgi?OrgMode%2fManual1#i2
 ;; * [2010-11-01 月] 汎用的に使うので global-map
@@ -97,8 +97,9 @@
                                         ; It is bound to <menu-bar> <Anything> <Org:> <Org headlines>.
     )
 
-;;   "* time 関連"
-;;   (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
+  "* time 関連"
+  (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
+
 ;;   "* mark-ring 関連"
 (define-key org-mode-map (kbd "C-c C-SPC") 'org-mark-ring-goto)
 ;;   ;; C-c & は押しにくいので alias. (pop-global-mark) {It is bound to C-x C-@} に似せる。
@@ -114,6 +115,8 @@
 ;;   (define-key org-mode-map (kbd "M-s M-v") 'org-toggle-inline-images) ;; alias of C-x C-c C-v
 ;;   (define-key org-mode-map (kbd "C-*") 'org-ctrl-c-star) ;; alias of C-c *
 ;;   (define-key org-mode-map (kbd "C-z C-a") 'org-toggle-checkbox) ;; alias of C-c C-x C-b
+
+(define-key org-mode-map (kbd "C-c C-x |") 'org-table-convert-region)
 
 ;;   ;; * mouse
 ;;   (when (require 'org-mouse nil t)

@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-11-08
+;; #+LAST_UPDATED: 2013-11-23
 ;; ============================================================================
 ;; * [2011-12-22 木] 自作 elisp. 固定の文字列を入力する anything-c-source
 ;;;###autoload
@@ -15,6 +15,7 @@
                        "#+END_QUOTE"
                        "vm_bodais5(211.17.181.228)"
                        "vm_bodais6(211.17.181.226)"
+                       "vm_bodais7(211.17.181.229)"
                        "〈〉"
                        "《》"
                        "〔〕"
@@ -37,6 +38,7 @@
                        "@nakamura said: "
                        "@matsuo said: "
                        "@wimvipa said: "
+                       "nakamura@isfactory.co.jp"
                        ))
         (action . my-anything-c-static-keywords-insert)))
 

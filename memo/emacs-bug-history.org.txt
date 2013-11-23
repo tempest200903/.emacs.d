@@ -332,7 +332,8 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
   - (setq howm-directory "N:/howm/2012/01")
     - テスト時間短縮のため絞る。
   - M-x howm-list-grep-fixed
-*** 〔アクティブバッファ以外の場所に挿入される不具合〕
+*** 〔IME変換中の文字列が別フレームに書き込まれるバグ〕
+**** 〔現状-d2012-12-26〕
     :LOGBOOK:
     TIMESTAMP: [2012-12-26 水 14:21]
     :END:
@@ -343,6 +344,7 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
   - 私の環境では，不具合を再現できませんでしたが，2chの方の検証で再現・改修が確認されているとのことなので，ひとまずバイナリをリリースしようと思います．
   - emacs-24.2
   - N:\download\Emacs\gnupack\emacs-24.2-20121201.exe
+**** 〔対処-d2012-12-26〕
 - [2012-12-26 水 14:23]これを試してみる。
   - 手順
   - 今使っている .emacs.d は [[N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d]]
@@ -353,6 +355,30 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
   - cd N:\tool\gnupack\gnupack_basic-10.02
   - goto: [[*%E3%80%94GNU%20Emacs%2024.2.1%E3%80%95][〔GNU Emacs 24.2.1〕]]
 - 〔GNU Emacs 24.2.1〕 でも不具合発生する。
+**** 〔現状-d2013-11-23〕
+     [2013-11-23 土 14:31]
+- M-x emacs-version => GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) of 2012-12-08 on GNUPACK
+- バグ発生する。
+- http://gnupack.sourceforge.jp/docs/latest/UsersGuide_release_note.html の 2013-01-03 (Version 11.00) を使っている。
+**** 〔対処-d2013-11-23〕
+- http://d.hatena.ne.jp/ksugita0510/20121201
+  - 2012-12-01 - gnupackの開発メモ [emacs] IME変換中の文字列が別フレームに書き込まれるバグを修正
+  - バイナリ
+  - http://sourceforge.jp/projects/gnupack/downloads/56769/emacs-24.2-20121201.exe/
+  - C:\Users\nakamura\Documents\download\Emacs\gnupack\emacs-24.2-20121201.exe
+  - これを展開する。
+  - C:\Users\nakamura\Documents\download\Emacs\gnupack\emacs-24.2-20121201
+    を
+    N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs に配置する。
+  - 修正前の emacs を別名退避しておく。
+  - cmd
+    - cd N:\tool\gnupack\gnupack_devel-11.00\app\emacs
+    - ren emacs emacs-24.2.1-20121208
+    - xcopy /s C:\Users\nakamura\Documents\download\Emacs\gnupack\emacs-24.2-20121201\* N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\
+  - M-x emacs-version => GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) of 2012-12-01 on GNUPACK
+- http://sourceforge.jp/projects/gnupack/releases/
+  emacs-24.3-ime-2013-05-03.patch.tar.gz のほうが新しいかもしれない。
+  emacs 24.3 を使いたいならこちらを試してみて。
 *** server-start 不具合
     :LOGBOOK:
     TIMESTAMP: [2013-02-07 木 15:30]
