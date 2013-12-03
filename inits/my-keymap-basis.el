@@ -203,8 +203,10 @@
 (define-key global-map (kbd "C-z C-w") 'my-copy-line)
 (define-key global-map (kbd "C-z C-k") 'kill-whole-line)
 					; Tips. C-z C-k C-; C-; ... で範囲拡大。
-(define-key global-map (kbd "C-z C-j") 'my-join-line-next)
+(define-key global-map (kbd "C-z C-o") 'my-join-line-next)
 					; Tips. C-z C-j C-; C-; ... で範囲拡大。
+                                        ; C-x C-o は行をつなげない。 C-z C-o は行をつなげる。
+;; (kbd "C-z C-j") 未使用。
 ;; * [2013-10-31 木]
 (autoload 'redo "redo+" nil t)
 (define-key global-map (kbd "C-/") 'undo)

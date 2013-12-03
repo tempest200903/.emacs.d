@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
 ;; my-init
-;; #+LAST_UPDATED: 2013-11-09
+;; #+LAST_UPDATED: 2013-12-02
 ;; ----------------------------------------------------------------------
 ;; * init.el begin
 ;; ** custom
@@ -26,7 +26,7 @@
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-yank-special"))
 (when t    "2013-10-30" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when t    "2013-10-30" (load "~/.emacs.d/inits/my-kill-ring-save"))
-(when t    "2013-11-01" (load "~/.emacs.d/inits/my-time-stamp"))
+(when nil  "2013-11-01" (load "~/.emacs.d/inits/my-time-stamp"))
 (when t    "2013-11-06" (load "~/.emacs.d/inits/my-popwin"))
 (when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
 (when t    "2013-11-05" (require 'redo+ nil t))                                 ;; ~/.emacs.d/inits/my-redo.el
