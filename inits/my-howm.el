@@ -75,6 +75,7 @@
 (setq howm-template "= %title%cursor
 %date %file
 #+LAST_UPDATED: 
+#+OPTIONS: ^:nil
 
 ")
 (setq howm-template-date-format "[%Y-%m-%d %H:%M]")

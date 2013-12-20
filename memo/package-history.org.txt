@@ -37,3 +37,6 @@
 - http://d.hatena.ne.jp/syohex/20131104/1383541335
 - free-keys          20131104.2   available  Show free keybindings for modkeys or prefixes [github]
 - M-x free-keys
+** openwith
+   [2013-12-12 木]
+- openwith           20120531.... available  Open files with external programs

@@ -52,6 +52,9 @@
 ;; ** emacs-lisp-mode
 (when t    "2013-11-07" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 ;; ----------------------------------------------------------------------
+;; * require after init
+(when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive"))
+;; ----------------------------------------------------------------------
 ;; * init.el end
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-benchmark"))
 (switch-to-buffer "*Messages*")

@@ -9,10 +9,10 @@
         (menu-bar-lines . 1)
         (vertical-scroll-bars. left)
         (tool-bar-lines . 0)
-        (left . 15)
-        (top . 15)
-        (height . 60)
-        (width . 180)
+        (left . 50)
+        (top . 30)
+        (height . 70)
+        (width . 190)
         )))
 ;; 初期フレームの設定
 (setq initial-frame-alist

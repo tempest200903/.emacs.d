@@ -23,7 +23,7 @@
 (define-key my-anything-map (kbd "C-k") 'anything-for-files)
 (define-key my-anything-map (kbd "C-x C-f") 'anything-find-files)
 (define-key my-anything-map (kbd "b") 'anything-buffers-list)
-(define-key my-anything-map (kbd "C-v") 'anything-recentf)
+(define-key my-anything-map (kbd "C-;") 'anything-recentf)
 (define-key my-anything-map (kbd "C-i") 'anything-imenu) 
 (define-key my-anything-map (kbd "C-o") 'anything-occur)
 (define-key my-anything-map (kbd "C-y") 'anything-show-kill-ring)
@@ -34,7 +34,6 @@
 (define-key my-anything-map (kbd "M-x") 'anything-M-x)
 (define-key my-anything-map (kbd "C-e") 'anything-calcul-expression)
 (define-key my-anything-map (kbd "C-@") 'anything-all-mark-rings)
-(define-key my-anything-map (kbd "C-SPC") 'anything-all-mark-rings)
 (define-key my-anything-map (kbd "C-d") 'anything-do-grep)
 
 ;; 実験中

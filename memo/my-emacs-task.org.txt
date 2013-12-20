@@ -1,6 +1,9 @@
 #+LAST_UPDATED: 2013-11-21
 
 * my-emacs-task
+  :PROPERTIES:
+  :CATEGORY: 〈my-emacs-task〉
+  :END:
 ** ~/.emacs.d/inits/my-howm.el
 - [[~/.emacs.d/inits/my-howm.el]]
 # ;; (setq howm-search-path '("N:/howm/2013/10" "N:/howm/2013/09"))
@@ -44,3 +47,11 @@
   - C-c C-s (org-schedule) した直後に日付のところで C-c C-o (org-open-at-point) してバッティングの有無を見る。
 - 自動
   - C-c C-s (org-schedule) した時や (org-agenda-list) したときに、ダブルブッキングがあったら warning を表示する。
+** TODO 〔org-mode バージョンアップ〕
+- [2013-12-05 木] M-x org-version : Org-mode version 7.8.11
+- export html でページ内リンクの問題があるため、バージョンアップを控えている。
+  - [[file:~/.emacs.d/memo/my-org-mode-history.org.txt::*%E3%80%94%E4%B8%8D%E5%85%B7%E5%90%884%20%E3%83%9A%E3%83%BC%E3%82%B8%E5%86%85%E3%83%AA%E3%83%B3%E3%82%AF%20org-export%20HTML%E3%80%95][〔不具合4 ページ内リンク org-export HTML〕]]
+- export html を外部プロセスバッチ実行にすればこの問題は回避できる。
+  - http://d.hatena.ne.jp/rubikitch/20101107/org2html
+    - コマンドラインでorg→HTML変換する
+- 「eval: ShellExecute failed: このコマンドを実行するのに十分な記憶域がありません。」問題の回避にもなる。
