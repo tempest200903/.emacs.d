@@ -217,8 +217,8 @@
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金]
 (autoload 'kill-region-or-backward-kill-word "my-backward-kill-word" nil t)
-(autoload 'kill-word-at-point "my-backward-kill-word" nil t)
 (define-key global-map (kbd "C-w") 'kill-region-or-backward-kill-word)
+(autoload 'kill-word-at-point "my-backward-kill-word" nil t)
 (define-key global-map (kbd "C-z C-d") 'kill-word-at-point)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金]
@@ -237,3 +237,9 @@
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
 (autoload 'my-toggle-truncate-lines "my-toggle-truncate-lines" nil t)
 (global-set-key (kbd "C-z C-q") 'my-toggle-truncate-lines) 
+;; ----------------------------------------------------------------------
+;; * [2013-12-27 金] my-kill-ring-save
+(autoload 'my-kill-ring-save-or-ffap-copy-string-as-kill        "my-kill-ring-save" nil t)
+(global-set-key (kbd "M-w") 'my-kill-ring-save-or-ffap-copy-string-as-kill)
+(autoload 'my-kill-buffer-file-name                             "my-kill-ring-save" nil t)
+(global-set-key (kbd "M-s M-x") 'my-kill-buffer-file-name)

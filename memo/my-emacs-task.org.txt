@@ -55,3 +55,7 @@
   - http://d.hatena.ne.jp/rubikitch/20101107/org2html
     - コマンドラインでorg→HTML変換する
 - 「eval: ShellExecute failed: このコマンドを実行するのに十分な記憶域がありません。」問題の回避にもなる。
+** 〔あとで試す〕
+- http://qiita.com/takaxp/items/4dfa11a81e18b29143ec
+  - org-mode - 「今，そこにあるタスク（危機）」をDoingリストで乗り切る - Qiita [キータ]
+  - (setq org-tag-faces '(("Doing" :foreground "#FF0000")))
