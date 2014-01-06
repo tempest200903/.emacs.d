@@ -40,8 +40,3 @@
 ** openwith
    [2013-12-12 木]
 - openwith           20120531.... available  Open files with external programs
-** helm
-   [2013-12-27 金]
-- helm               20131225.... available  Helm is an Emacs incremental and narrowing framework
-- install 失敗。
-  - *Messages*: eval-buffer: Symbol's function definition is void: cl-defun

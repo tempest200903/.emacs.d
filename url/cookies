@@ -2,13 +2,13 @@
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- '((".google.com"
-  [url-cookie "PREF" "ID=f31eb96bd60ee932:FF=0:TM=1386565741:LM=1386565741:S=Uu9rwVsobl9iKD6G" "09-Dec-2015 05:09:01.00 GMT" "/" ".google.com" nil]
+ '(("marmalade-repo.org"
+  [url-cookie "connect.sid" "seHnbcohBamJLKBZRJLOFWth.ITHvtxwiZwYwwgx1moLd%2BdOMfb49ffp0PCOV0ixsaPw" "Thu, 12 Dec 2013 05:22:43 GMT" "/" "marmalade-repo.org" nil]
+  [url-cookie "httpOnly" nil "Thu, 12 Dec 2013 05:22:43 GMT" "/" "marmalade-repo.org" nil])
+ (".google.com"
+  [url-cookie "HttpOnly" nil "10-Jun-2014 05:09:01.00 GMT" "/" ".google.com" nil]
   [url-cookie "NID" "67=Zr8dEXEO_T-rEO5l_PDranASUTN3YFoDeKd8FZ-zn4TjbZLoRCZPWdP0yxvYJ8YQgW8_GEADU0ZRZ7ZGc4A9wFdwqSUTuBmZCdudJvZ-Azj9bLZHPYIP1epJMI7hv7z-" "10-Jun-2014 05:09:01.00 GMT" "/" ".google.com" nil]
-  [url-cookie "HttpOnly" nil "10-Jun-2014 05:09:01.00 GMT" "/" ".google.com" nil])
- ("marmalade-repo.org"
-  [url-cookie "httpOnly" nil "Fri, 27 Dec 2013 11:29:29 GMT" "/" "marmalade-repo.org" nil]
-  [url-cookie "connect.sid" "98t87RKCcKUSXcUlOusiuvbW.%2FFegay3uxDLhOxs5iO2ij%2B16wKAL59OsKpt5SsMfOAA" "Fri, 27 Dec 2013 11:29:29 GMT" "/" "marmalade-repo.org" nil]))
+  [url-cookie "PREF" "ID=f31eb96bd60ee932:FF=0:TM=1386565741:LM=1386565741:S=Uu9rwVsobl9iKD6G" "09-Dec-2015 05:09:01.00 GMT" "/" ".google.com" nil]))
 )
 (setq url-cookie-secure-storage
  'nil)

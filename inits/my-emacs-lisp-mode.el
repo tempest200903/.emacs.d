@@ -1,6 +1,13 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-emacs-lisp-mode.el
 ;; ======================================================================
+;; * [2011-08-29 月] elisp 関連
+(defun my-emacs-lisp-mode-map-init ()
+  (define-key emacs-lisp-mode-map (kbd "C-c C-x C-e") 'eval-buffer)
+  (define-key emacs-lisp-mode-map (kbd "C-z C-x C-e") 'eval-region)
+  )
+(add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-mode-map-init)
+;; ----------------------------------------------------------------------
 ;; * [2011-11-10 木] AddKeywords
 ;; http://www.emacswiki.org/emacs/AddKeywords
 (font-lock-add-keywords 'emacs-lisp-mode

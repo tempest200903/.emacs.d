@@ -6,7 +6,3 @@
   (interactive)
   (require 'my-howm)
   )
-(defun require-my-workmanager () "require-my-workmanager"
-  (interactive)
-  (require 'my-workmanager)
-  )
