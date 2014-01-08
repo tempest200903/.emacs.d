@@ -16,3 +16,9 @@
 	  (lambda ()
 	    (define-key diff-mode-map (kbd "M-g") nil)
 	    ))
+;; ----------------------------------------------------------------------
+;; * [2012-11-16 金] diff-mode では M-g に revert-buffer が割り当てられていて邪魔だ。 <S-F1> を使う。
+;; (when (require 'diff-mode nil t)
+;;   (define-key diff-mode-map (kbd "M-g") nil)
+;;   )
+;; require を遅延したほうが起動時間短縮できるだろうか。

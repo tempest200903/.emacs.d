@@ -1,14 +1,8 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-keymap-basis.el
 ;; ======================================================================
-(define-key global-map (kbd "<f5>") 'repeat)
-
+(define-key global-map (kbd "<f5>") 'repeat) ;; なるべくファンクションキーは使わない。 terminal で困らないように。
 (define-key global-map (kbd "C-;") 'repeat) ;; 連打しやすいキーバインドにしたい。
-;; [2013-09-10 火] 実験中。
-;; 便利な例1。 C-u 8 C-x TAB C-; C-;
-;; 便利な例1。 M-g M-n C-; C-;
-
-;; (global-unset-key (kbd "C-t"))
 (define-key global-map (kbd "C-z C-t") 'transpose-chars) ;; C-t を anything-command-map-prefix-key で使うため移動した。
 ;; ----------------------------------------------------------------------
 ;; * [2011-08-24 水] ffap.el カーソル位置付近にあるファイルパスを取り込む
@@ -80,11 +74,9 @@
 (define-key global-map (kbd "C-}")     'next-error)  ;; alias of M-g M-n. 連打しやすくする。
 (define-key global-map (kbd "M-p")     'previous-logical-line)
 (define-key global-map (kbd "M-n")     'forward-line)
-
 ;; next-error It is bound to C-}, C-x `, M-g n, M-g M-n. C-x ` はなくてもいい。別の割り当てをする。
 (define-key global-map (kbd "C-z `")   'compile)
 (define-key global-map (kbd "C-z C-z")   'recompile)
-
 ;; ----------------------------------------------------------------------
 ;; * [2011-11-10 木] コメントに改行を挿入する
 ;; (kbd "C-x C-j") は dired-x の dired-jump で予約済み。
@@ -142,11 +134,6 @@
 (define-key global-map (kbd "M-s M-n")         'highlight-symbol-next) ;; alias of M-s s n runs the command highlight-symbol-next
 (define-key global-map (kbd "M-s M-p")         'highlight-symbol-prev) ;; alias of M-s s p runs the command highlight-symbol-prev
 ;; ----------------------------------------------------------------------
-;; * [2012-11-16 金] diff-mode では M-g に revert-buffer が割り当てられていて邪魔だ。 <S-F1> を使う。
-(when (require 'diff-mode nil t)
-  (define-key diff-mode-map (kbd "M-g") nil)
-  )
-;; ----------------------------------------------------------------------
 ;; * [2011-09-06 火] describe 関連, C-h で始まるキーバインド。
 ;; <f1> および C-h を prefix に使うことのデメリット。
 ;; C-x C-h で C-x を prefix として使うキーバインドを表示する。
@@ -198,8 +185,6 @@
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] auto-load my-copy-line
 ;; ~/.emacs.d/inits/my-copy-line.el
-(autoload 'my-copy-line "my-copy-line" nil t)
-(autoload 'my-join-line-next "my-copy-line" nil t)
 (define-key global-map (kbd "C-z C-w") 'my-copy-line)
 (define-key global-map (kbd "C-z C-k") 'kill-whole-line)
 					; Tips. C-z C-k C-; C-; ... で範囲拡大。
@@ -208,7 +193,6 @@
                                         ; C-x C-o は行をつなげない。 C-z C-o は行をつなげる。
 ;; (kbd "C-z C-j") 未使用。
 ;; * [2013-10-31 木]
-(autoload 'redo "redo+" nil t)
 (define-key global-map (kbd "C-/") 'undo)
 (define-key global-map (kbd "C-x C-/") 'redo)
 ;; ----------------------------------------------------------------------
@@ -216,24 +200,21 @@
 (define-key global-map (kbd "C-z a r") 'align-regexp)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金]
-(autoload 'kill-region-or-backward-kill-word "my-backward-kill-word" nil t)
-(autoload 'kill-word-at-point "my-backward-kill-word" nil t)
 (define-key global-map (kbd "C-w") 'kill-region-or-backward-kill-word)
 (define-key global-map (kbd "C-z C-d") 'kill-word-at-point)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金]
-(autoload 'my-goto-line-with-linum-mode "my-goto-line" nil t)
 (define-key global-map (kbd "M-g M-g") 'my-goto-line-with-linum-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金]
-;; (autoload 'my-cua-selection-mode "my-cua-mode" nil t)
-;; (define-key global-map (kbd "C-z C-\\") 'my-cua-selection-mode)
 (define-key global-map (kbd "C-z C-\\") 'cua-selection-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日]
-(autoload 'my-rename-file-and-buffer "my-rename-file-and-buffer" nil t)
 (define-key global-map (kbd "C-x RET C-w")	'my-rename-file-and-buffer)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
-(autoload 'my-toggle-truncate-lines "my-toggle-truncate-lines" nil t)
 (global-set-key (kbd "C-z C-q") 'my-toggle-truncate-lines) 
+;; ----------------------------------------------------------------------
+;; * [2014-01-07 火]
+(global-set-key (kbd "C-z C-x C-i") 'tabify) 
+(global-set-key (kbd "C-z C-i") 'untabify) 

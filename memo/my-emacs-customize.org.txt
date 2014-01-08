@@ -2578,6 +2578,12 @@ openwith.el:144:1:Error: End of file during parsing
   - xls -> 外部関連付けなし
 - (describe-variable 'openwith-associations)
 - http://www.emacswiki.org/emacs/OpenWith
+** ruby-mode
+- http://d.hatena.ne.jp/syohex/20140102/1388652281
+  - Emacs 24.4の show-paren-mode - Life is very short
+  - ruby-modeで smart-paren-modeを有効にすると do-end def-end class-end のペアがハイライトされるようになりました. 
+  - smartparensでは同機能を実装していますが, 24.4からは素の Emacsだけでこの機能を利用することができます.
+- [2014-01-07 火 13:59] 今使っている GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) では未実装。 package-list-packages smartparens を install すれば利用できる、かもしれない。
 * troubleshooting
 - [2011-11-04 金 11:06] 障害。 ffap で directory を開くと window 分割が解除されてしまう。なぜ？
   - いったん、 ffap.el, dired+.el を無効にしてみる。実験中。

@@ -45,7 +45,6 @@
   (interactive "DDirectory: ")
   (let ((howm-directory dir))
     (howm-normalize-show "" (howm-folder-items dir t))))
-(define-key global-map (kbd "C-^ G") 'my-howm-view-directory)
 ;; ----------------------------------------------------------------------
 ;; * [2011-10-03 月] howmM buffer に switch する。 howmM buffer がない場合は howm-menu 開始する。
 (defun my-howmM-or-switch-to-buffer ()
@@ -54,7 +53,6 @@
   (if (get-buffer "*howmM:%menu%*")
       (switch-to-buffer-other-window "*howmM:%menu%*")
     (call-interactively 'howm-menu)))
-(global-set-key (kbd "C-^ C-m") 'my-howmM-or-switch-to-buffer)
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-27 火] howmS buffer に switch する。 howmS buffer がない場合は howm-menu 開始する。
 (defun my-howmS-or-switch-to-buffer ()
@@ -63,13 +61,6 @@
   (if (get-buffer "*howmS*")
       (switch-to-buffer-other-window "*howmS*")
     (call-interactively 'howm-list-grep-fixed)))
-(global-set-key (kbd "C-^ C-s") 'my-howmS-or-switch-to-buffer)
-;; ----------------------------------------------------------------------
-;; * [2012-07-26 木] howm-1.3.9.2
-(define-key global-map (kbd "C-^ e") 'howm-remember)
-(define-key global-map (kbd "C-^ b") 'howm-list-buffers)
-(define-key global-map (kbd "C-^ x") 'howm-list-mark-ring)
-(define-key global-map (kbd "C-^ o") 'howm-occur)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] http://howm.sourceforge.jp/README-j.html テンプレートの変更
 (setq howm-template "= %title%cursor
@@ -85,7 +76,6 @@
 ;; (setq howm-search-path '("N:/howm/2013/10" "N:/howm/2013/09"))
 ;; (setq howm-search-other-dir t) ;; howm-toggle-search-other-dir のトグルの初期値 (t か nil)
 ;; TODO 変数 howm-search-path の設定を my-emacs-custom.el に移動する。
-(define-key global-map (kbd "C-^ C-t") 'howm-toggle-search-other-dir)
 ;; ----------------------------------------------------------------------------
 ;; * [2013-11-02 土] M-x customize
 ;; ~/.emacs.d/custom-goat/my-emacs-custom.el

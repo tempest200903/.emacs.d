@@ -24,11 +24,11 @@
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-yank-special"))
-(when t    "2013-10-30" (load "~/.emacs.d/inits/my-goto-last-change"))
+(when nil  "2013-10-30" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when t    "2013-10-30" (load "~/.emacs.d/inits/my-kill-ring-save"))
 (when nil  "2013-11-01" (load "~/.emacs.d/inits/my-time-stamp"))
 (when t    "2013-11-06" (load "~/.emacs.d/inits/my-popwin"))
-(when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
+(when nil  "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
 (when t    "2013-11-05" (require 'redo+ nil t))                                 ;; ~/.emacs.d/inits/my-redo.el
 ;; ----------------------------------------------------------------------
 ;; * color
@@ -48,14 +48,14 @@
 (when t    "2013-10-30" (load "~/.emacs.d/inits/my-org-mode-isfenv"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-workmanager"))
 ;; ** howm-mode
-(when nil  "2013-10-29" (load "~/.emacs.d/inits/my-howm")) ;; [2013-11-07 木] 重たいのでいったん無効にしてみる。
+(when t    "2014-01-07" (load "~/.emacs.d/inits/my-howm-keymap"))
+;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-howm")) ;; [2013-11-07 木] 重たいのでいったん無効にしてみる。
 ;; ** emacs-lisp-mode
-(when t    "2013-11-07" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
+(when nil  "2013-11-07" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 ;; ----------------------------------------------------------------------
 ;; * require after init
 (when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive"))
 ;; ----------------------------------------------------------------------
 ;; * init.el end
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-benchmark"))
-(switch-to-buffer "*Messages*")
 ;; ----------------------------------------------------------------------
