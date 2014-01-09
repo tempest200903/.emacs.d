@@ -97,6 +97,7 @@
 ;; かな漢字変換が on のとき M-s o すると minibuffer に o が入力されてしまう。暫定回避策。
 (define-key global-map (kbd "M-s M-o")         'occur)
 (define-key global-map (kbd "M-s M-:")         're-builder)
+(define-key global-map (kbd "M-s M-m")         'multi-occur-in-matching-buffers)
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-06 火] calc 関連 alias.
 ;; calc-dispatch は default key 定義済み。
