@@ -1,7 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-keymap-basis.el
 ;; ======================================================================
-(define-key global-map (kbd "<f5>") 'repeat) ;; なるべくファンクションキーは使わない。 terminal で困らないように。
 (define-key global-map (kbd "C-;") 'repeat) ;; 連打しやすいキーバインドにしたい。
 (define-key global-map (kbd "C-z C-t") 'transpose-chars) ;; C-t を anything-command-map-prefix-key で使うため移動した。
 ;; ----------------------------------------------------------------------
@@ -91,18 +90,17 @@
 (define-key global-map (kbd "<S-mouse-3>")     'yank-pop)
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-05 月] M-% は押しにくいので alias.
-;; しかし、 isearch-map では M-% を使わないと引継ぎできない。
+;; しかし、 isearch-map では M-% を使わないと引継ぎできない。 isearch-map でも押しやすいキーで引継ぎしたい。
 (define-key global-map (kbd "M-s M-q")         'query-replace)
 (define-key global-map (kbd "M-s M-r")         'query-replace-regexp)
-;; かな漢字変換が on のとき M-s o すると minibuffer に o が入力されてしまう。暫定回避策。
+;; かな漢字変換が on のとき M-s o すると minibuffer に o が入力されてしまうのを回避する。
 (define-key global-map (kbd "M-s M-o")         'occur)
 (define-key global-map (kbd "M-s M-:")         're-builder)
 (define-key global-map (kbd "M-s M-m")         'multi-occur-in-matching-buffers)
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-06 火] calc 関連 alias.
-;; calc-dispatch は default key 定義済み。
+;; calc-dispatch は default key 定義済み。しかし長いので短縮 alias.
 ;; (define-key global-map (kbd "C-x *") 'calc-dispatch) ;; Invoke the GNU Emacs Calculator.  See `calc-dispatch-help' for details.
-;; しかし長いので短縮 alias.
 (define-key global-map (kbd "<S-f12>")         'calc-dispatch)
 ;; 使用例1。 Shift 押したまま <f12> q で quick-calc
 ;; 使用例2。 Shift 押したまま <f12> * で最後に起動した calc を再開。
@@ -121,12 +119,18 @@
 ;; (load "n:/tool/gnupack/gnupack_basic-7.02/app/emacs/site-lisp/color-theme/themes/color-theme-library.el")
 ;; GNU Emacs 23.2.1 には color-theme がないので、引数 NOERROR を t にしておく。
 (when (require 'color-theme nil t)
-  (define-key global-map (kbd "<M-pause>")     'color-theme-emacs-21)
+  ;; (define-key global-map (kbd "<M-pause>")     'color-theme-emacs-21)
+  (define-key global-map (kbd "<S-non-convert>")     'color-theme-emacs-21)
+  ;; 使用頻度が高いのでホームポジションキーを割り当てる。
   )
 ;; ----------------------------------------------------------------------
 ;; * [2012-04-11 水] paren
 ;; (kbd "%" に割り当てていたが、 view-mode では衝突するので回避する。
+;; (kbd "M-g M-8") なら衝突しない。
+;; どの kbd がいい？
 (define-key global-map (kbd "M-g M-:")         'match-paren)
+(define-key global-map (kbd "M-g M-8")         'match-paren)
+(define-key global-map "%"                     'match-paren)
 ;; ----------------------------------------------------------------------
 ;; * [2012-04-11 水] paren
 (define-key global-map (kbd "M-?")             'end-of-buffer-other-window) ;; alias of <M-end>. ホームポジションから届くようにする。
@@ -177,12 +181,14 @@
 ;;                      C-h C-x C-f     describe-face-at-point
 ;; 上記以外の "C-h C-<alpha>" は定義済み。
 ;; (kbd "M-+") is undefined
-;; (kbd "C-;") is undefined ;; prefix に使用可能。
 ;; (kbd "C-M-g") is undefined ;; prefix に使用可能。
 ;; (kbd "C-M-z") is undefined ;; prefix に使用可能。
 ;; <C-M-backspace>
 ;; (kbd "C-z C-z") is undefined
 ;; (kbd "<C-M-attn>") is undefined
+;; (kbd "C-z C-j") is undefined
+;; (kbd "C-x C-,") is undefined
+;; (kbd "C-c C-,") is undefined
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] auto-load my-copy-line
 ;; ~/.emacs.d/inits/my-copy-line.el
@@ -192,7 +198,6 @@
 (define-key global-map (kbd "C-z C-o") 'my-join-line-next)
 					; Tips. C-z C-j C-; C-; ... で範囲拡大。
                                         ; C-x C-o は行をつなげない。 C-z C-o は行をつなげる。
-;; (kbd "C-z C-j") 未使用。
 ;; * [2013-10-31 木]
 (define-key global-map (kbd "C-/") 'undo)
 (define-key global-map (kbd "C-x C-/") 'redo)
@@ -214,8 +219,8 @@
 (define-key global-map (kbd "C-x RET C-w")	'my-rename-file-and-buffer)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
-(global-set-key (kbd "C-z C-q") 'my-toggle-truncate-lines) 
+(define-key global-map (kbd "C-z C-q") 'my-toggle-truncate-lines) 
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-07 火]
-(global-set-key (kbd "C-z C-x C-i") 'tabify) 
-(global-set-key (kbd "C-z C-i") 'untabify) 
+(define-key global-map (kbd "C-z C-x C-i") 'tabify) 
+(define-key global-map (kbd "C-z C-i") 'untabify) 

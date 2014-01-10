@@ -11,10 +11,12 @@
   (call-interactively 'set-mark-command)
   )
 (fset 'my-org-clock-goto-default
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("\347\365d" 0 "%d")) arg)))
+      (lambda (&optional arg) "Keyboard macro."
+        (interactive "p") (kmacro-exec-ring-item (quote ("\347\365d" 0 "%d")) arg)))
 ;; ----------------------------------------------------------------------
 ;; * global
-;; 『Emacs org-modeを使ってみる: (1) インストール - 屯遁のパズルとプログラミングの日記』 http://d.hatena.ne.jp/tamura70/20100203/org
+;; 『Emacs org-modeを使ってみる: (1) インストール - 屯遁のパズルとプログラミングの日記』
+;; http://d.hatena.ne.jp/tamura70/20100203/org
 ;; キーバインドの設定
 (require 'org)
 (progn
@@ -89,16 +91,16 @@
 ;;   "* clock 関連"
 ;;   (define-key org-mode-map (kbd "C-c C-x d") 'org-clock-mark-default-task)
 
-  ;; "* org anything 関連"
-  (when (require 'anything nil t)
-    (define-key org-mode-map (kbd "C-t C-c C-y") 'anything-org-keywords)
+;; "* org anything 関連"
+(when (require 'anything nil t)
+  (define-key org-mode-map (kbd "C-t C-c C-y") 'anything-org-keywords)
                                         ; It is bound to <menu-bar> <Anything> <Org:> <Org keywords>.
-    (define-key org-mode-map (kbd "C-t C-j") 'anything-org-headlines)
+  (define-key org-mode-map (kbd "C-t C-j") 'anything-org-headlines)
                                         ; It is bound to <menu-bar> <Anything> <Org:> <Org headlines>.
-    )
+  )
 
-  "* time 関連"
-  (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
+"* time 関連"
+(define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
 
 ;;   "* mark-ring 関連"
 (define-key org-mode-map (kbd "C-c C-SPC") 'org-mark-ring-goto)
@@ -140,3 +142,10 @@
 ;; ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] 空いているキーバインド
 ;; (kbd "C-c z")
+;; (kbd "C-.")
+;; ----------------------------------------------------------------------
+;; * [2014-01-09 木]
+;; org-open-at-point, org-mark-ring-goto をよく使うので、 C-, , C-. に割り当てる。
+;; C-, のデフォルトは (org-cycle-agenda-files) It is bound to C-', C-,
+(define-key org-mode-map (kbd "C-,") 'org-open-at-point)
+(define-key org-mode-map (kbd "C-.") 'org-mark-ring-goto)

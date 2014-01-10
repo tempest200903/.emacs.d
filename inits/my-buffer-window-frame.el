@@ -12,7 +12,7 @@
         (left . 50)
         (top . 30)
         (height . 70)
-        (width . 190)
+        (width . 210)
         )))
 ;; 初期フレームの設定
 (setq initial-frame-alist

@@ -46,7 +46,6 @@
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (self-insert-command (or arg 1)))))
-(global-set-key "%" 'match-paren)
 ;; ----------------------------------------------------------------------
 ;; * [2011-11-11 金] 
 (font-lock-add-keywords 'sh-mode '(("declare" . font-lock-keyword-face)))

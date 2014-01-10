@@ -28,3 +28,6 @@
 (autoload 'my-rename-file-and-buffer "my-rename-file-and-buffer" nil t)
 ;; 
 (autoload 'my-toggle-truncate-lines "my-toggle-truncate-lines" nil t)
+;;
+(autoload 'match-paren "my-programming-defun" nil t)
+;;
