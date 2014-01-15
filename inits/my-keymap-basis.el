@@ -40,7 +40,7 @@
 (define-key global-map (kbd "M-s M-]")         'ffap-next)
 (define-key global-map (kbd "C-z C-s")         'save-some-buffers) ;; alias of C-x s
 (define-key global-map (kbd "C-z m")           'bookmark-set) ;; alias of C-x r m
-(define-key global-map (kbd "C-z l")           'linum-mode)
+(define-key global-map (kbd "M-g M-g")  'my-goto-line-with-linum-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2011-04-05 火] highlight-changes-mode 関連
 ;; emacs-terminal では <scroll> を使えない。別のキーに変更する。
@@ -50,6 +50,11 @@
   (define-key global-map (kbd "M-g M-b")       'highlight-changes-previous-change)
   (define-key global-map (kbd "M-g M-f")       'highlight-changes-next-change)
   )
+;; ----------------------------------------------------------------------
+;; * [2013-11-01 金] mode 切り替え関連。
+(define-key global-map (kbd "C-z l")    'linum-mode)
+(define-key global-map (kbd "C-z C-\\") 'cua-selection-mode)
+(define-key global-map (kbd "C-z g")  'graphviz-dot-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2011-08-29 月] capslock キーを活用する。 C-x C-* の alias として capslock * を割り当てる。
 (define-prefix-command 'my-oem-attn-map)
@@ -208,12 +213,6 @@
 ;; * [2013-11-01 金]
 (define-key global-map (kbd "C-w") 'kill-region-or-backward-kill-word)
 (define-key global-map (kbd "C-z C-d") 'kill-word-at-point)
-;; ----------------------------------------------------------------------
-;; * [2013-11-01 金]
-(define-key global-map (kbd "M-g M-g") 'my-goto-line-with-linum-mode)
-;; ----------------------------------------------------------------------
-;; * [2013-11-01 金]
-(define-key global-map (kbd "C-z C-\\") 'cua-selection-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日]
 (define-key global-map (kbd "C-x RET C-w")	'my-rename-file-and-buffer)

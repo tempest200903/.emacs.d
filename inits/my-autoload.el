@@ -31,3 +31,5 @@
 ;;
 (autoload 'match-paren "my-programming-defun" nil t)
 ;;
+(autoload 'graphviz-dot-mode "my-graphviz-dot-mode" nil t)
+;;
