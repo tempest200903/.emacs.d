@@ -33,3 +33,5 @@
 ;;
 (autoload 'graphviz-dot-mode "my-graphviz-dot-mode" nil t)
 ;;
+(autoload 'picture-duplicate-line "picture" nil t)
+;;

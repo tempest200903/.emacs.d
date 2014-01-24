@@ -22,7 +22,7 @@
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-buffer-window-frame"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-color-moccur"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
-(when t    "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
+(when nil  "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
 (when t    "2013-10-29" (load "~/.emacs.d/inits/my-yank-special"))
 (when t    "2014-01-09" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when t    "2013-10-30" (load "~/.emacs.d/inits/my-kill-ring-save"))

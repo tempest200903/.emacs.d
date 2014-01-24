@@ -223,3 +223,4 @@
 ;; * [2014-01-07 火]
 (define-key global-map (kbd "C-z C-x C-i") 'tabify) 
 (define-key global-map (kbd "C-z C-i") 'untabify) 
+(define-key global-map (kbd "C-z C-y") 'picture-duplicate-line)
