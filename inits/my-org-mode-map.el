@@ -23,14 +23,15 @@
   (define-key global-map (kbd "C-c l")   'org-store-link)
   (define-key global-map (kbd "C-:")     'org-agenda)
   (autoload 'my-org-agenda-list-switch-to-buffer "my-org-mode-buffer")
-  (define-key global-map (kbd "C-x C-:") 'my-org-agenda-list-switch-to-buffer)
   (define-key global-map (kbd "C-M-:") 'my-org-agenda-list-switch-to-buffer)
+  (define-key global-map (kbd "C-M-]") 'my-org-edit-agenda-file-list-switch-to-buffer)
   (define-key global-map (kbd "M-g M-j") 'org-clock-goto)
   (define-key global-map (kbd "M-g M-u") 'my-org-clock-goto-u)
   (define-key global-map (kbd "M-g M-h") 'my-org-clock-goto-default)
   (define-key global-map (kbd "M-s M-a") 'org-occur-in-agenda-files)
   (define-key global-map (kbd "C-z C-u") 'org-time-stamp-inactive)
   (define-key global-map (kbd "C-c b")   'org-iswitchb) ; cf. http://orgmode.org/manual/Activation.html#Activation
+  ;; (kbd "C-x C-:") は空いている。
   )
 ;; ----------------------------------------------------------------------
 ;; * org-mode-map
@@ -110,7 +111,7 @@
 ;;   ;; C-c % は押しにくいので alias. (set-mark-command ARG) {It is bound to C-@}
 ;;   ;; ほとんどの場合、 set-mark-command で十分。何が違う？
 ;;   "* その他"
-(define-key org-mode-map (kbd "C-c C-x ]") 'org-edit-agenda-file-list)
+;; (define-key org-mode-map (kbd "C-c C-x ]") 'org-edit-agenda-file-list)
 ;;   (define-key org-mode-map (kbd "C-c C-x C-e") 'org-table-export)
 ;;   (define-key org-mode-map (kbd "C-z C-c C-:") (kbd "C-: a 7 b C-u l R w")) ;; for orgweek
 ;;   "前提: my-org-clock-display.el"
