@@ -38,16 +38,12 @@
 (define-key org-mode-map (kbd "C-c C-x d") 'org-clock-mark-default-task)
 
 ;; ----------------------------------------------------------------------
-;; ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; ;; #+LAST_UPDATED: 2013-09-11
-;; ;; ======================================================================
-
-;; ;; ----------------------------------------------------------------------
-;; ;; * [2011-04-23 土] よく使う keybind を短縮したい。
-;; (defun my-org-mouse-context-menu() "org-mouse-context-menu interactive"
-;;   (interactive)
-;;   (org-mouse-context-menu)
-;;   )
+;; * [2011-04-23 土] よく使う keybind を短縮したい。
+(defun my-org-mouse-context-menu() "org-mouse-context-menu interactive"
+  (interactive)
+  (org-mouse-context-menu)
+  )
+(define-key org-mode-map (kbd "C-c <apps>") 'my-org-mouse-context-menu)
 
 ;; ;; ----------------------------------------------------------------------
 ;; ;; * [2013-04-03 水] mouse "copy link" と同じことをキーボードで行う。
@@ -111,7 +107,6 @@
 ;;   ;; C-c % は押しにくいので alias. (set-mark-command ARG) {It is bound to C-@}
 ;;   ;; ほとんどの場合、 set-mark-command で十分。何が違う？
 ;;   "* その他"
-;; (define-key org-mode-map (kbd "C-c C-x ]") 'org-edit-agenda-file-list)
 ;;   (define-key org-mode-map (kbd "C-c C-x C-e") 'org-table-export)
 ;;   (define-key org-mode-map (kbd "C-z C-c C-:") (kbd "C-: a 7 b C-u l R w")) ;; for orgweek
 ;;   "前提: my-org-clock-display.el"
@@ -121,16 +116,6 @@
 
 (define-key org-mode-map (kbd "C-c C-x |") 'org-table-convert-region)
 
-;;   ;; * mouse
-;;   (when (require 'org-mouse nil t)
-;;     (define-key org-mode-map (kbd "<S-non-convert>") 'my-org-mouse-context-menu) ;; alias of <mouse-3>
-;;     );; 未完成
-
-
-;;   ;; (define-key org-mode-map (kbd "C-z C-x C-w") 'my-org-copy-link1)
-;;   (define-key org-mode-map (kbd "C-z C-l") 'my-org-copy-link2)
-;;   ;; 課題 もっと短く！
-;;   )
 ;; (add-hook 'org-mode-hook 'my-org-mode-map-init)
 
 ;; (defun my-org-agenda-mode-map-init ()
@@ -143,7 +128,6 @@
 ;; ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] 空いているキーバインド
 ;; (kbd "C-c z")
-;; (kbd "C-.")
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-09 木]
 ;; org-open-at-point, org-mark-ring-goto をよく使うので、 C-, , C-. に割り当てる。

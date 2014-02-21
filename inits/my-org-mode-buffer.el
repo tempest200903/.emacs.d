@@ -2,7 +2,6 @@
 ;; my-org-mode-buffer.el
 ;; ======================================================================
 ;; * [2011-09-28 水] org agenda buffer への switch-to-buffer-other-window
-;;;###autoload
 (defun my-org-agenda-list-switch-to-buffer ()
   "Switch to *Org Agenda* buffer."
   (interactive)

@@ -88,7 +88,6 @@
 ;; M-x newline-and-indent {It is bound to C-j}
 ;; なので、これに近い kbd にする。
 ;; 連打できるように C-M-; を採用した。
-;;
 (define-key global-map (kbd "C-M-;")   'comment-indent-new-line)
 ;; ----------------------------------------------------------------------
 ;; * [2011-11-16 水] mouse
@@ -224,3 +223,10 @@
 (define-key global-map (kbd "C-z C-x C-i") 'tabify) 
 (define-key global-map (kbd "C-z C-i") 'untabify) 
 (define-key global-map (kbd "C-z C-y") 'picture-duplicate-line)
+;; ----------------------------------------------------------------------
+;; * [2014-02-20 木] my-occur.el から移転。
+(global-set-key (kbd "M-s M-b") 'multi-occur-in-matching-buffers)
+(global-set-key (kbd "M-s i") 'isearch-highlight-regexp)
+(global-set-key (kbd "M-s d") 'set-selective-display)
+(global-set-key (kbd "M-g M-o") 'my-occur-or-switch-to-buffer)
+(global-set-key (kbd "M-g M-m") 'my-moccur-or-switch-to-buffer)

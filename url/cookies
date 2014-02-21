@@ -7,8 +7,8 @@
   [url-cookie "NID" "67=Zr8dEXEO_T-rEO5l_PDranASUTN3YFoDeKd8FZ-zn4TjbZLoRCZPWdP0yxvYJ8YQgW8_GEADU0ZRZ7ZGc4A9wFdwqSUTuBmZCdudJvZ-Azj9bLZHPYIP1epJMI7hv7z-" "10-Jun-2014 05:09:01.00 GMT" "/" ".google.com" nil]
   [url-cookie "HttpOnly" nil "10-Jun-2014 05:09:01.00 GMT" "/" ".google.com" nil])
  ("marmalade-repo.org"
-  [url-cookie "httpOnly" nil "Wed, 29 Jan 2014 12:15:18 GMT" "/" "marmalade-repo.org" nil]
-  [url-cookie "connect.sid" "ZZBeKtzenrQj4lsucJTVBY8m.kprjcMp9lje9i2XoWMZ2%2FIK1ZvN9Tt9N3vjEZNA%2F%2By0" "Wed, 29 Jan 2014 12:15:18 GMT" "/" "marmalade-repo.org" nil]))
+  [url-cookie "httpOnly" nil "Thu, 13 Feb 2014 09:57:19 GMT" "/" "marmalade-repo.org" nil]
+  [url-cookie "connect.sid" "yYolu7AlI6H2SeXsmqSwsQc2.isEBcrGZMTSMuyWBnmKMNooLSxXIvsm5IlU3ZuSE6Y4" "Thu, 13 Feb 2014 09:57:19 GMT" "/" "marmalade-repo.org" nil]))
 )
 (setq url-cookie-secure-storage
  'nil)

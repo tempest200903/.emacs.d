@@ -34,4 +34,8 @@
 (autoload 'graphviz-dot-mode "my-graphviz-dot-mode" nil t)
 ;;
 (autoload 'picture-duplicate-line "picture" nil t)
+;; my-org-mode-buffer.el
+(autoload 'my-org-edit-agenda-file-list-switch-to-buffer "my-org-mode-buffer" nil t)
 ;;
+(autoload 'my-occur-or-switch-to-buffer "my-occur" nil t)
+(autoload 'my-moccur-or-switch-to-buffer "my-occur" nil t)

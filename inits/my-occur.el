@@ -1,12 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-occur.el
 ;; ======================================================================
-(global-set-key (kbd "M-s M-b") 'multi-occur-in-matching-buffers)
-(global-set-key (kbd "M-s i") 'isearch-highlight-regexp)
-(global-set-key (kbd "M-s d") 'set-selective-display)
-(global-set-key (kbd "M-g M-o") 'my-occur-or-switch-to-buffer)
-(global-set-key (kbd "M-g M-m") 'my-moccur-or-switch-to-buffer)
-;; ----------------------------------------------------------------------
 (define-key occur-mode-map (kbd "u") 'rename-uniquely)
 (define-key occur-mode-map (kbd "n") 'occur-next)
 (define-key occur-mode-map (kbd "p") 'occur-prev)

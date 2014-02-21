@@ -55,3 +55,19 @@
   - http://d.hatena.ne.jp/rubikitch/20101107/org2html
     - コマンドラインでorg→HTML変換する
 - 「eval: ShellExecute failed: このコマンドを実行するのに十分な記憶域がありません。」問題の回避にもなる。
+** TODO 〔my-org-agenda-list-switch-to-buffer 改良案〕
+- [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-org-mode-buffer.el]]
+- 現状
+  - (kbd "C-:") => org-agenda
+  - (kbd "C-M-:") => my-org-agenda-list-switch-to-buffer
+- 改良案
+  - (kbd "C-:") => 
+    if (カレントバッファが "*Org Agenda*" である) then (org-agenda)
+    else my-org-agenda-list-switch-to-buffer
+  - つまりこうなる。
+    - (kbd "C-:") 1回で "*Org Agenda*" バッファに切り替え。
+    - (kbd "C-:") 2回で org-agenda
+
+
+** TODO 〔mode-line に truncate-lines を表示する〕
+- [[~/.emacs.d/inits/my-toggle-truncate-lines.el]]
