@@ -30,7 +30,9 @@
 - anything-for-files Help
   - ffap -> recentf -> buffer -> bookmark -> file-cache -> files-in-current-dir -> locate.
 - locate を source から外すべし。
-** 〔xml schema 検証したい〕
+** TODO 〔xml well-formed を検査したい〕
+- pom.xml を変更して commit. jenkins 夜間ジョブで失敗。原因は well-formed . ということがあった。
+** TODO 〔xml schema validation 検証したい〕
    [2013-11-07 木 14:35]
 - help rng-validate-mode
   - Minor mode performing continual validation against a RELAX NG schema.
@@ -68,6 +70,9 @@
     - (kbd "C-:") 1回で "*Org Agenda*" バッファに切り替え。
     - (kbd "C-:") 2回で org-agenda
 
-
 ** TODO 〔mode-line に truncate-lines を表示する〕
 - [[~/.emacs.d/inits/my-toggle-truncate-lines.el]]
+** TODO 〔xml-mode, yaml-mode を比較する 〕
+- xml-mode では要素名や属性名の補完ができる。 yaml-mode ではできるか？
+- インデントなどのフォーマッタ。
+- outline-demote, outline-promote のようなアウトラインのレベル変更、順序変更。

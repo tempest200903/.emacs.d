@@ -39,6 +39,12 @@
   )
 (global-set-key (kbd "C-z [") 'my-yank-with-CORNER-BRACKET)
 
+(defun my-yank-with-WHITE-CORNER-BRACKET () "yank with 『』"
+  (interactive "*")
+  (my-yank-with-bracket "『" "』")
+  )
+(global-set-key (kbd "C-z ]") 'my-yank-with-WHITE-CORNER-BRACKET)
+
 (defun my-yank-with-QUOTATION-MARK () "yank with \"\""
   (interactive "*")
   (my-yank-with-bracket "\"" "\"")

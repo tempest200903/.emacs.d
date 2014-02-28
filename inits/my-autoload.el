@@ -39,3 +39,5 @@
 ;;
 (autoload 'my-occur-or-switch-to-buffer "my-occur" nil t)
 (autoload 'my-moccur-or-switch-to-buffer "my-occur" nil t)
+;; 
+(autoload 'moccur "my-moccur" nil t)
