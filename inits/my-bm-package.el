@@ -2,8 +2,8 @@
 ;; my-bm-package.el
 ;; =============================================================================
 ;; インストール手順
-;; M-x package-list-packages
-;; bm を選択して install ボタンをクリックする。
+;; M-x package-list-packages bm を選択して install ボタンをクリックする。
+;; または M-x package-install bm
 ;; 
 (add-to-list 'load-path "~/.emacs.d/vendor/elpa/bm-1.53")
 (when (not (require 'bm nil t))

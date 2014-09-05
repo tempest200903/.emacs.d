@@ -40,3 +40,6 @@
 ** openwith
    [2013-12-12 木]
 - openwith           20120531.... available  Open files with external programs
+** textile-mode
+   [2014-07-18 金]
+- textile-mode       20120721.... available  Textile markup editing major mode

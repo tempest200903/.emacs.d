@@ -419,4 +419,27 @@ Debugger entered--Lisp error: (file-error "make server process failed" "invalid 
 - auto-save-mode on で \\isf-mine にあるファイルを auto-save すると、応答なしになる。
 - auto-save-mode off で様子を見る。
   - (auto-save-mode -1)
+*** PENDING 〔org-open-at-point したときにリージョンアクティブになる〕
+    [2014-05-08 木] 
+- org-open-at-point したときに、リンク先バッファで元いた位置からリンク
+  先位置までを選択してリージョンアクティブになる現象が発生。このまま文
+  字入力するとリージョンを削除してしまうので困る。
+- 回避策1
+  - [X] customize "Org Return Follows Link" (org-return-follows-link nil) エンターキーでリンクをフォローする機能を無効にする。
+  - [X] C-c C-o を無効にする。
+    [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-org-mode-map.el]]
+    (define-key org-mode-map (kbd "C-c C-o") nil)
+  - [X] 代わりにこれを使う。
+    [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-org-mode-map.el]]
+    (define-key org-mode-map (kbd "C-,") 'my-org-open-at-point)
+    [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-org-mode-hyperlink.el]]
+    解消しない！
+- マウスボタン1 (org-mouse-down-mouse EVENT) なら発生しない。しかし、キーボードからは入力できない！？
+- [2014-05-09 金] org-open-at-point したときに、リンク先バッファで元い
+  た位置からリンク先位置までを選択してリージョンアクティブになる現象が
+  発生。このまま文字入力するとリージョンを削除してしまうので困る。いろ
+  いろ試してみたが、なぜかリージョンアクティブを解除できない。とりあえ
+  ず、 (delete-selection-mode -1) を入れてリージョンを削除しないように
+  しておく。 delete-selection-mode 変更後は emacs 再起動しておくのが無
+  難。とりあえずこれで誤って消してしまう問題は回避できた。
 * tail

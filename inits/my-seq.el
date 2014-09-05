@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-seq.el
 ;; ======================================================================
 ;; * [2011-09-12 月] 連番を挿入する方法
 ;; url: http://d.hatena.ne.jp/rubikitch/20110221
@@ -90,4 +91,6 @@ FORMAT-STRING is like `format', but it can have multiple %-sequences."
           (replace-match (format (concat "%0" (int-to-string field-width) "d")
                                  answer)))))))
 (global-set-key (kbd "M-+") 'my-increment-number-decimal)
+;; ----------------------------------------------------------------------
+(provide 'my-seq)
 

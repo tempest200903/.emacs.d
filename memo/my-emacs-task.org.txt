@@ -1,4 +1,4 @@
-#+LAST_UPDATED: 2013-11-21
+#+LAST_UPDATED: 2014-05-08
 
 * my-emacs-task
   :PROPERTIES:
@@ -76,3 +76,30 @@
 - xml-mode では要素名や属性名の補完ができる。 yaml-mode ではできるか？
 - インデントなどのフォーマッタ。
 - outline-demote, outline-promote のようなアウトラインのレベル変更、順序変更。
+** TODO 〔[]を含むファイルパスへのリンク〕
+- file:\\Isf-mine\情報エンジニアリング部\[0]bodais\【編集中】P部・研究所への展開の流れ.txt
+  - こうすればリンクとして扱う。
+- copy link したとき、先頭の file: が邪魔。これを取り除いてコピーするコマンドがほしい。
+- バッチファイルを経由してファイルサーバファイルを開く。
+  - 例 N:\Isf-mine\情報エンジニアリング部\［0］bodais\【編集中】P部・研究所への展開の流れ.txt.proxy.bat を経由してファイルサーバファイルを開く。
+  - 例 @myscript\dos\fileserver-localopen.bat \\Isf-mine\情報エンジニアリング部\[0]bodais\【編集中】P部・研究所への展開の流れ.txt
+** TODO 〔my-date-replace.el〕
+- [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-date-replace.el]]
+** TODO 〔howm メモを一括検索・一括置換したい〕
+- 目的：howm メモを一括検索・一括置換したい
+- 実現方法：N:/howm へのシンボリックリンクを eclipse workspace に置く。 eclipse で文字列検索する。
+- メリット：検索履歴を複数保持できる。一括置換できる。
+- デメリット：メモリ使用量。
+** TODO 〔howm メモの一部を export したい〕
+- 目的： howm メモのうち non-work メモを sn に export したい。
+- 実現方法：メモに non-work タグを記す。 script で grep and rsync
+** TODO 〔emacs kill-ring およびレジスタと OS クリップボードを連携したい〕
+- 目的：emacs kill-ring およびレジスタと OS クリップボードを連携したい。
+- 実現方法：kill-ring およびレジスタから OS クリップボードに転記するコマンドを用意する。 vice versa.
+** TODO 〔時刻計算〕
+- e.g. input `10:37-1:52` output `8:45 (8.7h)`
+- anything-calcul-expression では計算できない。
+#+BEGIN_EXAMPLE
+$ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a[1].to_i; b[0]=b[0].to_i; b[1]=b[1].to_i; puts (a[0]*60+a[1]-(b[0]*60+b[1]))/60.0'
+8.75
+#+END_EXAMPLE

@@ -8,6 +8,7 @@
 (define-key global-map (kbd "C-^") nil)		;; my-howm.el
 (define-key global-map (kbd "C-t") nil)		;; my-keymap-basis.el
 (define-key global-map (kbd "C-z") nil)		;; my-keymap-basis.el ;; default (repeat) 
+(define-key global-map (kbd "C-q") nil)		;; my-keymap-basis.el ;; default (quoted-insert)
 (define-key global-map (kbd "C-x C-z") nil)	;; my-keymap-basis.el ;; default (suspend-frame)
 (define-key global-map (kbd "M-+") nil)		;; ??
 ;; ----------------------------------------------------------------------

@@ -7,7 +7,6 @@
   (interactive)
   (shell-command-on-region (region-beginning) (region-end) "wc")
   )
-(global-set-key (kbd "C-z C-x l") 'my-region-command-wc-to-minibuffer)
 ;; kbd 由来: 類似コマンド count-lines-page {It is bound to C-x l} は、バッファの行数をカウントする。
 ;; ----------------------------------------------------------------------
 ;; * [2012-05-20 日] cf. n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/05-util.el

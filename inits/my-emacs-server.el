@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-02-07
+;; my-emacs-server.el
+;; #+LAST_UPDATED: 2014-04-15
 ;; ======================================================================
 ;; cf. url: http://www24.atwiki.jp/myfavoritepcsettings/pages/156.html
 ;; 
@@ -10,3 +11,4 @@
 (remove-hook 'kill-buffer-query-functions
 	     'server-kill-buffer-query-function)
 
+;; バッチファイル N:\tool\gnupack\gnupack_devel-11.00\app\emacs\emacs\bin\client.bat %*

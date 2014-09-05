@@ -35,6 +35,7 @@
 (define-key my-anything-map (kbd "C-e") 'anything-calcul-expression)
 (define-key my-anything-map (kbd "C-@") 'anything-all-mark-rings)
 (define-key my-anything-map (kbd "C-d") 'anything-do-grep)
+(define-key my-anything-map (kbd "C-]") 'anything-bm-list)
 
 ;; 実験中
 (define-key my-anything-map (kbd "C-s") 'anything-minibuffer-history)

@@ -8,11 +8,14 @@
 ;; M-x package-list-package color-moccur
 (if (require 'color-moccur nil t)
   (progn
-    (define-key global-map (kbd "M-s M-c") 'occur-by-moccur)
-    (define-key global-map (kbd "M-s M-m") 'moccur)
-    (define-key global-map (kbd "M-s M-g") 'moccur-grep)
-    (define-key global-map (kbd "M-s M-f") 'moccur-grep-find)
-    (define-key global-map (kbd "M-s M-d") 'dmoccur)
+    ;; {
+    ;; ./my-autoload.el に移転する。
+    ;; (define-key global-map (kbd "M-s M-c") 'occur-by-moccur)
+    ;; (define-key global-map (kbd "M-s M-m") 'moccur)
+    ;; (define-key global-map (kbd "M-s M-g") 'moccur-grep)
+    ;; (define-key global-map (kbd "M-s M-f") 'moccur-grep-find)
+    ;; (define-key global-map (kbd "M-s M-d") 'dmoccur)
+    ;; }
     (setq moccur-split-word t) ;; スペース区切りで AND 検索
     ;; dmoccur-exclusion-mask ディレクトリ検索のとき除外するファイル
     (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")

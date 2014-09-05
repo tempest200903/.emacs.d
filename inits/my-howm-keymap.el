@@ -4,6 +4,7 @@
 ;; ----------------------------------------------------------------------------
 (define-key global-map (kbd "C-^ c") 'howm-create)
 (define-key global-map (kbd "C-^ G") 'my-howm-view-directory)
+(define-key global-map (kbd "C-^ ,") 'howm-menu)
 ;; ----------------------------------------------------------------------
 ;; * [2012-07-26 木] howm-1.3.9.2
 (define-key global-map (kbd "C-^ e") 'howm-remember)

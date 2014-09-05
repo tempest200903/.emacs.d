@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; buffer, window, frame 関連のユーティリティ。
+;; TODO global-set-key と他を分離する。 autoload する。
 ;; ============================================================
 ;; * [2011-11-09 水] フレームのデフォルト値を変更する
 ;; 新規フレームのデフォルト設定
@@ -9,10 +10,10 @@
         (menu-bar-lines . 1)
         (vertical-scroll-bars. left)
         (tool-bar-lines . 0)
-        (left . 50)
-        (top . 30)
-        (height . 70)
-        (width . 210)
+        (left . 0)
+        (top . 20)
+        (height . 75)
+        (width . 230)
         )))
 ;; 初期フレームの設定
 (setq initial-frame-alist
@@ -71,6 +72,7 @@
       (switch-to-buffer (cdr last-buffer-saved))
     (error (switch-to-buffer (other-buffer)))))
 (global-set-key (kbd "<S-f7>") 'switch-to-last-buffer)
+(global-set-key (kbd "C-z b") 'switch-to-last-buffer)
 ;; ------------------------------------------------------------
 ;; http://whattheemacsd.com/
 (defun my-toggle-window-split ()
@@ -152,6 +154,7 @@
 (global-set-key (kbd "<M-f4>") 'delete-frame) ;; C-x 5 0 の alias.
 ;; (global-set-key (kbd "C-t C-4") 'delete-frame) ;; C-x 5 0 の alias.
 
+(global-set-key (kbd "<M-f5>") 'raise-other-frame-minus)
 (global-set-key (kbd "<M-f6>") 'raise-other-frame)
 (global-set-key (kbd "<M-f7>") 'suspend-frame)
 (global-set-key (kbd "C-t C-z") 'suspend-frame) ;; emacs-nw では function key を使えないので。実験中。
@@ -207,3 +210,13 @@
   (other-window -1)
 )
 (global-set-key (kbd "C-z -") 'my-shrink-other-window-if-larger-than-buffer)
+;; ----------------------------------------------------------------------
+(defun my-reset-frame ()
+  "フォントが崩れてしまう不具合を解消するため、フレームを作り直す"
+  (interactive)
+  (call-interactively 'make-frame-command)
+  (call-interactively 'delete-frame)
+)
+(define-key global-map (kbd "<S-non-convert>") 'my-reset-frame)
+;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21)
+;; my-reset-frame ではウィンドウ分割が解除されてしまう。

@@ -34,10 +34,64 @@
 (autoload 'graphviz-dot-mode "my-graphviz-dot-mode" nil t)
 ;;
 (autoload 'picture-duplicate-line "picture" nil t)
-;; my-org-mode-buffer.el
+;; ---- my-org-mode-buffer.el ----
 (autoload 'my-org-edit-agenda-file-list-switch-to-buffer "my-org-mode-buffer" nil t)
-;;
-(autoload 'my-occur-or-switch-to-buffer "my-occur" nil t)
-(autoload 'my-moccur-or-switch-to-buffer "my-occur" nil t)
+(autoload 'my-org-agenda-list-switch-to-buffer "my-org-mode-buffer")
+;; ---- my-occur.el ----
+;; [2014-05-14 水] auto-load 失敗。 Message: "Cannot open load file"
+;; (autoload 'my-occur-or-switch-to-buffer "my-occur" nil t)
 ;; 
-(autoload 'moccur "my-moccur" nil t)
+;; [2014-05-14 水] auto-load 失敗。 Message: "Cannot open load file"
+;; (autoload 'moccur "my-moccur" nil t) 
+;; ---- my-explorer.el ----
+(autoload 'my-explorer-current-directory "my-explorer" nil t)
+;; my-yank-special.el
+(autoload 'my-yank-with-bracket "my-yank-special" nil t)
+(autoload 'my-yank-with-PARENTHESIS "my-yank-special" nil t)
+(autoload 'my-yank-with-CURLY-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-TORTOISE-SHELL-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-CORNER-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-WHITE-CORNER-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-QUOTATION-MARK "my-yank-special" nil t)
+(autoload 'my-yank-with-APOSTROPHE "my-yank-special" nil t)
+(autoload 'my-yank-with-BLACK-LENTICULAR-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-ANGLE-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-DOUBLE-ANGLE-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-SQUARE-BRACKET "my-yank-special" nil t)
+(autoload 'my-yank-with-xml-comment "my-yank-special" nil t)
+(autoload 'my-yank-with-xml-tag "my-yank-special" nil t)
+(autoload 'my-yank-with-link-occur "my-yank-special" nil t)
+(autoload 'my-yank-with-link-org-occur "my-yank-special" nil t)
+(autoload 'my-yank-with-erb-print "my-yank-special" nil t)
+(autoload 'my-yank-org-example-arg "my-yank-special" nil t)
+;; my-seq.el
+(autoload 'seq "my-seq" nil t)
+;; my-date.el
+(autoload 'my-date-insert-today "my-date" nil t)
+(autoload 'my-date-today "my-date" nil t)
+(autoload 'my-date-replace-today "my-date" nil t)
+;; my-occur.el
+(autoload 'my-occur-link "my-occur" nil t)
+;; my-org-mode-hyperlink.el
+(autoload 'my-org-convert-to-link "my-org-mode-hyperlink" nil t)
+(autoload 'my-insert-shell-bracket "my-org-mode-hyperlink" nil t)
+(autoload 'my-org-open-at-point "my-org-mode-hyperlink" nil t)
+(autoload 'my-org-yank-link-arg "my-org-mode-hyperlink" nil t)
+(autoload 'my-org-yank-link "my-org-mode-hyperlink" nil t)
+;; my-color-moccur.el
+(autoload 'occur-by-moccur   "my-color-moccur" nil t)
+(autoload 'moccur            "my-color-moccur" nil t)
+(autoload 'moccur-grep       "my-color-moccur" nil t)
+(autoload 'moccur-grep-find  "my-color-moccur" nil t)
+(autoload 'dmoccur           "my-color-moccur" nil t)
+(define-key global-map (kbd "M-s M-c") 'occur-by-moccur)
+(define-key global-map (kbd "M-s M-m") 'moccur)
+(define-key global-map (kbd "M-s M-g") 'moccur-grep)
+(define-key global-map (kbd "M-s M-f") 'moccur-grep-find)
+(define-key global-map (kbd "M-s M-d") 'dmoccur)
+;; my-wc.el
+(autoload 'my-region-command-wc-to-minibuffer "my-wc" nil t)
+(define-key global-map (kbd "C-z C-x l") 'my-region-command-wc-to-minibuffer)
+;; my-other-window-or-split.el
+(autoload 'my-other-window-or-split "my-other-window-or-split" nil t)
+;; 

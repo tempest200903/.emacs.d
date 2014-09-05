@@ -13,25 +13,42 @@
 ;; ----------------------------------------------------------------------
 ;; * [2011-07-08 金] 〔〕 を挿入する。 org-mode とは関係ないので独立させる。 anything で選択式にしてほしい。
 (defun my-insert-shell-bracket (&optional arg)
-  (interactive "*")
-  (when (equal arg 4)   (progn (insert-for-yank (concat "《" (current-kill 0) "》")))
-        (equal arg 16) (progn (insert-for-yank (concat "〔" (current-kill 0) "〕")))
-        (progn (insert-for-yank (concat "〔" (current-kill 0) "〕")))
-        )
+  (interactive "p")
+  (if (equal arg 4) (my-org-yank-DOUBLE-ANGLE-BRACKET)
+    (my-org-yank-TORTOISE-SHELL-BRACKET)
+    )
   )
-(global-set-key (kbd "C-z C-c C-y") 'my-insert-shell-bracket)
+(defun my-org-yank-DOUBLE-ANGLE-BRACKET ()  "前後に 《 と 》 をつけて yank する。"
+  (interactive "*")
+  (progn (insert-for-yank (concat "《" (current-kill 0) "》")))
+  )
+(defun my-org-yank-TORTOISE-SHELL-BRACKET () "前後に 〔 と 〕 をつけて yank する。"
+  (interactive "*")
+  (progn (insert-for-yank (concat "〔" (current-kill 0) "〕")))
+  )
+;; TODO my-yank-special.el にも類似のコマンドがある。マージするべし。
 ;; ----------------------------------------------------------------------
 ;; * [2011-08-25 木] org-mouse-yank-link と同じことをキーボードで行う。
-(defun my-org-yank-link-arg (&optional arg)
-  (interactive "*P")
-  (when (equal arg 4)  (call-interactively 'my-org-yank-link)
-        (equal arg 16) (call-interactively 'my-org-yank-file-link)
-        )) ;; 未完成
-(defun my-org-yank-link () 
+(defun my-org-yank-link-arg (&optional arg) "my-org-yank-link or my-org-yank-file-link"
+  (interactive "p")
+  (if (equal arg 4) (my-org-yank-file-link)
+    (my-org-yank-link)
+    )
+  )
+(defun my-org-yank-link ()  "前後に [[ と ]] をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "[[" (current-kill 0) "]]")))
   )
-(defun my-org-yank-file-link () 
+(defun my-org-yank-file-link () "前後に [[file: と ]] をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "[[file:" (current-kill 0) "]]")))
   )
+;; ----------------------------------------------------------------------
+;; TODO 
+;; input: \\fileserver\a\b.xls
+;; output: [[shell:cmd /c N:\\work\\myscript\\dos\\fileserver-localopen.bat \\\\fileserver\\a\\b.xls]]
+;; もしくは
+;; output: [[elisp:fileserver-localopen \\\\fileserver\\a\\b.xls]]
+;; defun fileserver-localopen を別途定義する。
+;; ----------------------------------------------------------------------
+(provide 'my-org-mode-hyperlink)
