@@ -1,0 +1,3 @@
+2014/09/06 14:00 
+$ rm -rf elpa/*
+$ init.el, my-init.el を全てコメントアウト。ただし、 custom-file はコメントアウトしない。
