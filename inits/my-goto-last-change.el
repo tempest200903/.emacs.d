@@ -5,8 +5,7 @@
 ;; * [2010-10-18 月]
 ;; url: http://www.bookshelf.jp/soft/meadow_44.html#SEC662
 ;; url: http://www.emacswiki.org/cgi-bin/wiki/goto-chg.el
-;; * [2013-10-30 水]
-(autoload 'goto-last-change "goto-last-change"
-  "Set point to the position of the last change." t)
-
+;; * [2014-09-06 土] インストール手順
+;; M-x package-install goto-last-change
+(require 'goto-last-change)
 (global-set-key (kbd "M-g M-l") 'goto-last-change)
