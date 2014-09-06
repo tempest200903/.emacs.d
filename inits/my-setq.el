@@ -1,14 +1,12 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-setq.el
 ;; ======================================================================
-;; * [2010-10-18 月]
+;; * [2010-10-18 月] "yes or no"を"y or n"に
 ;; cf. url: http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
-;; "yes or no"を"y or n"に
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; ------------------------------------------------------------------
-;; * [2010-10-18 月]
+;; * [2010-10-18 月] 対応するカッコをハイライト
 ;; cf. url: http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
-;; 対応するカッコをハイライト
 (show-paren-mode 1)
 ;; ------------------------------------------------------------------
 ;; ;; * [2010-10-18 月] ;; cf. WEB+DB PRESS Vol.58 ;; url:
@@ -21,12 +19,11 @@
 ;; る。;; Emacs version を表示する。(setq frame-title-format (format
 ;; "%%b - '%%f' - Emacs%s@%s" emacs-version (system-name))) ;; ;;
 ;; ------------------------------------------------------------------
-;; ;; * [2010-10-18 月] ;; cf. url:
-;; http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html ;; 2行ずつス
-;; クロール(setq scroll-conservatively 35 scroll-margin 0 scroll-step
-;; 2) ;;
+;; * [2010-10-18 月] cf. url:
+;; http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
+;; 2行ずつスクロール(setq scroll-conservatively 35 scroll-margin 0 scroll-step 2)
 ;; ----------------------------------------------------------------------------
-;; ;; * [2010-10-18 月] ;; カラム番号をモードラインに表示する。;;;
+;; * [2010-10-18 月] カラム番号をモードラインに表示する。
 ;; cf. WEB+DB PRESS Vol.58 url:
 ;; http://gihyo.jp/magazine/wdpress/archive/2010/vol58 ;;; 特集2 思考を
 ;; 直感的にコード化し，開発を加速する Emacs活用∞（無限大）;;;
@@ -38,32 +35,35 @@
 ;; 「prefer-coding-system」という、ファイルの新規作成時に使用するテキス
 ;; トエンコーディングを指定するコマンドがある。起動時にこのコマンドに
 ;; 「utf-8-unix」という値を与えて実行させるには、次のように記述すればよ
-;; い。;; (prefer-coding-system 'utf-8-unix) ;; 実験結果。;;
+;; い。
+;; (prefer-coding-system 'utf-8-unix)
+;; 実験結果。
 ;; (prefer-coding-system 'utf-8-unix) にすると、マルチバイトファイル名
 ;; を使った M-x org-open-at-point {It is bound to C-c C-o} が失敗す
-;; る。;; default-file-name-coding-system Its value is utf-8-unix ;; に
-;; なっている。これが問題か？;;
-;; http://d.hatena.ne.jp/end0tknr/20110903/1315042315 ;;
+;; る。
+;; default-file-name-coding-system Its value is utf-8-unix 
+;; になっている。これが問題か？
+;;
+;; http://d.hatena.ne.jp/end0tknr/20110903/1315042315
+;;
 ;; default-file-name-coding-systemで emacsの日本語ファイル名の文字化け
-;; 解消 - end0tknrのkipple ;; 普段、win xp + emacs 23を利用していますが、
+;; 解消 - end0tknrのkipple
+;; 普段、win xp + emacs 23を利用していますが、
 ;; 通常?の.emacsでは、dired modeで日本語のファイル名が文字化けしてしま
-;; います。;; そのような場合、.emacsのprefer-coding-system の後に
-;; default-file-name-coding-system を .emacsに追加しましょう。;;
-;; (prefer-coding-system 'utf-8-unix) ; 日本語入力のための設定;; (setq
-;; default-file-name-coding-system 'shift_jis) ;diredで日本語file名出
-;; 力;; この方法で解消した。(prefer-coding-system 'utf-8-unix) ; 日本語
-;; 入力のための設定(setq default-file-name-coding-system 'shift_jis)
-;; ;diredで日本語file名出
+;; います。
+;; そのような場合、.emacsのprefer-coding-system の後に
+;; default-file-name-coding-system を .emacsに追加しましょう。
+;;
+;; (prefer-coding-system 'utf-8-unix) ; 日本語入力のための設定
+;; (setq default-file-name-coding-system 'shift_jis) ;diredで日本語file名出
 ;; 力
-;; ;;----------------------------------------------------------------------
-;; ;; 部分一致の補完機能を使う;; p-bでprint-bufferとか;;
-;; (partial-completion-mode t) ;; GNU Emacs 24.1.1 では *Warning*
-;; Symbol's function definition is void: partial-completion-mode ;;
+;; この方法で解消した。(prefer-coding-system 'utf-8-unix) ; 日本語
+;; 入力のための設定(setq default-file-name-coding-system 'shift_jis)
+;; diredで日本語file名出力
 ;; ----------------------------------------------------------------------
-;; ;; BSで選択範囲を消す(delete-selection-mode t) ;;
-;; ----------------------------------------------------------------------
-;; ;; [2013-09-12 木] setenv (setenv "GRAPHVIZ_DOT"
-;; "C:\\tool\\Graphviz2.30\\bin\\dot.exe")
+;; BSで選択範囲を消す (delete-selection-mode t)
+;; 誤って消して気づかない事故が多発したので、無効にする。
+(delete-selection-mode -1)
 ;; ----------------------------------------------------------------------
 ;; * [2014-05-08 木] http://d.hatena.ne.jp/web7_77/20110705/1309885434
 ;; org-open-at-point したときに、リンク先バッファで元いた位置からリンク

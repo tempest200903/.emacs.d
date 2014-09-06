@@ -24,8 +24,6 @@
 - autoload するので my-init.el で (load "my-kill-ring-save.el") は不要。
 - $ git commit -m "autoload my-kill-ring-save.el" .
 ** next-multiframe-window
-- next-multiframe-window などを 
-n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-anything-basis.el
-から
-n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-keymap-basis.el
-に移動する。
+- $ git commit -m "next-multiframe-window などを my-anything-basis.el から my-keymap-basis.el に移動する。" .
+** my-setq
+- $ git commit -m "enable my-setqmy-autoload.el" .
