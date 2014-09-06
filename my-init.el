@@ -11,14 +11,15 @@
 (load custom-file)
 ;; ** load path
 ;; (when t    "2013-10-29" (add-to-list 'load-path "~/.emacs.d/manual-install"))
-;; (when t    "2013-11-05" (add-to-list 'load-path "~/.emacs.d/inits"))
+(when t    "2014-09-06" (add-to-list 'load-path "~/.emacs.d/inits"))
 ;; (when t    "2013-11-09" (add-to-list 'load-path "~/.emacs.d/elpa/anything-20130606.946"))
 ;; ----------------------------------------------------------------------
 ;; * globalunset-key する必要がある。
 ;; define-key よりさきに
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
-;; (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-emacs-server"))
 ;; (when t    "2013-11-09" (load "~/.emacs.d/inits/my-auto-install"))
 ;; (when t    "2013-11-05" (load "~/.emacs.d/inits/my-autoload"))

@@ -14,3 +14,5 @@
 ** my-color
 - $ git commit -m "enable my-color" .
 ** my-buffer-window-frame.el
+- $ git commit -m "enable my-buffer-window-frame.el" .
+** 
