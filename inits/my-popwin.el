@@ -9,6 +9,9 @@
 ;; ("*Completions*" :noselect t)
 ;; ("*compilation*" :noselect t)
 ;; ("*Occur*" :noselect t))
+;; * [2014-09-06 土] インストール手順
+;; M-x package-install popwin
+;; 
 (when (require 'popwin nil t)
   (setq display-buffer-function 'popwin:display-buffer)
   (setq popwin:special-display-config '(("*Help*")

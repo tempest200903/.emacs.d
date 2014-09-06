@@ -54,3 +54,5 @@
 ** my-goto-last-change.el
 - $ git commit -m "enable my-goto-last-change.el" .
 - $ git commit -m "enable package-install goto-last-change" .
+** popwin
+- $ git commit -m "package-install popwin" .

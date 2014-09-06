@@ -35,6 +35,10 @@
 (define-key org-mode-map (kbd "C-c C-x l") 'my-org-convert-to-link) "前提: my-org-mode-hyperlink.el"
 (define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
 (define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
+;; ** checkbox 関連
+(define-key org-mode-map (kbd "C-z C-]") (kbd "C-u C-c C-c")) ;; alias of C-u C-c C-c
+(define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
+;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-09 木] org-open-at-point, org-mark-ring-goto をよく使うので、 C-, , C-. に割り当てる。
 ;; (kbd "C-,") のデフォルトは (org-cycle-agenda-files) It is bound to C-', C-,

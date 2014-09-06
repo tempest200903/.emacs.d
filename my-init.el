@@ -24,12 +24,12 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-child-process"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-popwin"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-emacs-server"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-color-moccur"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-time-stamp"))
-;; (when t    "2013-11-06" (load "~/.emacs.d/inits/my-popwin"))
 ;; (when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
 ;; ----------------------------------------------------------------------
 ;; * color

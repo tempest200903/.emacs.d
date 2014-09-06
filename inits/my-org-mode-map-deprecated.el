@@ -17,13 +17,6 @@
 (define-key org-mode-map (kbd "C-c <apps>") 'my-org-mouse-context-menu)
 ;; ----------------------------------------------------------------------
 ;; * [2013-04-03 水]
-;;   "* checkbox 関連"
-;;   "org-mouse は emacs 本体付属。 require 必要。"
-(when (require 'org-mouse nil t)
-  (define-key org-mode-map (kbd "C-z C-]") 'org-mouse-insert-checkbox) ;; alias of C-u C-c C-c
-  )
-;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
-(define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
 
 ;;   ;; * カレントバッファから hyperlink を occur するキーボード変換。 C-c C-SPC で元の位置に戻れる。
 (define-key org-mode-map (kbd "M-s [") (kbd "C-z C-SPC C-x 1 M-s o \\[ \\[ RET C-x o C-c C-f"))
