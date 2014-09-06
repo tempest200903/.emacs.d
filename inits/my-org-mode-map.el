@@ -31,3 +31,17 @@
 ;; ** outline 関連
 (define-key org-mode-map (kbd "M-[") 'outline-previous-visible-heading)
 (define-key org-mode-map (kbd "M-]") 'outline-next-visible-heading)
+;; ** link 関連
+(define-key org-mode-map (kbd "C-c C-x l") 'my-org-convert-to-link) "前提: my-org-mode-hyperlink.el"
+(define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
+(define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
+;; ----------------------------------------------------------------------
+;; * [2014-01-09 木] org-open-at-point, org-mark-ring-goto をよく使うので、 C-, , C-. に割り当てる。
+;; (kbd "C-,") のデフォルトは (org-cycle-agenda-files) It is bound to C-', C-,
+;; (kbd "C-c C-o") のデフォルトは (org-open-at-point) It is bound to C-c C-o
+;; * [2014-05-08 木] my-org-mode-hyperlink.el
+(define-key org-mode-map (kbd "C-.") 'org-mark-ring-goto)
+(define-key org-mode-map (kbd "C-,") 'org-open-at-point)
+(define-key org-mode-map (kbd "C-c C-o") nil)
+(define-key org-mode-map (kbd "C-z C-c C-y") 'my-insert-shell-bracket)
+(define-key org-mode-map (kbd "C-z #") 'my-yank-org-example-arg)

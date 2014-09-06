@@ -99,4 +99,8 @@
 (autoload 'my-kill-buffer-file-name "my-kill-ring-save" nil t)
 ;; ffap.el
 (autoload 'ffap-other-window "ffap" nil t)
-
+;; my-org-clock.el
+(autoload 'my-org-clock-goto-u "my-org-clock.el" nil t)
+(autoload 'my-org-clock-goto-default "my-org-clock.el" nil t)
+;; my-color-moccur.el
+(autoload 'moccur "my-color-moccur.el" nil t)

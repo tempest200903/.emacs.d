@@ -6,19 +6,6 @@
 ;; いったん全ての式を my-org-mode-map-deprecated.el に移動した。
 ;; 必要な式だけを my-org-mode-map.el に戻す。
 ;; ----------------------------------------------------------------------
-;; http://hpcgi1.nifty.com/spen/index.cgi?OrgMode%2fManual1#i2
-;; * [2010-11-01 月] 汎用的に使うので global-map
-(defun my-org-clock-goto-u ()
-  "alias of C-u M-x org-clock-goto"
-  (interactive)
-  (call-interactively 'set-mark-command)
-  (org-clock-goto t)
-  (call-interactively 'set-mark-command)
-  )
-;; "alias of C-u M-x my-org-clock-goto-u d C-l C-l
-(fset 'my-org-clock-goto-default
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("\347\365d" 0 "%d")) arg)))
-;; ----------------------------------------------------------------------
 ;; * org-mode-map
 (define-key org-mode-map (kbd "C-c C-x d") 'org-clock-mark-default-task)
 ;; ----------------------------------------------------------------------
@@ -37,10 +24,6 @@
   )
 ;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
 (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
-;;   "* link 関連"
-;;   (define-key org-mode-map (kbd "C-c C-x l") 'my-org-convert-to-link) "前提: my-org-mode-hyperlink.el"
-(define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
-(define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
 
 ;;   ;; * カレントバッファから hyperlink を occur するキーボード変換。 C-c C-SPC で元の位置に戻れる。
 (define-key org-mode-map (kbd "M-s [") (kbd "C-z C-SPC C-x 1 M-s o \\[ \\[ RET C-x o C-c C-f"))
@@ -96,16 +79,6 @@
 ;; * [2013-11-01 金] 空いているキーバインド
 ;; (kbd "C-c z")
 ;; (kbd "C-x C-:") は空いている。
-;; ----------------------------------------------------------------------
-;; * [2014-01-09 木] org-open-at-point, org-mark-ring-goto をよく使うので、 C-, , C-. に割り当てる。
-;; (kbd "C-,") のデフォルトは (org-cycle-agenda-files) It is bound to C-', C-,
-;; (kbd "C-c C-o") のデフォルトは (org-open-at-point) It is bound to C-c C-o
-;; * [2014-05-08 木] my-org-mode-hyperlink.el
-(define-key org-mode-map (kbd "C-.") 'org-mark-ring-goto)
-(define-key org-mode-map (kbd "C-,") 'org-open-at-point)
-(define-key org-mode-map (kbd "C-c C-o") nil)
-(global-set-key (kbd "C-z C-c C-y") 'my-insert-shell-bracket)
-(global-set-key (kbd "C-z #") 'my-yank-org-example-arg)
 ;; ----------------------------------------------------------------------
 ;; * [2014-04-11 金] my-yank-special.el
 (define-key org-mode-map (kbd "C-z M-s M-o") 'my-yank-with-link-occur)

@@ -230,6 +230,7 @@
 (define-key global-map (kbd "M-g M-o")               'my-occur-or-switch-to-buffer)
 (define-key global-map (kbd "M-g M-m")               'my-moccur-or-switch-to-buffer)
 (define-key global-map (kbd "M-s M-m")               'moccur)
+(define-key global-map (kbd "M-s .")                 'my-moccur-today)
 ;; ----------------------------------------------------------------------
 ;; * [2014-03-19 水] Emacs から エクスプローラを起動するユーティリティ。
 (define-key global-map (kbd "C-z e")                 'my-explorer-current-directory)
@@ -281,5 +282,6 @@
 (define-key global-map (kbd "C-t 4") 'delete-frame)
 (define-key global-map (kbd "C-t 5") 'make-frame-command)
 ;; ----------------------------------------------------------------------
-;; * [2014-09-06 土] recentf 関連
+;; * [2014-09-06 土] anything 廃止した代わりのキーバインド関連
 (define-key global-map (kbd "C-t C-;") 'recentf-open-files)
+(define-key global-map (kbd "C-t C-l") 'bookmark-bmenu-list)

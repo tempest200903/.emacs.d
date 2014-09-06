@@ -49,3 +49,7 @@
 - $ git commit -m "customize Recentf Mode" .
 ** my-redo.el
 - $ git commit -m "enable my-redo.el" .
+** my-color-moccur.el
+- $ git commit -m "enable my-color-moccur.el" .
+** my-goto-last-change.el
+- $ git commit -m "enable my-goto-last-change.el" .

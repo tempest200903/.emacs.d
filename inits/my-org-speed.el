@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-org-speed.el
 ;; ======================================================================
 ;; speed-command で org-clock-mark-default-task などを使うためには、あ
 ;; らかじめ require しておく必要がある。
