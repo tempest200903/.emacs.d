@@ -11,109 +11,39 @@
 # [2013-10-03 木 12:46] Total in lisp objects: 15.6MB (live 11.6MB, dead 4.02MB)
 # [2013-10-08 火 14:00] Emergency (alloc): Warning: past 75% of memory limit
 # [2013-10-31 木 12:21] もろもろリセットした後。 Emergency はほとんど出ていない。
+# [2014-09-06 土 14:33] タスクマネージャー {24,300 K} もろもろリセットした後。
 
 Garbage collection stats:
-((cons 8 1361177 162163) (symbol 24 48604 318) (marker 20 10485 1681) (string 16 130355 22168) (string-byte 1 3832796) (vector-slot 4 1514620) (float 8 469 332) (interval 28 103986 2041))
+((cons 8 286156 11982) (symbol 24 29182 3) (marker 20 112 575) (string 16 55999 8261) (string-byte 1 1168948) (vector-slot 4 1130879) (float 8 222 238) (interval 28 1277 446))
 
- =>	10.4MB (+ 1.24MB dead) in cons
-	1.11MB (+ 7.45kB dead) in symbol
-	 205kB (+ 32.8kB dead) in marker
-	1.99MB (+  346kB dead) in string
-	3.66MB in string-byte
-	5.78MB in vector-slot
-	3.66kB (+ 2.59kB dead) in float
-	2.78MB (+ 55.8kB dead) in interval
+ =>	2.18MB (+ 93.6kB dead) in cons
+	 684kB (+ 0.07kB dead) in symbol
+	2.19kB (+ 11.2kB dead) in marker
+	 875kB (+  129kB dead) in string
+	1.11MB in string-byte
+	4.31MB in vector-slot
+	1.73kB (+ 1.86kB dead) in float
+	34.9kB (+ 12.2kB dead) in interval
 
-Total in lisp objects: 27.6MB (live 25.9MB, dead 1.67MB)
+Total in lisp objects: 9.41MB (live 9.17MB, dead  248kB)
 
 Buffer ralloc memory usage:
-86 buffers
-1020kB total (44.3kB in gaps)
+15 buffers
+25.7kB total (3.87kB in gaps)
       Size	Gap	Name
 
-    190477	182	*Packages*
-    114047	1803	=〔ticket1013-前処理バリ...
-    106062	1062	=〔dailyplan-m2013-...
-     62721	2000	=〔P部月例会議-y2013〕   ...
-     44833	2000	=〔ticket1975-クラスタリ...
-     43736	1998	=〔release_3.0.3リリー...
-     41481	1906	=〔ticket1979-教師なしラ...
-     33801	2000	=〔休憩時間-RESTTIME-y2...
-     33738	2000	=〔日報メール-m2013-10〕 ...
-     33339	2000	=〔ticket1963-解析を途中...
-     20129	2000	=〔GitHubを使う〕
-     17446	1744	ftp-split.xml
-     16641	1664	=〔bodaisクラスタ判別エンジン...
-     14919	1328	=〔bodais開発会議-m2013...
-     14352	1319	my-emacs-custom.el<DEV-NAKAMURA2>
-     13046	775	my-keymap-basis.el
-     12410	1241	Clustering1PhaseProcessorPredictionConfiguration.xml
-     12139	848	=〔release_3.0.5リリー...
-     11079	1108	Clustering1PhaseProcessorModelConfiguration.xml
-      9581	600	inits
-      9102	910	=〔WorkManagerInput...
-      9029	903	phaseProcessor.xml
-      8907	890	Clustering1PhaseProcessorGenerationConfiguration.xml
-      8907	890	 *anything candidates:Occur*
-      8547	596	エンジンファイルの更新20131101.txt
-      8500	354	=〔ticket1998-教師なしク...
-      7386	738	=〔bodaisチケット整理-m20...
-      6938	693	=〔ticket1978-エラーメッ...
-      6790	679	 *RNC Input*
-      5427	542	autotest-d20131031_120227.txt
-      5402	540	*Messages*
-      5349	535	autotest-d20131031_115450.txt
-      5096	509	autotest-d20131031_105528.txt
-      4950	495	=〔掃除〕
-      4561	456	=〔release_3.0.4リリー...
-      4014	401	=〔プロダクト推進部-m2013-1...
-      3862	386	=〔bodais研究会議-m2013...
-      3845	384	=〔紙ファイル整理整頓-m2013-10〕
-      2778	277	mail1-【bodais】クラスタリング教師なし.txt
-      2553	97	my-emacs-custom.el<custom-dn2>
-      2473	188	my-init.el
-      2455	245	memo
-      2100	210	=〔bodais要望会議-m2013...
-      2021	7	*Moccur*
-      1938	193	*Org Agenda*
-      1668	166	mail1-bodaisリリース後対応.txt
-      1596	159	=〔ticket1972-予測と合致...
-      1251	125	*Customize Browser*
-      1099	110	result.xml<5839>
-      1092	109	 *howm-keys:*
-      1070	107	*Customize Option: Org Speed Commands User*
-      1000	100	.emacs.d
-       954	95	*Compile-Log*
-       942	93	*Customize Option: Org Clock Into Drawer*
-       823	81	ftp-split-d20131031_113752.txt
-       727	72	result.xml<5838>
-       616	1602	*Buffer Details*
-       605	60	 *Agenda Commands*
+     10724	1072	inits
+      4694	469	*Messages*
+      3855	385	my-init.el
+       829	83	my-emacs-reset-history.org.txt
+       604	1602	*Buffer Details*
        602	60	memory-usage-autoloads.el
-       593	38	package-history.org.txt
-       583	58	*Clock Task Select*
-       540	3	*Calendar*
-       527	27	my-describe.el
-       520	52	*Customize Option: Org Use Speed Commands*
-       450	41	my-redo.el
-       364	36	*Occur*
-       350	35	redo+-autoloads.el
-       340	34	custom-dn2
-       334	33	*Help*
-       262	2	*Completions*
+       456	45	*Compile-Log*
+       205	20	*Bookmark List*
+       198	19	*Help*
        191	20	*scratch*
-       171	20	 *migemo*
-       153	20	 widget-choose
-       141	18	 *urlparse-temp*
-       133	20	 *Org todo*
-       109	20	*Anything Occur*
-        92	20	*anything for files*
         88	20	 *code-conversion-work*
-        70	20	 *tip*
-        64	20	*my-anything-c-source-static-keywords
-        33	20	 *Echo Area 0*
-        21	20	 *Custom-Work*
+         5	20	 *Echo Area 0*
          0	20	 *Minibuf-1*
          0	20	 *Minibuf-0*
          0	20	 *Echo Area 1*
-         0	20	*anything bookmarks*

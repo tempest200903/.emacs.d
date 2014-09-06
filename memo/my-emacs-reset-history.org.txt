@@ -15,4 +15,9 @@
 - $ git commit -m "enable my-color" .
 ** my-buffer-window-frame.el
 - $ git commit -m "enable my-buffer-window-frame.el" .
-** 
+** my-autoload.el
+- $ git commit -m "enable my-autoload.el" .
+** memory-usage
+- M-x package-install memory-usage
+- $ git commit -m "package-install memory-usage" .
+

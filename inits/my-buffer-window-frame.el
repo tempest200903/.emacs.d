@@ -12,9 +12,9 @@
         (vertical-scroll-bars. left)
         (tool-bar-lines . 0)
         (left . 0)
-        (top . 20)
-        (height . 75)
-        (width . 230)
+        (top . 10)
+        (height . 60)
+        (width . 190)
         )))
 ;; 初期フレームの設定
 (setq initial-frame-alist
@@ -218,6 +218,12 @@
   (call-interactively 'make-frame-command)
   (call-interactively 'delete-frame)
 )
-(define-key global-map (kbd "<S-non-convert>") 'my-reset-frame)
-;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21)
-;; my-reset-frame ではウィンドウ分割が解除されてしまう。
+;; ----------------------------------------------------------------------
+;; [2014-09-06] (set-background-color), (set-foreground-color) が戻ってしまう。
+;; ウィンドウ分割が解除されてしまう。
+;; (define-key global-map (kbd "<S-non-convert>") 'my-reset-frame) 
+;; ----------------------------------------------------------------------
+;; [2014-09-06] フォントが戻ってしまう。
+;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21) 
+;; ----------------------------------------------------------------------
+(define-key global-map (kbd "<S-non-convert>") 'color-theme-vim-colors)

@@ -20,11 +20,11 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
+(when t    "2013-10-29" (load "~/.emacs.d/inits/my-setq"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-emacs-server"))
 ;; (when t    "2013-11-09" (load "~/.emacs.d/inits/my-auto-install"))
 ;; (when t    "2013-11-05" (load "~/.emacs.d/inits/my-autoload"))
 ;; (when t    "2013-11-09" (load "~/.emacs.d/inits/my-child-process"))
-;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-setq")) ;; ないと基本動作が変わってしまうので必須。
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-color-moccur"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
