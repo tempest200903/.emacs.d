@@ -11,3 +11,6 @@
 - Font 変更。 "Migu 1M" から "ＭＳ ゴシック"
   - ~/.emacs.d/custom-dn2/my-emacs-custom.el custom-set-faces に保存される。
 - $ git commit -m  'Font 変更。 "Migu 1M" から "ＭＳ ゴシック"'.
+** my-color
+- $ git commit -m "enable my-color" .
+** my-buffer-window-frame.el

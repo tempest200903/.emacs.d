@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-buffer-window-frame.el
 ;; buffer, window, frame 関連のユーティリティ。
 ;; TODO global-set-key と他を分離する。 autoload する。
 ;; ============================================================
