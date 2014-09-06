@@ -43,13 +43,6 @@
 (define-key my-anything-map (kbd "s") 'anything-c-etags-select)
 (define-key my-anything-map (kbd "g") 'anything-google-suggest)
 
-;; anything 以外
-(define-key my-anything-map (kbd "C-f") 'next-multiframe-window)
-(define-key my-anything-map (kbd "C-b") 'previous-multiframe-window)
-(define-key my-anything-map (kbd "C-n") 'raise-other-frame)
-(define-key my-anything-map (kbd "C-p") 'raise-other-frame-minus)
-(define-key my-anything-map (kbd "4") 'delete-frame)
-(define-key my-anything-map (kbd "5") 'make-frame-command)
 ;; ----------------------------------------------------------------------
 ;; * [2012-05-20 日] キーマップ isearch-mode-map
 ;; * [2012-05-20 日] cf. n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/05-util.el

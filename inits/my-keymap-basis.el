@@ -270,5 +270,13 @@
 (define-key global-map (kbd "C-z q") 'indent-pp-sexp)
 ;; ----------------------------------------------------------------------
 ;; * [2012-01-27 金]
-(global-set-key (kbd "M-w") 'my-kill-ring-save-or-ffap-copy-string-as-kill)
-(global-set-key (kbd "M-s M-x") 'my-kill-buffer-file-name)
+(define-key global-map (kbd "M-w") 'my-kill-ring-save-or-ffap-copy-string-as-kill)
+(define-key global-map (kbd "M-s M-x") 'my-kill-buffer-file-name)
+;; ----------------------------------------------------------------------
+;; * [2014-09-06 土]
+(define-key global-map (kbd "C-t C-f") 'next-multiframe-window)
+(define-key global-map (kbd "C-t C-b") 'previous-multiframe-window)
+(define-key global-map (kbd "C-t C-n") 'raise-other-frame)
+(define-key global-map (kbd "C-t C-p") 'raise-other-frame-minus)
+(define-key global-map (kbd "C-t 4") 'delete-frame)
+(define-key global-map (kbd "C-t 5") 'make-frame-command)
