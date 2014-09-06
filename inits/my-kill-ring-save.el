@@ -16,5 +16,6 @@
   (message (buffer-file-name))
   )
 ;; ----------------------------------------------------------------------
-(global-set-key (kbd "M-w") 'my-kill-ring-save-or-ffap-copy-string-as-kill)
-(global-set-key (kbd "M-s M-x") 'my-kill-buffer-file-name)
+(provide 'my-kill-ring-save)
+;; autoload するので my-init.el で (load "my-kill-ring-save.el") は不要。
+;; ----------------------------------------------------------------------

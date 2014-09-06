@@ -94,4 +94,7 @@
 (define-key global-map (kbd "C-z C-x l") 'my-region-command-wc-to-minibuffer)
 ;; my-other-window-or-split.el
 (autoload 'my-other-window-or-split "my-other-window-or-split" nil t)
-;; 
+;; my-kill-ring-save.el
+(autoload 'my-kill-ring-save-or-ffap-copy-string-as-kill "my-kill-ring-save" nil t)
+(autoload 'my-kill-buffer-file-name "my-kill-ring-save" nil t)
+

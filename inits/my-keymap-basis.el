@@ -268,3 +268,7 @@
 (define-key global-map (kbd "C-q") 'my-other-window-or-split)
 (define-key global-map (kbd "C-M-q") 'quoted-insert)
 (define-key global-map (kbd "C-z q") 'indent-pp-sexp)
+;; ----------------------------------------------------------------------
+;; * [2012-01-27 金]
+(global-set-key (kbd "M-w") 'my-kill-ring-save-or-ffap-copy-string-as-kill)
+(global-set-key (kbd "M-s M-x") 'my-kill-buffer-file-name)

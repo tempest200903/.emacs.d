@@ -20,4 +20,5 @@
 ** memory-usage
 - M-x package-install memory-usage
 - $ git commit -m "package-install memory-usage" .
-
+** my-kill-ring-save.el
+- autoload ‚·‚é‚Ì‚Å my-init.el ‚Å (load "my-kill-ring-save.el") ‚Í•s—vB
