@@ -14,6 +14,7 @@
 ;; 下記 progn を eval する。
 (when nil
   (progn
+    (require 'my-auto-install)
     (load "~/.emacs.d/inits/my-auto-install")
     (auto-install-from-url "http://www.emacswiki.org/emacs/download/cygwin-mount.el")
     )
@@ -21,4 +22,3 @@
 ;; ----------------------------------------------------------------------
 (require 'cygwin-mount)
 (cygwin-mount-activate)
-

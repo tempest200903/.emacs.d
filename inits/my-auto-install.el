@@ -8,6 +8,13 @@
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] auto-install インストール手順
 ;; M-x package-list-packages auto-install
+(when (not (require 'auto-install nil t))
+  (message "require package false")
+  (package-install "auto-install")
+  ;; [2014-09-06 土] なぜか (package-install "auto-install") で自動インストールはできなかった。
+  ;; 手動でインストールした。 M-x package-install RET auto-install
+  ;; ~/.emacs.d/vendor/elpa/auto-install-20130824.1206/auto-install.el
+  )
 (when (require 'auto-install nil t)
   (progn
     (setq auto-install-directory "~/.emacs.d/auto-install/")
@@ -18,4 +25,6 @@
     (auto-install-compatibility-setup)
     )
   )
+;; ----------------------------------------------------------------------
+(provide 'my-auto-install)
 ;; ----------------------------------------------------------------------

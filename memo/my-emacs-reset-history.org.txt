@@ -31,4 +31,16 @@
 - $ git commit -m "enable my-org-mode-basis.el" .
 ** my-org-mode-map
 - $ git commit -m "enable my-org-mode-map.el" .
+** my-child-process
+- shell-command-on-region, my-explorer-current-directory などが失敗する。
+  - shell-command-on-region: Searching for program: no such file or directory, /bin/bash
+  - この失敗を回避するために my-child-process.el を enable にする。
+  - [[~/.emacs.d/inits/my-child-process.el]]
+- my-child-process.el を enable にするためには auto-install が必要。
+  - [[~/.emacs.d/inits/my-auto-install.el]]
+  - [2014-09-06 土] なぜか (package-install "auto-install") で自動インストールはできなかった。
+  - 手動でインストールした。 M-x package-install RET auto-install
+- auto-install を使うためには (require 'my-package.el) が必要。
+  - [[~/.emacs.d/inits/my-package.el]] 
+- $ git commit -m "enable my-package.el my-auto-install.el my-child-process.el" .
 
