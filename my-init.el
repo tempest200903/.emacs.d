@@ -21,7 +21,6 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-setq"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-emacs-server"))
 ;; (when t    "2013-11-09" (load "~/.emacs.d/inits/my-auto-install"))
-;; (when t    "2013-11-05" (load "~/.emacs.d/inits/my-autoload"))
 ;; (when t    "2013-11-09" (load "~/.emacs.d/inits/my-child-process"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-color-moccur"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
@@ -41,7 +40,7 @@
 ;; ----------------------------------------------------------------------
 ;; * mode specific
 ;; ** org-mode
-;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-basis"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-mode-basis"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-map"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-speed"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-hook"))
