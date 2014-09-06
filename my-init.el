@@ -22,6 +22,7 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-package"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-auto-install"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-child-process"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-emacs-server"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-color-moccur"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
@@ -30,7 +31,6 @@
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-time-stamp"))
 ;; (when t    "2013-11-06" (load "~/.emacs.d/inits/my-popwin"))
 ;; (when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
-;; (when t    "2013-11-05" (load "~/.emacs.d/inits/my-redo")) ;; auto-load では手遅れ。
 ;; ----------------------------------------------------------------------
 ;; * color
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))

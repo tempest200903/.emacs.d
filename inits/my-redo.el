@@ -11,3 +11,4 @@
   (define-key global-map (kbd "C-/") 'undo)
   (define-key global-map (kbd "C-x C-/") 'redo)
   )
+;; auto-load では手遅れ。使うなら my-init.el から load しておくべき。
