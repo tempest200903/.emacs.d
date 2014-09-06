@@ -46,7 +46,7 @@
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-speed"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-hook"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-hyperlink")) ;; auto-load
-;; (when (file-readable-p "~/.emacs.d/inits/my-org-mode-dn2.el") "2013-10-30" (load "~/.emacs.d/inits/my-org-mode-dn2"))
+(when (file-readable-p "~/.emacs.d/inits/my-org-mode-dn2.el") "2013-10-30" (load "~/.emacs.d/inits/my-org-mode-dn2"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-timemanager"))
 ;; ** howm-mode
 ;; (when t    "2014-01-07" (load "~/.emacs.d/inits/my-howm-keymap"))

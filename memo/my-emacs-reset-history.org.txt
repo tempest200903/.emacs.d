@@ -43,4 +43,5 @@
 - auto-install を使うためには (require 'my-package.el) が必要。
   - [[~/.emacs.d/inits/my-package.el]] 
 - $ git commit -m "enable my-package.el my-auto-install.el my-child-process.el" .
-
+** my-org-mode-dn2.el
+- $ git commit -m "enable my-org-mode-dn2.el" .
