@@ -49,3 +49,27 @@
 (define-key org-mode-map (kbd "C-c C-o") nil)
 (define-key org-mode-map (kbd "C-z C-c C-y") 'my-insert-shell-bracket)
 (define-key org-mode-map (kbd "C-z #") 'my-yank-org-example-arg)
+;; ----------------------------------------------------------------------
+;; * [2013-04-03 水] org-agenda-mode-map 初期化
+(defun my-org-agenda-mode-map-init ()
+  "org-agenda-mode-map 初期化"
+  (define-key org-agenda-mode-map (kbd "`") 'org-agenda-deadline) ;; alias of C-c C-d
+  (define-key org-agenda-mode-map (kbd "@") 'org-agenda-schedule) ;; alias of C-c C-s
+  (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ;; alias of C-c C-x C-c
+  (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-reset-schedule-today)
+  (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-reset-schedule-tomorrow)
+  (my-workmanager-init)
+  )
+(defun my-workmanager-init ()
+  "my-workmanager 初期化"
+  ;; default org-agenda-sunrise-sunset を上書きする。
+  (define-key org-agenda-mode-map (kbd "S") 'my-workmanager-write-file) 
+  ;; default org-agenda-convert-date を上書きする。
+  (define-key org-agenda-mode-map (kbd "C") 'my-workmanager-collect) 
+  )
+(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-map-init)
+(add-hook 'org-agenda-mode-hook 'my-workmanager-init)
+;; 
+;; hook しないでいきなり define-key すると、起動時にエラー発生。
+;; エラーメッセージは ` Symbol's value as variable is void: org-agenda-mode-map `.
+;; これは起動時には org-agenda-mode-map がまだ存在しないため。

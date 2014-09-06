@@ -471,7 +471,9 @@
 ;; ------------------------------------------------------------------------
 ;; @ migemo/cmigemo
 ;; [2013-11-07 木] migemo したあと self-insert-command が遅くなる現象を回避したい。いったん migemo 無効にして様子を見る。
+;; [2014-09-06 土] goto ~/.emacs.d/inits/my-migemo.el
 (when nil
+  (progn
    (setq migemo-command (concat (getenv "INST_DIR")
                                 "\\app\\cmigemo\\cmigemo"))
    (setq migemo-options '("-q" "--emacs"))
@@ -485,6 +487,7 @@
    (setq migemo-coding-system 'utf-8-unix)
    (load-library "migemo")
    (migemo-init)
+   )
 )
 
 ;; ------------------------------------------------------------------------
@@ -494,12 +497,15 @@
 
 ;; ------------------------------------------------------------------------
 ;; @ package manager
+;; [2014-09-06 土] goto ~/.emacs.d/inits/my-package.el
+(when nil
    (require 'package)
    (add-to-list 'package-archives
                 '("melpa" . "http://melpa.milkbox.net/packages/") t)
    (add-to-list 'package-archives
                 '("marmalade" . "http://marmalade-repo.org/packages/"))
    (package-initialize)
+)
 
 ;; ------------------------------------------------------------------------
 ;; @ w32-symlinks

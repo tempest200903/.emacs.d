@@ -55,20 +55,6 @@
 (define-key org-mode-map (kbd "C-z C-a") 'org-toggle-checkbox) ;; alias of C-c C-x C-b
 (define-key org-mode-map (kbd "C-c C-x |") 'org-table-convert-region)
 ;; ----------------------------------------------------------------------
-;; * [2013-04-03 水] org-agenda-mode-map 初期化
-(defun my-org-agenda-mode-map-init ()
-  "org-agenda-mode-map 初期化"
-  (define-key org-agenda-mode-map (kbd "`") 'org-agenda-deadline) ;; alias of C-c C-d
-  (define-key org-agenda-mode-map (kbd "@") 'org-agenda-schedule) ;; alias of C-c C-s
-  (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ;; alias of C-c C-x C-c
-  (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-reset-schedule-today)
-  (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-reset-schedule-tomorrow)
-  )
-(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-map-init)
-;; hook しないでいきなり define-key すると、起動時にエラー発生。
-;; エラーメッセージは ` Symbol's value as variable is void: org-agenda-mode-map `.
-;; これは起動時には org-agenda-mode-map がまだ存在しないため。
-;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] 空いているキーバインド
 ;; (kbd "C-c z")
 ;; (kbd "C-x C-:") は空いている。

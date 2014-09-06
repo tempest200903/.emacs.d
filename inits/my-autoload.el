@@ -104,3 +104,6 @@
 (autoload 'my-org-clock-goto-default "my-org-clock.el" nil t)
 ;; my-color-moccur.el
 (autoload 'moccur "my-color-moccur.el" nil t)
+;; my-timemanager.el
+(autoload 'my-workmanager-write-file "my-timemanager.el" nil t)
+(autoload 'my-workmanager-collect "my-timemanager.el" nil t)

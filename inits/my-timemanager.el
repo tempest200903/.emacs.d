@@ -34,15 +34,6 @@
     )
   )
 
-(defun my-workmanager-init ()
-  "my-workmanager 初期化"
-  ;; default org-agenda-sunrise-sunset を上書きする。
-  (define-key org-agenda-mode-map (kbd "S") 'my-workmanager-write-file) 
-  ;; default org-agenda-convert-date を上書きする。
-  (define-key org-agenda-mode-map (kbd "C") 'my-workmanager-collect) 
-  )
-
-(add-hook 'org-agenda-mode-hook 'my-workmanager-init)
 
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] TODO バッファ名に日付を付与するべし。

@@ -56,3 +56,5 @@
 - $ git commit -m "enable package-install goto-last-change" .
 ** popwin
 - $ git commit -m "package-install popwin" .
+** my-migemo.el
+- $ git commit -m "enable my-migemo.el" .
