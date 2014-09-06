@@ -1,0 +1,13 @@
+# -*- mode: org -*- 
+* my-emacs-reset-history
+** reset
+   [2014/09/06 14:00]
+- $ rm -rf elpa/*
+- $ git commit -m "reset init.el"
+- init.el, my-init.el を全てコメントアウト。ただし、 custom-file はコメントアウトしない。
+** my-unset-key, my-keymap-basis
+- $ git commit -m "enable my-unset-key, my-keymap-basis" .
+** change default face font
+- Font 変更。 "Migu 1M" から "ＭＳ ゴシック"
+  - ~/.emacs.d/custom-dn2/my-emacs-custom.el custom-set-faces に保存される。
+- $ git commit -m  'Font 変更。 "Migu 1M" から "ＭＳ ゴシック"'.

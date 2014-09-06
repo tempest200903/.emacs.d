@@ -57,7 +57,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "ＭＳ ゴシック" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+ '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "outline" :family "ＭＳ ゴシック")))))
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-05 火] M-x customize で設定できない変数。
 ;; ** howm で検索する範囲。12ヶ月を越えたら古いほうから削除していくべし。
