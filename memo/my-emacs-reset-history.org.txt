@@ -47,3 +47,5 @@
 - $ git commit -m "enable my-org-mode-dn2.el" .
 ** Recentf Mode
 - $ git commit -m "customize Recentf Mode" .
+** my-redo.el
+- $ git commit -m "enable my-redo.el" .
