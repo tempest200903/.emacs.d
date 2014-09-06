@@ -15,8 +15,8 @@
 ;; (when t    "2013-11-09" (add-to-list 'load-path "~/.emacs.d/elpa/anything-20130606.946"))
 ;; ----------------------------------------------------------------------
 ;; * global
-;; (when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key")) ;; "error: Key sequence C-z C-x l starts with non-prefix key C-z" を防ぐため、先に unset-key する必要がある。
-;; (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key")) ;; "error: Key sequence C-z C-x l starts with non-prefix key C-z" を防ぐため、先に unset-key する必要がある。
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-emacs-server"))
 ;; (when t    "2013-11-09" (load "~/.emacs.d/inits/my-auto-install"))
 ;; (when t    "2013-11-05" (load "~/.emacs.d/inits/my-autoload"))

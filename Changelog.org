@@ -1,5 +1,6 @@
 * Changelog
 ** リセット 2014/09/06 14:00 
 $ rm -rf elpa/*
-- init.el, my-init.el を全てコメントアウト。ただし、 custom-file はコメントアウトしない。
-- my-unset-key, my-keymap-basis を有効にする。
+$ git commit -m "reset init.el"
+# init.el, my-init.el を全てコメントアウト。ただし、 custom-file はコメントアウトしない。
+$ git commit -m "enable my-unset-key, my-keymap-basis" .
