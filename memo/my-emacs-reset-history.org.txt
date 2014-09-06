@@ -29,3 +29,6 @@
 - $ git commit -m "enable my-setq.el" .
 ** my-org-mode-basis
 - $ git commit -m "enable my-org-mode-basis.el" .
+** my-org-mode-map
+- $ git commit -m "enable my-org-mode-map.el" .
+

@@ -41,7 +41,7 @@
 ;; * mode specific
 ;; ** org-mode
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-mode-basis"))
-;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-map"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-mode-map"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-speed"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-org-hook"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-hyperlink")) ;; auto-load

@@ -97,4 +97,6 @@
 ;; my-kill-ring-save.el
 (autoload 'my-kill-ring-save-or-ffap-copy-string-as-kill "my-kill-ring-save" nil t)
 (autoload 'my-kill-buffer-file-name "my-kill-ring-save" nil t)
+;; ffap.el
+(autoload 'ffap-other-window "ffap" nil t)
 
