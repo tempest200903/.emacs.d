@@ -280,3 +280,6 @@
 (define-key global-map (kbd "C-t C-p") 'raise-other-frame-minus)
 (define-key global-map (kbd "C-t 4") 'delete-frame)
 (define-key global-map (kbd "C-t 5") 'make-frame-command)
+;; ----------------------------------------------------------------------
+;; * [2014-09-06 土] recentf 関連
+(define-key global-map (kbd "C-t C-;") 'recentf-open-files)

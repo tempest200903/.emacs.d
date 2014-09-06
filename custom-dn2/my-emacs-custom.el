@@ -147,3 +147,8 @@
 ;; #+STARTUP: nologreschedule
 ;; #+STARTUP: logreschedule
 ;; #+STARTUP: lognotereschedule
+;;
+;; http://th.nao.ac.jp/MEMBER/zenitani/elisp-j.html
+;; (setq recentf-max-menu-items 30)
+;; (setq recentf-max-saved-items 20)
+;; (setq recentf-exclude '("^/[^/:]+:"))
