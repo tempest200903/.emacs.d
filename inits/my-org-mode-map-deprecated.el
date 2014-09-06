@@ -2,6 +2,10 @@
 ;; my-org-mode-map-deprecated.el
 ;; #+LAST_UPDATED: 2014-09-05
 ;; ----------------------------------------------------------------------
+;; my-org-mode-map.el にごみが多い＆ anything を require しない方針にしたので、
+;; いったん全ての式を my-org-mode-map-deprecated.el に移動した。
+;; 必要な式だけを my-org-mode-map.el に戻す。
+;; ----------------------------------------------------------------------
 ;; http://hpcgi1.nifty.com/spen/index.cgi?OrgMode%2fManual1#i2
 ;; * [2010-11-01 月] 汎用的に使うので global-map
 (defun my-org-clock-goto-u ()
@@ -26,11 +30,6 @@
 (define-key org-mode-map (kbd "C-c <apps>") 'my-org-mouse-context-menu)
 ;; ----------------------------------------------------------------------
 ;; * [2013-04-03 水]
-;;   "org-mode-map 初期化"
-;;   "* outline 関連"
-(define-key org-mode-map (kbd "M-[") 'outline-previous-visible-heading)
-(define-key org-mode-map (kbd "M-]") 'outline-next-visible-heading)
-
 ;;   "* checkbox 関連"
 ;;   "org-mouse は emacs 本体付属。 require 必要。"
 (when (require 'org-mouse nil t)

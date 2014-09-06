@@ -8,7 +8,7 @@
 ;; ----------------------------------------------------------------------
 ;; [2014-09-06 土] * require
 (require 'org)
-(org-version) ;; 
+(org-version) ;; "Org-mode version 7.8.11"
 ;; ----------------------------------------------------------------------
 ;; [2014-09-06 土] * global
 ;; 『Emacs org-modeを使ってみる: (1) インストール - 屯遁のパズルとプログラミングの日記』
@@ -26,3 +26,8 @@
 ;;
 ;; cf. http://orgmode.org/manual/Activation.html#Activation ほとんど使わない。
 (define-key global-map (kbd "C-c b")   'org-iswitchb) 
+;; ----------------------------------------------------------------------
+;; * [2013-04-03 水] org-mode-map 初期化
+;; ** outline 関連
+(define-key org-mode-map (kbd "M-[") 'outline-previous-visible-heading)
+(define-key org-mode-map (kbd "M-]") 'outline-next-visible-heading)
