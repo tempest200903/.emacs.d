@@ -285,14 +285,3 @@
 ;; * [2014-09-06 土] anything 廃止した代わりのキーバインド関連
 (define-key global-map (kbd "C-t C-;") 'recentf-open-files)
 (define-key global-map (kbd "C-t C-l") 'bookmark-bmenu-list)
-;; ----------------------------------------------------------------------
-;; * [2014-09-09 火] bm
-(define-key global-map (kbd "M-g M-t") 'bm-toggle)
-(define-key global-map (kbd "M-g M-]") 'bm-next)
-(define-key global-map (kbd "M-g M-[") 'bm-previous)
-(define-key global-map (kbd "M-g M-r") 'bm-bookmark-regexp)
-(define-key global-map (kbd "M-g M-i") 'bm-show)
-(define-key global-map (kbd "M-g M-I") 'bm-show-all)
-(define-key global-map (kbd "M-g 0 M-i") 'bm-remove-all-current-buffer)
-(define-key global-map (kbd "M-g 0 M-o") 'bm-remove-all-all-buffers)
-(define-key global-map (kbd "M-g M-a") 'bm-bookmark-annotate)

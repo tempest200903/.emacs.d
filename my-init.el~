@@ -1,5 +1,5 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;; my-init.el
+;; my-init
 ;; #+LAST_UPDATED: 2014-09-05
 ;; ----------------------------------------------------------------------
 ;; * load path
@@ -52,7 +52,7 @@
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-hyperlink")) ;; auto-load
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-timemanager"))
 ;; ** howm-mode
-(when t    "2014-01-07" (load "~/.emacs.d/inits/my-howm-keymap"))
+;; (when t    "2014-01-07" (load "~/.emacs.d/inits/my-howm-keymap"))
 ;; ** emacs-lisp-mode
 ;; (when t    "2014-04-11" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 ;; ----------------------------------------------------------------------

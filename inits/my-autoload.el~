@@ -100,20 +100,10 @@
 ;; ffap.el
 (autoload 'ffap-other-window "ffap" nil t)
 ;; my-org-clock.el
-(autoload 'my-org-clock-goto-u "my-org-clock" nil t)
-(autoload 'my-org-clock-goto-default "my-org-clock" nil t)
+(autoload 'my-org-clock-goto-u "my-org-clock.el" nil t)
+(autoload 'my-org-clock-goto-default "my-org-clock.el" nil t)
 ;; my-color-moccur.el
-(autoload 'moccur "my-color-moccur" nil t)
+(autoload 'moccur "my-color-moccur.el" nil t)
 ;; my-timemanager.el
-(autoload 'my-workmanager-write-file "my-timemanager" nil t)
-(autoload 'my-workmanager-collect "my-timemanager" nil t)
-;; my-bm-package.el
-(autoload 'bm-toggle                    "my-bm-package" nil t)
-(autoload 'bm-next                      "my-bm-package" nil t)
-(autoload 'bm-previous                  "my-bm-package" nil t)
-(autoload 'bm-bookmark-regexp           "my-bm-package" nil t)
-(autoload 'bm-show                      "my-bm-package" nil t)
-(autoload 'bm-show-all                  "my-bm-package" nil t)
-(autoload 'bm-remove-all-current-buffer "my-bm-package" nil t)
-(autoload 'bm-remove-all-all-buffers    "my-bm-package" nil t)
-(autoload 'bm-bookmark-annotate         "my-bm-package" nil t)
+(autoload 'my-workmanager-write-file "my-timemanager.el" nil t)
+(autoload 'my-workmanager-collect "my-timemanager.el" nil t)
