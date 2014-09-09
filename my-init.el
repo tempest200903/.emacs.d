@@ -33,6 +33,7 @@
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-time-stamp"))
 ;; (when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
+(when t    "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-dired-mode-map")) ;; 実験中
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-mw32-ime")) ;; 実験中
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中

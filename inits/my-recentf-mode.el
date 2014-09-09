@@ -6,5 +6,3 @@
 ;; menubar://File/Open Recent/Options でオプション設定。
 (recentf-mode 1)
 ;; ----------------------------------------------------------------------
-;; * [2011-08-29 月] recentf
-(global-set-key (kbd "C-x C-z C-f") 'recentf-open-files)
