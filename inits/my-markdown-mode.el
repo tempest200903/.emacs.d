@@ -14,5 +14,13 @@
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
   (add-hook 'markdown-mode 'orgtbl-mode)
   ;; 環境変数 PATH を通しておいて、 (setq markdownf-command "pandoc.exe") にした方がいいか？
-  (setq markdownf-command (concat (getenv "USERPROFILE") "\\AppData\\Local\\Pandoc\\pandoc.exe"))
+  (setq markdown-open-command
+        (concat
+         (replace-regexp-in-string "\\\\" "/" (getenv "USERPROFILE"))
+         "/AppData/Local/Pandoc/pandoc.exe"
+         )
+        )
+  (markdown-show-version) ;; "markdown-mode, version 2.0"
   )
+
+

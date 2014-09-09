@@ -121,3 +121,11 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
   - emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
   - :bind : コマンドをglobal-mapに割り当てる
   - このようにbindで設定されたコマンドはすべてautoloadされます。
+** TODO markdown-open-command
+- ~/.emacs.d/inits/my-markdown-mode.el
+- org-mode と同様に Emacs 上で export してブラウザで開くコマンドがほしい。
+** TODO org-mode
+- TODO status など、秘密にしなくていい定義は custom から inits に移動してもいいのでは？
+** TODO my-package.el
+- ~/.emacs.d/inits/
+- TODO http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0
