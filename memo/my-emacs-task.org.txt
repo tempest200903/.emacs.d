@@ -1,5 +1,4 @@
-#+LAST_UPDATED: 2014-05-08
-
+#+LAST_UPDATED: 2014-09-09
 * my-emacs-task
   :PROPERTIES:
   :CATEGORY: 〈my-emacs-task〉
@@ -117,3 +116,8 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - [[~/.emacs.d/inits/my-org-mode-hyperlink.el]]
 - パスが \\filserver\a\b\c である場合、
 - [[shell:cygstart \\\\a\\b\\c][\\filserver\a\b\c] ] 形式に変換する。
+** TODO use-package.el
+- http://rubikitch.com/2014/09/09/use-package/
+  - emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
+  - :bind : コマンドをglobal-mapに割り当てる
+  - このようにbindで設定されたコマンドはすべてautoloadされます。
