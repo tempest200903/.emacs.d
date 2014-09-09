@@ -41,7 +41,7 @@
 - [[file:n:/howm/2013/11/2013-11-05-173331.howm.txt::*%E3%80%94xml%20schema%E3%80%95][〔xml schema〕]]
 ** TODO inits/my-*.el で require に失敗したら message に failure NAME を出力するべし
 - どこで require 失敗したのかを把握したい。
-- 例: n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-color-moccur.el
+- 例: ~/.emacs.d/inits/my-color-moccur.el
 ** TODO 〔org-mode 予定のバッティングに早く確実に気付く〕
 - comefrome: [[file:n:/howm/2012/02/2012-02-23-105059-0000000000000000.howm.txt::*%E3%80%94org-mode%20%E4%BA%88%E5%AE%9A%E3%81%AE%E3%83%90%E3%83%83%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AB%E6%97%A9%E3%81%8F%E7%A2%BA%E5%AE%9F%E3%81%AB%E6%B0%97%E4%BB%98%E3%81%8F%E3%80%95][〔org-mode 予定のバッティングに早く確実に気付く〕]]
 - バッティングに早く確実に気付くためにはどうすればいい？
@@ -58,7 +58,7 @@
     - コマンドラインでorg→HTML変換する
 - 「eval: ShellExecute failed: このコマンドを実行するのに十分な記憶域がありません。」問題の回避にもなる。
 ** TODO 〔my-org-agenda-list-switch-to-buffer 改良案〕
-- [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-org-mode-buffer.el]]
+- [[~/.emacs.d/inits/my-org-mode-buffer.el]]
 - 現状
   - (kbd "C-:") => org-agenda
   - (kbd "C-M-:") => my-org-agenda-list-switch-to-buffer
@@ -84,7 +84,7 @@
   - 例 N:\Isf-mine\情報エンジニアリング部\［0］bodais\【編集中】P部・研究所への展開の流れ.txt.proxy.bat を経由してファイルサーバファイルを開く。
   - 例 @myscript\dos\fileserver-localopen.bat \\Isf-mine\情報エンジニアリング部\[0]bodais\【編集中】P部・研究所への展開の流れ.txt
 ** TODO 〔my-date-replace.el〕
-- [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-date-replace.el]]
+- [[~/.emacs.d/inits/my-date-replace.el]]
 ** TODO 〔howm メモを一括検索・一括置換したい〕
 - 目的：howm メモを一括検索・一括置換したい
 - 実現方法：N:/howm へのシンボリックリンクを eclipse workspace に置く。 eclipse で文字列検索する。
@@ -103,3 +103,17 @@
 $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a[1].to_i; b[0]=b[0].to_i; b[1]=b[1].to_i; puts (a[0]*60+a[1]-(b[0]*60+b[1]))/60.0'
 8.75
 #+END_EXAMPLE
+** TODO 他の人の .emacs.d を読む
+   [2014-09-08 月 13:15]
+- http://coderepos.org/share/browser/dotfiles/emacs/kentaro/.emacs.d/conf
+- http://emacs-jp.github.io/2014/09/03/dot-emacs-list/
+- http://sakito.jp/moin/moin.cgi/dot.emacs.d
+- 便利なものは取り込む。
+** TODO migemo だけ IME off にしたい
+   [2014-09-08 月 13:15]
+- [[~/.emacs.d/inits/my-migemo.el]]
+** TODO my-org-yank-shell-link
+   [2014-09-08 月 13:20]
+- [[~/.emacs.d/inits/my-org-mode-hyperlink.el]]
+- パスが \\filserver\a\b\c である場合、
+- [[shell:cygstart \\\\a\\b\\c][\\filserver\a\b\c] ] 形式に変換する。

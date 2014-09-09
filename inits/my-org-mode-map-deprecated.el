@@ -21,10 +21,6 @@
 ;;   ;; * カレントバッファから hyperlink を occur するキーボード変換。 C-c C-SPC で元の位置に戻れる。
 (define-key org-mode-map (kbd "M-s [") (kbd "C-z C-SPC C-x 1 M-s o \\[ \\[ RET C-x o C-c C-f"))
 
-;;   "* yank 関連"
-(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-arg) "org-evaluate-time-range をデフォルトの C-c C-y から C-c y に移動した。"
-;; (define-key org-mode-map (kbd "C-z C-c C-y") 'my-org-yank-file-link) ;; (kbd "C-u C-c C-y") で my-org-yank-file-link 起動するようにしたので、不要。
-
 ;; "* clock 関連"
 (define-key org-mode-map (kbd "C-c C-x d") 'org-clock-mark-default-task)
 
@@ -35,9 +31,6 @@
   (define-key org-mode-map (kbd "C-t C-j") 'anything-org-headlines)
                                         ; It is bound to <menu-bar> <Anything> <Org:> <Org headlines>.
   )
-
-;; "* time 関連"
-(define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
 
 ;;   "* mark-ring 関連"
 (define-key org-mode-map (kbd "C-c C-SPC") 'org-mark-ring-goto)

@@ -39,6 +39,11 @@
 (define-key org-mode-map (kbd "C-z C-]") (kbd "C-u C-c C-c")) ;; alias of C-u C-c C-c
 (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
 ;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
+;; ** yank 関連
+(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-arg) 
+(define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
+(define-key org-mode-map (kbd "C-c c") 'my-insert-clocktable)
+;; org-evaluate-time-range をデフォルトの C-c C-y から C-c y に移動した。
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-09 木] org-open-at-point, org-mark-ring-goto をよく使うので、 C-, , C-. に割り当てる。
 ;; (kbd "C-,") のデフォルトは (org-cycle-agenda-files) It is bound to C-', C-,

@@ -12,8 +12,9 @@
 (setq custom-file (concat "~/.emacs.d/" emacs_custom "/my-emacs-custom.el"))
 (load custom-file)
 ;; ----------------------------------------------------------------------
-;; * globalunset-key する必要がある。
-;; define-key よりさきに
+;; * global
+(when t    "2014-09-08" (load "~/.emacs.d/inits/my-coding-system"))
+;; define-key よりさきに unset-key する必要がある。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
@@ -26,13 +27,15 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-popwin"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode-map"))
-;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-emacs-server"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-color-moccur"))
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-time-stamp"))
 ;; (when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo.el")) ;; 実験中
+(when t    "2014-09-08" (load "~/.emacs.d/inits/my-dired-mode-map")) ;; 実験中
+(when t    "2014-09-08" (load "~/.emacs.d/inits/my-mw32-ime")) ;; 実験中
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * color
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
@@ -52,7 +55,7 @@
 ;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-hyperlink")) ;; auto-load
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-timemanager"))
 ;; ** howm-mode
-(when t    "2014-01-07" (load "~/.emacs.d/inits/my-howm-keymap"))
+(when t    "2014-09-08" (load "~/.emacs.d/inits/my-howm-keymap"))
 ;; ** emacs-lisp-mode
 ;; (when t    "2014-04-11" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 ;; ----------------------------------------------------------------------

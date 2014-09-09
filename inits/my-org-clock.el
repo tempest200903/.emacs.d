@@ -14,5 +14,15 @@
 (fset 'my-org-clock-goto-default
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("\347\365d" 0 "%d")) arg)))
 ;; ----------------------------------------------------------------------
+(defun my-insert-clocktable (arg)
+  (interactive "p")
+  "insert clocktable"
+  (insert "* clocktable \n")
+  (insert "#+BEGIN: clocktable :maxlevel 6 :scope file \n")
+  (insert "#+END:\n")
+  (backward-char 8)
+  (org-ctrl-c-ctrl-c nil)
+)
+;; ----------------------------------------------------------------------
 (provide 'my-org-clock)
 ;; ----------------------------------------------------------------------

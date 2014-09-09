@@ -52,6 +52,7 @@
   (define-key global-map (kbd "M-g M-b")             'highlight-changes-previous-change)
   (define-key global-map (kbd "M-g M-f")             'highlight-changes-next-change)
   )
+;; TODO autoload hilit-chg
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] mode 切り替え関連。
 (define-key global-map (kbd "C-z l")                 'linum-mode)
@@ -285,6 +286,9 @@
 ;; * [2014-09-06 土] anything 廃止した代わりのキーバインド関連
 (define-key global-map (kbd "C-t C-;") 'recentf-open-files)
 (define-key global-map (kbd "C-t C-l") 'bookmark-bmenu-list)
+;; ----------------------------------------------------------------------
+;; * [2014-09-08 月] migemo
+(define-key global-map (kbd "C-z C-x C-s")           'migemo-isearch-toggle-migemo)
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-09 火] bm
 (define-key global-map (kbd "M-g M-t") 'bm-toggle)

@@ -2,16 +2,22 @@
 ;; gnupack 10.02
 ;; ------------------------------------------------------------------------
 ;; @ coding system
-
+;; [2014-09-08 月] goto ~/.emacs.d/inits/my-coding-system.el
+(when nil
+  (progn
    ;; 日本語入力のための設定
    (set-keyboard-coding-system 'cp932)
 
    (prefer-coding-system 'utf-8-dos)
    (set-file-name-coding-system 'cp932)
    (setq default-process-coding-system '(cp932 . cp932))
-
+    )
+  )
 ;; ------------------------------------------------------------------------
 ;; @ ime
+;; [2014-09-08 月] goto ~/.emacs.d/inits/my-mw32-ime.el
+(when nil
+  (progn
 
    ;; 標準IMEの設定
    (setq default-input-method "W32-IME")
@@ -32,6 +38,9 @@
 
    ;; バッファ切り替え時にIME状態を引き継ぐ
    (setq w32-ime-buffer-switch-p nil)
+
+    )
+  )
 
 ;; ------------------------------------------------------------------------
 ;; @ encode

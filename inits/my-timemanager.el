@@ -2,7 +2,7 @@
 ;; #+LAST_UPDATED: 2014-08-07
 ;; my-workmanager.el
 ;; ======================================================================
-
+;;
 (defun my-workmanager-write-file ()
   "org-agenda 1日分をファイルに保存する。"
   (interactive)
@@ -17,7 +17,7 @@
   (rename-buffer (concat (buffer-name) " " "<>") t)
   ;; (rename-buffer (concat (buffer-name) " " (number-to-string org-starting-day)) t)
   )
-
+;;
 ;; [2014-07-03 木]
 ;; 1. (shell-command "n:/work/myscript/ruby/workmanager_time_collect.bat") かつ、 workmanager_time_collect.bat から emacs 以外のエディタを起動すると、 emacs がハングアップしない。
 ;; 2. (shell-command "n:/work/myscript/ruby/workmanager_time_collect.bat") かつ、 workmanager_time_collect.bat から emacsclient を起動すると、 emacs がハングアップする。
@@ -33,8 +33,7 @@
     (shell-command command-batch-file)
     )
   )
-
-
+;;
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] TODO バッファ名に日付を付与するべし。
 ;; workmanager_time_collect_input.txt を 20131107-workmanager_time_collect_input.txt に変更。

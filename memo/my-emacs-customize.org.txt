@@ -532,6 +532,15 @@ Loading vc-svn...done
 - dired で選択した office ファイルを xdoc2txt 経由でブラウズしたい。
 - grep したい。 moccur や howm でもいい。
 - org-mode hyperlink で特定の文字列までジャンプしたい。
+*** DONE tips dired でファイルのフルパスを簡単に killing
+    CLOSED: [2014-09-08 月 19:48]
+- http://qiita.com/akisute3@github/items/3737b15b37fed8f39c99
+  - dired でファイルのフルパスを簡単に killing
+  - dired は w でカーソル位置(もしくはマークしているファイル)のファイル
+    名を killing できる。このとき、プレフィックスが 0 であればフルパス
+    を killing するのだ
+
+
 ** org-mode                                                        :org_mode:
 *** DONE org-mode 導入
    [2011-08-18 木 10:25]

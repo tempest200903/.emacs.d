@@ -31,10 +31,11 @@
 ;; * [2011-08-25 木] org-mouse-yank-link と同じことをキーボードで行う。
 (defun my-org-yank-link-arg (&optional arg) "my-org-yank-link or my-org-yank-file-link"
   (interactive "p")
-  (if (equal arg 4) (my-org-yank-file-link)
-    (my-org-yank-link)
+  (cond
+   ((equal arg 4) (my-org-yank-file-link))
+   ((equal arg 16) (my-org-yank-shell-link))
+   (t (my-org-yank-link)))
     )
-  )
 (defun my-org-yank-link ()  "前後に [[ と ]] をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "[[" (current-kill 0) "]]")))
@@ -42,6 +43,10 @@
 (defun my-org-yank-file-link () "前後に [[file: と ]] をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "[[file:" (current-kill 0) "]]")))
+  )
+(defun my-org-yank-shell-link () "前後に [[shell:cygstart と ]] をつけて yank する。"
+  (interactive "*")
+  (progn (insert-for-yank (concat "[[shell:cygstart " (current-kill 0) "]]")))
   )
 ;; ----------------------------------------------------------------------
 ;; TODO 
@@ -51,4 +56,9 @@
 ;; output: [[elisp:fileserver-localopen \\\\fileserver\\a\\b.xls]]
 ;; defun fileserver-localopen を別途定義する。
 ;; ----------------------------------------------------------------------
+;; * [2014-09-08 月 13:20] TODO
+;; パスが \\filserver\a\b\c である場合、
+;; [[shell:cygstart \\\\a\\b\\c][\\filserver\a\b\c]] 形式に変換する。
+;; ----------------------------------------------------------------------
 (provide 'my-org-mode-hyperlink)
+;; ----------------------------------------------------------------------

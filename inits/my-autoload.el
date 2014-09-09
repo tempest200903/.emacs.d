@@ -102,11 +102,17 @@
 ;; my-org-clock.el
 (autoload 'my-org-clock-goto-u "my-org-clock" nil t)
 (autoload 'my-org-clock-goto-default "my-org-clock" nil t)
+(autoload 'my-insert-clocktable "my-org-clock" nil t)
 ;; my-color-moccur.el
 (autoload 'moccur "my-color-moccur" nil t)
 ;; my-timemanager.el
 (autoload 'my-workmanager-write-file "my-timemanager" nil t)
 (autoload 'my-workmanager-collect "my-timemanager" nil t)
+;; my-dired-mode-map.el
+(autoload 'wdired-change-to-wdired-mode "my-dired-mode-map" nil t)
+;; my-occur.el
+(autoload 'my-occur-or-switch-to-buffer "my-occur" nil t)
+(autoload 'my-moccur-or-switch-to-buffer "my-occur" nil t)
 ;; my-bm-package.el
 (autoload 'bm-toggle                    "my-bm-package" nil t)
 (autoload 'bm-next                      "my-bm-package" nil t)

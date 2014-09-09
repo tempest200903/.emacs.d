@@ -1,37 +1,49 @@
 # -*- mode: org -*- 
 * my-emacs-reset-history
 ** reset
-   [2014/09/06 14:00]
+   [2014-09-06 “y 14:00]
 - $ rm -rf elpa/*
 - $ git commit -m "reset init.el"
 - init.el, my-init.el ‚ğ‘S‚ÄƒRƒƒ“ƒgƒAƒEƒgB‚½‚¾‚µA custom-file ‚ÍƒRƒƒ“ƒgƒAƒEƒg‚µ‚È‚¢B
 ** my-unset-key, my-keymap-basis
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-unset-key, my-keymap-basis" .
 ** change default face font
+   [2014-09-06 “y 14:00]
 - Font •ÏXB "Migu 1M" ‚©‚ç "‚l‚r ƒSƒVƒbƒN"
   - ~/.emacs.d/custom-dn2/my-emacs-custom.el custom-set-faces ‚É•Û‘¶‚³‚ê‚éB
 - $ git commit -m  'Font •ÏXB "Migu 1M" ‚©‚ç "‚l‚r ƒSƒVƒbƒN"'.
 ** my-color
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-color" .
 ** my-buffer-window-frame.el
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-buffer-window-frame.el" .
 ** my-autoload.el
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-autoload.el" .
 ** memory-usage
+   [2014-09-06 “y 14:00]
 - M-x package-install memory-usage
 - $ git commit -m "package-install memory-usage" .
 ** my-kill-ring-save.el
+   [2014-09-06 “y 14:00]
 - autoload ‚·‚é‚Ì‚Å my-init.el ‚Å (load "my-kill-ring-save.el") ‚Í•s—vB
 - $ git commit -m "autoload my-kill-ring-save.el" .
 ** next-multiframe-window
+   [2014-09-06 “y 14:00]
 - $ git commit -m "next-multiframe-window ‚È‚Ç‚ğ my-anything-basis.el ‚©‚ç my-keymap-basis.el ‚ÉˆÚ“®‚·‚éB" .
 ** my-setq
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-setq.el" .
 ** my-org-mode-basis
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-org-mode-basis.el" .
 ** my-org-mode-map
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-org-mode-map.el" .
 ** my-child-process
+   [2014-09-06 “y 14:00]
 - shell-command-on-region, my-explorer-current-directory ‚È‚Ç‚ª¸”s‚·‚éB
   - shell-command-on-region: Searching for program: no such file or directory, /bin/bash
   - ‚±‚Ì¸”s‚ğ‰ñ”ğ‚·‚é‚½‚ß‚É my-child-process.el ‚ğ enable ‚É‚·‚éB
@@ -44,17 +56,41 @@
   - [[~/.emacs.d/inits/my-package.el]] 
 - $ git commit -m "enable my-package.el my-auto-install.el my-child-process.el" .
 ** my-org-mode-dn2.el
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-org-mode-dn2.el" .
 ** Recentf Mode
+   [2014-09-06 “y 14:00]
 - $ git commit -m "customize Recentf Mode" .
 ** my-redo.el
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-redo.el" .
 ** my-color-moccur.el
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-color-moccur.el" .
 ** my-goto-last-change.el
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-goto-last-change.el" .
 - $ git commit -m "enable package-install goto-last-change" .
 ** popwin
+   [2014-09-06 “y 14:00]
 - $ git commit -m "package-install popwin" .
 ** my-migemo.el
+   [2014-09-06 “y 14:00]
 - $ git commit -m "enable my-migemo.el" .
+** my-emacs-server.el
+   [2014-09-06 “y 14:00]
+- $ git commit -m "enable my-emacs-server.el" .
+** my-mw32-ime
+   [2014-09-08 Œ 10:48]
+- $ git commit -m "enable my-mw32-ime.el" .
+** my-dired-mode-map.el
+   [2014-09-08 Œ 10:48]
+- $ git commit -m "enable my-dired-mode-map.el" .
+** graphviz-dot-mode
+   [2014-09-08 Œ 10:48]
+- $ git commit -m "auto install graphviz-dot-mode" .
+** my-occur
+- $ git commit -m "autoload my-dired-mode-map.el" .
+** my-coding-system.el
+   [2014-09-09 ‰Î 09:58]
+- $ git commit -m "create my-coding-system.el" .

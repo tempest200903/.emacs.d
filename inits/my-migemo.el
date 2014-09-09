@@ -54,5 +54,30 @@
 ;;    Save migemo alist file.
 ;; migemo-toggle-isearch-enable  M-x ... RET
 ;;    (not documented)
-
-(global-set-key (kbd "C-z C-x C-s")     'migemo-isearch-toggle-migemo)
+;; ----------------------------------------------------------------------
+;; * [2014-09-08 月] TODO
+;; http://d.hatena.ne.jp/Tan90909090/20121022/1350892975
+;; ミニバッファ入力時にはIMEを必ずOFFにする
+;; ミニバッファから復帰時には直前にIMEがONだった場合のみONに戻す
+;; なコードのメモ。
+;;
+;; (defvar my-temp-ime-mode nil)
+;; (defun my-into-minibuffer-func()
+;;   (setq my-temp-ime-mode (ime-get-mode))
+;;   (ime-force-off))
+;; (defun my-quit-minibuffer-func()
+;;   (if my-temp-ime-mode
+;; 	  (ime-force-on))
+;;   (setq my-ime-temp nil))
+;; ;; 通常のミニバッファ
+;; (add-hook 'minibuffer-setup-hook 'my-into-minibuffer-func)
+;; (add-hook 'minibuffer-exit-hook 'my-quit-minibuffer-func)
+;; ;; インクリメンタル検索
+;; (add-hook 'isearch-mode-hook 'my-into-minibuffer-func)
+;; (add-hook 'isearch-mode-end-hook 'my-quit-minibuffer-func)
+;; ** TODO occur などでは IME を on のままにしたい。 migemo だけ IME off にしたい。
+;; migemo の hook はあるか？
+;; 単に、「 ime off してから isearch-forward 」するコマンドを作ればいいか。
+;; ----------------------------------------------------------------------
+;; * [2014-09-08 月] TODO
+;; C-u C-s および C-u C-r では migemo off にしたい。
