@@ -7,13 +7,12 @@
 ;; - ~/.emacs.d/vendor/elpa/markdown-mode-20130726.2142/markdown-mode.el
 ;; - http://jblevins.org/projects/markdown-mode/
 ;; ----------------------------------------------------------------------
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-(add-hook 'markdown-mode 'orgtbl-mode)
-
-;; ----------------------------------------------------------------------
-(setq markdown-command "c:/Users/nakamura/AppData/Local/Pandoc/pandoc.exe")
+(when (and
+       (package-require 'markdown-mode nil nil t)
+       t)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (add-hook 'markdown-mode 'orgtbl-mode)
+  ;; 環境変数 PATH を通しておいて、 (setq markdownf-command "pandoc.exe") にした方がいいか？
+  (setq markdownf-command (concat (getenv "USERPROFILE") "\\AppData\\Local\\Pandoc\\pandoc.exe"))
+  )

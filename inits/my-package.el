@@ -45,6 +45,36 @@
     )
   )
 ;; ----------------------------------------------------------------------
+;; * [2014-09-09 火]
+;; http://qiita.com/k_ui/items/3e6fb470e6f80bae046e
+;; Emacs - インストール済みパッケージの再現 - Qiita
+;; これで、init.el 次回起動時に勝手にインストールして require してくれる。
+;; 仮にパッケージ消えててインストールがコケても、`when' 
+;; のボディー部分が走らないだけになる。
+(defun package-require (feature &optional filename packagename noerror)
+  "《require》 の代わりに使う関数。PACKAGENAME(or FEATURE) が未イ
+  ンストール時は、《require》 する前に《package-install》 によるパッ
+  ケージインストールを試みる。NOERROR が non-nil ならば、
+  PACKAGENAME(or FEATURE) が存在しなかったり、《require》 が失敗した
+  時に 《error》 ではなく、nil を返す。（《require》 の第三引数相当
+  の挙動）"
+  (unless package--initialized (package-initialize))
+  (unless package-archive-contents (package-refresh-contents))
+  (let ((pname (or packagename feature)))
+    (if (assq pname package-archive-contents)
+        (let nil
+          (unless (package-installed-p pname)
+            (unless package-archive-contents (package-refresh-contents))
+            ;; TODO パッケージ配信鯖が死んでるときの対処
+            (package-install pname))
+          (or (require feature filename t)
+              (if noerror nil
+                (error "Package `%s' does not provide the feature `%s'"
+                       (symbol-name pname) (symbol-name feature)))))
+      (if noerror nil
+        (error "Package `%s' is not available for installation"
+               (symbol-name feature))))))
+;; ----------------------------------------------------------------------
 ;; * [2012-05-31 木] ためしに memory-usage をインストールしてみた。イン
 ;; ストール直後は M-x memory-usage で使える。 Emacs 再起動後は使えない。
 ;; M-x package-list-packages で memory-usage を選択しても、ヘルプが表示
