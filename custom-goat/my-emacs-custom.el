@@ -57,3 +57,8 @@
 (setq my-gtags-command ""C:/tool/gnupack/app/cygwin/local/bin/gtags.exe"")
 ;; * [2013-11-12 火] gp では howm 有効、 dn2 では howm 無効。
 (require 'my-howm)
+;; ----------------------------------------------------------------------
+;; * [2014-09-11 木] bookmark file を PC 毎に分離したい。
+;; bookmark-default-file デフォルト値 ~/.emacs.d/bookmarks から変更する。
+(require 'bookmark)
+(setq bookmark-default-file (concat "~/.emacs.d/" emacs_custom "/bookmarks"))

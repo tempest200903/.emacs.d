@@ -176,3 +176,7 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 ** TODO org-mode 残り時間自動計算
    [2014-09-10 水 19:12]
 - [[elisp:(progn (find-file "n:/howm/2014/09/2014-09-08-185130.howm.txt") (occur "残り時間"))]]
+** TODO bookmark file を PC 毎に分離したい
+- (require 'bookmark) 
+  (setq bookmark-default-file )
+~/.emacs.d/bookmarks

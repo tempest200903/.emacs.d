@@ -1,0 +1,30 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("~/.emacs.d/custom-goat/my-emacs-custom.el"
+ (filename . "~/.emacs.d/custom-goat/my-emacs-custom.el")
+ (front-context-string . "\n;; #+LAST_UPDAT")
+ (rear-context-string . "-emacs-custom.el")
+ (position . 45))
+("runEmacs.bat"
+ (filename . "c:/tool/gnupack/runEmacs.bat")
+ (front-context-string . "\nrem C:\\tool\\gnu")
+ (rear-context-string . "STOM=custom-goat")
+ (position . 39))
+("my-emacs-task"
+ (filename . "~/.emacs.d/memo/my-emacs-task.org.txt")
+ (front-context-string . "my-emacs-task\n  ")
+ (rear-context-string . "D: 2014-09-09\n* ")
+ (position . 30))
+("c:/tool/gnupack/home/.emacs.d/inits"
+ (filename . "~/.emacs.d/inits/")
+ (front-context-string . "c:/tool/gnupack/")
+ (rear-context-string)
+ (position . 3))
+("my-init.el"
+ (filename . "~/.emacs.d/my-init.el")
+ (front-context-string . "\n;; #+LAST_UPDAT")
+ (rear-context-string . "*-\n;; my-init.el")
+ (position . 63))
+)
