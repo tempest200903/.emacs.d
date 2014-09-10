@@ -1,7 +1,7 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; ======================================================================
 (require 'imenu)
-;; ----------------------------------------------------------------------
+;; ----------------------------------------------------------------------
 ;; * [2011-02-02 水 18:46] org-mode 用のメニューを imenu で構築する。
 ;; url: http://www.network-theory.co.uk/docs/orgmode/Cooperation.html
 ;; M-x org-info ; 14.8.1 Packages that Org cooperates with

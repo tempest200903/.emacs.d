@@ -23,6 +23,7 @@
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
  '(org-startup-folded nil)
+ '(org-use-speed-commands t)
  '(org-yank-folded-subtrees nil)
  '(popwin-mode t)
  '(popwin:popup-window-height 30)

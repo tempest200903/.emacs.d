@@ -120,12 +120,13 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - パスが \\filserver\a\b\c である場合、
 - [[shell:cygstart \\\\a\\b\\c][\\filserver\a\b\c] ] 形式に変換する。
 ** TODO use-package.el
+   [2014-09-09 火]
 - http://rubikitch.com/2014/09/09/use-package/
   - emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
   - :bind : コマンドをglobal-mapに割り当てる
   - このようにbindで設定されたコマンドはすべてautoloadされます。
 ** TODO 〔tr ライクに置換する〕
-2014-09-09
+   [2014-09-09 火]
 - tr "【】" "〔〕" のような置換をするコマンド。
 - query-replace と同じように mini buffer から入力する。
 - M-x shell-command-on-region RET tr  "【】" "〔〕"  でもいい。
@@ -133,13 +134,16 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - http://d.hatena.ne.jp/yarb/20101219/p1
   - Emacsで全角の数字を半角にしたい
 ** TODO markdown-open-command
-2014-09-09
+   [2014-09-09 火]
 - ~/.emacs.d/inits/my-markdown-mode.el
 - org-mode と同様に Emacs 上で export してブラウザで開くコマンドがほしい。
-** TODO org-mode
-- TODO status など、秘密にしなくていい定義は custom から inits に移動してもいいのでは？
+** TODO PC 毎に分離しない
+   [2014-09-09 火]
+- 分離にしなくていい定義を custom から inits に移動する。
+- org-mode TODO status
+- org-speed キーバインド
 ** TODO my-package.el
-2014-09-09
+   [2014-09-09 火]
 - ~/.emacs.d/inits/
 - TODO http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0
 ** TODO グループウェア連携
@@ -177,6 +181,7 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
    [2014-09-10 水 19:12]
 - [[elisp:(progn (find-file "n:/howm/2014/09/2014-09-08-185130.howm.txt") (occur "残り時間"))]]
 ** TODO bookmark file を PC 毎に分離したい
+   [2014-09-11 木 00:16]
 - (require 'bookmark) 
   (setq bookmark-default-file )
 ~/.emacs.d/bookmarks

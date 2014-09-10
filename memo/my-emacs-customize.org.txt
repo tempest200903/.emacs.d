@@ -540,7 +540,8 @@ Loading vc-svn...done
     :END:
 - dired で選択した office ファイルを xdoc2txt 経由でブラウズしたい。
 - grep したい。 moccur や howm でもいい。
-- org-mode hyperlink で特定の文字列までジャンプしたい。
+- バイナリファイルを C-u C-u M-x org-open-at-point で開く際に、 xdoc2txt で変換してから Emacs で開く。
+- org-mode hyperlink 書式で特定の文字列や特定の行番号までジャンプしたい。
 *** DONE tips dired でファイルのフルパスを簡単に killing
     CLOSED: [2014-09-08 月 19:48]
 - http://qiita.com/akisute3@github/items/3737b15b37fed8f39c99
@@ -548,8 +549,6 @@ Loading vc-svn...done
   - dired は w でカーソル位置(もしくはマークしているファイル)のファイル
     名を killing できる。このとき、プレフィックスが 0 であればフルパス
     を killing するのだ
-
-
 ** org-mode                                                        :org_mode:
 *** DONE org-mode 導入
    [2011-08-18 木 10:25]
@@ -2749,3 +2748,8 @@ openwith.el:144:1:Error: End of file during parsing
   - [[file:~/.emacs.d/memo/package-history.org.txt::*%E3%80%94smart-compile%E3%80%95][〔smart-compile〕]]
     - [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/vendor/elpa/smart-compile-20130917.347/smart-compile.el]]
     - [[file:~/.emacs.d/inits/my-smart-compile-package.el::%3B%3B%20my-smart-compile-package.el][file:~/.emacs.d/inits/my-smart-compile-package.el::;; my-smart-compile-package.el]]
+** 祝日
+*** TODO package japanese-holiday
+    [2014-09-11 木 00:23]
+- M-x package-install japanese-holiday
+
