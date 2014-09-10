@@ -23,7 +23,7 @@
   ;;
   ;; http://joostkremers.github.io/pandoc-mode/
   (add-hook 'markdown-mode-hook 'turn-on-pandoc)
-  (define-key 'pandoc-mode-map "\C-c/o" 'pandoc--set-output)
+  (define-key pandoc-mode-map "\C-c/o" 'pandoc--set-output)
   )
 ;; ----------------------------------------------------------------------
 ;; cheat sheet
