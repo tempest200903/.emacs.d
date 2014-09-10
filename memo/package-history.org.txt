@@ -43,3 +43,7 @@
 ** textile-mode
    [2014-07-18 金]
 - textile-mode       20120721.... available  Textile markup editing major mode
+** pandoc-mode
+   [2014-09-10 水]
+** japanese-holidays
+   [2014-09-11 木]
