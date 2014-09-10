@@ -4,14 +4,16 @@
 ;; * [2011-08-24 水] auto-install インストール手順 install-elisp-from-emacswiki 編
 ;; url: http://d.hatena.ne.jp/rubikitch/20091221/autoinstall
 ;; 1. 下記コマンドを実行する。
-;;    M-x install-elisp-from-emacswiki auto-install.el
-;;    実体格納場所は ~.emacs.d/vendor/elpa/auto-install-20130824.1206/auto-install.el
+;; M-x install-elisp-from-emacswiki auto-install.el
+;; または (install-elisp-from-emacswiki "auto-install.el")
+;; 実体格納場所は ~/.emacs.d/auto-install/auto-install.el
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] auto-install インストール手順 package.el 編
 ;; M-x package-list-packages auto-install
+;; または (package-install 'auto-install)
+;; 実体格納場所は ~/.emacs.d/vendor/elpa/auto-install-20130824.1206/auto-install.el
 ;; ----------------------------------------------------------------------
 (when (not (require 'auto-install nil t))
-  (install-elisp-from-emacswiki "auto-install.el")
   (package-install 'auto-install)
   )
 ;; ----------------------------------------------------------------------
@@ -29,12 +31,3 @@
 ;; ----------------------------------------------------------------------
 (provide 'my-auto-install)
 ;; ----------------------------------------------------------------------
-
-
-;; (defcustom auto-install-save-confirm t
-;;   "Whether confirmation is needed to save downloaded content.
-;; Nil means no confirmation is needed.
-;; If non-nil, the downloaded content is shown in a buffer and you are
-;; prompted to confirm saving it to a file."
-;;   :type 'boolean
-;;   :group 'auto-install)
