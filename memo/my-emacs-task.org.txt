@@ -191,3 +191,14 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 ** TODO calendar で選択した日付で moccur
    [2014-09-11 木]
 - (moccur "2014-09-11" nil)
+** TODO バッファの一部を暗号化する
+- org-encrypt ?
+- password など。
+** TODO mail 検索
+- 前提
+  - フォルダ命名規約 C:\mail\mail-d20140911
+  - Windows Live Mail Unicode text 形式で保存
+- 特定の日付期間に限定
+  - M-x calendar で指定
+- メールヘッダーを対象に grep
+- メール本文を対象に grep
