@@ -485,6 +485,15 @@ Loading vc-svn...done
     :END:
 - (setq nxml-slash-auto-complete-flag t)
 - customize t
+*** DONE 〔開始タグと終了タグの対応が崩れている箇所にジャンプする〕
+    CLOSED: [2014-09-10 水 14:33]
+    [2014-09-10 水 14:30]
+- M-x beginning-of-buffer (M-<) M-x nxml-forward-element (C-M-n) すれば、たいてい崩れている箇所にジャンプできる。
+*** DONE 次/前の属性にジャンプする
+    CLOSED: [2014-09-10 水 14:33]
+    [2014-09-10 水 14:32]
+- M-x forward-sexp (C-M-f), M-x backward-sexp (C-M-b)
+
 ** dired-mode                                                    :dired_mode:
    [2011-08-26 金 14:28]
 *** dired-x

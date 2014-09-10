@@ -7,6 +7,8 @@
 (define-key global-map (kbd "C-^ ,") 'howm-menu)
 (define-key global-map (kbd "C-^ a") 'howm-list-all)
 (define-key global-map (kbd "C-^ l") 'howm-list-recent)
+(define-key global-map (kbd "C-^ s") 'howm-list-grep-fixed)
+(define-key global-map (kbd "C-^ g") 'howm-list-grep)
 ;; ----------------------------------------------------------------------
 ;; * [2012-07-26 木] howm-1.3.9.2
 (define-key global-map (kbd "C-^ e") 'howm-remember)

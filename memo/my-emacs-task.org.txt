@@ -8,7 +8,8 @@
 # ;; (setq howm-search-path '("N:/howm/2013/10" "N:/howm/2013/09"))
 # ;; (setq howm-search-other-dir t) ;; howm-toggle-search-other-dir のトグルの初期値 (t か nil)
 # ;; TODO 変数 howm-search-path の設定を my-emacs-custom.el に移動する。
-** ~/.emacs.d/inits/my-anything-basis.el
+** CANCELLED ~/.emacs.d/inits/my-anything-basis.el
+   CLOSED: [2014-09-10 水 18:27]
 - (define-key isearch-mode-map (kbd "C-t") 'anything-c-moccur-from-isearch)
   これを利用可能にするべし。
 ** DONE org-mode link を相対パスから絶対パスに変更する
@@ -25,7 +26,8 @@
     C-uを付けることによって、絶対パス表記を明確に指定することができます。
 - C-u C-u C-c C-l で必ず絶対パス表記になるか？
   - 絶対パス表記にはなるが、リンクの中身は相対パスのまま。
-** 無駄な locate
+** CANCELLED 無駄な locate
+   CLOSED: [2014-09-10 水 18:28]
 - anything-for-files Help
   - ffap -> recentf -> buffer -> bookmark -> file-cache -> files-in-current-dir -> locate.
 - locate を source から外すべし。
@@ -68,7 +70,6 @@
   - つまりこうなる。
     - (kbd "C-:") 1回で "*Org Agenda*" バッファに切り替え。
     - (kbd "C-:") 2回で org-agenda
-
 ** TODO 〔mode-line に truncate-lines を表示する〕
 - [[~/.emacs.d/inits/my-toggle-truncate-lines.el]]
 ** TODO 〔xml-mode, yaml-mode を比較する 〕
@@ -84,11 +85,13 @@
   - 例 @myscript\dos\fileserver-localopen.bat \\Isf-mine\情報エンジニアリング部\[0]bodais\【編集中】P部・研究所への展開の流れ.txt
 ** TODO 〔my-date-replace.el〕
 - [[~/.emacs.d/inits/my-date-replace.el]]
-** TODO 〔howm メモを一括検索・一括置換したい〕
+** CANCELLED 〔howm メモを一括検索・一括置換したい〕
+   CLOSED: [2014-09-10 水 18:29]
 - 目的：howm メモを一括検索・一括置換したい
 - 実現方法：N:/howm へのシンボリックリンクを eclipse workspace に置く。 eclipse で文字列検索する。
 - メリット：検索履歴を複数保持できる。一括置換できる。
 - デメリット：メモリ使用量。
+- TortoiseSVN の grepWin で十分。
 ** TODO 〔howm メモの一部を export したい〕
 - 目的： howm メモのうち non-work メモを sn に export したい。
 - 実現方法：メモに non-work タグを記す。 script で grep and rsync
@@ -139,3 +142,37 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 2014-09-09
 - ~/.emacs.d/inits/
 - TODO http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0
+** TODO グループウェア連携
+   [2014-09-10 水 17:27]
+- 実現したいこと
+  - メール グループウェア 「スケジュールを下記の内容で登録しました。」本文をコピー。
+  - emacs コマンド起動
+    - 日付を読み取って n:/howm/2014/08/data/98/9da206-e516-40c0-b70f-c336d236c4ea/jmotto-20140911-1300.org.txt 形式で保存。
+    - カレント heading に attach する。
+** TODO my-pandoc-mode.el
+   [2014-09-10 水 17:27]
+- n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-pandoc-mode.el
+- TODO 環境変数 PATH から pandoc.exe を探して (setq pandoc-binary xxx) する式をここに書いておけばいいのでは？ 
+- 入力ファイルが UTF-8 マルチバイトだと失敗するようだ。オプションを指定すればいい？
+  #+BEGIN_EXAMPLE
+  Running `pandoc --read=org --write=native --output=n:/howm/2014/09//temp1.textile'
+  pandoc.exe: Cannot decode byte '\x8c': Data.Text.Encoding.Fusion.streamUtf8: Invalid UTF-8 stream
+  #+END_EXAMPLE
+*** pandoc の問題1
+- --write=textile にすると、
+  URL の直前に "$": という文字列をつける。
+  Redmine などでは "$":https://example.com/
+  アンカーが $ でリンク先が https://example.com/ になるので問題はないが、
+  コピー＆ペーストするときに困る。
+  URL の直前に "$": という文字列をつけないでほしい。
+- http://sky-y.github.io/site-pandoc-jp/users-guide/
+  を見たが、オプションが見当たらない。
+*** pandoc の問題2
+- "_" アンダーバーを置換するが、置換しないでほしい。
+** TODO アクセスログ
+   [2014-09-10 水 18:27]
+- org-mode link のアクセスログを記録する。
+- アクセスカウントを集計する。どこからどこへ何回アクセスしたか。
+** TODO org-mode 残り時間自動計算
+   [2014-09-10 水 19:12]
+- [[elisp:(progn (find-file "n:/howm/2014/09/2014-09-08-185130.howm.txt") (occur "残り時間"))]]
