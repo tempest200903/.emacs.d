@@ -192,9 +192,11 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
    [2014-09-11 木]
 - (moccur "2014-09-11" nil)
 ** TODO バッファの一部を暗号化する
+   [2014-09-11 木]
 - org-encrypt ?
 - password など。
 ** TODO mail 検索
+   [2014-09-11 木]
 - 前提
   - フォルダ命名規約 C:\mail\mail-d20140911
   - Windows Live Mail Unicode text 形式で保存
@@ -202,3 +204,18 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
   - M-x calendar で指定
 - メールヘッダーを対象に grep
 - メール本文を対象に grep
+** TODO org-clone-subtree-with-time-shift してさらに日付を書き換える
+   [2014-09-11 木]
+- 例 〔foo-d2014-09-11〕  を +1 clone したら 〔foo-d2014-09-12〕 に書き換える。
+- hint query-replace-regexp
+** TODO emacs vc Subversion を使う
+   [2014-09-11 木]
+- C-x v v (vc-next-action)
+** TODO emacs vc Git を使う
+   [2014-09-11 木]
+- C-x v v (vc-next-action) または package magit
+** TODO dired-do-shell-command
+   [2014-09-11 木]
+- 画像ファイルを選択して X (dired-do-shell-command) cygstart で関連付け実行。
+- いちいち cygstart と入力しなくてすむようにしたい。
+- package あるはず？
