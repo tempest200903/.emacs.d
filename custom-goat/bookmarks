@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("~/.emacs.d/custom-goat/my-emacs-custom.el"
+(("my-popwin.el"
+ (filename . "~/.emacs.d/inits/my-popwin.el")
+ (front-context-string . "my-popwin.el\n;; ")
+ (rear-context-string . "acs-Lisp -*-\n;; ")
+ (position . 52))
+("my-autoload.el"
+ (filename . "~/.emacs.d/inits/my-autoload.el")
+ (front-context-string . "\n;; ============")
+ (rear-context-string . "; my-autoload.el")
+ (position . 66))
+("~/.emacs.d/custom-goat/my-emacs-custom.el"
  (filename . "~/.emacs.d/custom-goat/my-emacs-custom.el")
  (front-context-string . "\n;; #+LAST_UPDAT")
  (rear-context-string . "-emacs-custom.el")

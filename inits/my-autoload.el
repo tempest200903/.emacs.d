@@ -211,3 +211,5 @@
 (autoload 'bm-remove-all-current-buffer "my-bm-package" nil t)
 (autoload 'bm-remove-all-all-buffers    "my-bm-package" nil t)
 (autoload 'bm-bookmark-annotate         "my-bm-package" nil t)
+;; my-popwin.el
+(autoload 'popwin:dired-get-file-for-visit         "my-popwin" nil t)

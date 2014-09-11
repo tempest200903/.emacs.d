@@ -219,3 +219,9 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - 画像ファイルを選択して X (dired-do-shell-command) cygstart で関連付け実行。
 - いちいち cygstart と入力しなくてすむようにしたい。
 - package あるはず？
+** TODO use-package.el
+   [2014-09-12 金]
+- http://rubikitch.com/2014/09/09/use-package/
+- emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
+- (package-install 'use-package)
+- c:/tool/gnupack/home/.emacs.d/inits/my-use-package.el

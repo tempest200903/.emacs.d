@@ -6,7 +6,7 @@
 ;;;### (autoloads (popwin:messages popwin:find-file-tail popwin:find-file
 ;;;;;;  popwin:popup-buffer-tail popwin:one-window popwin:universal-display
 ;;;;;;  popwin:pop-to-buffer popwin:display-buffer popwin:popup-buffer)
-;;;;;;  "popwin" "popwin.el" (21514 47542))
+;;;;;;  "popwin" "popwin.el" (21521 53261))
 ;;; Generated autoloads from popwin.el
 
 (autoload 'popwin:popup-buffer "popwin" "\
@@ -71,7 +71,7 @@ Display *Messages* buffer in a popup window.
 
 ;;;***
 
-;;;### (autoloads nil nil ("popwin-pkg.el") (21514 47542 796000))
+;;;### (autoloads nil nil ("popwin-pkg.el") (21521 53261 304000))
 
 ;;;***
 

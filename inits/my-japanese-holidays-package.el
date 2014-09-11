@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; my-japanese-holidays.el
+;; my-japanese-holidays-package.el
 ;; ======================================================================
 ;; * [2014-09-11 木] インストール
 ;; (package-install 'japanese-holidays)
