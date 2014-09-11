@@ -34,10 +34,11 @@
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-time-stamp"))
 ;; (when t    "2013-10-31" (load "~/.emacs.d/inits/my-occur"))
 (when t    "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
+(when t    "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays"))
 (when t    "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode")) ;; 実験中
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-dired-mode-map")) ;; 実験中
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-mw32-ime")) ;; 実験中
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo"))
 ;; ----------------------------------------------------------------------
 ;; * color
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
@@ -54,7 +55,6 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-clock"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-hook"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-speed"))
-;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-org-mode-hyperlink")) ;; auto-load
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-timemanager"))
 ;; ** howm-mode
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-howm-keymap"))

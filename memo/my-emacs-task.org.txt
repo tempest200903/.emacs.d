@@ -191,3 +191,18 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 ** TODO calendar で選択した日付で moccur
    [2014-09-11 木]
 - (moccur "2014-09-11" nil)
+** TODO org-clone-subtree-with-time-shift してさらに日付を書き換える
+   [2014-09-11 木]
+- 例 〔foo-d2014-09-11〕  を +1 clone したら 〔foo-d2014-09-12〕 に書き換える。
+- hint query-replace-regexp
+** TODO emacs vc Subversion を使う
+- C-x v v (vc-next-action)
+** TODO emacs vc Git を使う
+- C-x v v (vc-next-action) または package magit
+** TODO dired-do-shell-command
+- 画像ファイルを選択して X (dired-do-shell-command) cygstart で関連付け実行。
+- いちいち cygstart と入力しなくてすむようにしたい。
+- package あるはず？
+
+
+ 

@@ -58,10 +58,12 @@
 ;; ----------------------------------------------------------------------
 ;; [2011-10-28 金] M-x customize '(diary-file "~/howm/2011/diary-y2011.txt")
 ;; ----------------------------------------------------------------------
+;; Emacs 起動直後にやりたい動作があればここに記す。
 ;; calendar-today-marker
 ;; (calendar)
-(when (require 'org nil t)
-  (when (require 'org-agenda nil t)
-    (org-goto-calendar)
-    )
-  )
+;; (when (require 'org nil t)
+;;   (when (require 'org-agenda nil t)
+;;     (org-goto-calendar)
+;;     )
+;;   )
+;; ----------------------------------------------------------------------
