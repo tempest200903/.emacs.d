@@ -5,13 +5,10 @@
 ;; http://d.hatena.ne.jp/m2ym/20110120/1295524932
 ;; http://valvallow.blogspot.jp/2011/03/emacs-popwinel.html
 ;; ----------------------------------------------------------------------
-;; * [2014-09-12 金]
-;;
+;; * [2014-09-12 金] インストール手順: package-require 式を eval-last-sexp する。
 (when (and
-       ;; インストール手順: ここを eval-last-sexp する。
        (package-require 'popwin nil nil t)
-       t
-       )
+       t)
   (when (require 'my-use-package nil t)
     (use-package popwin
       :config (progn
@@ -52,8 +49,8 @@
       :bind (
              ;;; autoload 記述不要。 (define-key global-map (kbd "M-s M-k") 'popwin:stick-popup-window) と同等。
              ("M-s M-k" . popwin:stick-popup-window)
-             ;;; autoload 記述不要。 (define-key global-map (kbd "M-s M-2") 'popwin:display-last-buffer)
-             ("M-s M-2" . popwin:display-last-buffer)
+             ;;; autoload 記述不要。 (define-key global-map (kbd "M-s M-s") 'popwin:display-last-buffer)
+             ("M-s M-s" . popwin:display-last-buffer)
              ;;; autoload 記述不要。 (define-key global-map (kbd "M-s e") 'popwin:messages)
              ("M-s e" . popwin:messages)
              ;;; autoload 記述不要。 (define-key global-map (kbd "M-s c") 'popwin:find-file-changelog)
