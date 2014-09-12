@@ -213,3 +213,5 @@
 (autoload 'bm-bookmark-annotate         "my-bm-package" nil t)
 ;; my-popwin.el
 (autoload 'popwin:dired-get-file-for-visit         "my-popwin" nil t)
+;; my-search-keybind.el
+(autoload 'my-search-keybind                       "my-search-keybind" nil t)
