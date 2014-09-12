@@ -23,18 +23,30 @@
     (easy-menu-add-item nil '("Occur") ["next-error-follow-minor-mode" next-error-follow-minor-mode t])
     )
   )
-(defun my-occur-or-switch-to-buffer ()
+;; ----------------------------------------------------------------------
+;; * [2014-09-13 土]
+;; http://www.emacswiki.org/emacs/OccurMode
+;; argument なし => 目的バッファへスイッチする。なければ新たに occur 実行。
+;; argument あり => 常に新たに occur 実行。
+;; 
+(defun my-occur-or-switch-to-buffer (arg)
   "Switch to *Occur* buffer, or run `occur'."
-  (interactive)
-  (if (get-buffer "*Occur*")
+  (interactive "P")
+  (if (and (not arg) (get-buffer "*Occur*"))
       (switch-to-buffer-other-window "*Occur*")
-    (call-interactively 'occur)))
-(defun my-moccur-or-switch-to-buffer ()
+    (occur (read-from-minibuffer "Regexp: ")
+           (if (listp arg) 0 arg)))
+  (balance-windows nil)
+  )
+(defun my-moccur-or-switch-to-buffer (arg)
   "Switch to *Moccur* buffer, or run `moccur'."
-  (interactive)
-  (if (get-buffer "*Moccur*")
+  (interactive "P")
+  (if (and (not arg) (get-buffer "*Moccur*"))
       (switch-to-buffer-other-window "*Moccur*")
-    (call-interactively 'moccur)))
+    (call-interactively 'moccur)
+    )
+  (balance-windows nil)
+  )
 ;; ----------------------------------------------------------------------
 (add-hook 'occur-mode-hook 'my-occur-menu-init)
 (add-hook 'grep-mode-hook 'my-occur-menu-init)
@@ -57,7 +69,7 @@
 (defun my-occur-link () "カレントバッファからリンクを occur する。"
   (interactive)
   (occur "\\[\\[.*\\]\\]" nil)
-)
+  )
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] provide
 (provide 'my-occur)
