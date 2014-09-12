@@ -301,5 +301,8 @@
 (define-key global-map (kbd "M-g 0 M-i")            'bm-remove-all-current-buffer)
 (define-key global-map (kbd "M-g 0 M-o")            'bm-remove-all-all-buffers)
 (define-key global-map (kbd "M-g M-a")              'bm-bookmark-annotate)
+;; ----------------------------------------------------------------------
 ;; * [2014-09-13 土] my-search-keybind
 (define-key global-map (kbd "C-h M-s M-o")          'my-search-keybind)
+;; ----------------------------------------------------------------------
+;; * [2014-09-13 土] my-loccur.el
