@@ -60,10 +60,3 @@
 ;; * [2014-08-06 水] my-org-reset-schedule-today at my-org-speed.el
 (define-key org-mode-map (kbd "C-z 1") 'my-org-reset-schedule-today)
 (define-key org-mode-map (kbd "C-z 2") 'my-org-reset-schedule-tomorrow)
-;; ----------------------------------------------------------------------
-;; * [2014-09-05 金] alias
-(fset 'my-org-clone-subtree-with-time-shift-1day
-   (lambda (&optional arg) "Keyboard macro."
-     (interactive "p")
-     (kmacro-exec-ring-item (quote ([3 24 99 49 return 49 100 return 134217821 116 116 19 60 13 134217847 134217837 18 50 48 13 25 134217828 134217828 134217828 134217837] 0 "%d")) arg)))
-(define-key org-mode-map (kbd "C-c M-1") 'my-org-clone-subtree-with-time-shift-1day)

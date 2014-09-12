@@ -188,6 +188,7 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 ** TODO 固有の稼働日、非稼働日を設定したい。
    [2014-09-11 木]
 - [[~/.emacs.d/inits/my-japanese-holidays.el]]
+- グループウェア予定表から export したファイルを読み取る。
 ** TODO calendar で選択した日付で moccur
    [2014-09-11 木]
 - (moccur "2014-09-11" nil)
@@ -208,6 +209,9 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
    [2014-09-11 木]
 - 例 〔foo-d2014-09-11〕  を +1 clone したら 〔foo-d2014-09-12〕 に書き換える。
 - hint query-replace-regexp
+- 非営業日をスキップする。
+- japanese-holiday から祝日を読み取れないか？
+  - (describe-variable 'japanese-holidays)
 ** TODO emacs vc Subversion を使う
    [2014-09-11 木]
 - C-x v v (vc-next-action)
@@ -225,3 +229,8 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
 - (package-install 'use-package)
 - c:/tool/gnupack/home/.emacs.d/inits/my-use-package.el
+** TODO org-open-at-point
+   [2014-09-12 金]
+- org-open-at-point すると、 freemind 関連付けで .mm ファイルを開きたい。
+** TODO 土日、祝日、稼働日、非稼働日を考慮した org-shiftright, org-shiftleft
+- 1回 shift するたびに土日ならもう1回 shift すれば、土日はスキップできる。

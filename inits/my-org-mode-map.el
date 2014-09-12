@@ -51,7 +51,7 @@
 ;; * [2014-05-08 木] my-org-mode-hyperlink.el
 (define-key org-mode-map (kbd "C-.") 'org-mark-ring-goto)
 (define-key org-mode-map (kbd "C-,") 'org-open-at-point)
-(define-key org-mode-map (kbd "C-c C-o") nil)
+(define-key org-mode-map (kbd "C-c C-o") nil) ;; 他の用途に使うつもり。
 (define-key org-mode-map (kbd "C-z C-c C-y") 'my-insert-shell-bracket)
 (define-key org-mode-map (kbd "C-z #") 'my-yank-org-example-arg)
 ;; ----------------------------------------------------------------------
@@ -78,3 +78,21 @@
 ;; hook しないでいきなり define-key すると、起動時にエラー発生。
 ;; エラーメッセージは ` Symbol's value as variable is void: org-agenda-mode-map `.
 ;; これは起動時には org-agenda-mode-map がまだ存在しないため。
+;; ----------------------------------------------------------------------
+;; * [2014-09-05 金] alias
+;; org-clone-subtree-with-time-shift して、1日インクリメントする。
+(fset 'my-org-clone-subtree-with-time-shift-1day
+   (lambda (&optional arg) "Keyboard macro."
+     (interactive "p")
+     (kmacro-exec-ring-item (quote ([3 24 99 49 return 49 100
+     return 134217821 116 116 19 60 13 134217847 134217837 18 50
+     48 13 25 134217828 134217828 134217828 134217837] 0 "%d"))
+     arg)))
+;; org-clone-subtree-with-time-shift して、今日の日付をセットする。
+(fset 'my-org-clone-subtree-with-time-shift-today
+   (lambda (&optional arg) "Keyboard
+   macro." (interactive "p") (kmacro-exec-ring-item (quote ([3 24
+   99 43 49 return 49 100 return 134217821 19 45 100 13 201326624
+   backspace 26 46 134217837 116 116] 0 "%d")) arg)))
+(define-key org-mode-map (kbd "C-c M-1") 'my-org-clone-subtree-with-time-shift-1day)
+(define-key org-mode-map (kbd "C-c M-.") 'my-org-clone-subtree-with-time-shift-today)
