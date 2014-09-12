@@ -1,6 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-markdown-mode-package.el
 ;; #+LAST_UPDATED: 2013-11-02
-;; my-markdown-mode.el
 ;; ======================================================================
 ;; * [2013-09-17 火] install
 ;; - M-x package-install markdown-mode

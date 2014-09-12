@@ -1,49 +1,57 @@
 * package-history
-** リセット
+** DONE リセット
    [2013-10-29 火]
-** anything, anything-config
+** DONE anything, anything-config
    [2013-10-29 火]
-** color-moccur
+** DONE color-moccur
    [2013-10-29 火]
 - [X] color-moccur	     20120811.... available  multi-buffer occur (grep) mode [github]
-** goto-last-change
+** DONE goto-last-change
    [2013-10-30 水]
 - [X] goto-last-change   20121115.... available  Move point through buffer-undo-list positions [wiki]
-** redo+
+** DONE redo+
    [2013-10-31 木]
 - [X] redo+              20131019.554 available  Redo/undo system for Emacs [wiki]
-** memory
+** DONE memory
    [2013-11-01 金]
 - [X] memory-usage       0.2          available  Analyze the memory usage of Emacs in various ways
 - [X] M-x memory-usage
-** auto-install
+** DONE auto-install
    [2013-11-01 金]
 - [X] auto-install       20130824.... available  Auto install elisp file [wiki]
-** graphviz-dot-mode
+** DONE graphviz-dot-mode
    [2013-11-01 金]
 - [X] graphviz-dot-mode  20120821.... available  Mode for the dot-language used by graphviz (att). [github]
-** simplenote
+** DONE simplenote
    [2013-11-02 土]
 - [X] simplenote	     20130416.... available  Interact with simple-note.appspot.com [github]
-** markdown-mode
+** DONE markdown-mode
    [2013-11-02 土]
 - [X]  markdown-mode	     20131005.... available  Emacs Major mode for Markdown-formatted text files [git]
 - [X]  markdown-mode+     20120829.710 available  extra functions for markdown-mode [github]
 - ~/.emacs.d/inits/my-markdown-mode.el
-** popwin
+** DONE popwin
 - [X]   popwin             20130329.... available  Popup Window Manager. [github]
 - [X] n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-popwin.el
-** free-keys
+** DONE free-keys
 - http://d.hatena.ne.jp/syohex/20131104/1383541335
 - free-keys          20131104.2   available  Show free keybindings for modkeys or prefixes [github]
 - M-x free-keys
-** openwith
+** DONE openwith
    [2013-12-12 木]
 - openwith           20120531.... available  Open files with external programs
-** textile-mode
+** DONE textile-mode
    [2014-07-18 金]
 - textile-mode       20120721.... available  Textile markup editing major mode
-** pandoc-mode
+** DONE リセット
+   [2014-09-06 土]
+** DONE pandoc-mode
    [2014-09-10 水]
-** japanese-holidays
+** DONE japanese-holidays
    [2014-09-11 木]
+** TODO org-grep
+   [2014-09-11 木]
+- (package-install 'org-grep)
+- (setq org-directory "~/.emacs.d/memo")
+- ;; (setq org-grep-directories '("~/.emacs.d/memo"))
+- (setq org-grep-extensions '(".org.txt"))

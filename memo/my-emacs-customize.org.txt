@@ -542,6 +542,7 @@ Loading vc-svn...done
 - grep したい。 moccur や howm でもいい。
 - バイナリファイルを C-u C-u M-x org-open-at-point で開く際に、 xdoc2txt で変換してから Emacs で開く。
 - org-mode hyperlink 書式で特定の文字列や特定の行番号までジャンプしたい。
+- 参考。 (package-install 'openwith)
 *** DONE tips dired でファイルのフルパスを簡単に killing
     CLOSED: [2014-09-08 月 19:48]
 - http://qiita.com/akisute3@github/items/3737b15b37fed8f39c99

@@ -7,6 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(backup-directory-alist (quote ((".*" . "C:/Users/simei/AppData/Local/Temp"))))
+ '(column-number-mode t)
  '(compilation-ask-about-save nil)
  '(compilation-read-command t)
  '(compile-command "")
@@ -28,6 +29,9 @@
  '(popwin-mode t)
  '(popwin:popup-window-height 30)
  '(popwin:special-display-config (quote ((dired-mode :position top) ("*Help*") ("*Completions*" :noselect t) ("*compilation*" :noselect t) ("*Buffer List*") ("*Messages*") ("*grep*") (";Open Recent") (dired-mode :position top) ("*Backtrace*") ("*Apropos*") ("*Warnings*"))))
+ '(recentf-max-menu-items 50)
+ '(recentf-max-saved-items 100)
+ '(recentf-mode t)
  '(scroll-bar-mode (quote left))
  '(show-paren-mode t)
  '(size-indication-mode t)
