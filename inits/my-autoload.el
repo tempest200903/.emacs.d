@@ -219,3 +219,4 @@
 ;; M-x highlight-symbol-prev
 ;; M-x highlight-symbol-next
 ;; ----------------------------------------------------------------------
+(load "~/.emacs.d/inits/my-expand-region-keymap-autoload")

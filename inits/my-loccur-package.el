@@ -17,15 +17,13 @@
 (when (and
        (package-require 'loccur nil nil t)
        t)
-  (when (require 'my-use-package nil t)
-    (use-package loccur
-      :config (progn
-               (defun loccur-defun()
-                 "Displays only the lines corresponding to a defun declaration in a lisp file."
-                 (interactive)
-                 (loccur-no-highlight ".*defun.*"))
-               )
-      )
+  (use-package loccur
+    :config (progn
+              (defun loccur-defun()
+                "Displays only the lines corresponding to a defun declaration in a lisp file."
+                (interactive)
+                (loccur-no-highlight ".*defun.*"))
+              )
     )
   )
 ;; ----------------------------------------------------------------------

@@ -6,11 +6,12 @@
   (interactive "p")
   (cond
    ((equal arg 4) (delete-window))
+   ((equal arg 16) (delete-other-windows))
    ((one-window-p) (split-window-horizontally))
    (t (other-window 1))
   )
 )
-;; TODO arg 16 で分割したバッファを入れ替える http://a-newcomer.com/56
+;; TODO arg 1 で分割したバッファを入れ替える http://a-newcomer.com/56
 ;; ----------------------------------------------------------------------
 (provide 'my-other-window-or-split)
 ;; ----------------------------------------------------------------------

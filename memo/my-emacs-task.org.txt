@@ -254,3 +254,10 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - e.g. ~/.emacs.d/inits/my-bind-key-package.el
 - FUNCTION を2回書くのは無駄。
 - FILE を複数回書くのは無駄。
+** DONE expand-region.el
+   [2014-09-14 日]
+- [[~/.emacs.d/inits/my-expand-region-package.el]]
+** TODO my-kill-buffer-file-name
+   [2014-09-14 日]
+- $HOME を ~ に置換する。
+** TODO M-g M-g my-goto-line-with-linum-mode
