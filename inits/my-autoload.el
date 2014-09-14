@@ -215,3 +215,7 @@
 (autoload 'popwin:dired-get-file-for-visit         "my-popwin" nil t)
 ;; my-search-keybind.el
 (autoload 'my-search-keybind                       "my-search-keybind" nil t)
+;; 
+;; M-x highlight-symbol-prev
+;; M-x highlight-symbol-next
+;; ----------------------------------------------------------------------

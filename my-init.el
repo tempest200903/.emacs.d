@@ -2,6 +2,9 @@
 ;; my-init.el
 ;; #+LAST_UPDATED: 2014-09-05
 ;; ----------------------------------------------------------------------
+;; * benchmark
+ (when t "2014-09-14" (load "~/.emacs.d/inits/my-benchmark"))
+;; ----------------------------------------------------------------------
 ;; * load path
 ;; (when t    "2013-10-29" (add-to-list 'load-path "~/.emacs.d/manual-install"))
 (when t    "2014-09-06" (add-to-list 'load-path "~/.emacs.d/inits"))
@@ -13,15 +16,16 @@
 (load custom-file)
 ;; ----------------------------------------------------------------------
 ;; * global
+;; package を利用するファイルより先に load する必要がある。
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-package"))
+;; auto-install を利用するファイルより先に load する必要がある。
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-auto-install"))
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-coding-system"))
 ;; define-key よりさきに unset-key する必要がある。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-setq"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-package"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-auto-install"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-child-process"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
@@ -32,11 +36,14 @@
 ;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-time-stamp"))
 (when t    "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when t    "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
+(when t    "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
 (when t    "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-dired-mode-map")) ;; 実験中
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-mw32-ime")) ;; 実験中
+(when nil  "2014-09-08" (load "~/.emacs.d/inits/my-visible-mark")) ;; 故障するので使用中止。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 ;; ----------------------------------------------------------------------
 ;; * anything
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))
@@ -58,7 +65,4 @@
 ;; ----------------------------------------------------------------------
 ;; * require after init
 ;; (when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive")) ;; homw など重い lisp を遅延評価するため必要。
-;; ----------------------------------------------------------------------
-;; * init.el end
-;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-benchmark"))
 ;; ----------------------------------------------------------------------

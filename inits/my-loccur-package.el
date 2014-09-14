@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; my-loccur.el
+;; my-loccur-package.el
 ;; ======================================================================
 ;; * [2014-09-13 土] loccur.el 導入
 ;; http://www.emacswiki.org/emacs/OccurMode
@@ -25,13 +25,9 @@
                  (interactive)
                  (loccur-no-highlight ".*defun.*"))
                )
-      :bind (
-             ("M-s M-l M-c" . loccur-current)           ;; autoload 付き (define-key global-map (kbd "M-s M-l M-c") 'loccur-current)
-             ("M-s M-l M-l" . loccur)                   ;; autoload 付き (define-key global-map (kbd "M-s M-l M-l") 'loccur)
-             ("M-s M-l M-p" . loccur-previous-match)    ;; autoload 付き (define-key global-map (kbd "M-s M-l M-p") 'loccur-previous-match)
-             ("M-s M-l M-d" . loccur-defun)             ;; autoload 付き (define-key global-map (kbd "M-s M-l M-d") 'loccur-defun)
-             ("M-s M-l M-t" . loccur-toggle-highlight)  ;; autoload 付き (define-key global-map (kbd "M-s M-l M-t") 'loccur-toggle-highlight)
-             )
       )
     )
   )
+;; ----------------------------------------------------------------------
+(provide 'my-loccur-package)
+;; ----------------------------------------------------------------------

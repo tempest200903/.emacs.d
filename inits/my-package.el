@@ -35,15 +35,18 @@
   (progn
     (message "require package true")
     ;;リポジトリにMarmaladeを追加
-    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
     (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
     (add-to-list 'package-archives '("MELPA" . "http://melpa.milkbox.net/packages/"))
+    ;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
     ;;インストールするディレクトリを指定
     (setq package-user-dir (concat user-emacs-directory "vendor/elpa"))
     ;;インストールしたパッケージにロードパスを通してロードする
     (package-initialize)
     )
   )
+;; * [2014-09-13 土] https://twitter.com/edd_ess/status/508511577021374464
+;; #emacs is marmalade down?
+;; http://marmalade-repo.org/packages/ が応答なし。
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-09 火]
 ;; http://qiita.com/k_ui/items/3e6fb470e6f80bae046e

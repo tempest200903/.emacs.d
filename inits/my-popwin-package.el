@@ -50,7 +50,7 @@
              ;;; autoload 記述不要。 (define-key global-map (kbd "M-s M-k") 'popwin:stick-popup-window) と同等。
              ("M-s M-k" . popwin:stick-popup-window)
              ;;; autoload 記述不要。 (define-key global-map (kbd "M-s M-s") 'popwin:display-last-buffer)
-             ("M-s M-s" . popwin:display-last-buffer)
+             ("M-s l" . popwin:display-last-buffer)
              ;;; autoload 記述不要。 (define-key global-map (kbd "M-s e") 'popwin:messages)
              ("M-s e" . popwin:messages)
              ;;; autoload 記述不要。 (define-key global-map (kbd "M-s c") 'popwin:find-file-changelog)

@@ -1,5 +1,7 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-keymap-basis.el
+;; ----------------------------------------------------------------------
+(require 'my-bind-key-package)
 ;; ======================================================================
 (define-key global-map (kbd "<f5>")                 'repeat)
 (define-key global-map (kbd "C-;")                  'repeat)
@@ -50,8 +52,8 @@
 (when (require                                      'hilit-chg nil t)
   (define-key global-map (kbd "M-g M-c")            'highlight-changes-mode)
   (define-key global-map (kbd "M-g M-v")            'highlight-changes-visible-mode)
-  (define-key global-map (kbd "M-g M-b")            'highlight-changes-previous-change)
-  (define-key global-map (kbd "M-g M-f")            'highlight-changes-next-change)
+  (define-key global-map (kbd "M-g C-p")            'highlight-changes-previous-change)
+  (define-key global-map (kbd "M-g C-n")            'highlight-changes-next-change)
   )
 ;; TODO autoload hilit-chg
 ;; ----------------------------------------------------------------------
@@ -102,7 +104,7 @@
 ;; * [2011-12-05 月] M-% は押しにくいので alias.
 ;; しかし、 isearch-map では M-% を使わないと引継ぎできない。 isearch-map でも押しやすいキーで引継ぎしたい。
 (define-key global-map (kbd "M-s M-q")              'query-replace)
-(define-key global-map (kbd "M-s M-r")              'query-replace-regexp)
+(define-key global-map (kbd "M-s M-s M-q")          'query-replace-regexp)
 ;; かな漢字変換が on のとき M-s o すると minibuffer に o が入力されてしまうのを回避する。
 (define-key global-map (kbd "M-s M-o")              'occur)
 (define-key global-map (kbd "M-s M-:")              're-builder)
@@ -124,15 +126,6 @@
 (define-key global-map (kbd "M-g M-.")              'find-function-at-point)
 ;; kbd 由来は find-tag {It is bound to M-.} なので。
 ;; ----------------------------------------------------------------------
-;; * [2012-01-20 金] gnupack emacs で　color-theme を使う。
-;; (load "n:/tool/gnupack/gnupack_basic-7.02/app/emacs/site-lisp/color-theme/themes/color-theme-library.el")
-;; GNU Emacs 23.2.1 には color-theme がないので、引数 NOERROR を t にしておく。
-(when (require                                      'color-theme nil t)
-  (define-key global-map (kbd "<M-pause>")          'color-theme-emacs-21)
-  ;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21)
-  ;; 使用頻度が高いのでホームポジションキーを割り当てる。
-  )
-;; ----------------------------------------------------------------------
 ;; * [2012-04-11 水] paren
 ;; (kbd "%" に割り当てていたが、 view-mode では衝突するので回避する。
 ;; (kbd "M-g M-8") なら衝突しない。
@@ -143,10 +136,6 @@
 ;; ----------------------------------------------------------------------
 ;; * [2012-04-11 水] paren
 (define-key global-map (kbd "M-?")                  'end-of-buffer-other-window) ;; alias of <M-end>. ホームポジションから届くようにする。
-;; ----------------------------------------------------------------------
-;; * [2012-06-22 金] alias
-(define-key global-map (kbd "M-s M-n")              'highlight-symbol-next) ;; alias of M-s s n runs the command highlight-symbol-next
-(define-key global-map (kbd "M-s M-p")              'highlight-symbol-prev) ;; alias of M-s s p runs the command highlight-symbol-prev
 ;; ----------------------------------------------------------------------
 ;; * [2011-09-06 火] describe 関連, C-h で始まるキーバインド。
 ;; <f1> および C-h を prefix に使うことのデメリット。
@@ -162,7 +151,7 @@
 (define-key global-map (kbd "C-h C-x C-t")          'describe-text-properties)
 (define-key global-map (kbd "C-h C-x C-u")          'customize)
 (define-key global-map (kbd "C-h C-x C-o")          'org-customize)
-(define-key global-map (kbd "C-h C-s")              'customize-save-customized)
+(define-key global-map (kbd "C-h C-x C-s")          'customize-save-customized)
 (when (require                                      'my-describehilit-chg nil t)
   (define-key global-map (kbd "C-h C-x C-f")        'describe-face-at-point)
   )
@@ -181,7 +170,6 @@
 ;; (kbd "C-h C-l") is undefined
 ;; (kbd "C-h C-q") is undefined
 ;; (kbd "C-h C-r") is undefined
-;; (kbd "C-h C-s")
 ;; (kbd "C-h C-u") is undefined
 ;; (kbd "C-h C-v") is undefined
 ;; (kbd "C-h C-y") is undefined
@@ -306,3 +294,9 @@
 (define-key global-map (kbd "C-h M-s M-o")          'my-search-keybind)
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-13 土] my-loccur.el
+;; ----------------------------------------------------------------------
+(load "~/.emacs.d/inits/my-loccur-keymap-autoload")
+(load "~/.emacs.d/inits/my-point-undo-keymap-autoload")
+(load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")
+
+

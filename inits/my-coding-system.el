@@ -8,6 +8,9 @@
 (set-file-name-coding-system 'cp932)
 (setq default-process-coding-system '(cp932 . cp932))
 ;; ----------------------------------------------------------------------
+;; * [2014-09-13 土] TODO (set-language-environment "Japanese") すると何が変わる？
+;; https://github.com/nanasess/dot.emacs/blob/master/init.d/japanese-init.el
+;; ----------------------------------------------------------------------
 ;; * [2011-11-22 火] エンコード
 ;; http://aikotobaha.blogspot.com/2010/08/gnupack-ntemacs23-dotemacs.html
 ;; cp932エンコード時の表示を「P」とする

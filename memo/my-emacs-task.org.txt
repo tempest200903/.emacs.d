@@ -233,4 +233,24 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
    [2014-09-12 金]
 - org-open-at-point すると、 freemind 関連付けで .mm ファイルを開きたい。
 ** TODO 土日、祝日、稼働日、非稼働日を考慮した org-shiftright, org-shiftleft
+   [2014-09-13 土]
 - 1回 shift するたびに土日ならもう1回 shift すれば、土日はスキップできる。
+** TODO (set-language-environment "Japanese") すると何が変わる？
+   [2014-09-13 土]
+- [[~/.emacs.d/inits/my-coding-system.el]]
+- https://github.com/nanasess/dot.emacs/blob/master/init.d/japanese-init.el
+** TODO define-key から bind-key* に移行する
+   [2014-09-13 土]
+- メリットは2つ。
+  - bind-key* => メジャーモード・マイナーモードに依存しないで常に同じキーに割り当てる
+  - describe-personal-keybindings => bind-key/bind-keysで割り当てたキーバインドをリストする
+** TODO my-keymap-basis.el を分割する
+   [2014-09-13 土]
+- ~/.emacs.d/inits/my-keymap-basis.el
+- 長すぎるので分割する。 my-keymap-basis.el から load する。
+- e.g. my-keymap-ffap.el
+** TODO bind-key と autoload を一度に行う
+   [2014-09-13 土]
+- e.g. ~/.emacs.d/inits/my-bind-key-package.el
+- FUNCTION を2回書くのは無駄。
+- FILE を複数回書くのは無駄。
