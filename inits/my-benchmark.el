@@ -4,7 +4,7 @@
 ;; http://d.hatena.ne.jp/sugyan/20120105/1325756767
 ;; defadvice を使って require にかかる時間を計測する
 ;; 
-(defvar benchmark-threashold 1)
+(defvar benchmark-threashold 500)
 (defadvice require (around require-benchmark activate)
   (let* ((before (current-time))
          (result ad-do-it)

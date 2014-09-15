@@ -11,7 +11,7 @@
    (t (other-window 1))
   )
 )
-;; TODO arg 1 で分割したバッファを入れ替える http://a-newcomer.com/56
+;; 分割したバッファを入れ替えるのは my-rotate-package.el my-rotate-window-or-layout-or-tiled
 ;; ----------------------------------------------------------------------
 (provide 'my-other-window-or-split)
 ;; ----------------------------------------------------------------------
