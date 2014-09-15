@@ -45,7 +45,7 @@
 ;;   (myorg-update-parent-cookie))
 ;; So I get a little annoyed when the [17/23] cookies at the parent level aren't updated when I remove an item.
 ;; This code fixes that.
-
+;;
 (when nil
   (defun myorg-update-parent-cookie ()
     (when (equal major-mode 'org-mode)
@@ -58,7 +58,7 @@
   (defadvice kill-whole-line (after fix-cookies activate)
     (myorg-update-parent-cookie))
   )
-
+;;
 ;; ----------------------------------------------------------------------
 ;; [2014-08-28 木] org-agenda-mode ON にするとき、 hl-line-mode ON にする。
 (defun my-org-agenda-mode-enables-hl-line-mode ()
@@ -66,3 +66,31 @@
   (hl-line-mode 1)
   )
 (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-enables-hl-line-mode)
+;; ----------------------------------------------------------------------
+;; * [2014-09-15 月] checkbox の個数が増減したら cookies を更新する。
+;; http://whattheemacsd.com/
+;; (defun myorg-update-parent-cookie ()
+;;   (when (equal major-mode 'org-mode)
+;;     (save-excursion
+;;       (ignore-errors
+;;         (org-back-to-heading)
+;;         (org-update-parent-todo-statistics)))))
+;; (defadvice org-kill-line (after fix-cookies activate)
+;;   (myorg-update-parent-cookie))
+;; (defadvice kill-whole-line (after fix-cookies activate)
+;;   (myorg-update-parent-cookie))
+;; 動作しない。 defadvice なしでやってみる。
+;;
+(defun my-org-kill-line(arg)
+  (interactive "p")
+  (call-interactively 'org-kill-line)
+  (call-interactively 'org-update-statistics-cookies)
+  )
+(defun my-org-yank(arg)
+  (interactive "p")
+  (call-interactively 'org-yank)
+  (call-interactively 'org-update-statistics-cookies)
+  )
+(require 'bind-key)
+(bind-key "C-k" 'my-org-kill-line org-mode-map)
+(bind-key "C-y" 'my-org-yank org-mode-map)

@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("(require 'point-undo)"
+(("myorg-update-parent-cookie"
+ (filename . "~/.emacs.d/inits/my-org-hook.el")
+ (front-context-string . "myorg-update-par")
+ (rear-context-string . ".com/\n;; (defun ")
+ (position . 3166))
+("(require 'point-undo)"
  (filename . "~/github/nanasess/dot.emacs/init.el")
  (front-context-string . "\n;; (define-key ")
  (rear-context-string . "ire 'point-undo)")
