@@ -1,11 +1,11 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-11-02
-;; my-pandoc-mode.el
+;; #+LAST_UPDATED: 2014-09-14
+;; my-pandoc-mode-package.el
 ;; ======================================================================
 ;; * [2014-09-10 水] install
 ;; - (package-require 'pandoc-mode nil nil t) を eval する。
 ;; ----------------------------------------------------------------------
-;; 関連 my-markdown-mode.el
+;; 関連 my-markdown-mode-package.el
 ;; ----------------------------------------------------------------------
 (setq userprofile-mixed (replace-regexp-in-string "\\\\" "/" (getenv "USERPROFILE")))
 (when (and
@@ -60,5 +60,5 @@
 ;; (define-key map "\C-c/V" 'pandoc-view-output)
 ;; (define-key map "\C-c/w" 'pandoc-set-write)
 ;; ----------------------------------------------------------------------
-(provide 'my-pandoc-mode)
+(provide 'my-pandoc-mode-package)
 ;; ----------------------------------------------------------------------

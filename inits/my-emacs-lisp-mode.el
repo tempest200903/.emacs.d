@@ -1,6 +1,8 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-emacs-lisp-mode.el
 ;; ======================================================================
+;; 関連 my-emacs-lisp-mode-map.el
+;; ----------------------------------------------------------------------
 ;; * [2011-11-10 木] AddKeywords
 ;; http://www.emacswiki.org/emacs/AddKeywords
 (font-lock-add-keywords 'emacs-lisp-mode

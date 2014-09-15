@@ -296,7 +296,5 @@
 ;; * [2014-09-13 土] my-loccur.el
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-loccur-keymap-autoload")
-(load "~/.emacs.d/inits/my-point-undo-keymap-autoload")
 (load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")
-
-
+(load "~/.emacs.d/inits/my-rotate-keymap-autoload")

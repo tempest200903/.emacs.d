@@ -220,3 +220,4 @@
 ;; M-x highlight-symbol-next
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-expand-region-keymap-autoload")
+(load "~/.emacs.d/inits/my-rotate-keymap-autoload")

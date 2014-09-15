@@ -390,7 +390,7 @@ Loading vc-svn...done
 読み込んでいるので、loadに対してadviceかけてやらないとそれぞれのload時
 間は計測できない。
 #+END_EXAMPLE
-*** TODO 〔auto-load〕
+*** DONE 〔auto-load〕
     :LOGBOOK:
     TIMESTAMP: [2012-02-29 水 15:10]
     :END:
@@ -2562,7 +2562,7 @@ shell-command-on-region: Args out of range: 0, 100
     TIMESTAMP: [2012-07-05 木 10:12]
     :END:
 - putclip_timestamp.bat と同じことをもっとすばやく実現したい。
-*** anzu
+*** TODO anzu
 - http://d.hatena.ne.jp/syohex/20140827/1409150260
   - 置換時のモードラインの改善 - Life is very short
   - query-replace で置換するときに、置換前文字列をハイライトして、モードラインに個数を表示する。
@@ -2575,7 +2575,6 @@ shell-command-on-region: Args out of range: 0, 100
   - to-stringに "\1", "\2"みたいなのがあったとき, 展開されていなかった問題を修正しました.
   - perl 正規表現置換の \1, \2 と同様。
 - 標準コマンド M-x shell-command-on-region sed や perl でできる。
-*** 
 ** TODO メール検索
    :LOGBOOK:
    TIMESTAMP: [2012-07-13 金 10:10]
@@ -2750,7 +2749,7 @@ openwith.el:144:1:Error: End of file during parsing
     - [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/vendor/elpa/smart-compile-20130917.347/smart-compile.el]]
     - [[file:~/.emacs.d/inits/my-smart-compile-package.el::%3B%3B%20my-smart-compile-package.el][file:~/.emacs.d/inits/my-smart-compile-package.el::;; my-smart-compile-package.el]]
 ** 祝日
-*** TODO package japanese-holiday
+*** DONE package japanese-holiday
     [2014-09-11 木 00:23]
 - M-x package-install japanese-holiday
 
