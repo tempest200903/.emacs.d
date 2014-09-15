@@ -13,5 +13,31 @@
        t)
   )
 ;; ----------------------------------------------------------------------
+(defun my-rotate-window-or-layout-or-tiled (&optional arg)
+  "no arg rotate-window, arg rotate-layout, double arg rotate:tiled."
+  (interactive "p")
+  (cond
+   ((equal arg 4) (rotate-layout))
+   ((equal arg 16) (rotate:tiled))
+   (t (rotate-window))
+  )
+)
+(defun my-rotate-horizontal (&optional arg)
+  "no arg rotate:main-horizontal, arg rotate:even-horizontal."
+  (interactive "p")
+  (cond
+   ((equal arg 4) (rotate:even-horizontal))
+   (t (rotate:main-horizontal))
+  )
+)
+(defun my-rotate-vertical (&optional arg)
+  "no arg rotate:main-vertical, arg rotate:even-vertical."
+  (interactive "p")
+  (cond
+   ((equal arg 4) (rotate:even-vertical))
+   (t (rotate:main-vertical))
+  )
+)
+;; ----------------------------------------------------------------------
 (provide 'my-rotate-package)
 ;; ----------------------------------------------------------------------
