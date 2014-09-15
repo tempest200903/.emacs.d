@@ -261,3 +261,16 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
    [2014-09-14 日]
 - $HOME を ~ に置換する。
 ** TODO M-g M-g my-goto-line-with-linum-mode
+** TODO markdown-mode で　org-beginning-of-line と同様のこと
+   [2014-09-14 日]
+- markdown-mode で　org-beginning-of-line と同様のことをやりたい。
+** pandoc-run-pandoc
+- M-x pandoc-run-pandoc が失敗する。
+#+BEGIN_EXAMPLE
+*Pandoc output*
+Running `pandoc --read=markdown --write=native'
+pandoc.exe: Cannot decode byte '\x93': Data.Text.Encoding.decodeUtf8: Invalid UTF-8 stream
+#+END_EXAMPLE
+- 入力ファイルがマルチバイト文字列を含まない場合、発生しない。
+
+

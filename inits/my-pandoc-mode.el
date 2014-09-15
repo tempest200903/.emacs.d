@@ -7,6 +7,7 @@
 ;; ----------------------------------------------------------------------
 ;; 関連 my-markdown-mode.el
 ;; ----------------------------------------------------------------------
+(setq userprofile-mixed (replace-regexp-in-string "\\\\" "/" (getenv "USERPROFILE")))
 (when (and
        (package-require 'pandoc-mode nil nil t)
        t)
@@ -18,12 +19,32 @@
   ;; 環境変数 PATH を通してあっても絶対パスが必要。
   ;; TODO 環境変数 PATH から pandoc.exe を探して (setq pandoc-binary xxx) する式をここに書いておけばいいのでは？
   ;; 
-  (setq userprofile-mixed (replace-regexp-in-string "\\\\" "/" (getenv "USERPROFILE")))
   (setq pandoc-binary (concat userprofile-mixed "/AppData/Local/Pandoc/pandoc.exe"))
   ;;
   ;; http://joostkremers.github.io/pandoc-mode/
   (add-hook 'markdown-mode-hook 'turn-on-pandoc)
   (define-key pandoc-mode-map "\C-c/o" 'pandoc--set-output)
+  ;;
+  (defun my-pandoc-compile-html ()
+    ""
+    (interactive)
+    (compile (my-pandoc-compile-html-command))
+    )
+  (defun my-pandoc-compile-html-command ()
+    ""
+    (concat pandoc-binary " -f markdown -t html -o " (buffer-file-name) ".html " (buffer-file-name))
+    )
+  ;;
+  (defun my-pandoc-browse-html ()
+    ""
+    (interactive)
+    (my-pandoc-compile-html)
+    (compile (concat (my-pandoc-compile-html-command) " && " (my-pandoc-browse-html-command)))
+    )
+  (defun my-pandoc-browse-html-command ()
+    ""
+    (concat "cygstart " (buffer-file-name) ".html ")
+    )
   )
 ;; ----------------------------------------------------------------------
 ;; cheat sheet

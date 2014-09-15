@@ -16,11 +16,15 @@
 ;; Still, many people want line numbers visible. I guess that is because they use them for navigation. This snippet shows line numbers temporarily just when you're going to a line number with goto-line.
 ;; Notice the nice remap-trick in the key binding. It will remap all key bindings from goto-line to goto-line-with-feedback. Neat!
 ;; ----------------------------------------------------------------------
+;; my-goto-line-with-linum-mode を autoload する際に linum.el がまだ load されていないとエラーが発生する。
+;; これを防ぐため、ここで load する。
+(load (concat (getenv "HOME") "/../app/emacs/emacs/lisp/linum.el"))
+;; ----------------------------------------------------------------------
 ;;;###autoload
 (defun my-goto-line-with-linum-mode ()
   "Show line numbers temporarily, while prompting for the line number input"
   (interactive)
-  (cond (linum-mode
+    (cond (linum-mode
          (goto-line (read-number "Goto line: ")))
         (t
          (unwind-protect

@@ -20,11 +20,14 @@
                                           er/try-expand-list
                                           '(mark-paragraph
                                             mark-page))))
-
               (er/enable-mode-expansions 'text-mode 'er/add-text-mode-expansions)
               )
     )
   )
+;; ----------------------------------------------------------------------
+;; customize
+;; ~/.emacs.d/custom-goat/my-emacs-custom.el
+;; '(expand-region-autocopy-register "e")
 ;; ----------------------------------------------------------------------
 (provide 'my-expand-region-package)
 ;; ----------------------------------------------------------------------
