@@ -1,6 +1,7 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2014-09-14
+;; #+LAST_UPDATED: 2014-09-15
 ;; my-pandoc-mode-package.el
+;; 関連 my-pandoc-mode-map.el
 ;; ======================================================================
 ;; * [2014-09-10 水] install
 ;; - (package-require 'pandoc-mode nil nil t) を eval する。
@@ -23,7 +24,6 @@
   ;;
   ;; http://joostkremers.github.io/pandoc-mode/
   (add-hook 'markdown-mode-hook 'turn-on-pandoc)
-  (define-key pandoc-mode-map "\C-c/o" 'pandoc--set-output)
   ;;
   (defun my-pandoc-compile-html ()
     ""
@@ -45,20 +45,9 @@
     ""
     (concat "cygstart " (buffer-file-name) ".html ")
     )
+  (load "my-pandoc-mode-map")
   )
-;; ----------------------------------------------------------------------
-;; cheat sheet
-;; define-key デフォルト設定。
-;; (define-key map "\C-c/c" 'pandoc-insert-@)
-;; (define-key map "\C-c/C" 'pandoc-select-@)
-;; (define-key map "\C-c/m" 'pandoc-set-metadata)
-;; (define-key map "\C-c/p" 'pandoc-convert-to-pdf)
-;; (define-key map "\C-c/r" 'pandoc-run-pandoc)
-;; (define-key map "\C-c/s" 'pandoc-save-settings-file)
-;; (define-key map "\C-c/S" 'pandoc-view-settings)
-;; (define-key map "\C-c/v" 'pandoc-set-variable)
-;; (define-key map "\C-c/V" 'pandoc-view-output)
-;; (define-key map "\C-c/w" 'pandoc-set-write)
+;; TODO -f markdown のところを、カレントバッファ名拡張子から自動判別する。
 ;; ----------------------------------------------------------------------
 (provide 'my-pandoc-mode-package)
 ;; ----------------------------------------------------------------------
