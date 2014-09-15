@@ -12,15 +12,21 @@
 ;; wishlist my-copy-line 連打したらコピー範囲を1行ずつ拡大してほしい。
 ;; ----------------------------------------------------------------------
 ;; * join 関連
-(defun my-join-line-next () "現在行と直後の行をつなげる。あいだの空白を削除する。"
-  (interactive "*")
-  (join-line -1)
+;; http://whattheemacsd.com/
+;; It joins the following line onto this one.
+(defun my-join-line-next (arg)
+  "arg なし ⇒ 現在行と直後の行をつなげる。あいだの空白を削除する。 arg あり ⇒ 現在行と直前の行をつなげる。あいだの空白を削除する。"
+  (interactive "p")
+  (cond
+   ((equal arg 4) (join-line nil))
+   (t (join-line -1))
+  )
   (set-mark-command nil) (set-mark-command nil) ;; 現在位置をマークする。
   )
 ;; Tips
 ;; M-x join-line                現在行と直前の行をつなげる。あいだの空白を削除する。
 ;; C-u 1 M-x join-line          現在行と直後の行をつなげる。あいだの空白を削除する。
-;; 後者の方をよく使うので、 C-u なしで使えるようにする。
+;; 後者の方をよく使うので、キーバインドを入れ替える。
 ;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] my-keymap-basis.el に移転する。
 ;; (global-set-key (kbd "C-z C-w") 'my-copy-line)

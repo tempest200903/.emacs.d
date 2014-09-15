@@ -17,8 +17,9 @@
   "no arg rotate-window, arg rotate-layout, double arg rotate:tiled."
   (interactive "p")
   (cond
-   ((equal arg 4) (rotate-layout))
+   ((equal arg 4) (my-toggle-window-split))
    ((equal arg 16) (rotate:tiled))
+   ((equal arg 64) (rotate-layout))
    (t (rotate-window))
   )
 )
@@ -38,6 +39,34 @@
    (t (rotate:main-vertical))
   )
 )
+;; ----------------------------------------------------------------------
+;; ------------------------------------------------------------
+;; * [2014-09-16 火] http://whattheemacsd.com/
+;; http://whattheemacsd.com/
+(defun my-toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
 ;; ----------------------------------------------------------------------
 (provide 'my-rotate-package)
 ;; ----------------------------------------------------------------------

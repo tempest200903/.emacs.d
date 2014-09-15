@@ -75,32 +75,6 @@
 (global-set-key (kbd "<S-f7>") 'switch-to-last-buffer)
 (global-set-key (kbd "C-z b") 'switch-to-last-buffer)
 ;; ------------------------------------------------------------
-;; http://whattheemacsd.com/
-(defun my-toggle-window-split ()
-  (interactive)
-  (if (= (count-windows) 2)
-      (let* ((this-win-buffer (window-buffer))
-             (next-win-buffer (window-buffer (next-window)))
-             (this-win-edges (window-edges (selected-window)))
-             (next-win-edges (window-edges (next-window)))
-             (this-win-2nd (not (and (<= (car this-win-edges)
-                                         (car next-win-edges))
-                                     (<= (cadr this-win-edges)
-                                         (cadr next-win-edges)))))
-             (splitter
-              (if (= (car this-win-edges)
-                     (car (window-edges (next-window))))
-                  'split-window-horizontally
-                'split-window-vertically)))
-        (delete-other-windows)
-        (let ((first-win (selected-window)))
-          (funcall splitter)
-          (if this-win-2nd (other-window 1))
-          (set-window-buffer (selected-window) this-win-buffer)
-          (set-window-buffer (next-window) next-win-buffer)
-          (select-window first-win)
-          (if this-win-2nd (other-window 1))))))
-;; ------------------------------------------------------------
 ;; * [2011-08-22 月] 旧キー割り当て体系
 ;; Ctrl         + %   => window 操作
 ;; Shift        + %   => buffer 操作
@@ -128,8 +102,6 @@
 (global-set-key (kbd "C-t C-8") 'tabbar-backward-tab)
 (global-set-key (kbd "<C-f9>") 'tabbar-forward-tab)
 (global-set-key (kbd "C-t C-9") 'tabbar-forward-tab)
-
-(global-set-key (kbd "C-z <C-f2>") 'my-toggle-window-split)
 
 ;; emacs-nw では function key を使えないので。実験中。
 (global-set-key (kbd "C-z C-f") 'next-multiframe-window)

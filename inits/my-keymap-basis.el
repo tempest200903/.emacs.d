@@ -202,8 +202,9 @@
 (define-key global-map (kbd "C-w")                  'kill-region-or-backward-kill-word)
 (define-key global-map (kbd "C-z C-d")              'kill-word-at-point)
 ;; ----------------------------------------------------------------------
-;; * [2013-11-03 日]
-(define-key global-map (kbd "C-x RET C-w")          'my-rename-file-and-buffer)
+;; * [2013-11-03 日] my-rename-file-and-buffer.el
+(bind-key (kbd "C-x RET C-w")                       'my-rename-file-and-buffer)
+(bind-key (kbd "C-x RET C-k")                       'my-delete-current-buffer-file)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
 (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines) 
