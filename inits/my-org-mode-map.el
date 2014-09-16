@@ -89,10 +89,9 @@
      48 13 25 134217828 134217828 134217828 134217837] 0 "%d"))
      arg)))
 ;; org-clone-subtree-with-time-shift して、今日の日付をセットする。
-(fset 'my-org-clone-subtree-with-time-shift-today
-   (lambda (&optional arg) "Keyboard
-   macro." (interactive "p") (kmacro-exec-ring-item (quote ([3 24
-   99 43 49 return 49 100 return 134217821 19 45 100 13 201326624
+(fset 'my-org-clone-subtree-with-time-shift-today (lambda (&optional
+   arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item
+   (quote ([43 49 return 43 49 100 return 102 5 18 50 48 13 201326624
    backspace 26 46 134217837 116 116] 0 "%d")) arg)))
 (define-key org-mode-map (kbd "C-c M-1") 'my-org-clone-subtree-with-time-shift-1day)
 (define-key org-mode-map (kbd "C-c M-.") 'my-org-clone-subtree-with-time-shift-today)

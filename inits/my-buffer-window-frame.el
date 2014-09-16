@@ -120,7 +120,6 @@
 (global-set-key (kbd "<S-f6>") 'next-buffer) ;; C-x <right> の alias.
 (global-set-key (kbd "C-z C-x C-b") 'bs-show)
 ;; ** frame
-;; <M-f1> => my-os-windows.el (my-frame-maximize)
 (global-set-key (kbd "<M-f2>") 'speedbar)
 (global-set-key (kbd "<M-f3>") 'make-frame-command) ;; C-x 5 2 の alias.
 ;; (global-set-key (kbd "C-t C-3") 'make-frame-command) ;; C-x 5 0 の alias.
@@ -168,11 +167,12 @@
 ;; (global-set-key (kbd "<M-f7>") 'suspend-frame)
 
 (when (require 'my-os-windows nil t)
-  (global-set-key (kbd "<M-f12>") 'my-frame-maximize)
-  (global-set-key (kbd "<M-f11>") 'my-resize-frame)
-  (global-set-key (kbd "<M-f10>") 'my-maximize-frame)
+  (global-set-key (kbd "<M-f8>") 'my-seq-my-maximize-or-restore-frame)
   (global-set-key (kbd "<M-f9>") 'my-restore-current-frame)
+  (global-set-key (kbd "<M-f10>") 'my-maximize-frame)
+  (global-set-key (kbd "<M-f11>") 'my-resize-frame)
   )
+;; * TODO Windows 以外の OS では require my-os-windows しない。
 ;; ----------------------------------------------------------------------
 ;; [2012-06-01 金] other-window に作用する shrink-window-if-larger-than-buffer
 (defun my-shrink-other-window-if-larger-than-buffer ()

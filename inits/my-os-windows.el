@@ -41,14 +41,30 @@
 (defun my-maximize-frame ()
   "Maximize frame"
   (interactive)
-  (w32-send-sys-command SC_MAXIMIZE))
+  (w32-send-sys-command SC_MAXIMIZE)
+  )
 (defun my-resize-frame ()
   "resize the window via keyboard"
   (interactive)
-  (w32-send-sys-command 61440))
+  (w32-send-sys-command 61440)
+  )
 (defun my-restore-current-frame ()
   "restore current frame"
   (interactive)
-  (w32-send-sys-command SC_RESTORE))
+  (w32-send-sys-command SC_RESTORE)
+  )
+(defun my-seq-my-maximize-or-restore-frame ()
+  "Maximize frame"
+  (interactive)
+  (my-maximize-frame)
+  )
+(when (require 'sequential-command nil t)
+  (when (require 'sequential-command-config nil t)
+    (progn
+      (define-sequential-command my-seq-my-maximize-or-restore-frame
+        my-maximize-frame my-restore-current-frame)
+      )
+    )
+  )
 ;; ----------------------------------------------------------------------
 (provide 'my-os-windows)
