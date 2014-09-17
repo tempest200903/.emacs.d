@@ -336,3 +336,6 @@ BEGIN で C-c C-c すると、 ```org-babel-execute-src-block: No org-babel-exec
 - 計算対象を hilight する。
 - シェルスクリプトかワインライナーを用意して shell-command-on-region から呼び出せばいいか？
 - awk -e "/([0-9]+\.[0-9]+) h/"
+** TODO org-mode 見積もり時間と実績時間を並べて表示する
+   [2014-09-17 水]
+- さらに、見積もり時間と実績時間の差が50%以上あったら赤色表示。

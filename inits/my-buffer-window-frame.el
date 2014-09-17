@@ -181,7 +181,7 @@
   (other-window 1)
   (shrink-window-if-larger-than-buffer)
   (other-window -1)
-)
+  )
 (global-set-key (kbd "C-z -") 'my-shrink-other-window-if-larger-than-buffer)
 ;; ----------------------------------------------------------------------
 (defun my-reset-frame1 ()
@@ -189,16 +189,43 @@
   (interactive)
   (call-interactively 'make-frame-command)
   (call-interactively 'delete-frame)
-)
+  )
 (defun my-reset-frame2 ()
   "フォントが崩れてしまう不具合を解消するため、フレームを作り直す。欠点：最大化を解除してしまう。"
   (interactive)
   (call-interactively 'my-maximize-frame)
   (call-interactively 'my-restore-current-frame)
-)
+  )
+(defun my-reset-frame3 ()
+  "フォントが崩れてしまう不具合を解消するため、フレームを作り直す。欠点：先頭のウィンドウがアクティブになってしまう。"
+  (interactive)
+  (call-interactively 'split-window-vertically)
+  (call-interactively 'delete-window)
+  (call-interactively 'balance-windows)
+  )
+(defun my-reset-frame4 ()
+  "フォントが崩れてしまう不具合を解消するため、フレームを作り直す。欠点：事前にウィンドウ分割していない場合、フォントが崩れたまま。カレントウィンドウが左に移動する。"
+  (interactive)
+  (call-interactively 'rotate:main-horizontal)
+  (call-interactively 'balance-windows)
+  )
+(defun my-reset-frame5 ()
+  "フォントが崩れてしまう不具合を解消するため、フレームを作り直す。欠点：事前にウィンドウ分割していない場合、フォントが崩れたまま。カレントウィンドウが左に移動する。"
+  (interactive)
+  (cond
+   ((one-window-p)
+    (split-window-horizontally)
+    (delete-window)
+    )
+   (t
+    (call-interactively 'rotate:main-horizontal)
+    (call-interactively 'balance-windows)
+    )
+   )
+  )
 ;; ----------------------------------------------------------------------
 ;; [2014-09-06] フォントが戻ってしまう。
 ;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21)
 ;; [2014-09-16 火] フレームサイズが戻ってしまう。
 (define-key global-map (kbd "<M-pause>") 'color-theme-vim-colors)
-(define-key global-map (kbd "<S-non-convert>") 'my-reset-frame2)
+(define-key global-map (kbd "<S-non-convert>") 'my-reset-frame5)

@@ -63,7 +63,8 @@
   (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ;; alias of C-c C-x C-c
   (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-reset-schedule-today)
   (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-reset-schedule-tomorrow)
-  (my-workmanager-init)
+  ;; (define-key org-agenda-mode-map (kbd "C-,") 'org-open-at-point)
+  (bind-key "C-," 'org-open-at-point org-mode-map) ;; alias of C-c C-o
   )
 (defun my-workmanager-init ()
   "my-workmanager 初期化"

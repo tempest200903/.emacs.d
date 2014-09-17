@@ -2,6 +2,7 @@
 ;; my-keymap-basis.el
 ;; ----------------------------------------------------------------------
 (require 'my-bind-key-package)
+;; TODO bind-key から my-bind-key-with-autoload に替える。
 ;; ======================================================================
 (define-key global-map (kbd "<f5>")                 'repeat)
 (define-key global-map (kbd "C-;")                  'repeat)
@@ -203,8 +204,10 @@
 (define-key global-map (kbd "C-z C-d")              'kill-word-at-point)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日] my-rename-file-and-buffer.el
-(bind-key (kbd "C-x RET C-w")                       'my-rename-file-and-buffer)
-(bind-key (kbd "C-x RET C-k")                       'my-delete-current-buffer-file)
+;; (bind-key (kbd "C-x RET C-w")                       'my-rename-file-and-buffer)
+;; (bind-key (kbd "C-x RET C-k")                       'my-delete-current-buffer-file)
+(my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-w" 'my-rename-file-and-buffer)
+(my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-k" 'my-delete-current-buffer-file)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
 (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines) 
