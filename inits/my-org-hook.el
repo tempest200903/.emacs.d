@@ -94,3 +94,8 @@
 (require 'bind-key)
 (bind-key "C-k" 'my-org-kill-line org-mode-map)
 (bind-key "C-y" 'my-org-yank org-mode-map)
+;; ----------------------------------------------------------------------
+;; [2012-02-28 火] org-clock-in/out delete-trailing-whitespace する。
+(add-hook 'org-clock-in-hook 'delete-trailing-whitespace)
+(add-hook 'org-clock-out-hook 'delete-trailing-whitespace)
+;; ----------------------------------------------------------------------
