@@ -99,3 +99,11 @@
 (add-hook 'org-clock-in-hook 'delete-trailing-whitespace)
 (add-hook 'org-clock-out-hook 'delete-trailing-whitespace)
 ;; ----------------------------------------------------------------------
+;; [2014-09-18 木] 実験中。
+(add-hook 'org-timer-done-hook 'SystemTraySample2)
+(defun SystemTraySample2 ()
+  "sample SystemTraySample2"
+  (message "sample SystemTraySample2")
+  (shell-command "cygstart ~/.emacs.d/script/java/SystemTraySample2.bat 1000")
+  )
+;; C-u - 3 M-x org-timer-start

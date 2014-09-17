@@ -795,10 +795,14 @@ Loading vc-svn...done
 - カレントバッファが :release: を含む場合、次のリリース日までのカウントダウンを mode-line に表示する
 - bash PS1 (prompt) でも似たようなことはできるが、実用的ではない？
 - 毎秒 mode-line を更新するのは CPU 無駄遣い。 org-clock-in, org-clock-out したときなどに更新すればいい？
+- カウントダウンが0に達したら、 mode-line の色を反転させる。
+**** PENDING 次の SCHEDULE を読み取るにはどうればいい？
+- M-x org-agenda-to-appt を調べる。
 **** PENDING タイマーの仕組み
      [2014-09-17 水]
 - org-mode で mibi-buffer に
   "Task '〔メール-d2014-09-17〕' should be finished by now. (15)" のように表示する仕組みを把握する。
+**** PENDING org-timer-done-hook
 **** TODO 〔Outlook アラート〕
      CLOCK: [2014-09-18 木 00:16]
 ***** PENDING Mac の Growl みたいに通知してほしい
