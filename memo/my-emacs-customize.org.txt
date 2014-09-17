@@ -411,7 +411,7 @@ Loading vc-svn...done
     にjs2-mode.elが読み込まれて定義される、ということになる。
     #+END_EXAMPLE
 - 依存関係
-  - init.el -> my-init.el -> my-keymap-basis.el ->(autoload) -> my-goto-line.el 
+  - init.el -> my-init.el -> my-keymap-basis.el ->(autoload) -> my-goto-line.el
   - init.el -> my-init.el -> my-org-mode-map.el ->(autoload) -> my-org-mode-hyperlink.el
   - (autoload) より右側は遅延評価。
 ** mark-ring
@@ -765,7 +765,8 @@ Loading vc-svn...done
     (remove-hook 'org-timer-stop-hook 'describe-mode)
 - 実験。 clock-in するときに30分の timer を start させる。自動的に。
   - 他の timer を上書きしてしまうから不便か。中止。
-*** TODO countdown timer for org-agenda
+*** timer
+**** TODO countdown timer for org-agenda
     :LOGBOOK:
     TIMESTAMP: [2012-02-14 火 14:26]
     :END:
@@ -775,7 +776,7 @@ Loading vc-svn...done
 - elisp を書けば可能？
 - schedule の名前を timer の隣に常に表示してくれるとベター。
 - 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
-*** TODO countdown timer for deadline
+**** TODO countdown timer for deadline
     :LOGBOOK:
     TIMESTAMP: [2012-02-14 火 14:27]
     :END:
@@ -785,6 +786,30 @@ Loading vc-svn...done
 - elisp を書けば可能？
 - schedule の名前を timer の隣に常に表示してくれるとベター。
 - 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
+**** TODO 次の SCHEDULE までのカウントダウンを mode-line に表示する
+   [2014-09-16 火]
+- http://qiita.com/yewton@github/items/5e134065a9d4478b27d2
+  - 人類滅亡までのカウントダウンを Emacs に表示する - Qiita
+- 次の SCHEDULE までのカウントダウンを mode-line に表示する
+- 次のリリース日までのカウントダウンを起動直後に表示する
+- カレントバッファが :release: を含む場合、次のリリース日までのカウントダウンを mode-line に表示する
+- bash PS1 (prompt) でも似たようなことはできるが、実用的ではない？
+- 毎秒 mode-line を更新するのは CPU 無駄遣い。 org-clock-in, org-clock-out したときなどに更新すればいい？
+**** PENDING タイマーの仕組み
+     [2014-09-17 水]
+- org-mode で mibi-buffer に
+  "Task '〔メール-d2014-09-17〕' should be finished by now. (15)" のように表示する仕組みを把握する。
+**** TODO 〔Outlook アラート〕
+     CLOCK: [2014-09-18 木 00:16]
+***** PENDING Mac の Growl みたいに通知してほしい
+     [2014-09-18 木]
+- org-mode timer のように mode-line や mini-buffer に表示する方法だと emacs がアクティブになっていないと気づかない。
+- http://itpro.nikkeibp.co.jp/article/COLUMN/20070125/259643/
+- [[~/.emacs.d/script/jrunscript/TrayIcon_displayMessage.bat]]
+  - java.awt.TrayIcon
+    - emacs がアクティブになっていなくても気づく。
+    - 通常、操作にマウスが必要。
+    - elisp => java => プロセス間通信 => tray java とすれば、マウスなしでも操作できる。実装は面倒。
 *** DONE calendar-mode と連携する
     CLOSED: [2012-06-04 月 15:13]
     [2011-10-31 月 10:15]
@@ -1217,8 +1242,8 @@ Loading vc-svn...done
     CLOSED: [2014-08-12 火 10:25]
 - [[elisp:(org-tags-view t "some_tag")]] と書いてもいいが、マウス右クリックから Display tag を選択してもいい。
 
-*** TODO org export redmine wiki 
-*** TODO org export textile wiki 
+*** TODO org export redmine wiki
+*** TODO org export textile wiki
 *** TODO 〔1週間前の議事録を開くリンク〕
 - e.g. [[file:n:/howm/2014/09/2014-09-01-100645.howm.txt::*%E3%80%94bodais%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%83%81%E3%83%BC%E3%83%A0MTG-%E5%89%8D%E5%9B%9E%E8%AD%B0%E4%BA%8B%E9%8C%B2%E3%82%92%E8%AA%AD%E3%82%80-d2014-09-01%E3%80%95][〔bodaisエンジンチームMTG-前回議事録を読む-d2014-09-01〕]] 1週間前議事録を読む。
 - 実現方法
@@ -1262,19 +1287,19 @@ Loading vc-svn...done
     TIMESTAMP: [2013-08-28 水 13:20]
     :END:
 - (occur "defun\\s +\\(\\S +\\)")
-  #+BEGIN_EXAMPLE 
+  #+BEGIN_EXAMPLE
   47 matches for "defun\s +\(\S +\)" in buffer: replace.el
       105:(defun query-replace-descr (string)
       108:(defun query-replace-read-from (prompt regexp-flag)
   #+END_EXAMPLE
   - M-x occur はこれと同じ。
 - (occur "defun\\s +\\(\\S +\\)" "\\1")
-  #+BEGIN_EXAMPLE 
+  #+BEGIN_EXAMPLE
   query-replace-descr
   query-replace-read-from
   #+END_EXAMPLE
   - 第2引数 NLINES に文字列を与えると、 NLINES を正規表現評価した結果を出力する。
-  - 使用例1 org-mode で (occur "\\(WS.*JPG\\)" "\\1") 
+  - 使用例1 org-mode で (occur "\\(WS.*JPG\\)" "\\1")
   - 使用例2 org-agenda で (occur "Clocked: .*.\\([0-9]+:[0-9]+\\)." "\\1")
 *** DONE occur 関連のキーバインド
     CLOSED: [2011-08-30 火 14:30]
@@ -1306,7 +1331,7 @@ Loading vc-svn...done
 - fundamental-mode ではなく occur-mode にしてほしい。
 - バッファ名を *Shell Command Output* でなく *Occur* にしてほしい。
 *** TODO occur で grep -v するコマンドを自作する
-#+BEGIN_EXAMPLE 
+#+BEGIN_EXAMPLE
 (defun occur-reverse (&optional ARGS)
   (interactive "soccur-reverse: ")
   (message "shell-command-on-region %s" (concat "grep -nv " ARGS))
@@ -1314,7 +1339,7 @@ Loading vc-svn...done
 )
 #+END_EXAMPLE
 - 未完成。実行すると下記のようになる。
-#+BEGIN_EXAMPLE 
+#+BEGIN_EXAMPLE
 shell-command-on-region grep -nv a
 (Shell command failed with error)
 shell-command-on-region: Args out of range: 0, 100
@@ -2622,7 +2647,7 @@ shell-command-on-region: Args out of range: 0, 100
   - M-x package-list-packages
   - openwith          20120531.1636 available Open files with external programs [source: hg]
   - install 失敗した？
-#+BEGIN_EXAMPLE 
+#+BEGIN_EXAMPLE
 In openwith-file-handler:
 openwith.el:95:14:Warning: reference to free variable `openwith-mode'
 openwith.el:144:1:Error: End of file during parsing
@@ -2635,7 +2660,7 @@ openwith.el:144:1:Error: End of file during parsing
 ** ruby-mode
 - http://d.hatena.ne.jp/syohex/20140102/1388652281
   - Emacs 24.4の show-paren-mode - Life is very short
-  - ruby-modeで smart-paren-modeを有効にすると do-end def-end class-end のペアがハイライトされるようになりました. 
+  - ruby-modeで smart-paren-modeを有効にすると do-end def-end class-end のペアがハイライトされるようになりました.
   - smartparensでは同機能を実装していますが, 24.4からは素の Emacsだけでこの機能を利用することができます.
 - [2014-01-07 火 13:59] 今使っている GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) では未実装。 package-list-packages smartparens を install すれば利用できる、かもしれない。
 * troubleshooting
@@ -2650,7 +2675,7 @@ openwith.el:144:1:Error: End of file during parsing
 ** repeat-complex-command                                              :tips:
 - (repeat-complex-command ARG) It is bound to <again>, <redo>, C-x M-:, C-x M-ESC.
   - M-n, M-p で履歴。
-  - 例。 M-x occur "string" したあと、 C-x M-ESC で再実行。 
+  - 例。 M-x occur "string" したあと、 C-x M-ESC で再実行。
     S 式が mini-buffer に出るので、これを編集してから実行できる。
     S 式をコピーしてメモに張り付けておけば、あとで再利用できる。
 ** サブプロセスを強制終了したい
@@ -2666,9 +2691,9 @@ openwith.el:144:1:Error: End of file during parsing
     表示します。 さらに、ステータスが`Exited'または`Signaled'のプロセス
     を最終的に削除します。この関数はnilを返します。
 * idea
-** moccur-history 
+** moccur-history
 - 目的
-  - 検索履歴を収集して索引を作る。 
+  - 検索履歴を収集して索引を作る。
 - 実現方法
   - M-x moccur の履歴を読み取る。プログラムから読み取るのが難しければ、手動でファイルに (moccur "mine.*月例会議.*txt" nil) のように記しておき、これを grep でスキャンする。
   - 「最近」 M-x recentf と同様のことを検索履歴に対して行う。
@@ -2693,8 +2718,8 @@ openwith.el:144:1:Error: End of file during parsing
   #+BEGIN_EXAMPLE
   ChangeLogを編集するときにC-x 4 aでエントリを追加するときの書式等の設定。
   emacs20系からは、日付のフォーマットが変ったので下記で以前の形式に戻せる。
-  ;;; Fri Dec  1 00:00:00 2006  
-  (setq add-log-time-format 'current-time-string) 
+  ;;; Fri Dec  1 00:00:00 2006
+  (setq add-log-time-format 'current-time-string)
   ;;; 名前
   (setq user-full-name "Hogeo HOGEO")
   ;;; アドレス
@@ -2713,7 +2738,7 @@ openwith.el:144:1:Error: End of file during parsing
   と書いたり、ファイルの末尾のコメント文中に下のような行を書いておくと
   Local Variables:
   compile-command: "echo hi"
-  End: 
+  End:
   次回ファイルを開いたときから "echo hi" がコンパイルコマンドに設定されます。
   #+END_QUOTE
 - download: http://sourceforge.jp/projects/macwiki/svn/view/zenitani/elisp/smart-compile.el?view=co&root=macwiki
@@ -2741,4 +2766,3 @@ openwith.el:144:1:Error: End of file during parsing
 *** DONE package japanese-holiday
     [2014-09-11 木 00:23]
 - M-x package-install japanese-holiday
-

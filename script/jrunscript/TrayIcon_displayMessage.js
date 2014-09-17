@@ -1,0 +1,11 @@
+print("begin");
+tray = java.awt.SystemTray.getSystemTray();
+image = javax.imageio.ImageIO.read(new java.io.File("duke-icon.png"));
+menu = new java.awt.PopupMenu();
+menu.add(new java.awt.MenuItem("Duke"));
+menu.add(new java.awt.MenuItem("Fang"));
+icon = new java.awt.TrayIcon(image, "I'm Duke!");
+icon.displayMessage("CAPTION", "TEXT", java.awt.TrayIcon.MessageType.WARNING);
+tray.add(icon);
+java.lang.Thread.sleep(1000);
+print("end");

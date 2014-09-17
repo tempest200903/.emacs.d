@@ -58,7 +58,7 @@
   - http://d.hatena.ne.jp/rubikitch/20101107/org2html
     - コマンドラインでorg→HTML変換する
 - 「eval: ShellExecute failed: このコマンドを実行するのに十分な記憶域がありません。」問題の回避にもなる。
-** TODO 〔my-org-agenda-list-switch-to-buffer 改良案〕
+** CANCELLED 〔my-org-agenda-list-switch-to-buffer 改良案〕
 - [[~/.emacs.d/inits/my-org-mode-buffer.el]]
 - 現状
   - (kbd "C-:") => org-agenda
@@ -70,6 +70,7 @@
   - つまりこうなる。
     - (kbd "C-:") 1回で "*Org Agenda*" バッファに切り替え。
     - (kbd "C-:") 2回で org-agenda
+- 却下。
 ** TODO 〔mode-line に truncate-lines を表示する〕
 - [[~/.emacs.d/inits/my-toggle-truncate-lines.el]]
 ** TODO 〔xml-mode, yaml-mode を比較する 〕
@@ -314,18 +315,6 @@ BEGIN で C-c C-c すると、 ```org-babel-execute-src-block: No org-babel-exec
    [2014-09-16 火]
 - (+ '5 '90 '8)  ここで C-x C-e (eval-last-sexp) すれば、 103 と表示する。
 - (+ '0:05 '1:30 '0:08) ここでコマンドを実行すれば "1.7 h" を挿入する。
-** TODO 次の SCHEDULE までのカウントダウンを mode-line に表示する
-   [2014-09-16 火]
-- http://qiita.com/yewton@github/items/5e134065a9d4478b27d2
-  - 人類滅亡までのカウントダウンを Emacs に表示する - Qiita
-- 次の SCHEDULE までのカウントダウンを mode-line に表示する
-- 次のリリース日までのカウントダウンを起動直後に表示する
-- カレントバッファが :release: を含む場合、次のリリース日までのカウントダウンを mode-line に表示する
-- bash PS1 (prompt) でも似たようなことはできるが、実用的ではない？
-- 毎秒 mode-line を更新するのは CPU 無駄遣い。 org-clock-in, org-clock-out したときなどに更新すればいい？
-*** PENDING タイマーの仕組み
-- org-mode で mibi-buffer に
-  "Task '〔メール-d2014-09-17〕' should be finished by now. (15)" のように表示する仕組みを把握する。
 ** VERIFY 時間を合計する
    [2014-09-16 火]
 - sample

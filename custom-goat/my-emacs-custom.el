@@ -21,6 +21,7 @@
  '(inhibit-startup-echo-area-message -1)
  '(inhibit-startup-screen t)
  '(nxml-child-indent 2)
+ '(org-agenda-files (quote ("~/.emacs.d/memo/my-emacs-customize.org.txt")))
  '(org-link-to-org-use-id nil)
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
