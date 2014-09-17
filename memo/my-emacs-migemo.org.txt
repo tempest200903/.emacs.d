@@ -1,0 +1,20 @@
+* my-emacs-migemo
+** DONE migemo 導入
+   CLOSED: [2014-09-16 火 10:14]
+   :LOGBOOK:
+   TIMESTAMP: [2012-07-27 金 10:11]
+   :END:
+- もろもろの不具合 ( [[file:n:/.emacs.d/memo/emacs-bug-history.org.txt::*%E3%80%94emacs-bug-history%E3%80%95][〔emacs-bug-history〕]] )により、〔gnupack version 9.00〕は通常用途には使えない。
+- isf-mine ファイル検索専用に〔gnupack version 9.00〕を使う手がある。 migemo, anthing 有効に。
+- 〔gnupack version 9.00〕 を init.el 初期状態で起動する。
+  - 起動直後は C-s で migemo 有効。
+  - 一度 org-mode にした後は、 C-s で migemo 無効。
+  - 回避策はないか？
+  - 再起動したら解消した。
+- package-list-packages で migemo 20130310.2231 available Japanese incremental search through dynamic pattern expansion [github] がある。
+  - Windows では gnupack 使っているからとりあえず足りている。他 OS で migemo 使いたいときは試してみよう。
+- [2014-09-06 土] my-init.el をリセットしたあとは、 migemo を使えている。
+** TODO isearch-backward にスペース1個を入力すると失敗する              :bug:
+   [2014-09-16 火 10:16]
+- mini buffer に "[(wrong-type-argument integer-or-marker-p t)]" と表示して、検索失敗する。
+

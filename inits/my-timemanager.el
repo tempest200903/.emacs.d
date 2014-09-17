@@ -3,7 +3,7 @@
 ;; my-workmanager.el
 ;; ======================================================================
 ;;
-(defun my-workmanager-write-file ()
+(defun my-workmanager-write-file1 ()
   "org-agenda 1日分をファイルに保存する。"
   (interactive)
   (let* (
@@ -12,12 +12,27 @@
     (find-file file-path)
     (kill-buffer) ;; 前回作ったバッファを始末する。
     (write-file file-path nil)
-  )
+    )
   (org-agenda-mode)
-  (rename-buffer (concat (buffer-name) " " "<>") t)
-  ;; (rename-buffer (concat (buffer-name) " " (number-to-string org-starting-day)) t)
   )
-;;
+(defun my-workmanager-write-file ()
+  "org-agenda 1日分をファイルに保存する。欠点： org file にジャンプできない。"
+  (interactive)
+  (let* (
+         (file-path "n:/work/myscript/ruby/workmanager_time_collect_input.txt")
+         (register-name "t")
+         )
+    (mark-whole-buffer)
+    (copy-to-register (get-register register-name) (mark) (point))
+    (find-file file-path)
+    (mark-whole-buffer)
+    (kill-region (mark) (point))
+    (insert-register (get-register register-name))
+    (save-buffer nil)
+    (toggle-read-only 1)
+    )
+  (org-agenda-mode)
+  )
 ;; [2014-07-03 木]
 ;; 1. (shell-command "n:/work/myscript/ruby/workmanager_time_collect.bat") かつ、 workmanager_time_collect.bat から emacs 以外のエディタを起動すると、 emacs がハングアップしない。
 ;; 2. (shell-command "n:/work/myscript/ruby/workmanager_time_collect.bat") かつ、 workmanager_time_collect.bat から emacsclient を起動すると、 emacs がハングアップする。

@@ -12,7 +12,6 @@
   (if mark-active
       (kill-region (mark) (point))
     (backward-kill-word (or arg 1))))
-;; (define-key global-map (kbd "C-w") 'kill-region-or-backward-kill-word)
 ;; ----------------------------------------------------------------------
 ;; * [2012-05-20 日] cf. n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/05-util.el
 ;; カーソル位置の単語を削除
@@ -23,7 +22,6 @@
      ((string= " " char) (delete-horizontal-space))
      ((string-match "[\t\n -@\[-`{-~]" char) (kill-word 1))
      (t (forward-char) (backward-word) (kill-word 1)))))
-;; (define-key global-map (kbd "C-z C-d") 'kill-word-at-point)
-;; TODO M-d との違いは何？
+;; TODO M-d kill-word との違いは何？
 ;; ----------------------------------------------------------------------
 (provide 'my-backward-kill-word)

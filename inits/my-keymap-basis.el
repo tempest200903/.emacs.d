@@ -299,3 +299,4 @@
 (load "~/.emacs.d/inits/my-loccur-keymap-autoload")
 (load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")
 (load "~/.emacs.d/inits/my-rotate-keymap-autoload")
+(load "~/.emacs.d/inits/my-howm-keymap.el")

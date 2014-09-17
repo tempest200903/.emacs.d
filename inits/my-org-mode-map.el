@@ -95,3 +95,5 @@
    backspace 26 46 134217837 116 116] 0 "%d")) arg)))
 (define-key org-mode-map (kbd "C-c M-1") 'my-org-clone-subtree-with-time-shift-1day)
 (define-key org-mode-map (kbd "C-c M-.") 'my-org-clone-subtree-with-time-shift-today)
+;; TODO [2014-09-16 火] org-reset-checkbox-state-subtree も入れる。
+;; TODO [2014-09-16 火] (define-key org-mode-map (kbd "C-c M-.") (kbd "C- ...")) 形式にしたほうが読みやすいし変更しやすい。

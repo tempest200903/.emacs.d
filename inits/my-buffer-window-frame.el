@@ -13,8 +13,8 @@
         (tool-bar-lines . 0)
         (left . 0)
         (top . 10)
-        (height . 60)
-        (width . 190)
+        (height . 75)
+        (width . 220)
         )))
 ;; 初期フレームの設定
 (setq initial-frame-alist
@@ -184,18 +184,21 @@
 )
 (global-set-key (kbd "C-z -") 'my-shrink-other-window-if-larger-than-buffer)
 ;; ----------------------------------------------------------------------
-(defun my-reset-frame ()
-  "フォントが崩れてしまう不具合を解消するため、フレームを作り直す"
+(defun my-reset-frame1 ()
+  "フォントが崩れてしまう不具合を解消するため、フレームを作り直す。欠点：ウィンドウ分割を解除してしまう。"
   (interactive)
   (call-interactively 'make-frame-command)
   (call-interactively 'delete-frame)
 )
-;; ----------------------------------------------------------------------
-;; [2014-09-06] (set-background-color), (set-foreground-color) が戻ってしまう。
-;; ウィンドウ分割が解除されてしまう。
-;; (define-key global-map (kbd "<S-non-convert>") 'my-reset-frame) 
+(defun my-reset-frame2 ()
+  "フォントが崩れてしまう不具合を解消するため、フレームを作り直す。欠点：最大化を解除してしまう。"
+  (interactive)
+  (call-interactively 'my-maximize-frame)
+  (call-interactively 'my-restore-current-frame)
+)
 ;; ----------------------------------------------------------------------
 ;; [2014-09-06] フォントが戻ってしまう。
-;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21) 
-;; ----------------------------------------------------------------------
-(define-key global-map (kbd "<S-non-convert>") 'color-theme-vim-colors)
+;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21)
+;; [2014-09-16 火] フレームサイズが戻ってしまう。
+(define-key global-map (kbd "<M-pause>") 'color-theme-vim-colors)
+(define-key global-map (kbd "<S-non-convert>") 'my-reset-frame2)

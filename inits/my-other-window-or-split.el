@@ -5,8 +5,8 @@
 (defun my-other-window-or-split (&optional arg)
   (interactive "p")
   (cond
-   ((equal arg 4) (delete-window))
-   ((equal arg 16) (delete-other-windows))
+   ((equal arg 4) (delete-other-windows))
+   ((equal arg 16) (delete-window))
    ((one-window-p) (split-window-horizontally))
    (t (other-window 1))
   )

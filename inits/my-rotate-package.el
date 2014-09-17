@@ -21,26 +21,25 @@
    ((equal arg 16) (rotate:tiled))
    ((equal arg 64) (rotate-layout))
    (t (rotate-window))
+   )
   )
-)
 (defun my-rotate-horizontal (&optional arg)
   "no arg rotate:main-horizontal, arg rotate:even-horizontal."
   (interactive "p")
   (cond
    ((equal arg 4) (rotate:even-horizontal))
    (t (rotate:main-horizontal))
+   )
   )
-)
 (defun my-rotate-vertical (&optional arg)
   "no arg rotate:main-vertical, arg rotate:even-vertical."
   (interactive "p")
   (cond
    ((equal arg 4) (rotate:even-vertical))
    (t (rotate:main-vertical))
+   )
   )
-)
 ;; ----------------------------------------------------------------------
-;; ------------------------------------------------------------
 ;; * [2014-09-16 火] http://whattheemacsd.com/
 ;; http://whattheemacsd.com/
 (defun my-toggle-window-split ()

@@ -232,6 +232,9 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 ** TODO org-open-at-point
    [2014-09-12 金]
 - org-open-at-point すると、 freemind 関連付けで .mm ファイルを開きたい。
+- shell: cygstart a.mm では開けないことがある。
+- shell: bluewind /paste a.mm ではいちおう開ける。
+- PATH に N:\tool\bluewind を追加する。
 ** TODO 土日、祝日、稼働日、非稼働日を考慮した org-shiftright, org-shiftleft
    [2014-09-13 土]
 - 1回 shift するたびに土日ならもう1回 shift すれば、土日はスキップできる。
@@ -274,3 +277,62 @@ pandoc.exe: Cannot decode byte '\x93': Data.Text.Encoding.decodeUtf8: Invalid UT
 - 入力ファイルがマルチバイト文字列を含まない場合、発生しない。
 
 
+** CANCELLED org-agenda-mode で org-agenda-deadline が失敗する
+   CLOSED: [2014-09-16 火 11:07]
+   [2014-09-16 火 11:04]
+- [2014-09-09 火] くらいまでは失敗していなかったはず。
+- org-agenda-check-type: Not allowed in nil-type agenda buffers
+- しばらくしたら解消した。原因不明、再現条件不明。
+** TODO ファイルや見出しをリネームしたらリンクも追随する
+   [2014-09-16 火]
+** TODO CATEGORY を付与する 
+   [2014-09-16 火]
+- レベル1見出しが〔a〕なら、 CATEGORY 〈a〉 を付与する。
+- はじめからレベル1見出しを〈a〉にしておけば、それを転記するだけ。
+- ついでにレベル1見出しを howm title である1行目に転記する。
+- 見出しが ticketXXXX で始まる場合、タグ ticket[0-9]+ を ticketXXXX に付け替える。
+** TODO M-x shell がおかしい
+   [2014-09-16 火]
+#+BEGIN_EXAMPLE
+# exit
+bash: $'exit\r': コマンドが見つかりません
+#+END_EXAMPLE
+- coding-system が違う？
+** TODO anything-calcul-expression と同じことを anything なしで行う
+   [2014-09-16 火]
+- M-x calculator でいいか？
+- "2+3" を region 選択してから M-x calculator しても *calculator* に取り込んでくれない。
+- 取り込んでほしい。
+- org-babel で実現可能？
+** TODO org-babel-execute-src-block を使いたい
+   [2014-09-16 火]
+#+BEGIN_SRC perl
+print 2+3
+#+END_SRC
+BEGIN で C-c C-c すると、 ```org-babel-execute-src-block: No org-babel-execute function for ruby!``` となって実行できない。
+** TODO 時刻計算する calculator
+   [2014-09-16 火]
+- (+ '5 '90 '8)  ここで C-x C-e (eval-last-sexp) すれば、 103 と表示する。
+- (+ '0:05 '1:30 '0:08) ここでコマンドを実行すれば "1.7 h" を挿入する。
+** TODO 次の SCHEDULE までのカウントダウンを mode-line に表示する
+   [2014-09-16 火]
+- http://qiita.com/yewton@github/items/5e134065a9d4478b27d2
+  - 人類滅亡までのカウントダウンを Emacs に表示する - Qiita
+- 次の SCHEDULE までのカウントダウンを mode-line に表示する
+- 次のリリース日までのカウントダウンを起動直後に表示する
+- カレントバッファが :release: を含む場合、次のリリース日までのカウントダウンを mode-line に表示する
+- bash PS1 (prompt) でも似たようなことはできるが、実用的ではない？
+- 毎秒 mode-line を更新するのは CPU 無駄遣い。 org-clock-in, org-clock-out したときなどに更新すればいい？
+** TODO 時間を合計する
+   [2014-09-16 火]
+- sample
+  1. 会議A
+     - (1.2 h)
+  2. 会議B
+     - (1.3 h)
+  3. 会議B
+     - (1.4 h)
+- この見出し内でコマンド実行したら 1.2 + 1.3 + 1.4 = 3.9 を算出して kill-ring に格納する。
+- 計算対象を hilight する。
+- シェルスクリプトかワインライナーを用意して shell-command-on-region から呼び出せばいいか？
+- awk -e "/([0-9]+\.[0-9]+) h/"
