@@ -27,10 +27,22 @@
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 ;; ----------------------------------------------------------------------
 ;; * [2012-08-09 木] which-func-mode
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (which-function-mode 1)
-            ))
+(defun which-function-mode-on () ""
+  (which-function-mode 1)
+  )
+(add-hook 'emacs-lisp-mode-hook 'which-function-mode-on)
+;; ----------------------------------------------------------------------
+;; * [2014-09-18 木]
+(defun my-eval-buffer-or-region (arg)
+  "if mark-active and not current-prefix-arg then eval-region else eval-buffer."
+  (interactive "P")
+  (if (and mark-active (not current-prefix-arg))
+      (eval-region (mark) (point))
+    (eval-buffer)
+    )
+  )
+;; 
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木]
 (provide 'my-emacs-lisp-mode)
+;; ----------------------------------------------------------------------

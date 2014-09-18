@@ -786,25 +786,27 @@ Loading vc-svn...done
 - elisp を書けば可能？
 - schedule の名前を timer の隣に常に表示してくれるとベター。
 - 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
-**** TODO 次の SCHEDULE までのカウントダウンを mode-line に表示する
+**** TODO countdown timer
+     CLOCK: [2014-09-18 木 22:24]--[2014-09-19 金 00:29] =>  2:05
    [2014-09-16 火]
-- http://qiita.com/yewton@github/items/5e134065a9d4478b27d2
-  - 人類滅亡までのカウントダウンを Emacs に表示する - Qiita
 - 次の SCHEDULE までのカウントダウンを mode-line に表示する
+- 参考
+  - http://qiita.com/yewton@github/items/5e134065a9d4478b27d2
+    - 人類滅亡までのカウントダウンを Emacs に表示する - Qiita
 - 次のリリース日までのカウントダウンを起動直後に表示する
 - カレントバッファが :release: を含む場合、次のリリース日までのカウントダウンを mode-line に表示する
-- bash PS1 (prompt) でも似たようなことはできるが、実用的ではない？
-- 毎秒 mode-line を更新するのは CPU 無駄遣い。 org-clock-in, org-clock-out したときなどに更新すればいい？
 - カウントダウンが0に達したら、 mode-line の色を反転させる。
+  - org-timer-done-hook
+- [[~/.emacs.d/inits/my-org-countdown.el]]
+- [2014-09-19 金 00:29] git commit -m "my-org-countdown"
 **** PENDING 次の SCHEDULE を読み取るにはどうればいい？
 - M-x org-agenda-to-appt を調べる。
 **** PENDING タイマーの仕組み
      [2014-09-17 水]
 - org-mode で mibi-buffer に
   "Task '〔メール-d2014-09-17〕' should be finished by now. (15)" のように表示する仕組みを把握する。
-**** PENDING org-timer-done-hook
 **** TODO 〔Outlook アラート〕
-     CLOCK: [2014-09-18 木 00:16]
+     CLOCK: [2014-09-18 木 00:16]--[2014-09-18 木 01:16] =>  1:00
 ***** PENDING Mac の Growl みたいに通知してほしい
      [2014-09-18 木]
 - org-mode timer のように mode-line や mini-buffer に表示する方法だと emacs がアクティブになっていないと気づかない。
@@ -882,7 +884,7 @@ Loading vc-svn...done
 - M-x org-next-link {It is bound to M-g M-n} すれば一発で全て閉じる。このほうが楽。
 *** TODO schedule や deadline の repeat で休日をスキップしたい
     [2011-11-14 月 10:42]
-- 例えば、 DEADLINE: <2011-11-11 金 +1d> SCHEDULED: <2011-11-11 金 +1d>
+- 例えば、 DEADLINE: <2011-11-11 金> SCHEDULED: <2011-11-11 金>
   のような指定でインクリメントすると土曜日になる。このとき、休日ならスキップしたい。
 *** TODO 〔org-mode ハイパーリンク アクセスログ〕                  :wishlist:
     [2011-11-30 水 10:06]
@@ -2770,3 +2772,5 @@ openwith.el:144:1:Error: End of file during parsing
 *** DONE package japanese-holiday
     [2014-09-11 木 00:23]
 - M-x package-install japanese-holiday
+*** TODO holiday.org を生成するバッチコマンド
+    [2014-09-18 木 22:30]
