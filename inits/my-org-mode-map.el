@@ -99,6 +99,7 @@
 (define-key org-mode-map (kbd "C-c M-.") 'my-org-clone-subtree-with-time-shift-today)
 ;; TODO [2014-09-16 火] org-reset-checkbox-state-subtree も入れる。
 ;; TODO [2014-09-16 火] (define-key org-mode-map (kbd "C-c M-.") (kbd "C- ...")) 形式にしたほうが読みやすいし変更しやすい。
+;; TODO [2014-09-19 金] my-org-clone-subtree-with-time-shift-1day バグがある。 SCHEDULE より DEADLINE が先にあると、 DEADLINE を読み取ってしまう。
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-18 木] my-pandoc-mode-package
 (my-bind-key-with-autoload "my-pandoc-mode-package" "C-z C-e t" 'my-pandoc-compile-org-to-textile org-mode-map)

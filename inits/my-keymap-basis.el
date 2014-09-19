@@ -272,9 +272,10 @@
 (define-key global-map (kbd "C-h M-s M-o")          'my-search-keybind)
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-18 木] my-wc.el
-(my-bind-key-with-autoload "my-wc" "C-z C-x l"      'my-region-command-wc-to-minibuffer)
+(my-bind-key-with-autoload "my-wc"   "C-z C-x l"    'my-region-command-wc-to-minibuffer)
 (my-bind-key-with-autoload "my-calc" "C-z *"        'my-calc-hour-in-outline)
 ;; ----------------------------------------------------------------------
+(load "~/.emacs.d/inits/my-emacs-lisp-mode-map")
 (load "~/.emacs.d/inits/my-loccur-keymap-autoload")
 (load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")
 (load "~/.emacs.d/inits/my-rotate-keymap-autoload")
