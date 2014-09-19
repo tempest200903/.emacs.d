@@ -785,6 +785,7 @@ Loading vc-svn...done
 - schedule の名前を timer の隣に常に表示してくれるとベター。
 - 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
 **** TODO countdown timer
+     CLOCK: [2014-09-19 金 22:35]
      CLOCK: [2014-09-18 木 22:24]--[2014-09-19 金 00:29] =>  2:05
    [2014-09-16 火]
 - 次の SCHEDULE までのカウントダウンを mode-line に表示する

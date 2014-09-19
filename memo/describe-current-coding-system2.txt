@@ -1,0 +1,76 @@
+Coding system for saving this buffer:
+  U -- utf-8-unix (alias: mule-utf-8-unix)
+
+Default coding system (for new files):
+  S -- japanese-shift-jis (alias: shift_jis sjis)
+
+Coding system for keyboard input:
+  S -- japanese-shift-jis-unix (alias: shift_jis-unix sjis-unix)
+
+Coding system for terminal output:
+  P -- cp932 (alias of japanese-cp932)
+
+Coding system for inter-client cut and paste:
+  U -- utf-16le-dos
+
+Defaults for subprocess I/O:
+  decoding: S -- japanese-shift-jis (alias: shift_jis sjis)
+
+  encoding: S -- japanese-shift-jis (alias: shift_jis sjis)
+
+
+Priority order for recognizing coding systems when reading files:
+  1. japanese-shift-jis (alias: shift_jis sjis)
+  2. iso-2022-jp (alias: junet)
+  3. japanese-iso-8bit (alias: euc-japan-1990 euc-japan euc-jp)
+  4. iso-2022-jp-2 
+  5. utf-8 (alias: mule-utf-8)
+  6. iso-2022-7bit 
+  7. iso-latin-1 (alias: iso-8859-1 latin-1)
+  8. iso-2022-8bit-ss2 
+  9. emacs-mule 
+  10. raw-text 
+  11. in-is13194-devanagari (alias: devanagari)
+  12. utf-8-auto 
+  13. utf-8-with-signature 
+  14. utf-16 
+  15. utf-16be-with-signature (alias: utf-16-be)
+  16. utf-16le-with-signature (alias: utf-16-le)
+  17. utf-16be 
+  18. utf-16le 
+  19. chinese-big5 (alias: big5 cn-big5 cp950)
+  20. undecided 
+
+  Other coding systems cannot be distinguished automatically
+  from these, and therefore cannot be recognized automatically
+  with the present coding system priorities.
+
+Particular coding systems specified for certain file names:
+
+  OPERATION	TARGET PATTERN		CODING SYSTEM(s)
+  ---------	--------------		----------------
+  File I/O      "\\.dz\\'"              (no-conversion . no-conversion)
+                "\\.xz\\'"              (no-conversion . no-conversion)
+                "\\.lzma\\'"            (no-conversion . no-conversion)
+                "\\.lz\\'"              (no-conversion . no-conversion)
+                "\\.g?z\\'"             (no-conversion . no-conversion)
+                "\\.\\(?:tgz\\|svgz\\|sifz\\)\\'"
+                                        (no-conversion . no-conversion)
+                "\\.tbz2?\\'"           (no-conversion . no-conversion)
+                "\\.bz2\\'"             (no-conversion . no-conversion)
+                "\\.Z\\'"               (no-conversion . no-conversion)
+                "\\.elc\\'"             utf-8-emacs
+                "\\.utf\\(-8\\)?\\'"    utf-8
+                "\\.xml\\'"             xml-find-file-coding-system
+                "\\(\\`\\|/\\)loaddefs.el\\'"
+                                        (raw-text . raw-text-unix)
+                "\\.tar\\'"             (no-conversion . no-conversion)
+                "\\.po[tx]?\\'\\|\\.po\\."
+                                        po-find-file-coding-system
+                "\\.\\(tex\\|ltx\\|dtx\\|drv\\)\\'"
+                                        latexenc-find-file-coding-system
+                ""                      find-buffer-file-type-coding-system
+  Process I/O   "[pP][lL][iI][nN][kK]"  (undecided-dos . undecided-dos)
+                "[cC][mM][dD][pP][rR][oO][xX][yY]"
+                                        (undecided-dos . undecided-dos)
+  Network I/O	nothing specified

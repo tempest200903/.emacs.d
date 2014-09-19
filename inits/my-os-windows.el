@@ -1,6 +1,48 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; #+LAST_UPDATED: 2012-05-23
 ;; ----------------------------------------------------------------------
+(require 'my-os-type)
+(when (os-win?)
+  (defvar SC_MAXIMIZE 61488)
+  (defvar SC_RESTORE 61728)
+  (defvar *wm-message* SC_MAXIMIZE)
+  (defun my-frame-maximize ()
+    (interactive)
+    (w32-send-sys-command *wm-message*)
+    (setq *wm-message* (if (eq *wm-message* SC_MAXIMIZE) SC_RESTORE SC_MAXIMIZE))
+    )
+  (defun my-maximize-frame ()
+    "Maximize frame"
+    (interactive)
+    (w32-send-sys-command SC_MAXIMIZE)
+    )
+  (defun my-resize-frame ()
+    "resize the window via keyboard"
+    (interactive)
+    (w32-send-sys-command 61440)
+    )
+  (defun my-restore-current-frame ()
+    "restore current frame"
+    (interactive)
+    (w32-send-sys-command SC_RESTORE)
+    )
+  (defun my-seq-my-maximize-or-restore-frame ()
+    "Maximize frame"
+    (interactive)
+    (my-maximize-frame)
+    )
+  (when (require 'sequential-command nil t)
+    (when (require 'sequential-command-config nil t)
+      (progn
+        (define-sequential-command my-seq-my-maximize-or-restore-frame
+          my-maximize-frame my-restore-current-frame)
+        )
+      )
+    )
+  )
+;; ----------------------------------------------------------------------
+(provide 'my-os-windows)
+;; ----------------------------------------------------------------------
 ;; * [2010-10-14 木] 導入。
 ;; cf. url: http://www.geocities.co.jp/SiliconValley-SanJose/7474/EmacsCustomize.html
 ;; ウィンドウの最大化/解除をキーに割り当ててみる（トグルする）
@@ -10,14 +52,6 @@
 ;; #define SC_PREVWINDOW   0xF050
 ;; ...
 ;; #define SC_RESTORE      0xF120 61728
-(defvar SC_MAXIMIZE 61488)
-(defvar SC_RESTORE 61728)
-(defvar *wm-message* SC_MAXIMIZE)
-(defun my-frame-maximize ()
-  (interactive)
-  (w32-send-sys-command *wm-message*)
-  (setq *wm-message* (if (eq *wm-message* SC_MAXIMIZE) SC_RESTORE SC_MAXIMIZE))
-  )
 ;; ----------------------------------------------------------------------
 ;; * [2012-03-19 月] その他。
 ;; http://www.emacswiki.org/emacs/WThirtyTwoSendSysCommand
@@ -38,33 +72,4 @@
 ;; 61744 - simulate pressing Windows Start button
 ;; 61760 - activate screensaver
 ;; 61776 - hotkey(?) – doesn’t seem to do anything for me
-(defun my-maximize-frame ()
-  "Maximize frame"
-  (interactive)
-  (w32-send-sys-command SC_MAXIMIZE)
-  )
-(defun my-resize-frame ()
-  "resize the window via keyboard"
-  (interactive)
-  (w32-send-sys-command 61440)
-  )
-(defun my-restore-current-frame ()
-  "restore current frame"
-  (interactive)
-  (w32-send-sys-command SC_RESTORE)
-  )
-(defun my-seq-my-maximize-or-restore-frame ()
-  "Maximize frame"
-  (interactive)
-  (my-maximize-frame)
-  )
-(when (require 'sequential-command nil t)
-  (when (require 'sequential-command-config nil t)
-    (progn
-      (define-sequential-command my-seq-my-maximize-or-restore-frame
-        my-maximize-frame my-restore-current-frame)
-      )
-    )
-  )
 ;; ----------------------------------------------------------------------
-(provide 'my-os-windows)
