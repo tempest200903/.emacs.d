@@ -100,11 +100,24 @@
 (add-hook 'org-clock-in-hook 'delete-trailing-whitespace)
 (add-hook 'org-clock-out-hook 'delete-trailing-whitespace)
 ;; ----------------------------------------------------------------------
-;; [2014-09-18 木] 実験中。
-(add-hook 'org-timer-done-hook 'SystemTraySample2)
-(defun SystemTraySample2 ()
-  "sample SystemTraySample2"
-  (message "sample SystemTraySample2")
-  (shell-command "cygstart ~/.emacs.d/script/java/SystemTraySample2.bat 1000")
+;; [2014-09-20 土] 実験中。
+(defun my-org-timer-done ()
+  ""
+  (message "my-org-timer-done")
+  (set-face-foreground 'mode-line-inactive "white")
+  (set-face-background 'mode-line-inactive "blue")
   )
-;; C-u - 3 M-x org-timer-start
+(defun my-org-timer-start ()
+  ""
+  (message "my-org-timer-start")
+  (set-face-foreground 'mode-line-inactive "blue")
+  (set-face-background 'mode-line-inactive "white")
+  )
+(add-hook 'org-timer-done-hook 'my-org-timer-done)
+(add-hook 'org-timer-start-hook 'my-org-timer-start)
+
+;; (org-timer-start -60)
+;; org-timer-done-hook
+;; Hook run after countdown timer reaches zero.
+;; カウントダウンタイマーが0に到達したら実行する。
+;; はずなのだが、なぜか実行されない。

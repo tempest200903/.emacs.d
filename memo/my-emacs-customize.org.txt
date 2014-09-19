@@ -764,16 +764,6 @@ Loading vc-svn...done
 - 実験。 clock-in するときに30分の timer を start させる。自動的に。
   - 他の timer を上書きしてしまうから不便か。中止。
 *** timer
-**** TODO countdown timer for org-agenda
-    :LOGBOOK:
-    TIMESTAMP: [2012-02-14 火 14:26]
-    :END:
-- org-agenda の schedule のうち直近の開始時刻5分前に0になるように timer をセッ
-  トするコマンドが欲しい。
-- 今は Outlook でいちいちアラームを設定しているが、面倒。
-- elisp を書けば可能？
-- schedule の名前を timer の隣に常に表示してくれるとベター。
-- 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
 **** TODO countdown timer for deadline
     :LOGBOOK:
     TIMESTAMP: [2012-02-14 火 14:27]
@@ -784,20 +774,36 @@ Loading vc-svn...done
 - elisp を書けば可能？
 - schedule の名前を timer の隣に常に表示してくれるとベター。
 - 表示領域が狭くて無理な場合は、 timer 0 になったときにポップアップでも可。
-**** TODO countdown timer
-     CLOCK: [2014-09-19 金 22:35]
+**** DONE countdown timer
+***** DONE countdown timer for schedule
+     :LOGBOOK:
+     CLOCK: [2014-09-20 土 00:28]
+     TIMESTAMP: [2012-02-14 火 14:26]
+     CLOCK: [2014-09-19 金 22:35]--[2014-09-20 土 00:08] =>  1:33
      CLOCK: [2014-09-18 木 22:24]--[2014-09-19 金 00:29] =>  2:05
+     :END:
    [2014-09-16 火]
 - 次の SCHEDULE までのカウントダウンを mode-line に表示する
-- 参考
-  - http://qiita.com/yewton@github/items/5e134065a9d4478b27d2
-    - 人類滅亡までのカウントダウンを Emacs に表示する - Qiita
+- [[~/.emacs.d/inits/my-org-countdown.el]]
+- org-agenda の schedule のうち直近の開始時刻の5分前に0になるように timer をセットするコマンド。
+- これがあれば Outlook でいちいちアラームを設定する手間が省ける。
+***** 時間計算
+- http://qiita.com/yewton@github/items/5e134065a9d4478b27d2
+  - 人類滅亡までのカウントダウンを Emacs に表示する - Qiita
+***** 〔timer が0に達したら mode-line の替える〕
+      CLOCK: [2014-09-20 土 00:08]--[2014-09-20 土 00:28] =>  0:20
+- org-timer-done-hook
+  - Hook run after countdown timer reaches zero.
+- http://th.nao.ac.jp/MEMBER/zenitani/elisp-j.html
+  #+BEGIN_QUOTE
+  ;; モードライン（アクティブでないバッファ）の文字色を設定します。
+  (set-face-foreground 'mode-line-inactive "gray30")
+  ;; モードライン（アクティブでないバッファ）の背景色を設定します。
+  (set-face-background 'mode-line-inactive "gray85")
+  #+END_QUOTE
+***** TODO countdown timer 応用
 - 次のリリース日までのカウントダウンを起動直後に表示する
 - カレントバッファが :release: を含む場合、次のリリース日までのカウントダウンを mode-line に表示する
-- カウントダウンが0に達したら、 mode-line の色を反転させる。
-  - org-timer-done-hook
-- [[~/.emacs.d/inits/my-org-countdown.el]]
-- [2014-09-19 金 00:29] git commit -m "my-org-countdown"
 **** PENDING 次の SCHEDULE を読み取るにはどうればいい？
 - M-x org-agenda-to-appt を調べる。
 **** PENDING タイマーの仕組み

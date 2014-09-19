@@ -30,7 +30,7 @@
   (let (
         (org-agenda-buffer-name "*Org Agenda*")
         (regexp-now "now")
-        (regexp-scheduled ":[0-9]+:[0-9]+.*Scheduled: ")
+        (regexp-scheduled ": ?[0-9]+:[0-9]+.*Scheduled: ")
         )
     (if (get-buffer org-agenda-buffer-name)
         (if (string-equal org-agenda-current-span "day")
@@ -63,7 +63,7 @@
   (when t (message "time-string{%s}" time-string) nil) ; ←デバッグ用。
   (when time-string
     (let* (
-           ;; 今日の日付。
+           ;; 今日の日付。 TODO: DRY
            (YEAR        (string-to-number (format-time-string "%Y" (current-time))))
            (MONTH       (string-to-number (format-time-string "%m" (current-time))))
            (DAY         (string-to-number (format-time-string "%d" (current-time))))
@@ -79,11 +79,11 @@
     )
   )
 ;;
-;; (my-org-countdown-calc-time-diff "23:59")
+;; (my-org-countdown-calc-time-diff (my-org-countdown-conver-to-float "0:40"))
 (defun my-org-countdown-calc-time-diff (schedule-time-float)
-  "(current-time) から schedule-time-float を引き算した結果を返す"
+  "(current-time) から (schedule-time-float - 5分) を引き算した結果を返す"
   (if (numberp schedule-time-float)
-      (- (float-time (current-time)) schedule-time-float)
+      (- (float-time (current-time)) (- schedule-time-float (* 3 60)))
     (message "schedule-time-float is nil")
     nil
     )
