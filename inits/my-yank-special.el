@@ -10,6 +10,7 @@
 ;; DONE リファクタリング。関数を抽出する。
 ;; TODO (current-kill 0) の末尾にだけ改行コードがある場合、改行コードを除去する。
 ;; TODO カッコをつけたり外したりするコマンドがほしい。特に <!--   -->. 参考: Eclipse の C-/
+;; TODO 入力文字列が"〔abc〕" であるとき、 C-u M-x my-yank-with-ANGLE-BRACKET で "〈abc〉" を出力したい。
 ;; ----------------------------------------------------------------------
 (defun my-yank-with-bracket (bracket-left bracket-right) "yank with bracket"
   (if mark-active (kill-region (region-beginning) (region-end)))

@@ -25,26 +25,44 @@
   ;; http://joostkremers.github.io/pandoc-mode/
   (add-hook 'markdown-mode-hook 'turn-on-pandoc)
   ;;
-  (defun my-pandoc-compile-html ()
+  (defun my-pandoc-compile-markdown-to-html ()
     ""
     (interactive)
-    (compile (my-pandoc-compile-html-command))
+    (compile (my-pandoc-compile-markdown-to-html-command))
     )
-  (defun my-pandoc-compile-html-command ()
+  (defun my-pandoc-compile-markdown-to-html-command ()
     ""
     (concat pandoc-binary " -f markdown -t html -o " (buffer-file-name) ".html " (buffer-file-name))
     )
   ;;
-  (defun my-pandoc-browse-html ()
+  (defun my-pandoc-browse-markdown-to-html ()
     ""
     (interactive)
-    (my-pandoc-compile-html)
-    (compile (concat (my-pandoc-compile-html-command) " && " (my-pandoc-browse-html-command)))
+    (my-pandoc-compile-markdown-to-html)
+    (compile (concat (my-pandoc-compile-markdown-to-html-command) " && " (my-pandoc-browse-markdown-to-html-command)))
     )
-  (defun my-pandoc-browse-html-command ()
+  (defun my-pandoc-browse-markdown-to-html-command ()
     ""
     (concat "cygstart " (buffer-file-name) ".html ")
     )
+  ;;
+  (defun my-pandoc-compile-org-to-textile ()
+    ""
+    (interactive)
+    (compile (my-pandoc-compile-org-to-textile-command))
+    (find-file-other-window (my-pandoc-compile-org-to-textile-output-file-name))
+    (balance-windows)
+    (revert-buffer t t)
+    )
+  (defun my-pandoc-compile-org-to-textile-command ()
+    ""
+    (concat pandoc-binary " -f org -t textile -o " (my-pandoc-compile-org-to-textile-output-file-name) " " (buffer-file-name))
+    )
+  (defun my-pandoc-compile-org-to-textile-output-file-name ()
+    ""
+    (concat (buffer-file-name) ".textile")
+    )
+  ;;
   (load "my-pandoc-mode-map")
   )
 ;; TODO -f markdown のところを、カレントバッファ名拡張子から自動判別する。

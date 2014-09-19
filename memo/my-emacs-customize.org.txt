@@ -255,10 +255,6 @@ Loading vc-svn...done
 - [X] messages に cua-mode on/off を表示してほしい。
 - [X] mode-line に cua-mode on/off を表示してほしい。
   - [[file:~/.emacs.d/inits/my-cua-mode.el::easy-mmode-define-minor-mode]]
-*** DONE 読み取り専用属性onであるファイルを開いたら view-mode on にする。
-   [2011-08-25 木 14:16]
-- http://www.bookshelf.jp/soft/meadow_13.html#SEC97
-- [[file:~/.emacs.d/my-emacs-custom.el::view-read-only]]
 *** DONE 前回セッションのカーソル位置を復元したい
    CLOSED: [2011-08-25 木 17:13]
    [2011-08-25 木 17:10]
@@ -329,8 +325,10 @@ Loading vc-svn...done
     TIMESTAMP: [2013-09-10 火 15:50]
     :END:
 - [[~/.emacs.d/inits/my-yank-special.el]]
-;; カッコをつけたり外したりするコマンドがほしい。特に <!--   -->
-;; Eclipse の C-/
+;; カッコをつけたり外したりするコマンドがほしい。特に <!--   -->. 参考: Eclipse の C-/
+*** TODO 入力文字列が"〔abc〕" であるとき、 C-u M-x my-yank-with-ANGLE-BRACKET で "〈abc〉" を出力したい。
+- [[~/.emacs.d/inits/my-yank-special.el]]
+;; 入力文字列が"〔abc〕" であるとき、 C-u M-x my-yank-with-ANGLE-BRACKET で "〈abc〉" を出力したい。
 ** install-elisp
 *** DONE auto-install
    [2011-08-24 水 16:03]
@@ -2774,3 +2772,11 @@ openwith.el:144:1:Error: End of file during parsing
 - M-x package-install japanese-holiday
 *** TODO holiday.org を生成するバッチコマンド
     [2014-09-18 木 22:30]
+** view-mode
+*** DONE 読み取り専用属性onであるファイルを開いたら view-mode on にする
+   [2011-08-25 木 14:16]
+- http://www.bookshelf.jp/soft/meadow_13.html#SEC97
+- [[file:~/.emacs.d/my-emacs-custom.el::view-read-only]]
+*** TODO ファイルサーバにあるファイルを開いたら view-mode on にする
+    [2014-09-19 金 11:09]
+- find-file-hook か？

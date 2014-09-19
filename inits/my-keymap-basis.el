@@ -162,32 +162,6 @@
 ;; (kbd "C-h h") で起動しないようにする。
 (define-key global-map (kbd "C-h h")                'backward-delete-char-untabify) ;; backspace キーと同じ。なぜか、かな漢字変換Onでも入力できる。
 ;; ----------------------------------------------------------------------
-;; * [2012-02-09 木] 空いている keybind
-;; (kbd "C-x ?") is undefined
-;; (kbd "C-z ?") is undefined
-;; "?" は使わない方がいい？ http://ergoemacs.org/emacs/keyboard_shortcuts.html The question mark ? or any combination with it. (due to emacs technical implementation quirk)
-;; (kbd "C-h C-j") is undefined
-;; (kbd "C-h C-k") is undefined
-;; (kbd "C-h C-l") is undefined
-;; (kbd "C-h C-q") is undefined
-;; (kbd "C-h C-r") is undefined
-;; (kbd "C-h C-u") is undefined
-;; (kbd "C-h C-v") is undefined
-;; (kbd "C-h C-y") is undefined
-;; (kbd "C-h C-z") is undefined
-;; (kbd "C-h C-x ") で始まるキーバインド。
-;;                      C-h C-x C-f     describe-face-at-point
-;; 上記以外の "C-h C-<alpha>" は定義済み。
-;; (kbd "M-+") is undefined
-;; (kbd "C-M-g") is undefined ;; prefix に使用可能。
-;; (kbd "C-M-z") is undefined ;; prefix に使用可能。
-;; <C-M-backspace>
-;; (kbd "C-z C-z") is undefined
-;; (kbd "<C-M-attn>") is undefined
-;; (kbd "C-z C-j") is undefined
-;; (kbd "C-x C-,") is undefined
-;; (kbd "C-c C-,") is undefined
-;; ----------------------------------------------------------------------
 ;; * [2013-10-31 木] 
 (define-key global-map (kbd "C-z C-w")              'my-copy-line)
 (define-key global-map (kbd "C-z C-k")              'kill-whole-line)
@@ -297,7 +271,9 @@
 ;; * [2014-09-13 土] my-search-keybind
 (define-key global-map (kbd "C-h M-s M-o")          'my-search-keybind)
 ;; ----------------------------------------------------------------------
-;; * [2014-09-13 土] my-loccur.el
+;; * [2014-09-18 木] my-wc.el
+(my-bind-key-with-autoload "my-wc" "C-z C-x l"      'my-region-command-wc-to-minibuffer)
+(my-bind-key-with-autoload "my-calc" "C-z *"        'my-calc-hour-in-outline)
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-loccur-keymap-autoload")
 (load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")

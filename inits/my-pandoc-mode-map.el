@@ -5,8 +5,8 @@
 ;; ======================================================================
 ;; (define-key pandoc-mode-map "\C-c/o" 'pandoc--set-output)
 (bind-key "C-c / o" 'pandoc--set-output pandoc-mode-map)
-(bind-key "C-c / h" 'my-pandoc-compile-html pandoc-mode-map)
-(bind-key "C-c / b" 'my-pandoc-browse-html pandoc-mode-map)
+(bind-key "C-c / h" 'my-pandoc-compile-markdown-to-html pandoc-mode-map)
+(bind-key "C-c / b" 'my-pandoc-browse-markdown-to-html pandoc-mode-map)
 ;; ----------------------------------------------------------------------
 ;; cheat sheet
 ;; define-key デフォルト設定。

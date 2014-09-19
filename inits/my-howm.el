@@ -71,6 +71,7 @@
 ")
 (setq howm-template-date-format "[%Y-%m-%d %H:%M]")
 (setq howm-template-file-format ">>> %s")
+;; ** [2014-09-18 木] TODO org-mode 以外では #+OPTIONS: ^:nil は不要。
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] http://howm.sourceforge.jp/README-j.html 対象ディレクトリの追加
 ;; (setq howm-search-path '("N:/howm/2013/10" "N:/howm/2013/09"))

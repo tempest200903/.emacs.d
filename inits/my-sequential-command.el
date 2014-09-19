@@ -57,6 +57,7 @@
 (define-sequential-command my-seq-dired-beginning-of-buffer
   beginning-of-buffer my-dired-back-to-top seq-return)
 (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'my-seq-dired-beginning-of-buffer)
+;; TODO rename my-seq-dired-beginning-of-buffer my-dired-beginning-of-buffer-sequential
 ;;
 ;; M-> 1回目は通常の end-of-buffer と同じく先頭にジャンプ。
 ;; 2回目は dired 最後の行にジャンプ。
@@ -68,3 +69,4 @@
 (define-sequential-command my-seq-dired-end-of-buffer
   end-of-buffer my-dired-back-to-bottom seq-return)
 (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'my-seq-dired-end-of-buffer)
+;; TODO rename dired-end-of-buffer my-dired-end-of-buffer-sequential

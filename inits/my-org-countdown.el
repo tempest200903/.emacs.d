@@ -36,6 +36,8 @@
       )
     )
   )
+;; TODO バグ my-org-countdown-scan-next-schedule-time 現在時刻より前の schedule を読み取ってしまう。
+;; now よりあとを読み取るべし。
 ;;
 ;; (my-org-countdown-conver-to-float "00:00")
 ;; (my-org-countdown-conver-to-float "23:50")
@@ -68,6 +70,9 @@
   "docstring"
   (my-org-countdown-start)
   )
+;; TODO [2014-09-19 金] トリガーを org-agenda-goto-today 直後、かつ、 view day である場合に限定するべき。
+;; view week などでは正常に機能しない。 
+;; defvar org-agenda-current-span に "week" などが入っている。これを見ればいい。
 ;; ----------------------------------------------------------------------
 ;; デバッグ用。
 (when nil

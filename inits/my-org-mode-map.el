@@ -16,7 +16,8 @@
 ;;
 (define-key global-map (kbd "C-c l")   'org-store-link)
 (define-key global-map (kbd "C-:")     'org-agenda)
-(define-key global-map (kbd "C-M-:")   'my-org-agenda-list-switch-to-buffer)
+;; (define-key global-map (kbd "C-M-:")   'my-org-agenda-list-switch-to-buffer)
+(my-bind-key-with-autoload "my-org-mode-buffer" "C-M-:" 'my-org-agenda-list-switch-to-buffer-sequential org-mode-map)
 (define-key global-map (kbd "C-M-]")   'my-org-edit-agenda-file-list-switch-to-buffer)
 (define-key global-map (kbd "M-g M-j") 'org-clock-goto)
 (define-key global-map (kbd "M-g M-u") 'my-org-clock-goto-u)
@@ -98,3 +99,6 @@
 (define-key org-mode-map (kbd "C-c M-.") 'my-org-clone-subtree-with-time-shift-today)
 ;; TODO [2014-09-16 火] org-reset-checkbox-state-subtree も入れる。
 ;; TODO [2014-09-16 火] (define-key org-mode-map (kbd "C-c M-.") (kbd "C- ...")) 形式にしたほうが読みやすいし変更しやすい。
+;; ----------------------------------------------------------------------
+;; * [2014-09-18 木] my-pandoc-mode-package
+(my-bind-key-with-autoload "my-pandoc-mode-package" "C-z C-e t" 'my-pandoc-compile-org-to-textile org-mode-map)
