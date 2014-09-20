@@ -777,8 +777,7 @@ Loading vc-svn...done
 **** DONE countdown timer
 ***** DONE countdown timer for schedule
      :LOGBOOK:
-     CLOCK: [2014-09-20 土 00:28]
-     TIMESTAMP: [2012-02-14 火 14:26]
+     CLOCK: [2014-09-20 土 00:28]--[2014-09-20 土 00:30] =>  0:02
      CLOCK: [2014-09-19 金 22:35]--[2014-09-20 土 00:08] =>  1:33
      CLOCK: [2014-09-18 木 22:24]--[2014-09-19 金 00:29] =>  2:05
      :END:
@@ -1263,6 +1262,12 @@ Loading vc-svn...done
 *** TODO 〔clone するときに Reschedule log を除去してほしい〕     :wishlist:
 - org-log-reschedule を time にしておくと、 Reschedule log が記録される。
 - org-clone-subtree-with-time-shift するときに Reschedule log を除去してほしい。
+*** TODO 延期する日数をランダムに決めて org-deadline する          :wishlist:
+- こんなコマンドがほしい
+- M-x my-org-deadline-defer-random で 21～35 日延期する。
+- C-u 60 M-x my-org-deadline-defer-random で 30～90 日延期する。
+- 休日をスキップする。
+
 
 ** ポップアップメニュー
    [2011-08-25 木 17:38]

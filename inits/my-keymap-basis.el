@@ -1,9 +1,9 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-keymap-basis.el
-;; ----------------------------------------------------------------------
+;; ======================================================================
 (require 'my-bind-key-package)
 ;; TODO bind-key から my-bind-key-with-autoload に替える。
-;; ======================================================================
+;; ----------------------------------------------------------------------
 (define-key global-map (kbd "<f5>")                 'repeat)
 (define-key global-map (kbd "C-;")                  'repeat)
 (define-key global-map (kbd "C-z C-t")              'transpose-chars) ;; C-t を anything-command-map-prefix-key で使うため移動した。

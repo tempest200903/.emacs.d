@@ -16,8 +16,7 @@
 ;;
 (define-key global-map (kbd "C-c l")   'org-store-link)
 (define-key global-map (kbd "C-:")     'org-agenda)
-;; (define-key global-map (kbd "C-M-:")   'my-org-agenda-list-switch-to-buffer)
-(my-bind-key-with-autoload "my-org-mode-buffer" "C-M-:" 'my-org-agenda-list-switch-to-buffer-sequential org-mode-map)
+(my-bind-key-with-autoload "my-org-mode-buffer" "C-M-:" 'my-org-agenda-list-switch-to-buffer-sequential)
 (define-key global-map (kbd "C-M-]")   'my-org-edit-agenda-file-list-switch-to-buffer)
 (define-key global-map (kbd "M-g M-j") 'org-clock-goto)
 (define-key global-map (kbd "M-g M-u") 'my-org-clock-goto-u)
@@ -25,7 +24,8 @@
 (define-key global-map (kbd "M-s M-a") 'org-occur-in-agenda-files)
 (define-key global-map (kbd "C-z C-u") 'org-time-stamp-inactive)
 ;;
-;; cf. http://orgmode.org/manual/Activation.html#Activation ほとんど使わない。
+;; cf. http://orgmode.org/manual/Activation.html#Activation 
+;; org-iswitchb はほとんど使わない。 howm でファイル名が日付始まりなので。
 (define-key global-map (kbd "C-c b")   'org-iswitchb) 
 ;; ----------------------------------------------------------------------
 ;; * [2013-04-03 水] org-mode-map 初期化
@@ -64,7 +64,6 @@
   (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ;; alias of C-c C-x C-c
   (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-reset-schedule-today)
   (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-reset-schedule-tomorrow)
-  ;; (define-key org-agenda-mode-map (kbd "C-,") 'org-open-at-point)
   (bind-key "C-," 'org-open-at-point org-mode-map) ;; alias of C-c C-o
   )
 (defun my-workmanager-init ()
@@ -82,14 +81,6 @@
 ;; これは起動時には org-agenda-mode-map がまだ存在しないため。
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-05 金] alias
-;; org-clone-subtree-with-time-shift して、1日インクリメントする。
-(fset 'my-org-clone-subtree-with-time-shift-1day
-   (lambda (&optional arg) "Keyboard macro."
-     (interactive "p")
-     (kmacro-exec-ring-item (quote ([3 24 99 49 return 49 100
-     return 134217821 116 116 19 60 13 134217847 134217837 18 50
-     48 13 25 134217828 134217828 134217828 134217837] 0 "%d"))
-     arg)))
 ;; org-clone-subtree-with-time-shift して、今日の日付をセットする。
 (fset 'my-org-clone-subtree-with-time-shift-today (lambda (&optional
    arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item
@@ -100,6 +91,12 @@
 ;; TODO [2014-09-16 火] org-reset-checkbox-state-subtree も入れる。
 ;; TODO [2014-09-16 火] (define-key org-mode-map (kbd "C-c M-.") (kbd "C- ...")) 形式にしたほうが読みやすいし変更しやすい。
 ;; TODO [2014-09-19 金] my-org-clone-subtree-with-time-shift-1day バグがある。 SCHEDULE より DEADLINE が先にあると、 DEADLINE を読み取ってしまう。
+
+;; org-clone-subtree-with-time-shift して、1日インクリメントするキーボードマクロ。
+(define-key org-mode-map
+  (kbd "C-c M-2")
+  (kbd "C-c C-x c 1 RET +1d RET C-c C-n C-M-s SCHEDULED RET M-f M-w M-[ C-M-s -d RET C-y C-u 3 M-d")
+  )
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-18 木] my-pandoc-mode-package
 (my-bind-key-with-autoload "my-pandoc-mode-package" "C-z C-e t" 'my-pandoc-compile-org-to-textile org-mode-map)
