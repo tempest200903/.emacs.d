@@ -38,10 +38,10 @@
 (when t    "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
 (when t    "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
 (when t    "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
-(when t    "2014-09-08" (load "~/.emacs.d/inits/my-dired-mode-map")) ;; 実験中
-(when t    "2014-09-08" (load "~/.emacs.d/inits/my-mw32-ime")) ;; 実験中
 (when nil  "2014-09-08" (load "~/.emacs.d/inits/my-visible-mark")) ;; 故障するので使用中止。
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo"))
+;; (when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中。 my-os-windows-ime-migemo で require しているので、ここでは load 不要。
+;;(when t    "2014-09-08" (load "~/.emacs.d/inits/my-os-windows-ime")) ;; 実験中。 my-os-windows-ime-migemo で require しているので、ここでは load 不要。
+(when t    "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-ime-migemo")) ;; 実験中
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-16" (load "~/.emacs.d/inits/my-sequential-command")) ;; 実験中

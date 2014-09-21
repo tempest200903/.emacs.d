@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("myorg-update-parent-cookie"
+(("wrap-function-to-control-ime"
+ (filename . "~/.emacs.d/inits/my-mw32-ime.el")
+ (front-context-string . "wrap-function-to")
+ (rear-context-string . "る。\n(when nil\n  (")
+ (position . 1245))
+("myorg-update-parent-cookie"
  (filename . "~/.emacs.d/inits/my-org-hook.el")
  (front-context-string . "myorg-update-par")
  (rear-context-string . ".com/\n;; (defun ")

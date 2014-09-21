@@ -17,4 +17,12 @@
 ** TODO isearch-backward にスペース1個を入力すると失敗する              :bug:
    [2014-09-16 火 10:16]
 - mini buffer に "[(wrong-type-argument integer-or-marker-p t)]" と表示して、検索失敗する。
-
+** TODO migemo だけ IME off にしたい
+   CLOCK: [2014-09-21 日 23:29]
+   [2014-09-08 月 13:15]
+- [[~/.emacs.d/inits/my-migemo.el]]
+- http://qiita.com/catatsuy/items/c5fa34ead92d496b8a51
+  - migemoを使ってEmacsライフを快適に - Qiita
+  - Mac の設定 / Ubuntu の設定載っているが Windows の設定は載っていない。
+- http://d.hatena.ne.jp/takehikom/20120318/1332016271
+  - Windows では wrap-function-to-control-ime を使って実現するようだ。
