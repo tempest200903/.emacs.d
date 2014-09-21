@@ -7,19 +7,19 @@
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03] n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/20-wdired.el
 ;; ----------------------------------------------------------------------
-;; * [2014-09-08 Œ] http://coderepos.org/share/browser/dotfiles/emacs/kentaro/.emacs.d/conf/init-dired.el
+;; * [2014-09-08 æœˆ] http://coderepos.org/share/browser/dotfiles/emacs/kentaro/.emacs.d/conf/init-dired.el
 ;;
 ;; wdired
 ;; ;; http://www.bookshelf.jp/soft/meadow_25.html#SEC292
 ;; (require 'wdired)
 ;;
-;; ;; r‚Ådiredƒoƒbƒtƒ@‚ğ’¼Ú•ÒW‚Å‚«‚é‚æ‚¤‚É‚È‚éB
+;; ;; rã§diredãƒãƒƒãƒ•ã‚¡ã‚’ç›´æ¥ç·¨é›†ã§ãã‚‹ã‚ˆã†ã«ãªã‚‹ã€‚
 ;; (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 ;;
-;; ;;ƒp[ƒ~ƒbƒVƒ‡ƒ“‚à•ÏX‰Â”\‚É
+;; ;;ãƒ‘ãƒ¼ãƒŸãƒƒã‚·ãƒ§ãƒ³ã‚‚å¤‰æ›´å¯èƒ½ã«
 ;; (setq wdired-allow-to-change-permissions t)
 ;;
-;; ;; ls‚Ì‘ã‚è‚ÉEmacs©‘Ì‚Ì‹@”\‚ğ—˜—p‚µ‚ÄƒfƒBƒŒƒNƒgƒŠ‚ğƒŠƒXƒg
+;; ;; lsã®ä»£ã‚Šã«Emacsè‡ªä½“ã®æ©Ÿèƒ½ã‚’åˆ©ç”¨ã—ã¦ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ãƒªã‚¹ãƒˆ
 ;; ;; http://www.namazu.org/~tsuchiya/elisp/#dired
 ;; (require 'ls-lisp)
 ;; (let (current-load-list)

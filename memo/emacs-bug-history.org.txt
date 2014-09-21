@@ -332,7 +332,7 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
   - (setq howm-directory "N:/howm/2012/01")
     - テスト時間短縮のため絞る。
   - M-x howm-list-grep-fixed
-*** 〔IME変換中の文字列が別フレームに書き込まれるバグ〕
+*** 〔IME変換中の文字列が別フレームに書き込まれる不具合〕
 **** 〔現状-d2012-12-26〕
     :LOGBOOK:
     TIMESTAMP: [2012-12-26 水 14:21]
@@ -379,6 +379,23 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
 - http://sourceforge.jp/projects/gnupack/releases/
   emacs-24.3-ime-2013-05-03.patch.tar.gz のほうが新しいかもしれない。
   emacs 24.3 を使いたいならこちらを試してみて。
+**** 〔現状-d2014-09-20〕
+     [2014-09-20 土 15:00]
+- [2014-09-06 土] に my-init.el をリセットしてからしばらくは不具合発生しなかった。
+- その後、徐々に elisp を増やしていた。今日、不具合発生した。
+  - IME変換中の文字列が別フレームに書き込まれる不具合
+  - 文字が正しく描画されない不具合。 make-frame-command などで描画し直せば解消するが不便。
+- どの elisp が原因なのか特定できていない。
+- 対処案
+  - 起動直後は elisp load を最小限にしておく。
+  - 必要になった時点で load する。どの elisp を load してあるかを記録しておく。
+  - 不具合発生したら load 記録を保存する。 emacs 再起動。
+  - この測定を数日継続する。記録を見て原因となりうる elisp を絞り込む。
+- 仕組みを作る。
+- 考え方は Microservices に似ている。
+  - cf. http://deeeet.com/writing/2014/09/10/microservices/
+  - cf. http://martinfowler.com/articles/microservices.html
+- ~/.emacs.d/inits/my-microservices.el
 *** server-start 不具合
     :LOGBOOK:
     TIMESTAMP: [2013-02-07 木 15:30]
