@@ -44,6 +44,7 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-16" (load "~/.emacs.d/inits/my-sequential-command")) ;; 実験中
+(when t    "2014-09-22" (load "~/.emacs.d/inits/my-shell")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * anything
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))

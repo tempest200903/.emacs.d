@@ -80,8 +80,7 @@
 - インデントなどのフォーマッタ。
 - outline-demote, outline-promote のようなアウトラインのレベル変更、順序変更。
 ** TODO 〔[]を含むファイルパスへのリンク〕
-- file:\\Isf-mine\情報エンジニアリング部\[0]bodais\【編集中】P部・研究所への展開の流れ.txt
-  - こうすればリンクとして扱う。
+- file: で書けばリンクとして扱う。
 - copy link したとき、先頭の file: が邪魔。これを取り除いてコピーするコマンドがほしい。
 - バッチファイルを経由してファイルサーバファイルを開く。
   - 例 N:\Isf-mine\情報エンジニアリング部\［0］bodais\【編集中】P部・研究所への展開の流れ.txt.proxy.bat を経由してファイルサーバファイルを開く。
@@ -223,12 +222,13 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - 画像ファイルを選択して X (dired-do-shell-command) cygstart で関連付け実行。
 - いちいち cygstart と入力しなくてすむようにしたい。
 - package あるはず？
-** TODO use-package.el
+** PENDING use-package.el
    [2014-09-12 金]
 - http://rubikitch.com/2014/09/09/use-package/
 - emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
 - (package-install 'use-package)
-- c:/tool/gnupack/home/.emacs.d/inits/my-use-package.el
+- [[~/.emacs.d/inits/my-use-package.el]]
+- 試してみた。 auto-load は実現できなかった。遅延 load ではなく起動時 load になってしまう。
 ** TODO org-open-at-point
    [2014-09-12 金]
 - org-open-at-point すると、 freemind 関連付けで .mm ファイルを開きたい。
@@ -252,18 +252,21 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - ~/.emacs.d/inits/my-keymap-basis.el
 - 長すぎるので分割する。 my-keymap-basis.el から load する。
 - e.g. my-keymap-ffap.el
-** TODO bind-key と autoload を一度に行う
+** DONE bind-key と autoload を一度に行う
    [2014-09-13 土]
-- e.g. ~/.emacs.d/inits/my-bind-key-package.el
-- FUNCTION を2回書くのは無駄。
-- FILE を複数回書くのは無駄。
+- [[~/.emacs.d/inits/my-bind-key-package.el]]
+- defun my-bind-key-with-autoload を使えば FUNCTION, FILE を複数回書く無駄を省ける。
 ** DONE expand-region.el
    [2014-09-14 日]
 - [[~/.emacs.d/inits/my-expand-region-package.el]]
-** TODO my-kill-buffer-file-name
+** DONE my-kill-buffer-file-name パスが $HOME を含む場合 ~ に置換する
    [2014-09-14 日]
-- $HOME を ~ に置換する。
-** TODO M-g M-g my-goto-line-with-linum-mode
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+** TODO dired-copy-filename-as-kill パスが $HOME を含む場合 ~ に置換する
+- defadvice dired-copy-filename-as-kill
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+** TODO kill-ring パスが $HOME を含む場合 ~ に置換する
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
 ** TODO markdown-mode で　org-beginning-of-line と同様のこと
    [2014-09-14 日]
 - markdown-mode で　org-beginning-of-line と同様のことをやりたい。
@@ -291,13 +294,17 @@ pandoc.exe: Cannot decode byte '\x93': Data.Text.Encoding.decodeUtf8: Invalid UT
 - はじめからレベル1見出しを〈a〉にしておけば、それを転記するだけ。
 - ついでにレベル1見出しを howm title である1行目に転記する。
 - 見出しが ticketXXXX で始まる場合、タグ ticket[0-9]+ を ticketXXXX に付け替える。
-** TODO M-x shell がおかしい
+** DONE M-x shell で「\r コマンドが見つかりません」不具合
+   CLOCK: [2014-09-22 月 22:11]--[2014-09-22 月 22:27] =>  0:16
    [2014-09-16 火]
 #+BEGIN_EXAMPLE
 # exit
 bash: $'exit\r': コマンドが見つかりません
 #+END_EXAMPLE
 - coding-system が違う？
+- [[file:~/.emacs.d/gnupack-init.el::@ shell]]
+  これを my-shell.el に移植する。
+- [[~/.emacs.d/inits/my-shell.el]]
 ** TODO anything-calcul-expression と同じことを anything なしで行う
    [2014-09-16 火]
 - M-x calculator でいいか？

@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("wrap-function-to-control-ime"
+(("M-x shell がおかしい"
+ (filename . "~/.emacs.d/memo/my-emacs-task.org.txt")
+ (front-context-string . "\n   CLOCK: [2014")
+ (rear-context-string . " M-x shell がおかしい")
+ (position . 11749))
+("wrap-function-to-control-ime"
  (filename . "~/.emacs.d/inits/my-mw32-ime.el")
  (front-context-string . "wrap-function-to")
  (rear-context-string . "る。\n(when nil\n  (")
