@@ -71,8 +71,10 @@
     - (kbd "C-:") 1回で "*Org Agenda*" バッファに切り替え。
     - (kbd "C-:") 2回で org-agenda
 - 却下。
-** TODO 〔mode-line に truncate-lines を表示する〕
+** DONE 〔mode-line に truncate-lines を表示する〕
+   CLOCK: [2014-09-23 火 21:40]--[2014-09-22 月 22:06] => -24:26
 - [[~/.emacs.d/inits/my-toggle-truncate-lines.el]]
+- easy-mmode-define-minor-mode で実現した。
 ** TODO 〔xml-mode, yaml-mode を比較する 〕
 - xml-mode では要素名や属性名の補完ができる。 yaml-mode ではできるか？
 - インデントなどのフォーマッタ。

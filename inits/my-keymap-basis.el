@@ -178,13 +178,13 @@
 (define-key global-map (kbd "C-z C-d")              'kill-word-at-point)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日] my-rename-file-and-buffer.el
-;; (bind-key (kbd "C-x RET C-w")                       'my-rename-file-and-buffer)
-;; (bind-key (kbd "C-x RET C-k")                       'my-delete-current-buffer-file)
 (my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-w" 'my-rename-file-and-buffer)
 (my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-k" 'my-delete-current-buffer-file)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
-(define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines) 
+;; (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines) 
+;; (define-key global-map (kbd "C-z C-q")              'my-truncate-lines-mode) 
+(my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-truncate-lines-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-07 火]
 (define-key global-map (kbd "C-z C-x C-i")          'tabify) 
