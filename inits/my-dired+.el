@@ -36,3 +36,8 @@
   (interactive)
   (auto-revert-mode 1))
 (add-hook 'dired-mode-hook 'turn-on-auto-revert-mode)
+;; ----------------------------------------------------------------------
+;; * troubleshooting
+;; - [2011-11-04 金 11:06] 障害。 ffap で directory を開くと window 分割が解除されてしまう。なぜ？
+;;   - いったん、 ffap.el, dired+.el を無効にしてみる。実験中。
+;; - [2011-11-29 火 11:01] 今のところ、発生していない。 ffap.el 有効、 dired+.el 無効。原因は dired+.el か？

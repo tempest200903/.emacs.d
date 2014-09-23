@@ -118,12 +118,6 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - [[~/.emacs.d/inits/my-org-mode-hyperlink.el]]
 - パスが \\filserver\a\b\c である場合、
 - [[shell:cygstart \\\\a\\b\\c][\\filserver\a\b\c] ] 形式に変換する。
-** TODO use-package.el
-   [2014-09-09 火]
-- http://rubikitch.com/2014/09/09/use-package/
-  - emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
-  - :bind : コマンドをglobal-mapに割り当てる
-  - このようにbindで設定されたコマンドはすべてautoloadされます。
 ** TODO 〔tr ライクに置換する〕
    [2014-09-09 火]
 - tr "【】" "〔〕" のような置換をするコマンド。
@@ -141,10 +135,11 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - 分離にしなくていい定義を custom から inits に移動する。
 - org-mode TODO status
 - org-speed キーバインド
-** TODO my-package.el
+** PENDING my-package.el
    [2014-09-09 火]
 - ~/.emacs.d/inits/
 - TODO http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0
+  - init-loader.el と package.el を導入して快適 Emacs ライフ - Qiita
 ** TODO グループウェア連携
    [2014-09-10 水 17:27]
 - 実現したいこと
@@ -222,10 +217,12 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 - 画像ファイルを選択して X (dired-do-shell-command) cygstart で関連付け実行。
 - いちいち cygstart と入力しなくてすむようにしたい。
 - package あるはず？
-** PENDING use-package.el
-   [2014-09-12 金]
+** DONE use-package.el
+   [2014-09-09 火]
 - http://rubikitch.com/2014/09/09/use-package/
-- emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
+  - emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 | るびきち×Emacs
+  - :bind : コマンドをglobal-mapに割り当てる
+  - このようにbindで設定されたコマンドはすべてautoloadされます。
 - (package-install 'use-package)
 - [[~/.emacs.d/inits/my-use-package.el]]
 - 試してみた。 auto-load は実現できなかった。遅延 load ではなく起動時 load になってしまう。
@@ -259,14 +256,6 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
 ** DONE expand-region.el
    [2014-09-14 日]
 - [[~/.emacs.d/inits/my-expand-region-package.el]]
-** DONE my-kill-buffer-file-name パスが $HOME を含む場合 ~ に置換する
-   [2014-09-14 日]
-- replace-regexp-in-string を使って $HOME を ~ に置換する。
-** TODO dired-copy-filename-as-kill パスが $HOME を含む場合 ~ に置換する
-- defadvice dired-copy-filename-as-kill
-- replace-regexp-in-string を使って $HOME を ~ に置換する。
-** TODO kill-ring パスが $HOME を含む場合 ~ に置換する
-- replace-regexp-in-string を使って $HOME を ~ に置換する。
 ** TODO markdown-mode で　org-beginning-of-line と同様のこと
    [2014-09-14 日]
 - markdown-mode で　org-beginning-of-line と同様のことをやりたい。
@@ -278,8 +267,6 @@ Running `pandoc --read=markdown --write=native'
 pandoc.exe: Cannot decode byte '\x93': Data.Text.Encoding.decodeUtf8: Invalid UTF-8 stream
 #+END_EXAMPLE
 - 入力ファイルがマルチバイト文字列を含まない場合、発生しない。
-
-
 ** CANCELLED org-agenda-mode で org-agenda-deadline が失敗する
    CLOSED: [2014-09-16 火 11:07]
    [2014-09-16 火 11:04]

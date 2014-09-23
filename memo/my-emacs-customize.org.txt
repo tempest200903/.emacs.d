@@ -532,17 +532,6 @@ Loading vc-svn...done
   "wc -l * > wc-cache.txt"
   このコマンドで作った wc.txt を bf-mode で見るのが楽。
   キャッシュされているので2回目からは待たないですむ。
-*** TODO xdoc2txt と連携する
-    :LOGBOOK:
-    TIMESTAMP: [2012-06-27 水 10:05]
-    :END:
-- dired で選択した office ファイルを xdoc2txt 経由でブラウズしたい。
-- grep したい。 moccur や howm でもいい。
-- バイナリファイルを C-u C-u M-x org-open-at-point で開く際に、 xdoc2txt で変換してから Emacs で開く。
-- org-mode hyperlink 書式で特定の文字列や特定の行番号までジャンプしたい。
-- 参考。 (package-install 'openwith)
-- http://www.bookshelf.jp/soft/meadow_23.html#SEC238
-  - 23.6.3.1 Word や Excel のファイル内容を表示 (2005/02/17)
 *** DONE tips dired でファイルのフルパスを簡単に killing
     CLOSED: [2014-09-08 月 19:48]
 - http://qiita.com/akisute3@github/items/3737b15b37fed8f39c99
@@ -2695,15 +2684,6 @@ openwith.el:144:1:Error: End of file during parsing
   - ruby-modeで smart-paren-modeを有効にすると do-end def-end class-end のペアがハイライトされるようになりました.
   - smartparensでは同機能を実装していますが, 24.4からは素の Emacsだけでこの機能を利用することができます.
 - [2014-01-07 火 13:59] 今使っている GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) では未実装。 package-list-packages smartparens を install すれば利用できる、かもしれない。
-* troubleshooting
-- [2011-11-04 金 11:06] 障害。 ffap で directory を開くと window 分割が解除されてしまう。なぜ？
-  - いったん、 ffap.el, dired+.el を無効にしてみる。実験中。
-- [2011-11-29 火 11:01] 今のところ、発生していない。 ffap.el 有効、 dired+.el 無効。原因は dired+.el か？
-** crush history
-   :LOGBOOK:
-   TIMESTAMP: [2012-05-14 月 10:21]
-   :END:
-- [2012-05-14 月 10:21]
 ** repeat-complex-command                                              :tips:
 - (repeat-complex-command ARG) It is bound to <again>, <redo>, C-x M-:, C-x M-ESC.
   - M-n, M-p で履歴。
@@ -2722,7 +2702,6 @@ openwith.el:144:1:Error: End of file during parsing
   - list-processes このコマンドは、アクティブなすべてのプロセスの一覧を
     表示します。 さらに、ステータスが`Exited'または`Signaled'のプロセス
     を最終的に削除します。この関数はnilを返します。
-* idea
 ** moccur-history
 - 目的
   - 検索履歴を収集して索引を作る。
@@ -2734,8 +2713,6 @@ openwith.el:144:1:Error: End of file during parsing
   - anything-moccur-history
 - 関連
   - [[*%E3%80%94org-mode%20%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AF%20%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%80%95][〔org-mode ハイパーリンク アクセスログ〕]]
-* tail
-  [2011-08-25 木 17:38]
 ** changelog
 *** user-full-name, user-mail-address
 - add-change-log-entry docstring
@@ -2808,3 +2785,38 @@ openwith.el:144:1:Error: End of file during parsing
 *** TODO ファイルサーバにあるファイルを開いたら view-mode on にする
     [2014-09-19 金 11:09]
 - find-file-hook か？
+** xdoc2txt
+*** TODO xdoc2txt と連携する
+    :LOGBOOK:
+    CLOCK: [2014-09-22 月 22:38]--[2014-09-22 月 23:06] =>  0:28
+    TIMESTAMP: [2012-06-27 水 10:05]
+    :END:
+- dired で選択した office ファイルを xdoc2txt 経由でブラウズしたい。
+- grep したい。 moccur や howm でもいい。
+- バイナリファイルを C-u C-u M-x org-open-at-point で開く際に、 xdoc2txt で変換してから Emacs で開く。
+- org-mode hyperlink 書式で特定の文字列や特定の行番号までジャンプしたい。
+- 参考。 (package-install 'openwith)
+- http://www.bookshelf.jp/soft/meadow_23.html#SEC238
+  - 23.6.3.1 Word や Excel のファイル内容を表示 (2005/02/17)
+- C:\tool\xdoc2txt\command\xdoc2txt.exe
+- [[~/.emacs.d/inits/my-xdoc2txt.el]]
+*** eml
+- https://github.com/redtower/rc/blob/master/emacs.d/bin/xdoc2txt.txt
+  - 	.eml	OutlookExpressのMailエクスポート形式
+** パス名操作関連
+*** TODO my-kill-buffer-file-name を dired でも使えるようにする
+*** DONE my-kill-buffer-file-name パスが $HOME を含む場合 ~ に置換する
+   [2014-09-14 日]
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+*** TODO dired-copy-filename-as-kill パスが $HOME を含む場合 ~ に置換する
+- defadvice dired-copy-filename-as-kill
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+*** TODO kill-ring パスが $HOME を含む場合 ~ に置換する
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+** crush history
+   :LOGBOOK:
+   TIMESTAMP: [2012-05-14 月 10:21]
+   :END:
+- [2012-05-14 月 10:21]
+* tail
+  [2011-08-25 木 17:38]
