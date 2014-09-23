@@ -166,7 +166,7 @@
 ;; (global-set-key (kbd "<M-f6>") 'raise-other-frame)
 ;; (global-set-key (kbd "<M-f7>") 'suspend-frame)
 
-(when (require 'my-os-windows nil t)
+(when (require 'my-os-windows-frame nil t)
   (global-set-key (kbd "<M-f8>") 'my-seq-my-maximize-or-restore-frame)
   (global-set-key (kbd "<M-f9>") 'my-restore-current-frame)
   (global-set-key (kbd "<M-f10>") 'my-maximize-frame)

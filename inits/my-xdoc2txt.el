@@ -3,6 +3,7 @@
 ;; ======================================================================
 ;; http://www.bookshelf.jp/soft/meadow_23.html#SEC238
 ;; Customize 用のグループを追加．
+
 (defgroup Meadow-Memo nil
   "Meadow Memo が配布するパッケージ関連の設定"
   :group 'emacs)
