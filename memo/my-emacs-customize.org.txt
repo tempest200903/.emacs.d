@@ -326,7 +326,7 @@ Loading vc-svn...done
     :END:
 - [[~/.emacs.d/inits/my-yank-special.el]]
 ;; カッコをつけたり外したりするコマンドがほしい。特に <!--   -->. 参考: Eclipse の C-/
-*** TODO 入力文字列が"〔abc〕" であるとき、 C-u M-x my-yank-with-ANGLE-BRACKET で "〈abc〉" を出力したい。
+*** PENDING 入力文字列が"〔abc〕" であるとき、 C-u M-x my-yank-with-ANGLE-BRACKET で "〈abc〉" を出力したい。
 - [[~/.emacs.d/inits/my-yank-special.el]]
 ;; 入力文字列が"〔abc〕" であるとき、 C-u M-x my-yank-with-ANGLE-BRACKET で "〈abc〉" を出力したい。
 ** install-elisp
@@ -532,15 +532,6 @@ Loading vc-svn...done
   "wc -l * > wc-cache.txt"
   このコマンドで作った wc.txt を bf-mode で見るのが楽。
   キャッシュされているので2回目からは待たないですむ。
-*** TODO xdoc2txt と連携する
-    :LOGBOOK:
-    TIMESTAMP: [2012-06-27 水 10:05]
-    :END:
-- dired で選択した office ファイルを xdoc2txt 経由でブラウズしたい。
-- grep したい。 moccur や howm でもいい。
-- バイナリファイルを C-u C-u M-x org-open-at-point で開く際に、 xdoc2txt で変換してから Emacs で開く。
-- org-mode hyperlink 書式で特定の文字列や特定の行番号までジャンプしたい。
-- 参考。 (package-install 'openwith)
 *** DONE tips dired でファイルのフルパスを簡単に killing
     CLOSED: [2014-09-08 月 19:48]
 - http://qiita.com/akisute3@github/items/3737b15b37fed8f39c99
@@ -778,6 +769,7 @@ Loading vc-svn...done
 ***** DONE countdown timer for schedule
      :LOGBOOK:
      CLOCK: [2014-09-20 土 00:28]--[2014-09-20 土 00:30] =>  0:02
+     TIMESTAMP: [2012-02-14 火 14:26]
      CLOCK: [2014-09-19 金 22:35]--[2014-09-20 土 00:08] =>  1:33
      CLOCK: [2014-09-18 木 22:24]--[2014-09-19 金 00:29] =>  2:05
      :END:
@@ -882,7 +874,7 @@ Loading vc-svn...done
 - M-x customize auto-encryption-mode
   - デフォルト値は on だ。使わないので off にしておく。
   -  '(auto-encryption-mode nil)
-*** tips drawer を閉じる                                               :tips:
+*** DONE tips drawer を閉じる                                          :tips:
     [2011-11-11 金 15:49]
 - 今まで、 :LOGBOOK: など drawer にカーソル移動して TAB 、を drawer 数ぶん繰り返していた。
 - M-x org-next-link {It is bound to M-g M-n} すれば一発で全て閉じる。このほうが楽。
@@ -905,20 +897,29 @@ Loading vc-svn...done
   - タイトル intitle:
 - org-open-at-point に hook してカウントする。
   - カウントをファイルに保存する。
-  - カウントを org-mode の property に保存する。
+  - カウントを org-mode の property か、 独自の drawer に保存する。
     - 例
-      :PROPERTIES:
+      :PROPERTIES
       :ACCESSLOG: file_location count atime
-      :END:
+      :END
     - file_location ファイルパス
     - count アクセス回数
     - atime ファイルの最終アクセス日時. find -atime と同様。
-*** TODO ファイルサーバで勝手に名前が変化するファイルをトレースする。
+- drawer に保存する方式のメリット
+  - ハイパーリンクを別の場所に移動するとき、ログ記録も一緒に移動することになる。
+  - リンク元のアクセス回数も区別して記録できる。
+- drawer に保存する方式のデメリット
+  - リンク先ファイル1個に複数箇所からリンクしていることがある。
+  - リンク先ファイル毎にアクセスカウント合計を得るためには、リンク元をすべてスキャンして集計する必要がある。
+*** TODO 勝手に名前が変化するファイルをトレースする
     :LOGBOOK:
     TIMESTAMP: [2012-07-24 火 10:41]
     :END:
 - ファイルサーバで勝手に名前が変化するファイルをトレースする。
-  - 例: 書籍リスト_20110421.xls 数字部分を補完する。
+- 案1 文字単位で diff 比較して、編集距離が少ないファイルを選択する。
+- 案2 FooBar_20110421.txt 形式の数字部分だけが異なるなら、数値比較して差が少ないファイルを選択する。
+- org-open-at-point する際に、代替ファイルを見つけたら別バッファに表示する。
+  - ユーザが選択したファイルをアンカーに反映する。
 *** TODO org-open-at-point を拡張する
     [2011-12-15 木 12:28]
 - org-open-at-point するときに、 bluewind のように外部プログラムを選択可能にするか、
@@ -926,6 +927,11 @@ Loading vc-svn...done
 - とりえあず暫定回避策。 M-s M-w (ffap-copy-string-as-kill) でファイルパスをコピー。
   bluewind に貼り付ける。
 - anything.el anything-version "1.3.6" ではいろいろなアクションがある。
+- [[mail:foo@example.com]] と同様に [[bluewind:path_to_file]] とかいておけば必ず bluewind で開くようにしたい。
+- 通常の形式のファイルリンクでかいてある場合、
+  - M-x C-, の前につけた C-u の個数でどのプログラムにするか決定する。
+  - もしくは、 org-agenda や org-export のようなメニューから選択。
+  - もしくは、 anything/helm のようなメニューから選択。
 *** DONE org の radio-target を howm-mode と併用する
     CLOSED: [2011-12-17 土 10:12]
     [2011-12-15 木 19:10]
@@ -975,7 +981,7 @@ Loading vc-svn...done
     :LOGBOOK:
     TIMESTAMP: [2012-02-09 木 11:41]
     :END:
-- [[\\Isf-mine\プロジェクト\■bodais\システム開発\4.設計\インターフェース設計\解析エンジンバージョン.xls]]
+- [[\\I.......\プ. . . . . \■......\シ. . . . . \4.. . \イ. . . . . . . . 計\解. . . . . . . . . ン.xls]]
 - これを org-open-at-point すると、失敗する。
   Message には "eval: ShellExecute failed: 指定されたファイルが見つかりません。" と出る。
 *** VERIFY Tips. org-toggle-archive-tag
@@ -1050,7 +1056,8 @@ Loading vc-svn...done
     http://support.toggl.com/kb/integrations/csv-import
   - Toggl time tracking - Support and FAQ - API -
     https://www.toggl.com/public/api
-*** TODO org-timer-start                                           :wishlist:
+- D3.js などの可視化ライブラリと併用する。
+*** TODO org-timer-start を分や時間で指定する                      :wishlist:
 - org-timer-start は引数で秒数を指定する。これを分や時間で指定可能にしたい。
 *** TODO hyperlink を EBt のようにナビゲートする                   :wishlist:
     :LOGBOOK:
@@ -1073,6 +1080,7 @@ Loading vc-svn...done
     TIMESTAMP: [2012-04-10 火 10:27]
     :END:
 - "C:\a\b\c\d.txt" を読み取ったら "C:\a\b\c" を open, copy する。
+- 単に、 ffap-copy-string-as-kill したと、 dirname コマンドを呼び出せばいい。
 *** TODO 月次ノートの相互ハイパーリンクを自動化                    :wishlist:
     :LOGBOOK:
     TIMESTAMP: [2012-04-10 火 10:41]
@@ -1098,28 +1106,20 @@ Loading vc-svn...done
     :LOGBOOK:
     TIMESTAMP: [2012-04-10 火 16:53]
     :END:
-- 常に行番号でリンクしてほしい。
+- 常に行番号でリンクしてほしい。主にソースファイル、ログファイル。
 - '[' などの文字が混ざると org-open-at-point が失敗するのを避けるため、行番号にしたい。
-*** TODO 前後移動をリピートする
+*** DONE 前後移動をリピートする
     :LOGBOOK:
     TIMESTAMP: [2012-06-05 火 10:01]
     :END:
 - C-c C-n, C-c C-p は多用するが連打しにくい。類似のコマンドも同様。
-  - M-g M-n runs the command org-next-link, M-g M-p runs the command org-previous-link
-  - C-c C-n runs the command outline-next-visible-heading, C-c C-p runs the command outline-previous-visible-heading
-  - M-g n runs the command next-error, M-g p runs the command previous-error
-  - C-x } runs the command enlarge-window-horizontally, C-x { runs the command shrink-window-horizontally
-  - M-n runs the command forward-line, M-p runs the command previous-logical-line
-  - C-s runs the command isearch-forward, C-r runs the command isearch-backward
-  - M-g M-] runs the command bm-next, M-g M-[ runs the command bm-previous
-  - C-M-v runs the command scroll-other-window, C-M-S-v runs the command scroll-other-window-down
-  - M-g M-f runs the command highlight-changes-next-change, M-g M-b runs the command highlight-changes-previous-change
-  - bs-cycle-next, bs-cycle-previous
 - 実現したいこと
   - next/previouse 系のコマンド最初の1回は通常通り入力。2回目以降は M-n/M-p を押せば繰り返し。あるいは <f6>/<f7>
   - <f5> runs the command repeat を使ってもいいが、反対方向には行けない。
   - next/previouse 系のコマンドに add-hook しておけば実装可能。
   - できれば、 C-u 2 C-v や C-u 8 C-n などの引数も繰り返し可能にしたい。
+- (define-key global-map (kbd "C-;") 'repeat)
+  - これで十分。
 *** TODO region 範囲内だけ checkbox off する
     :LOGBOOK:
     TIMESTAMP: [2012-06-07 木 16:39]
@@ -1132,15 +1132,23 @@ Loading vc-svn...done
 - 一時的に検索範囲を広げて検索したいことがある。
   - org-agenda の search と同様に、タグやキーワードを指定してマッチするファイルを一時的に検索範囲に含める。
   - どうやって実現する？ (let org-agenda-files ... ) ？
+- 案1。 org-agenda-files をプライマリとセカンダリに分けて保持する。
+  - 普段はプライマリだけ検索する。
+  - 「セカンダリも検索対象にする」変数をトグルするコマンドを用意する。
+  - org-agenda-file-to-front をプライマリとセカンダリに分ける。
 *** TODO hyperlink と imenu の組み合わせ
     :LOGBOOK:
     TIMESTAMP: [2012-06-18 月 18:02]
     :END:
 - 要件。ソースファイルのシンボル定義へハイパーリンクでジャンプしたい。
 - 現状。
-  - org-mode hyperlink で正規表現リンクを使えば、標的のファイルを開いて正規表現にマッチする箇所へジャンプさせることができる。
-  - しかし、最初に見つかった箇所にジャンプするのではなく、関数定義などにジャンプして欲しい。
-  - ジャンプして find-tag すれば結果的に要件を満たす。しかし、あらかじめタグファイルを作っておく必要がある、バージョン管理の都合でタグファイルを作りたくない。
+  - org-mode hyperlink で正規表現リンクを使えば、標的のファイルを開いて
+    正規表現にマッチする箇所へジャンプさせることができる。
+  - しかし、最初に見つかった箇所にジャンプするのではなく、関数定義など
+    にジャンプして欲しい。
+  - ジャンプして find-tag すれば結果的に要件を満たす。しかし、あらかじ
+    めタグファイルを作っておく必要がある、バージョン管理の都合でタグファ
+    イルを作りたくない。
   - imenu ならタグファイル不要。
 - 暫定対処。
   - カーソル位置にあるシンボルを読み取って M-x anything-imenu を実行するコマンドを作っておく。
@@ -1150,20 +1158,21 @@ Loading vc-svn...done
     :LOGBOOK:
     TIMESTAMP: [2012-06-19 火 10:21]
     :END:
-- org heading に "mail to 業務支援部" パターンがあったら自動的に or ワンタッチでタグ section_gyomusien をつけてほしい。
+- org heading に "mail to 業...部" パターンがあったら自動的に or ワンタッチでタグをつけてほしい。
 - 自動にするなら before-save-hook か？
 - C-c ; (org-toggle-comment) で COMMENT ステータスをつけたら、 comment タグも付ける。
-*** TODO タグ着色
+*** DONE タグ着色
     :LOGBOOK:
     TIMESTAMP: [2012-06-19 火 10:34]
     :END:
 - org-agenda などでタグ着色できれば便利そうだ。できれば、タグ1個ごとに異なる色を自動割り当て。
 - M-s h r runs the command highlight-regexp
+- org の変数でカスタマイズ可能。
 *** TODO WBS的な進捗管理                                           :wishlist:
     :LOGBOOK:
     TIMESTAMP: [2012-06-20 水 14:51]
     :END:
-- 時間見積もり、時間実績を heading 毎に定義する機能は org-mode 事態にある。
+- 時間見積もり、時間実績を heading 毎に定義する機能は org-mode 自体にある。
 - しかし、本格的に進捗管理するには不十分。
   - プロジェクト全体を見通してどのアクティビティが超過しているのかを把握する
   - アクティビティの進捗率は何％か把握する
@@ -1177,6 +1186,7 @@ Loading vc-svn...done
     :LOGBOOK:
     TIMESTAMP: [2012-07-04 水 11:05]
     :END:
+- はてなブックマークのタグ。
 *** TODO org-todo-list 絞込み
     :LOGBOOK:
     TIMESTAMP: [2012-07-04 水 11:10]
@@ -1251,17 +1261,16 @@ Loading vc-svn...done
 *** DONE org-mouse-show-context-menu                                   :tips:
     CLOSED: [2014-08-12 火 10:25]
 - [[elisp:(org-tags-view t "some_tag")]] と書いてもいいが、マウス右クリックから Display tag を選択してもいい。
-
 *** TODO org export redmine wiki
 *** TODO org export textile wiki
 *** TODO 〔1週間前の議事録を開くリンク〕
-- e.g. [[file:n:/howm/2014/09/2014-09-01-100645.howm.txt::*%E3%80%94bodais%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%83%81%E3%83%BC%E3%83%A0MTG-%E5%89%8D%E5%9B%9E%E8%AD%B0%E4%BA%8B%E9%8C%B2%E3%82%92%E8%AA%AD%E3%82%80-d2014-09-01%E3%80%95][〔bodaisエンジンチームMTG-前回議事録を読む-d2014-09-01〕]] 1週間前議事録を読む。
 - 実現方法
   - org-agenda-view で1週間前の agenda log を開いく。
   - リンク元のタグ文字列で occur する。
 *** TODO 〔clone するときに Reschedule log を除去してほしい〕     :wishlist:
 - org-log-reschedule を time にしておくと、 Reschedule log が記録される。
 - org-clone-subtree-with-time-shift するときに Reschedule log を除去してほしい。
+<<<<<<< HEAD
 *** TODO 延期する日数をランダムに決めて org-deadline する          :wishlist:
 - こんなコマンドがほしい
 - M-x my-org-deadline-defer-random で 21～35 日延期する。
@@ -1269,6 +1278,8 @@ Loading vc-svn...done
 - 休日をスキップする。
 
 
+=======
+>>>>>>> 70887b3ef17f1e678811f292e204616a52fb0db8
 ** ポップアップメニュー
    [2011-08-25 木 17:38]
 *** PENDING ポップアップメニューを自作したい。
@@ -1321,22 +1332,16 @@ Loading vc-svn...done
     CLOSED: [2011-08-30 火 14:30]
     [2011-08-30 火 14:30]
 - [[file:~/.emacs.d/inits/my-occur.el::occur-mode-hook]]
-*** PENDING occur buffer を開くとき、自動的に縮小してほしい。
+*** DONE occur buffer を開くとき、自動的に縮小してほしい。
     [2011-08-30 火 14:30]
-;; ** [2011-06-06 月] TODO occur-mode で自動的に縮小すると便利。
-;; (add-hook 'occur-mode-hook
-;;          (lambda ()
-;;            (fit-window-to-buffer)
-;;          ))
-;; 実験結果: 変化しない。
-;; 自動的にする方法が分からない。とりあえず簡単なキーバインドを定義しておく。
+- [[file:~/.emacs.d/inits/my-occur.el::shrink-window-if-larger-than-buffer]]
+  - (add-hook 'occur-mode-find-occurrence-hook 'shrink-window-if-larger-than-buffer)
+    - これで達成できた。
 *** DONE occur buffer に switch する。 occur buffer がない場合は occur 開始する。
     CLOSED: [2012-06-01 金 16:49]
     [2011-09-02 金 14:08]
 - http://www.emacswiki.org/emacs/OccurKey
 - [[file:~/.emacs.d/inits/my-occur.el::my-occur-or-switch-to-buffer]]
-*** TODO occur バッファ作成直後に shrink-window-if-larger-than-buffer
-- [[file:~/.emacs.d/inits/my-occur.el::shrink-window-if-larger-than-buffer]]
 *** DONE occur で grep -v したい
     CLOSED: [2013-08-28 水 13:36]
     :LOGBOOK:
@@ -1345,7 +1350,15 @@ Loading vc-svn...done
 - 代わりにこうやる。
   - M-| (shell-command-on-region) grep -nv REGEX
 - fundamental-mode ではなく occur-mode にしてほしい。
-- バッファ名を *Shell Command Output* でなく *Occur* にしてほしい。
+- できればバッファ名を *Shell Command Output* でなく *Occur* にしてほしい。
+*** TODO occur, moccur で grep A | grep -v B したい
+    :LOGBOOK:
+    TIMESTAMP: [2014-09-22 月 01:18]
+    :END:
+- 例。 grep java | grep -v javascript
+- occur はこれで実現できそう。
+  - M-| (shell-command-on-region) grep -n java | grep -v javascript
+- moccur はどうする？
 *** TODO occur で grep -v するコマンドを自作する
 #+BEGIN_EXAMPLE
 (defun occur-reverse (&optional ARGS)
@@ -1360,7 +1373,6 @@ shell-command-on-region grep -nv a
 (Shell command failed with error)
 shell-command-on-region: Args out of range: 0, 100
 #+END_EXAMPLE
-
 ** rename-buffer 関連
    [2011-09-16 金 10:45]
 *** DONE rename-uniquely
@@ -1370,9 +1382,11 @@ shell-command-on-region: Args out of range: 0, 100
   my-buffer-window-frame.el:45:(global-set-key (kbd "<S-f3>") 'rename-uniquely) ;; M-s u の alias.
   my-grep.el:5:  (progn (define-key grep-mode-map (kbd "u") 'rename-uniquely) "[2011-05-20 金]")
   my-occur.el:6:  (progn (define-key occur-mode-map (kbd "u") 'rename-uniquely) "[2011-05-20 金]")
-*** TODO rename help
+*** PENDING rename help
     [2011-12-19 月 17:35]
 - 例。 C-h f keyboard-quit して Help を見たあと、バッファ名を *Help* から *Help* keyboard-quit に変更したい。
+- 用途。複数の関数 Help を並べて見る。
+- とりあえず、 rename-uniquely で十分か。
 ** popwin.el
    [2011-08-31 水 18:38]
 *** DONE popwin.el 導入
@@ -1432,7 +1446,6 @@ shell-command-on-region: Args out of range: 0, 100
 ;; TODO C-s だと isearch から query-replace に引き継がれるが、 M-s M-q だと引き継がれない。なぜ？
 (define-key isearch-mode-map (kbd "M-s M-q") 'query-replace)
 (define-key isearch-mode-map (kbd "M-s M-r") 'query-replace-regexp)
-
 ** eclipse like
    [2011-09-05 月 12:29]
 *** CANCELLED <C-down-mouse-1> で find-tag
@@ -1560,6 +1573,8 @@ shell-command-on-region: Args out of range: 0, 100
 - M-x ruler-mode
 *** TODO count-lines-page や上記カウント関連の結果を kill-ring にコピーしてほしい :wishlist:
     [2011-12-22 木 11:43]
+*** TODO count-lines-page で計測したファイル行数を mode-line に表示してほしい :wishlist:
+- 更新はリアルタイムでなくても save-buffer するときで十分。 after-save-hook ?
 ** メニューバー関連
    [2011-09-14 水 10:45]
 - 参考: imenu.el
@@ -1783,8 +1798,8 @@ shell-command-on-region: Args out of range: 0, 100
     [2011-11-08 火 11:40]
 - 障害
   #+BEGIN_EXAMPLE
-  N:\server\vm_bodais3>pushd N:\Isf-mine\システムソリューション部\サーバ
-  pushd N:\Isf-mine\(以下文字化け)
+  N:\server\vm_bodais3>pushd N:\I......e\シ. . . . . . . . . . 部\サ. バ
+  pushd N:\I......e\(以下文字化け)
   指定されたパスが見つかりません。
   #+END_EXAMPLE
 - coding 関連の設定を変えて実験してみる。
@@ -2333,9 +2348,9 @@ shell-command-on-region: Args out of range: 0, 100
    [2011-12-27 火 11:14]
 *** TODO ffap 不具合
     [2011-12-27 火 11:15]
-- "N:\Isf-mine\プロジェクト\■bodais\システム開発\4.設計\インターフェース設計\コード定義〈解析エンジン〉.xls"
+- "N:\I......e\プ. . . . . \■......\シ. . . . . \4.. . \イ. . . . . . . . . \コ. . . . . . . . . . . 〉.xls"
   の先頭で ffap-copy-string-as-kill すると、
-  "N:\Isf-mine\プロジェクト\" までしか選択しない。
+  "N:\I.......\プ. . . . . \" までしか選択しない。
 ** 他のOSとinit.elを共用する
 *** terminal で利用できないキー
 - [[~/.emacs.d/memo/emacs-in-terminal.org.txt]] : terminal で利用できないキー
@@ -2679,15 +2694,6 @@ openwith.el:144:1:Error: End of file during parsing
   - ruby-modeで smart-paren-modeを有効にすると do-end def-end class-end のペアがハイライトされるようになりました.
   - smartparensでは同機能を実装していますが, 24.4からは素の Emacsだけでこの機能を利用することができます.
 - [2014-01-07 火 13:59] 今使っている GNU Emacs 24.2.1 (i386-mingw-nt6.1.7601) では未実装。 package-list-packages smartparens を install すれば利用できる、かもしれない。
-* troubleshooting
-- [2011-11-04 金 11:06] 障害。 ffap で directory を開くと window 分割が解除されてしまう。なぜ？
-  - いったん、 ffap.el, dired+.el を無効にしてみる。実験中。
-- [2011-11-29 火 11:01] 今のところ、発生していない。 ffap.el 有効、 dired+.el 無効。原因は dired+.el か？
-** crush history
-   :LOGBOOK:
-   TIMESTAMP: [2012-05-14 月 10:21]
-   :END:
-- [2012-05-14 月 10:21]
 ** repeat-complex-command                                              :tips:
 - (repeat-complex-command ARG) It is bound to <again>, <redo>, C-x M-:, C-x M-ESC.
   - M-n, M-p で履歴。
@@ -2706,7 +2712,6 @@ openwith.el:144:1:Error: End of file during parsing
   - list-processes このコマンドは、アクティブなすべてのプロセスの一覧を
     表示します。 さらに、ステータスが`Exited'または`Signaled'のプロセス
     を最終的に削除します。この関数はnilを返します。
-* idea
 ** moccur-history
 - 目的
   - 検索履歴を収集して索引を作る。
@@ -2718,8 +2723,6 @@ openwith.el:144:1:Error: End of file during parsing
   - anything-moccur-history
 - 関連
   - [[*%E3%80%94org-mode%20%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AF%20%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%80%95][〔org-mode ハイパーリンク アクセスログ〕]]
-* tail
-  [2011-08-25 木 17:38]
 ** changelog
 *** user-full-name, user-mail-address
 - add-change-log-entry docstring
@@ -2792,3 +2795,43 @@ openwith.el:144:1:Error: End of file during parsing
 *** TODO ファイルサーバにあるファイルを開いたら view-mode on にする
     [2014-09-19 金 11:09]
 - find-file-hook か？
+** xdoc2txt
+*** TODO xdoc2txt と連携する
+    :LOGBOOK:
+    CLOCK: [2014-09-22 月 22:38]--[2014-09-22 月 23:06] =>  0:28
+    TIMESTAMP: [2012-06-27 水 10:05]
+    :END:
+- dired で選択した office ファイルを xdoc2txt 経由でブラウズしたい。
+- grep したい。 moccur や howm でもいい。
+- バイナリファイルを C-u C-u M-x org-open-at-point で開く際に、 xdoc2txt で変換してから Emacs で開く。
+- org-mode hyperlink 書式で特定の文字列や特定の行番号までジャンプしたい。
+- 参考。 (package-install 'openwith)
+- http://www.bookshelf.jp/soft/meadow_23.html#SEC238
+  - 23.6.3.1 Word や Excel のファイル内容を表示 (2005/02/17)
+- C:\tool\xdoc2txt\command\xdoc2txt.exe
+- [[~/.emacs.d/inits/my-xdoc2txt.el]]
+*** eml
+- https://github.com/redtower/rc/blob/master/emacs.d/bin/xdoc2txt.txt
+  - 	.eml	OutlookExpressのMailエクスポート形式
+** パス名操作関連
+*** TODO my-kill-buffer-file-name を dired でも使えるようにする
+*** DONE my-kill-buffer-file-name パスが $HOME を含む場合 ~ に置換する
+   [2014-09-14 日]
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+*** TODO dired-copy-filename-as-kill パスが $HOME を含む場合 ~ に置換する
+- defadvice dired-copy-filename-as-kill
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+*** TODO kill-ring パスが $HOME を含む場合 ~ に置換する
+- replace-regexp-in-string を使って $HOME を ~ に置換する。
+** crush history
+   :LOGBOOK:
+   TIMESTAMP: [2012-05-14 月 10:21]
+   :END:
+- [2012-05-14 月 10:21]
+** DONE 〔Windows 関連付けでファイルを開く〕
+   CLOCK: [2014-09-23 火 22:50]--[2014-09-23 火 23:43] =>  0:53
+- http://www.bookshelf.jp/soft/meadow_25.html#SEC282
+- unix-to-dos-filename 関数は Meadow にはある。自作するべし。
+- [[~/.emacs.d/inits/my-os-windows-explorer.el]]
+* tail
+  [2011-08-25 木 17:38]

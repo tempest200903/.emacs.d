@@ -216,6 +216,8 @@
 (autoload 'my-search-keybind                             "my-search-keybind" nil t)
 ;; my-popwin.el
 (autoload 'my-calc-hour-in-outline                       "my-calc" nil t)
+;; my-shell.el
+(autoload 'my-shell                                      "shell" nil t)
 ;; 
 ;; M-x highlight-symbol-prev
 ;; M-x highlight-symbol-next

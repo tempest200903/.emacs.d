@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2012-05-23
+;; my-os-windows-frame.el
+;; #+LAST_UPDATED: 2014-09-23
 ;; ----------------------------------------------------------------------
 (require 'my-os-type)
 (when (os-win?)
@@ -41,17 +42,11 @@
     )
   )
 ;; ----------------------------------------------------------------------
-(provide 'my-os-windows)
+(provide 'my-os-windows-frame)
 ;; ----------------------------------------------------------------------
 ;; * [2010-10-14 木] 導入。
 ;; cf. url: http://www.geocities.co.jp/SiliconValley-SanJose/7474/EmacsCustomize.html
 ;; ウィンドウの最大化/解除をキーに割り当ててみる（トグルする）
-;; #define SC_MINIMIZE     0xF020 61472
-;; #define SC_MAXIMIZE     0xF030 61488
-;; #define SC_NEXTWINDOW   0xF040
-;; #define SC_PREVWINDOW   0xF050
-;; ...
-;; #define SC_RESTORE      0xF120 61728
 ;; ----------------------------------------------------------------------
 ;; * [2012-03-19 月] その他。
 ;; http://www.emacswiki.org/emacs/WThirtyTwoSendSysCommand

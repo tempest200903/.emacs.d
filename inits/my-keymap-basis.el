@@ -178,13 +178,13 @@
 (define-key global-map (kbd "C-z C-d")              'kill-word-at-point)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日] my-rename-file-and-buffer.el
-;; (bind-key (kbd "C-x RET C-w")                       'my-rename-file-and-buffer)
-;; (bind-key (kbd "C-x RET C-k")                       'my-delete-current-buffer-file)
 (my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-w" 'my-rename-file-and-buffer)
 (my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-k" 'my-delete-current-buffer-file)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
-(define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines) 
+;; (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines) 
+;; (define-key global-map (kbd "C-z C-q")              'my-truncate-lines-mode) 
+(my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-truncate-lines-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-07 火]
 (define-key global-map (kbd "C-z C-x C-i")          'tabify) 
@@ -253,6 +253,7 @@
 ;; * [2014-09-06 土] anything 廃止した代わりのキーバインド関連
 (define-key global-map (kbd "C-t C-;")              'recentf-open-files)
 (define-key global-map (kbd "C-t C-l")              'bookmark-bmenu-list)
+(define-key global-map (kbd "C-t C-i")              'imenu)
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-08 月] migemo
 (define-key global-map (kbd "C-z C-x C-s")          'migemo-isearch-toggle-migemo)
@@ -275,8 +276,9 @@
 (my-bind-key-with-autoload "my-wc"   "C-z C-x l"    'my-region-command-wc-to-minibuffer)
 (my-bind-key-with-autoload "my-calc" "C-z *"        'my-calc-hour-in-outline)
 ;; ----------------------------------------------------------------------
+(load "~/.emacs.d/inits/my-dired-mode-map")
 (load "~/.emacs.d/inits/my-emacs-lisp-mode-map")
 (load "~/.emacs.d/inits/my-loccur-keymap-autoload")
 (load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")
 (load "~/.emacs.d/inits/my-rotate-keymap-autoload")
-(load "~/.emacs.d/inits/my-howm-keymap.el")
+(load "~/.emacs.d/inits/my-howm-keymap")

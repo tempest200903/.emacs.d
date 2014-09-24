@@ -16,6 +16,9 @@
    (setq migemo-coding-system 'utf-8-unix)
    (load-library "migemo")
    (migemo-init)
+
+(provide 'my-migemo)
+
 ;; ------------------------------------------------------------------------
 ;; * [2012-06-15 金]
 ;; my-migemo を load した場合。 C-^ s runs the command
