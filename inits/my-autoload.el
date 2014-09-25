@@ -173,9 +173,20 @@
 (autoload 'moccur-grep-find                              "my-color-moccur" nil t)
 (autoload 'dmoccur                                       "my-color-moccur" nil t)
 (define-key global-map (kbd                              "M-s M-c") 'occur-by-moccur)
-(define-key global-map (kbd                              "M-s M-m") 'moccur)
-(define-key global-map (kbd                              "M-s M-g") 'moccur-grep)
-(define-key global-map (kbd                              "M-s M-f") 'moccur-grep-find)
+
+;; (define-key global-map (kbd                              "M-s M-g") 'nonincremental-repeat-search-forward) ;; デフォルト
+
+;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/toggle-dot-match と衝突するので変更する。
+;; (define-key global-map (kbd                              "M-s M-m") 'moccur)
+(define-key global-map (kbd                              "M-s M-g M-m") 'moccur)
+
+;; (define-key global-map (kbd                              "M-s M-g") 'moccur-grep)
+(define-key global-map (kbd                              "M-s M-g M-m") 'moccur-grep)
+
+;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/non-incremental/search-forward と衝突するので変更する。
+;; (define-key global-map (kbd                              "M-s M-f") 'moccur-grep-find)
+(define-key global-map (kbd                              "M-s M-g M-f") 'moccur-grep-find)
+
 (define-key global-map (kbd                              "M-s M-d") 'dmoccur)
 ;; my-wc.el
 (autoload 'my-region-command-wc-to-minibuffer            "my-wc" nil t)

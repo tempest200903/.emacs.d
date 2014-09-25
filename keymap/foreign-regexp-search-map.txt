@@ -1,0 +1,25 @@
+# foreign-regexp-search-map.txt
+M-s M-%
+foreign-regexp/query-replace
+M-s M-F
+foreign-regexp/non-incremental/search-backward
+M-s M-\
+foreign-regexp/quote-meta-in-region
+M-s M-a %%
+foreign-regexp/align
+M-s M-e
+foreign-regexp/toggle-eval-replacement
+M-s M-f %%
+foreign-regexp/non-incremental/search-forward
+M-s M-i
+foreign-regexp/toggle-case-fold
+M-s M-m %%
+foreign-regexp/toggle-dot-match
+M-s M-o %%
+foreign-regexp/occur
+M-s M-r %%
+foreign-regexp/isearch-backward
+M-s M-s %%
+foreign-regexp/isearch-forward
+M-s M-x %%
+foreign-regexp/toggle-ext-regexp

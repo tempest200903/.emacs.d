@@ -11,9 +11,9 @@
 ;; (define-key map    "\M-e" 'isearch-edit-string) ;; ミニバッファの編集を開始する。
 (define-key isearch-mode-map (kbd "C-d") 'isearch-yank-char) ;; バッファからミニバッファに1文字転送する。
 (define-key isearch-mode-map (kbd "<S-backspace>") 'isearch-del-char) ;; ミニバッファ末尾1文字を削除する。
-;; TODO C-s だと isearch から query-replace に引き継がれるが、 M-s M-q だと引き継がれない。なぜ？
-(define-key isearch-mode-map (kbd "M-s M-q") 'query-replace) 
-(define-key isearch-mode-map (kbd "M-s M-r") 'query-replace-regexp)
+;; TODO C-s だと isearch から query-replace に引き継がれるが、 M-s M-q や M-s M-r だと引き継がれない。なぜ？
+;; (define-key isearch-mode-map (kbd "M-s M-q") 'query-replace) 
+;; (define-key isearch-mode-map (kbd "M-s M-r") 'query-replace-regexp)
 ;; ----------------------------------------------------------------------
 ;; * [2011-09-01 木] カスタマイズ Lazy Highlight
 ;;

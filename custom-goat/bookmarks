@@ -2,11 +2,11 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("M-x shell がおかしい"
- (filename . "~/.emacs.d/memo/my-emacs-task.org.txt")
- (front-context-string . "\n   CLOCK: [2014")
- (rear-context-string . " M-x shell がおかしい")
- (position . 11749))
+(("my-emacs-customize"
+ (filename . "~/.emacs.d/memo/my-emacs-customize.org.txt")
+ (front-context-string . "\n#+LAST_UPDATED:")
+ (rear-context-string . "-emacs-customize")
+ (position . 52))
 ("wrap-function-to-control-ime"
  (filename . "~/.emacs.d/inits/my-mw32-ime.el")
  (front-context-string . "wrap-function-to")
