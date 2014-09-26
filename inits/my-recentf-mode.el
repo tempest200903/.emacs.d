@@ -6,3 +6,4 @@
 ;; menubar://File/Open Recent/Options でオプション設定。
 (recentf-mode 1)
 ;; ----------------------------------------------------------------------
+;; * [2014-09-26 金] TODO M-x my-rename-file-and-buffer でリネームしたとき、リネーム後のファイル名が recentf に記録されない。

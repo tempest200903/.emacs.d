@@ -58,6 +58,7 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-hook"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-speed"))
 (when t    "2014-09-19" (load "~/.emacs.d/inits/my-org-countdown")) ;; 実験中
+(when t    "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
 ;; ** howm-mode
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-howm-keymap"))
 ;; ** emacs-lisp-mode
