@@ -149,6 +149,7 @@
 ;; 他の prefix は <prefix> C-h でできる。
 (define-key global-map (kbd "C-h C-x C-b")          'describe-prefix-bindings)
 (define-key global-map (kbd "C-h C-z C-f")          'describe-face)
+(define-key global-map (kbd "C-h C-l C-f")          'list-faces-display)
 (define-key global-map (kbd "C-h C-x C-t")          'describe-text-properties)
 (define-key global-map (kbd "C-h C-x C-u")          'customize)
 (define-key global-map (kbd "C-h C-x C-o")          'org-customize)

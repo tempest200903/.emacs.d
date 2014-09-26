@@ -25,6 +25,7 @@
     (message "OFFSET is nil")
     )
   )
+;; ** [2014-09-24 水] TODO ステータスが DONE である行をスキップする。
 (defun my-org-countdown-scan-next-schedule-time ()
   "*Org Agenda* バッファから次の schedule 時刻を読み取る"
   (let (

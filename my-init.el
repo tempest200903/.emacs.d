@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
 ;; my-init.el
-;; #+LAST_UPDATED: 2014-09-05
+;; #+LAST_UPDATED: 2014-09-25
 ;; ----------------------------------------------------------------------
 ;; * benchmark
  (when t "2014-09-14" (load "~/.emacs.d/inits/my-benchmark"))
@@ -31,20 +31,17 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server"))
-;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-os-windows"))
-;; (when nil  "2013-10-29" (load "~/.emacs.d/inits/my-picture-mode"))
-;; (when t    "2014-04-15" (load "~/.emacs.d/inits/my-time-stamp"))
 (when t    "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when t    "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
-(when t    "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
-(when t    "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
+(when nil  "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
+(when nil  "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
 (when nil  "2014-09-08" (load "~/.emacs.d/inits/my-visible-mark")) ;; 故障するので使用中止。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中。
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-os-windows-ime")) ;; 実験中。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-16" (load "~/.emacs.d/inits/my-sequential-command")) ;; 実験中
-(when t    "2014-09-20" (load "~/.emacs.d/inits/my-calc")) ;; 実験中
+(when nil  "2014-09-20" (load "~/.emacs.d/inits/my-calc")) ;; 実験中
 (when t    "2014-09-23" (load "~/.emacs.d/inits/my-shell")) ;; 実験中
 (when t    "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-explorer")) ;; 実験中
 ;; ----------------------------------------------------------------------
@@ -65,8 +62,12 @@
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-howm-keymap"))
 ;; ** emacs-lisp-mode
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode-map"))
-;; (when t    "2014-04-11" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 ;; ----------------------------------------------------------------------
 ;; * require after init
 ;; (when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive")) ;; homw など重い lisp を遅延評価するため必要。
+;; ----------------------------------------------------------------------
+;; * [2014-09-25 木] 実験中。
+;; http://d.hatena.ne.jp/ramen26/20101202/1291294660
+;; emacs の表示が崩れる。。。
+(menu-bar-mode -1)
 ;; ----------------------------------------------------------------------
