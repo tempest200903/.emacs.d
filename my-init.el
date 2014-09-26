@@ -23,6 +23,7 @@
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-coding-system"))
 ;; define-key よりさきに unset-key する必要がある。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-setq"))
@@ -39,11 +40,11 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中。
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-os-windows-ime")) ;; 実験中。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
-(when t    "2014-09-16" (load "~/.emacs.d/inits/my-sequential-command")) ;; 実験中
+(when t    "2014-09-26" (load "~/.emacs.d/inits/my-sequential-command")) ;; 実験中
 (when nil  "2014-09-20" (load "~/.emacs.d/inits/my-calc")) ;; 実験中
 (when t    "2014-09-23" (load "~/.emacs.d/inits/my-shell")) ;; 実験中
 (when t    "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-explorer")) ;; 実験中
+(when t    "2014-09-26" (load "~/.emacs.d/inits/my-textile-mode-package")) ;; 実験中
 (when t    "2014-09-26" (load "~/.emacs.d/inits/my-foreign-regexp")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * anything

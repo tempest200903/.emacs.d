@@ -2094,5 +2094,20 @@ openwith.el:144:1:Error: End of file during parsing
 - http://www.bookshelf.jp/soft/meadow_25.html#SEC282
 - unix-to-dos-filename 関数は Meadow にはある。自作するべし。
 - [[~/.emacs.d/inits/my-os-windows-explorer.el]]
+** pandoc
+- [[~/.emacs.d/inits/my-pandoc-mode-map.el]]
+*** TODO 現在開いているファイルを指定した形式に変換して開きなおすコマンド。
+    [2014-09-26 金]
+- M-x my-pandoc-convert-ant-find-file
+*** TODO 現在開いているファイルを指定した形式に変換して保存コマンド。
+    [2014-09-26 金]
+- M-x my-pandoc-export
+*** TODO save-buffer するときに、〈ファイルにローカルな変数〉にエクスポート形式が指定してあれば、保存後に指定した形式で出力する。
+    [2014-09-26 金]
+- ;; -*- coding: utf-8-unix; pandoc-export: html -*-
+- defadvice save-buffer
+- cf. http://www.geocities.co.jp/SiliconValley-Bay/9285/EMACS-JA/emacs_444.html
+** その他
+*** TODO cp FILENAME{,.bak} または cp --backup=hoge
 * tail
   [2011-08-25 木 17:38]

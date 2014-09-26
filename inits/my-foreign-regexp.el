@@ -31,4 +31,6 @@
 | my-kill-buffer-file-name  | M-s M-x     | C-z f       |                                                           |
 | query-replace-regexp      | M-s M-s M-q | M-s M-g M-q | foreign-regexp/query-replace のほうが使用頻度高いだろう。 |
 "
-;; 
+;; ----------------------------------------------------------------------
+;; * [2014-09-26 金] TODO autoload my-foreign-regexp.el
+

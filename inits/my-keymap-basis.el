@@ -296,4 +296,4 @@
 (load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")
 (load "~/.emacs.d/inits/my-rotate-keymap-autoload")
 (load "~/.emacs.d/inits/my-howm-keymap")
-(load "~/.emacs.d/inits/isearch-forward-at-point")
+(load "~/.emacs.d/inits/my-isearch-forward-at-point")

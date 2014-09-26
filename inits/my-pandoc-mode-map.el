@@ -20,3 +20,8 @@
 ;; (define-key map "\C-c/v" 'pandoc-set-variable)
 ;; (define-key map "\C-c/V" 'pandoc-view-output)
 ;; (define-key map "\C-c/w" 'pandoc-set-write)
+;; ----------------------------------------------------------------------
+;; * [2014-09-26 金] TODO 現在開いているファイルを指定した形式に変換して開きなおすコマンド。
+;; * [2014-09-26 金] TODO 現在開いているファイルを指定した形式に変換して保存コマンド。
+;; * [2014-09-26 金] TODO save-buffer するときに、〈ファイルにローカルな変数〉にエクスポート形式が指定してあれば、保存後に指定した形式で出力する。
+;; - cf. http://www.geocities.co.jp/SiliconValley-Bay/9285/EMACS-JA/emacs_444.html
