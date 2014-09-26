@@ -44,6 +44,7 @@
 (when nil  "2014-09-20" (load "~/.emacs.d/inits/my-calc")) ;; 実験中
 (when t    "2014-09-23" (load "~/.emacs.d/inits/my-shell")) ;; 実験中
 (when t    "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-explorer")) ;; 実験中
+(when t    "2014-09-26" (load "~/.emacs.d/inits/my-foreign-regexp")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * anything
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))

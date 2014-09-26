@@ -1,6 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2014-09-15
 ;; my-pandoc-mode-package.el
+;; #+LAST_UPDATED: 2014-09-15
 ;; 関連 my-pandoc-mode-map.el
 ;; ======================================================================
 ;; * [2014-09-10 水] install

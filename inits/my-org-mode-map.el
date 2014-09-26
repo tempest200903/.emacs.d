@@ -21,7 +21,11 @@
 (define-key global-map (kbd "M-g M-j") 'org-clock-goto)
 (define-key global-map (kbd "M-g M-u") 'my-org-clock-goto-u)
 (define-key global-map (kbd "M-g M-h") 'my-org-clock-goto-default)
-(define-key global-map (kbd "M-s M-a") 'org-occur-in-agenda-files)
+
+;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/align と衝突するので変更する。
+;; (define-key global-map (kbd "M-s M-a") 'org-occur-in-agenda-files)
+(define-key global-map (kbd "M-s a") 'org-occur-in-agenda-files)
+
 (define-key global-map (kbd "C-z C-u") 'org-time-stamp-inactive)
 ;;
 ;; cf. http://orgmode.org/manual/Activation.html#Activation 

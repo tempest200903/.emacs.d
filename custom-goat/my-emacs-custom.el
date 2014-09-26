@@ -70,3 +70,5 @@
 ;; bookmark-default-file デフォルト値 ~/.emacs.d/bookmarks から変更する。
 (require 'bookmark)
 (setq bookmark-default-file (concat "~/.emacs.d/" emacs_custom "/bookmarks"))
+;; ----------------------------------------------------------------------
+(setenv "PATH" (concat (getenv "PATH") ";C:/Ruby193/bin"))

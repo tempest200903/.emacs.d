@@ -1,0 +1,91 @@
+# global-map.txt
+M-s ESC
+Prefix Command
+M-s .
+my-moccur-today
+M-s [
+my-occur-link
+M-s c
+popwin:find-file-changelog
+M-s d
+set-selective-display
+M-s e
+popwin:messages
+M-s h
+Prefix Command
+M-s i
+isearch-highlight-regexp
+M-s l
+popwin:display-last-buffer
+M-s m
+popwin:find-file-makefile
+M-s o
+occur
+M-s w
+isearch-forward-word
+M-s M-:
+re-builder
+M-s M-]
+ffap-next
+M-s M-a %%
+org-occur-in-agenda-files
+M-s M-b
+multi-occur-in-matching-buffers
+M-s M-c
+occur-by-moccur
+M-s M-d
+dmoccur
+M-s M-f %%
+moccur-grep-find
+M-s M-g
+moccur-grep
+M-s M-k
+popwin:stick-popup-window
+M-s M-l
+Prefix Command
+M-s M-m %%
+moccur
+M-s M-o %%
+occur
+M-s M-q
+query-replace
+M-s M-r %%
+vr/query-replace
+M-s M-s %%
+Prefix Command
+M-s M-u
+ffap-menu
+M-s M-v
+vr/replace
+M-s M-w
+ffap-copy-string-as-kill
+M-s M-x %%
+my-kill-buffer-file-name
+M-s M-s ESC
+Prefix Command
+M-s M-l ESC
+Prefix Command
+M-s h f
+hi-lock-find-patterns
+M-s h l
+highlight-lines-matching-regexp
+M-s h p
+highlight-phrase
+M-s h r
+highlight-regexp
+M-s h u
+unhighlight-regexp
+M-s h w
+hi-lock-write-interactive-patterns
+M-s M-s M-q %%
+query-replace-regexp
+M-s M-l M-c
+loccur-current
+M-s M-l M-d
+loccur-defun
+M-s M-l M-l
+loccur
+M-s M-l M-p
+loccur-previous-match
+M-s M-l M-t
+loccur-toggle-highlight

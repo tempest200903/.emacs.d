@@ -104,10 +104,19 @@
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-05 月] M-% は押しにくいので alias.
 ;; しかし、 isearch-map では M-% を使わないと引継ぎできない。 isearch-map でも押しやすいキーで引継ぎしたい。
-(define-key global-map (kbd "M-s M-q")              'query-replace)
-(define-key global-map (kbd "M-s M-s M-q")          'query-replace-regexp)
+;; (define-key global-map (kbd "M-s M-q")              nil)
+(define-key global-map (kbd "M-s M-q M-s")              'query-replace)
+
+;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/isearch-forward と衝突するので変更する。
+;; (define-key global-map (kbd "M-s M-s M-q")          'query-replace-regexp)
+(define-key global-map (kbd "M-s M-q M-r")          'query-replace-regexp)
+
 ;; かな漢字変換が on のとき M-s o すると minibuffer に o が入力されてしまうのを回避する。
-(define-key global-map (kbd "M-s M-o")              'occur)
+
+;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/occur と衝突するので変更する。
+;; (define-key global-map (kbd "M-s M-o")              'occur)
+;; (define-key global-map (kbd "M-s o")              'occur) ;; デフォルトのまま。
+
 (define-key global-map (kbd "M-s M-:")              're-builder)
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-06 火] calc 関連 alias.
@@ -241,7 +250,11 @@
 ;; ----------------------------------------------------------------------
 ;; * [2012-01-27 金]
 (define-key global-map (kbd "M-w")                  'my-kill-ring-save-or-ffap-copy-string-as-kill)
-(define-key global-map (kbd "M-s M-x")              'my-kill-buffer-file-name)
+
+;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/toggle-ext-regexp と衝突するので変更する。
+;; (define-key global-map (kbd "M-s M-x")              'my-kill-buffer-file-name)
+(define-key global-map (kbd "C-z f")              'my-kill-buffer-file-name)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-06 土]
 (define-key global-map (kbd "C-t C-f")              'next-multiframe-window)
