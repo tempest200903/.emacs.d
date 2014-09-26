@@ -188,9 +188,11 @@
 ;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/non-incremental/search-forward と衝突するので変更する。
 ;; (define-key global-map (kbd                              "M-s M-f") 'moccur-grep-find)
 ;; (define-key global-map (kbd                              "M-s M-g M-f") 'moccur-grep-find)
-(define-key global-map (kbd                              "M-s f") 'moccur-grep-find)
+;; (define-key global-map (kbd                              "M-s f") 'moccur-grep-find)
+(define-key global-map (kbd                              "M-s n") 'moccur-grep-find)
 
 ;; M-s M-g runs the command nonincremental-repeat-search-forward があるので、 M-s M-g で始まる kbd を変更する必要がある。
+;; dired-mode には M-s f C-s dired-isearch-filenames などがあるので M-s f で始まる kbd を変更する必要がある。
 
 ;; (define-key global-map (kbd                              "M-s M-d") 'dmoccur)
 (define-key global-map (kbd                              "M-s d") 'dmoccur)

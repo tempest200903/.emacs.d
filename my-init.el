@@ -12,7 +12,7 @@
 ;; ----------------------------------------------------------------------
 ;; ** custom
 (setq emacs_custom (getenv "EMACS_CUSTOM"))
-(setq custom-file (concat "~/.emacs.d/" emacs_custom "/my-emacs-custom.el"))
+(setq custom-file (concat user-emacs-directory emacs_custom "/my-emacs-custom.el"))
 (load custom-file)
 ;; ----------------------------------------------------------------------
 ;; * global

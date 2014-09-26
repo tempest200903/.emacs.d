@@ -40,3 +40,5 @@
 ;; (global-set-key (kbd "<H-left>") 'evil-numbers/dec-at-pt)
 (global-set-key (kbd "C-z <right>") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-z <left>") 'evil-numbers/dec-at-pt)
+
+;; * [2014-09-27 土] TODO auto-load

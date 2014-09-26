@@ -86,6 +86,10 @@
                          ))
 (setq howm-search-other-dir t) ;; howm-toggle-search-other-dir のトグルの初期値 (t か nil)
 ;; ----------------------------------------------------------------------
+;; * [2014-09-27 土] https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50bell.el
+;; ベルを鳴らすかわりにスクリーンを点滅させる
+(setq visible-bell t)
+;; ----------------------------------------------------------------------
 ;; 重要な変数について解説
 ;;
 ;; '(org-link-to-org-use-id nil) ;; org hyperlink を id を使わない方式にする。

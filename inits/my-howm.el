@@ -84,4 +84,7 @@
 ;; (setq howm-file-name-format "%Y/%m/%Y-%m-%d-%H%M%S.howm.txt") ;; howm のファイル名
 ;; (setq howm-file-name-format "%Y-%m-%d-%H%M%S.howm.txt")
 ;; ----------------------------------------------------------------------
+;; * [2014-09-27 土] https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50howm.el
+(setq howm-menu-refresh-after-save nil) ; save 時にメニューを自動更新せず
+;; ----------------------------------------------------------------------
 (provide 'my-howm)

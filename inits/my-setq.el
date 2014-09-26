@@ -83,3 +83,17 @@
 (when (require 'midnight nil)
   (setq midnight-period (* 4 60 60))
   )
+;; ----------------------------------------------------------------------
+;; * [2014-09-27 土] https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/10gc.el
+;; GC の頻度調整
+(setq gc-cons-threshold 52428800)
+;; メッセージを minibuf に出す。
+(setq garbage-collection-messages t)
+;; ----------------------------------------------------------------------
+;; * [2014-09-27 土] https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50face.el
+;;; M-x list-face-display のサンプル文字列
+(setq list-faces-sample-text
+      "漢字ひらがなカタカナﾊﾝｶｸｶﾅabcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ_-")
+;; https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50frame.el
+(setq-default indicate-empty-lines t)
+(setq-default indicate-buffer-boundaries 'right)

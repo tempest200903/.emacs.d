@@ -20,6 +20,8 @@
 ;; * [2012-06-04 月] n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/60-emacs-lisp-mode.el
 ;; eldoc をミニバッファに表示
 ;; emacs-lisp-mode-hook用の関数を定義
+;; * https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50elisp.el
+;; 
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
   (when (require 'eldoc nil t)
@@ -28,6 +30,7 @@
     (turn-on-eldoc-mode)))
 ;; emacs-lisp-modeのフックをセット
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
+(add-hook 'lisp-interaction-mode-hook 'elisp-mode-hooks)
 ;; ----------------------------------------------------------------------
 ;; * [2012-08-09 木] which-func-mode
 (defun which-function-mode-on () ""

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; #+LAST_UPDATED: 2013-11-03
 ;; my-rename-file-and-buffer
 ;; ----------------------------------------------------------------------
@@ -5,7 +6,6 @@
 ;; Emacsで編集中のバッファのファイル名を変更する - Qiita [キータ]
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 ;; source: http://whattheemacsd.com/
-;;;###autoload
 (defun my-rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
@@ -39,6 +39,19 @@
         (delete-file filename)
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
+;; ----------------------------------------------------------------------
+;; * [2014-09-27 土] https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50after-save.el
+(defun delete-file-if-no-contents ()
+  "内容が 0 ならファイルごと削除する."
+  (when (and
+         (buffer-file-name (current-buffer))
+         (= (point-min) (point-max)))
+    (when (y-or-n-p "Delete file and kill buffer?")
+      (let (delete-by-moving-to-trash)
+        (delete-file
+         (buffer-file-name (current-buffer))))
+      (kill-buffer (current-buffer)))))
+(add-hook 'after-save-hook 'delete-file-if-no-contents)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日]
 (provide 'my-rename-file-and-buffer)
