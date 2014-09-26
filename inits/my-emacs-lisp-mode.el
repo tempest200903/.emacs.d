@@ -12,6 +12,9 @@
                           ("define-key" . font-lock-keyword-face)
                           ("add-hook" . font-lock-keyword-face)
                           ("setq" . font-lock-keyword-face)
+                          ("package-require" . font-lock-keyword-face)
+                          ("require" . font-lock-keyword-face)
+                          ("load" . font-lock-keyword-face)
                           ))
 ;; ----------------------------------------------------------------------
 ;; * [2012-06-04 月] n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/60-emacs-lisp-mode.el

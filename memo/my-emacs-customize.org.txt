@@ -200,6 +200,10 @@ Loading vc-svn...done
     (setq recentf-auto-cleanup 'never)
     (recentf-mode 1)
     #+END_EXAMPLE
+**** TODO recentf-ext
+     CLOCK: [2014-09-26 金 23:49]
+- http://qiita.com/catatsuy/items/55d50d13ebc965e5f31e
+  - 最近開いたファイルを使う
 *** DONE 拡張 elisp を導入するための準備                         :emacs_core:
    [2011-08-23 火 11:01]
 - ロードパス
