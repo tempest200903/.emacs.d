@@ -6,32 +6,38 @@
   "Switch to *Org Agenda* buffer. If arg is 4, switch-to-buffer-other-window"
   (interactive "P")
   (message "my-org-agenda-list-switch-to-buffer")
-  (if (get-buffer "*Org Agenda*")
-      (cond
-       ((equal arg 4)
-        (my-org-agenda-list-switch-to-buffer-other-window)
-        )
-       (t
-        (switch-to-buffer "*Org Agenda*")
-        (delete-other-windows)
-        )
-       )
-    (call-interactively 'org-agenda-list))
+  (let ((buffer-name "*Org Agenda*"))
+    (if (get-buffer buffer-name)
+        (cond
+         ((equal arg 4)
+          (my-org-agenda-list-switch-to-buffer-other-window)
+          )
+         (t
+          (switch-to-buffer buffer-name)
+          (delete-other-windows)
+          )
+         )
+      (call-interactively 'org-agenda-list))
+    )
   )
+
 (defun my-org-agenda-list-switch-to-buffer-other-window (arg)
   "Switch to *Org Agenda* buffer other-window"
   (interactive "P")
   (message "my-org-agenda-list-switch-to-buffer-other-window")
-  (if (get-buffer "*Org Agenda*")
-      (progn
-        (when (one-window-p) (split-window-horizontally))
-        (switch-to-buffer-other-window "*Org Agenda*")
-        (switch-to-last-buffer)
-        (other-window 1)
-        )
-    (call-interactively 'org-agenda-list)
+  (let ((buffer-name "*Org Agenda*"))
+    (if (get-buffer buffer-name)
+        (progn
+          (when (one-window-p) (split-window-horizontally))
+          (switch-to-buffer-other-window buffer-name)
+          (switch-to-last-buffer)
+          (other-window 1)
+          )
+      (call-interactively 'org-agenda-list)
+      )
     )
   )
+
 ;; 1回目は my-org-agenda-list-switch-to-buffer, 
 ;; 2回目は my-org-agenda-list-switch-to-buffer-other-window
 (define-sequential-command my-org-agenda-list-switch-to-buffer-sequential
