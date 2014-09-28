@@ -1,6 +1,7 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-keymap-basis.el
 ;; ======================================================================
+
 (require 'my-bind-key-package)
 ;; TODO bind-key から my-bind-key-with-autoload に替える。
 
@@ -315,3 +316,4 @@
 (load "~/.emacs.d/inits/my-howm-keymap")
 (load "~/.emacs.d/inits/my-isearch-forward-at-point")
 (load "~/.emacs.d/inits/my-keymap-superhyper")
+(load "~/.emacs.d/inits/my-lookup-key")

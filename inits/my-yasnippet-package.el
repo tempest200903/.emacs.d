@@ -22,6 +22,12 @@
         '("~/.emacs.d/snippets"                 ;; personal snippets
           ))
 
+  ;; default key bindings
+  ;; C-c & C-f       yas/find-snippets
+  ;; C-c & C-n       yas/new-snippet
+  ;; C-c & C-s       yas/insert-snippet
+  ;; C-c & C-v       yas/visit-snippet-file
+
   (bind-key "C-x y e" 'yas/expand)
   (bind-key "C-x y i" 'yas/insert-snippet)
   (bind-key "C-x y f" 'yas/find-snippets)
