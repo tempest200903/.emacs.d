@@ -53,6 +53,7 @@
           "<non-convert> z"
           "<C-convert>"
           "<S-convert>"
+          "<C-copy>"
           ))
   (guide-key-mode 1)  ; guide-key-mode を有効にする
   )

@@ -16,8 +16,7 @@
 
 ;; ----------------------------------------------------------------------
 ;; * [2012-11-16 金] diff-mode では M-g に revert-buffer が割り当てられていて邪魔だ。 <S-F1> を使う。
-;; (add-hook 'diff-mode-hook
-;;           (lambda ()
-;;             (define-key diff-mode-map (kbd "M-g") nil)
-;;             ))
-(define-key diff-mode-map (kbd "M-g") nil)
+(defun my-diff-mode-hook () ""
+  (define-key diff-mode-map (kbd "M-g") nil)
+  )
+(add-hook 'diff-mode-hook 'diff-mode-map)

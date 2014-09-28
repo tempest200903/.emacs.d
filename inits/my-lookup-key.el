@@ -23,6 +23,10 @@
 (global-set-key (kbd "<S-convert>") (lookup-key global-map (kbd "C-x r")))
 ;; 使用例 (global-set-key (kbd "C-x r s") (kbd "<S-convert> s")
 
+;; <C-copy> は Ctrl+ひらがな のこと。
+(global-set-key (kbd "<C-copy>") (lookup-key global-map (kbd "C-x 4")))
+;; 使用例 (global-set-key (kbd "C-x 4 C-f") (kbd "<C-copy> C-f")
+
 ;; TODO [2014-09-28 日]
 ;; http://www.emacswiki.org/PrefixKey
 ;; bluewind を <S-non-convert> に移す。
