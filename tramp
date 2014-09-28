@@ -1,6 +1,8 @@
-;; -*- emacs-lisp -*- <14/09/28 16:49:23 c:/tool/gnupack/home/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <14/09/28 21:30:16 c:/tool/gnupack/home/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
-((["scpc" nil "ssh" nil]
+((["plink" nil "ssh" nil]
+  nil)
+ (["ssh" "vagrant" "192.168.33.15" nil]
   nil))

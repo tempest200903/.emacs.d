@@ -3,6 +3,10 @@
 ;; ======================================================================
 (require 'my-bind-key-package)
 ;; TODO bind-key から my-bind-key-with-autoload に替える。
+
+;; ----------------------------------------------------------------------
+(load "~/.emacs.d/inits/my-anything-map")
+
 ;; ----------------------------------------------------------------------
 (define-key global-map (kbd "<f5>")                 'repeat)
 (define-key global-map (kbd "C-;")                  'repeat)
@@ -305,5 +309,4 @@
 (load "~/.emacs.d/inits/my-howm-keymap")
 (load "~/.emacs.d/inits/my-isearch-forward-at-point")
 (load "~/.emacs.d/inits/my-keymap-superhyper")
-(load "~/.emacs.d/inits/my-anything-map")
 

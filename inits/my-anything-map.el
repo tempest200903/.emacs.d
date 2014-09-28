@@ -1,7 +1,7 @@
-;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-anything-map.el
 ;; ======================================================================
-(setq anything-command-map-prefix-key "C-t")
+(setq anything-command-map-prefix-key "s-:")
 
 ;; ----------------------------------------------------------------------
 ;; * [2010-11-27 土] キーマップ my-anything-map
