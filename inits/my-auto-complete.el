@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; my-auto-complete.el
+ ;; my-auto-complete.el
 ;; #+LAST_UPDATED: 2014-09-28
 ;; ======================================================================
 ;; * [2014-09-28 日] 導入
