@@ -1,0 +1,8 @@
+* gnupack
+** UsersGuide_tips
+- file:///C:/tool/gnupack/docs/latest/UsersGuide_tips.html
+** cyg-pm はどこにある？
+/root/app/script/cyg-pm
+** apt-cyg はどこにある？
+/root/app/script/apt-cyg
+** nkf をインストールしたい

@@ -1,6 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; #+LAST_UPDATED: 2013-11-09
 ;; my-shell.el
+;; #+LAST_UPDATED: 2014-09-28
 ;; ======================================================================
 ;; * [2014-09-22 月] ~/.emacs.d/gnupack-init.el から移植した。
 ;; *shell* バッファで bash: $'exit\r': コマンドが見つかりません という不具合を回避するために必要。
@@ -8,9 +8,6 @@
 (require 'shell)
 (setq explicit-shell-file-name "bash.exe")
 (setq shell-command-switch "-c")
-(setq shell-file-name "bash.exe")
-
-;; (M-! and M-| and compile.el)
 (setq shell-file-name "bash.exe")
 (modify-coding-system-alist 'process ".*sh\\.exe" 'cp932)
 
@@ -39,41 +36,38 @@
 ;; - C-h v explicit-shell-file-name customize "C:/cygwin/bin/bash.exe" を指定するとどうなる？ 実験結果 bash が使える！
 ;; - cmd と bash を使い分けたい。どうすればできるか？
 
-(when nil
+(defun shell-cmd-sjis () "shell using cmd with sjis 【未完成】 実行すると emacs クラッシュ"
+  (interactive)
 
-  (defun shell-cmd-sjis () "shell using cmd with sjis 【未完成】 実行すると emacs クラッシュ"
-    (interactive)
-
-    ;; (universal-coding-system-argument CODING-SYSTEM) を参考にした。
-    (let local-coding-system
-      (let ((coding-system-for-read local-coding-system)
-            (coding-system-for-write local-coding-system)
-            (coding-system-require-warning t)
-            )
-        (message "")
-        (let* ((explicit-shell-file-name "C:/WINDOWS/system32/cmd.exe"))
-          (call-interactively 'shell)
+  ;; (universal-coding-system-argument CODING-SYSTEM) を参考にした。
+  (let local-coding-system
+    (let ((coding-system-for-read local-coding-system)
+          (coding-system-for-write local-coding-system)
+          (coding-system-require-warning t)
           )
+      (message "")
+      (let* ((explicit-shell-file-name "C:/WINDOWS/system32/cmd.exe"))
+        (call-interactively 'shell)
         )
       )
     )
-
-  (defun shell-cmd () "shell using cmd"
-    (interactive)
-    (let* ((explicit-shell-file-name "C:/WINDOWS/system32/cmd.exe"))
-      (call-interactively 'shell)
-      )
-    )
-
-  (defun shell-bash () "shell using bash"
-    (interactive)
-    (let* ((explicit-shell-file-name "C:/cygwin/bin/bash.exe"))
-      (call-interactively 'shell)
-      )
-    )
-
-  (global-set-key (kbd "M-s M-h") 'shell)
   )
+
+(defun shell-cmd () "shell using cmd"
+  (interactive)
+  (let* ((explicit-shell-file-name "C:/WINDOWS/system32/cmd.exe"))
+    (call-interactively 'shell)
+    )
+  )
+
+(defun shell-bash () "shell using bash"
+  (interactive)
+  (let* ((explicit-shell-file-name "C:/cygwin/bin/bash.exe"))
+    (call-interactively 'shell)
+    )
+  )
+
+(global-set-key (kbd "M-s M-h") 'shell)
 
 ;; ======================================================================
 ;; 最後に実行したコマンドを再実行する。
