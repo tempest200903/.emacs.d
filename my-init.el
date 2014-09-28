@@ -66,7 +66,7 @@
 ;; ** howm-mode
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-howm-keymap"))
 ;; ** emacs-lisp-mode
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode-map"))
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 ;; ----------------------------------------------------------------------
 ;; * require after init
 ;; (when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive")) ;; homw など重い lisp を遅延評価するため必要。
