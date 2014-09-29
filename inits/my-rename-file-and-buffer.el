@@ -1,6 +1,7 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; #+LAST_UPDATED: 2013-11-03
 ;; my-rename-file-and-buffer
+
 ;; ----------------------------------------------------------------------
 ;; [2013-10-15] http://qiita.com/ironsand/items/98c6d5ab01105a694af1
 ;; Emacsで編集中のバッファのファイル名を変更する - Qiita [キータ]
@@ -21,6 +22,9 @@
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
 ;; TODO これを anything-buffers-list の action に入れてほしい。
+;; TODO (setq uniquify-buffer-name-style 'post-forward-angle-brackets) にすると、 M-x my-rename-file-and-buffer が失敗する。
+;; my-rename-file-and-buffer が post-forward-angle-brackets を考慮していないから。
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-16 火]
 ;; source: http://whattheemacsd.com/
@@ -39,6 +43,7 @@
         (delete-file filename)
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-27 土] https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50after-save.el
 (defun delete-file-if-no-contents ()
@@ -52,6 +57,7 @@
          (buffer-file-name (current-buffer))))
       (kill-buffer (current-buffer)))))
 (add-hook 'after-save-hook 'delete-file-if-no-contents)
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日]
 (provide 'my-rename-file-and-buffer)

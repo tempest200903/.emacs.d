@@ -50,17 +50,23 @@
 (defun my-howmM-or-switch-to-buffer ()
   "Switch to *howmM:%menu%* buffer, or run `howm'."
   (interactive)
-  (if (get-buffer "*howmM:%menu%*")
-      (switch-to-buffer-other-window "*howmM:%menu%*")
-    (call-interactively 'howm-menu)))
+  (let ((buffer-name "*howmM:%menu%*"))
+    (if (get-buffer buffer-name)
+        (switch-to-buffer-other-window buffer-name)
+      (call-interactively 'howm-menu)))
+  )
+
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-27 火] howmS buffer に switch する。 howmS buffer がない場合は howm-menu 開始する。
 (defun my-howmS-or-switch-to-buffer ()
   "Switch to *howmS* buffer, or run `howm'."
   (interactive)
-  (if (get-buffer "*howmS*")
-      (switch-to-buffer-other-window "*howmS*")
-    (call-interactively 'howm-list-grep-fixed)))
+  (let ((buffer-name "*howmS*"))
+    (if (get-buffer buffer-name)
+        (switch-to-buffer-other-window buffer-name)
+      (call-interactively 'howm-list-grep-fixed)))
+  )
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] http://howm.sourceforge.jp/README-j.html テンプレートの変更
 (setq howm-template "= %title%cursor

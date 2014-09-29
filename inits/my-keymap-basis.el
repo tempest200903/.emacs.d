@@ -1,8 +1,13 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-keymap-basis.el
 ;; ======================================================================
+
 (require 'my-bind-key-package)
 ;; TODO bind-key から my-bind-key-with-autoload に替える。
+
+;; ----------------------------------------------------------------------
+(load "~/.emacs.d/inits/my-anything-map")
+
 ;; ----------------------------------------------------------------------
 (define-key global-map (kbd "<f5>")                 'repeat)
 (define-key global-map (kbd "C-;")                  'repeat)
@@ -57,6 +62,7 @@
   (define-key global-map (kbd "M-g C-n")            'highlight-changes-next-change)
   )
 ;; TODO autoload hilit-chg
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] mode 切り替え関連。
 (define-key global-map (kbd "C-z l")                'linum-mode)
@@ -64,6 +70,7 @@
 (define-key global-map (kbd "C-z g")                'graphviz-dot-mode)
 (define-key global-map (kbd "C-z t")                'orgtbl-mode)
 (define-key global-map (kbd "C-z h")                'hl-line-mode)
+
 ;; ----------------------------------------------------------------------
 ;; * [2011-08-29 月] capslock キーを活用する。 C-x C-* の alias として capslock * を割り当てる。
 (define-prefix-command                              'my-oem-attn-map)
@@ -250,7 +257,6 @@
 ;; ----------------------------------------------------------------------
 ;; * [2012-01-27 金]
 (define-key global-map (kbd "M-w")                  'my-kill-ring-save-or-ffap-copy-string-as-kill)
-
 ;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/toggle-ext-regexp と衝突するので変更する。
 ;; (define-key global-map (kbd "M-s M-x")              'my-kill-buffer-file-name)
 (define-key global-map (kbd "C-z f")              'my-kill-buffer-file-name)
@@ -263,14 +269,23 @@
 (define-key global-map (kbd "C-t C-p")              'raise-other-frame-minus)
 (define-key global-map (kbd "C-t 4")                'delete-frame)
 (define-key global-map (kbd "C-t 5")                'make-frame-command)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-06 土] anything 廃止した代わりのキーバインド関連
-(define-key global-map (kbd "C-t C-;")              'recentf-open-files)
-(define-key global-map (kbd "C-t C-l")              'bookmark-bmenu-list)
-(define-key global-map (kbd "C-t C-i")              'imenu)
+(when (not (fboundp 'anything-recentf))
+  (define-key global-map (kbd "C-t C-;")              'recentf-open-files)
+  )
+(when (not (fboundp 'anything-bookmarks))
+  (define-key global-map (kbd "C-t C-l")              'bookmark-bmenu-list)
+  )
+(when (not (fboundp 'anything-imenu))
+  (define-key global-map (kbd "C-t C-i")              'imenu)
+  )
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-08 月] migemo
 (define-key global-map (kbd "C-z C-x C-s")          'migemo-isearch-toggle-migemo)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-09 火] bm
 (define-key global-map (kbd "M-g M-t")              'bm-toggle)
@@ -282,13 +297,16 @@
 (define-key global-map (kbd "M-g 0 M-i")            'bm-remove-all-current-buffer)
 (define-key global-map (kbd "M-g 0 M-o")            'bm-remove-all-all-buffers)
 (define-key global-map (kbd "M-g M-a")              'bm-bookmark-annotate)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-13 土] my-search-keybind
 (define-key global-map (kbd "C-h M-s M-o")          'my-search-keybind)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-18 木] my-wc.el
 (my-bind-key-with-autoload "my-wc"   "C-z C-x l"    'my-region-command-wc-to-minibuffer)
 (my-bind-key-with-autoload "my-calc" "C-z *"        'my-calc-hour-in-outline)
+
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-dired-mode-map")
 (load "~/.emacs.d/inits/my-emacs-lisp-mode-map")
@@ -297,3 +315,5 @@
 (load "~/.emacs.d/inits/my-rotate-keymap-autoload")
 (load "~/.emacs.d/inits/my-howm-keymap")
 (load "~/.emacs.d/inits/my-isearch-forward-at-point")
+(load "~/.emacs.d/inits/my-keymap-superhyper")
+(load "~/.emacs.d/inits/my-lookup-key")

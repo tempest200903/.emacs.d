@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-autoload.el
+;; #+LAST_UPDATED: 2014-09-28
 ;; ======================================================================
 ;; my-auto-install.el
 (autoload 'auto-install-from-url                         "my-auto-install" nil t)

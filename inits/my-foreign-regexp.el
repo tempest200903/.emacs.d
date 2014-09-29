@@ -30,7 +30,7 @@
 | vr/replace                | M-s M-v     | M-s M-v M-r | vr/query-replace にあわせる。                             |
 | my-kill-buffer-file-name  | M-s M-x     | C-z f       |                                                           |
 | query-replace-regexp      | M-s M-s M-q | M-s M-g M-q | foreign-regexp/query-replace のほうが使用頻度高いだろう。 |
+| loccur など               | M-s M-l M-c |             | M-s M-l re-builder と衝突していた。                       |
 "
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-26 金] TODO autoload my-foreign-regexp.el
-

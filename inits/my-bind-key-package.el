@@ -5,23 +5,26 @@
 ;; http://rubikitch.com/tag/emacs-define-key/
 ;; bind-key* => メジャーモード・マイナーモードに依存しないで常に同じキーに割り当てる
 ;; ----------------------------------------------------------------------
-(package-require 'bind-key nil nil t)
-;; ----------------------------------------------------------------------
-;; (autoload FUNCTION FILE &optional DOCSTRING INTERACTIVE TYPE)
-;; (bind-key KEY-NAME COMMAND &optional KEYMAP)
-(defun my-bind-key-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP)
-  "bind-key-with-autoload"
-  (autoload COMMAND FILE)
-  (bind-key KEY-NAME COMMAND KEYMAP)
-)
-(defun my-bind-key*-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP)
-  "bind-key*-with-autoload"
-  (autoload COMMAND FILE)
-  (bind-key* KEY-NAME COMMAND KEYMAP)
-)
-;; ----------------------------------------------------------------------
-;; bind-key/bind-keysで割り当てたキーバインドをリストする
-;; (define-key global-map (kbd "C-h C-x C-p") 'describe-personal-keybindings)
-(bind-key* "C-h C-x C-p" 'describe-personal-keybindings)
+
+(when (package-require 'bind-key nil nil t)
+
+  ;; (autoload FUNCTION FILE &optional DOCSTRING INTERACTIVE TYPE)
+  ;; (bind-key KEY-NAME COMMAND &optional KEYMAP)
+  (defun my-bind-key-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP)
+    "bind-key-with-autoload"
+    (autoload COMMAND FILE)
+    (bind-key KEY-NAME COMMAND KEYMAP)
+    )
+  (defun my-bind-key*-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP)
+    "bind-key*-with-autoload"
+    (autoload COMMAND FILE)
+    (bind-key* KEY-NAME COMMAND KEYMAP)
+    )
+
+  ;; bind-key/bind-keysで割り当てたキーバインドをリストする
+  (bind-key* "C-h C-x C-p" 'describe-personal-keybindings)
+
+  )
+
 ;; ----------------------------------------------------------------------
 (provide 'my-bind-key-package)
