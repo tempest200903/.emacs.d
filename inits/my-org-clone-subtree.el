@@ -16,6 +16,11 @@
   (kbd "C-c M-1")
   (kbd "C-c C-x c 1 RET +1d RET C-c C-n C-M-s SCHEDULED RET M-f M-w M-[ C-M-s -d RET C-y C-u 3 M-d")
   )
+;; org-clone-subtree-with-time-shift して、2日インクリメントするキーボードマクロ。
+(define-key org-mode-map
+  (kbd "C-c M-2")
+  (kbd "C-c C-x c 1 RET +2d RET C-c C-n C-M-s SCHEDULED RET M-f M-w M-[ C-M-s -d RET C-y C-u 3 M-d")
+  )
 ;; org-clone-subtree-with-time-shift して、5日インクリメントするキーボードマクロ。
 (define-key org-mode-map
   (kbd "C-c M-5")
@@ -32,20 +37,22 @@
   (kbd "C-c C-x c 1 RET +7d RET C-c C-n C-M-s SCHEDULED RET M-f M-w M-[ C-M-s -d RET C-y C-u 3 M-d")
   )
 ;;
-(defun my-org-clone-subtree-with-time-shift (shift)
-  ""
-  (interactive)
-  (progn
-    (outline-up-heading 1)
-    (org-clone-subtree-with-time-shift 1 shift)
-    (org-forward-same-level 1)
-    (org-reset-checkbox-state-subtree)
-    (org-agenda-set-restriction-lock)
-    (org-todo-list "DONE")
-    (org-agenda-bulk-mark-regexp "DONE")
-    (org-agenda-bulk-action nil)
+(when nil
+  (defun my-org-clone-subtree-with-time-shift (shift)
+    ""
+    (interactive)
+    (progn
+      (outline-up-heading 1)
+      (org-clone-subtree-with-time-shift 1 shift)
+      (org-forward-same-level 1)
+      (org-reset-checkbox-state-subtree)
+      (org-agenda-set-restriction-lock)
+      (org-todo-list "DONE")
+      (org-agenda-bulk-mark-regexp "DONE")
+      (org-agenda-bulk-action nil)
+      )
     )
-  ) 
+  )
 ;; * TODO [2014-09-26 金] (kbd "C-c M-1") バグあり。実行後の見出しが 〔task-d2014-09-2014-09-25〕 になってしまう。
 ;; かならずバグ発生するわけではない。
 ;; ----------------------------------------------------------------------
