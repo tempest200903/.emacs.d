@@ -325,3 +325,8 @@ BEGIN で C-c C-c すると、 ```org-babel-execute-src-block: No org-babel-exec
 ** TODO org-mode 見積もり時間と実績時間を並べて表示する
    [2014-09-17 水]
 - さらに、見積もり時間と実績時間の差が50%以上あったら赤色表示。
+** TODO my-anything-c-source-static-keywords
+   DEADLINE: <2014-10-30 木>
+- [[~/.emacs.d/inits/my-anything-static-keywords.el]]
+  - アドレスなどをリポジトリ外部に置く。
+

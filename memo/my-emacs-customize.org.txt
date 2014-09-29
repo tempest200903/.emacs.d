@@ -1562,7 +1562,6 @@ shell-command-on-region: Args out of range: 0, 100
 - anything-show-kill-ring, anything-occur あたりは日本語検索することが多い。
 - [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-anything-migemo.el]]
   - ;; [2013-10-03 木] 未完成！ M-x my-anything-migemo しても何も出てこない。
-
 ** バージョン管理                                           :version_control:
 *** TODO commit
     [2011-12-15 木 11:02]
@@ -1611,11 +1610,15 @@ shell-command-on-region: Args out of range: 0, 100
   - auto-save-timeout 30 15
 ** ffap
    [2011-12-27 火 11:14]
-*** TODO ffap 不具合
+*** TODO 〔ffap-copy-string-as-kill 不具合〕
+    CLOCK: [2014-09-30 火 00:45]
     [2011-12-27 火 11:15]
 - "N:\I......e\プ. . . . . \■......\シ. . . . . \4.. . \イ. . . . . . . . . \コ. . . . . . . . . . . 〉.xls"
   の先頭で ffap-copy-string-as-kill すると、
   "N:\I.......\プ. . . . . \" までしか選択しない。
+- [[C:\temp\a\b\プロジェクト\■関東]]
+  の先頭で ffap-copy-string-as-kill すると、
+  "C:\temp\a\b\プロジェクト" までしか選択しない。
 ** 他のOSとinit.elを共用する
 *** terminal で利用できないキー
 - [[~/.emacs.d/memo/emacs-in-terminal.org.txt]] : terminal で利用できないキー

@@ -40,5 +40,55 @@
 ;; prefer-coding-system のような感じ。
 ;; ** [2014-09-18 木] region に登場する path を一括変換するコマンド。
 ;; ----------------------------------------------------------------------
+;; ~/.emacs.d/memo/my-emacs-customize.org.txt
+;; *** TODO 〔ffap-copy-string-as-kill 不具合〕
+;;     [2011-12-27 火 11:15]
+;; - "N:\I......e\プ. . . . . \■......\シ. . . . . \4.. . \イ. . . . . . . . . \コ. . . . . . . . . . . 〉.xls"
+;;   の先頭で ffap-copy-string-as-kill すると、
+;;   "N:\I.......\プ. . . . . \" までしか選択しない。
+;; - [[C:\temp\a\b\プロジェクト\■関東]]
+;;   の先頭で ffap-copy-string-as-kill すると、
+;;   "C:\temp\a\b\プロジェクト" までしか選択しない。
+;; org link のリンク先を確実に読み取るコマンドがほしい。
+
+(defun scan-line ()
+  "point 位置にある行を読み取る。"
+  (thing-at-point 'line)
+  )
+(defun scan-link-target (line)
+  "link-target を抽出する"
+  (if (string-match "\\[\\[\\(.*\\)\\]\\]" line)
+      (match-string 1 line)
+    )
+  )
+(defun my-copy-org-link-target ()
+  "org link のリンク先を読み取って kill-ring-save する"
+  (interactive)
+  (let* (
+         (line          (scan-line))
+         (link-target   (scan-link-target line))
+         )
+    (message "link-target =: {%s}" link-target)
+    (kill-new link-target)
+    link-target
+    )
+  )
+(defun my-kill-ring-save-or-copy-org-link-target (&optional arg)
+  "1. リージョンがアクティブならリージョンを kill-ring-save 。
+   2. リージョンが非アクティブかつ org link があるなら my-copy-org-link-target 。
+   3. いずれでもなければ ffap-copy-string-as-kill 。
+   "
+  (interactive)
+  (if mark-active
+      (kill-ring-save (mark) (point))
+    (my-copy-org-link-target)
+    )
+  )
+
+;; (bind-key "<f8>" 'my-copy-org-link-target)
+;; (bind-key "<f9>" 'my-kill-ring-save-or-copy-org-link-target)
+(bind-key "C-c M-w" 'my-kill-ring-save-or-copy-org-link-target org-mode-map)
+
+;; ----------------------------------------------------------------------
 (provide 'my-kill-ring-save) ;; goto my-autoload.el
 ;; ----------------------------------------------------------------------

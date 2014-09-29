@@ -49,14 +49,14 @@
   (progn (insert-for-yank (concat "[[shell:cygstart " (current-kill 0) "]]")))
   )
 ;; ----------------------------------------------------------------------
-;; * [2014-09-08 月 13:10] TODO
+;; * [2014-09-08 月 13:10] TODO fileserver-localopen.bat で開くリンクを挿入する。
 ;; input: \\fileserver\a\b.xls
 ;; output: [[shell:cmd /c N:\\work\\myscript\\dos\\fileserver-localopen.bat \\\\fileserver\\a\\b.xls]]
 ;; もしくは
 ;; output: [[elisp:fileserver-localopen \\\\fileserver\\a\\b.xls]]
 ;; defun fileserver-localopen を別途定義する。
 ;; ----------------------------------------------------------------------
-;; * [2014-09-08 月 13:20] TODO
+;; * [2014-09-08 月 13:20] TODO \\filserver を変換する。
 ;; パスが \\filserver\a\b\c である場合、
 ;; [[shell:cygstart \\\\a\\b\\c][\\filserver\a\b\c]] 形式に変換する。
 ;; ----------------------------------------------------------------------
