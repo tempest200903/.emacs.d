@@ -749,3 +749,11 @@
 **** TODO write-file するついでに sn か en にも保存する。
 - [2014-09-25 木] 
 - [[~/.emacs.d/inits/my-timemanager.el]]
+*** estimate 関連
+**** TODO 実績時間が見積もり時間より大幅に大きい／少ないときに警告する
+- clock-out した時 or コマンド実行時に発動。
+- org-agenda view で自動的に表示する or トグル。
+- 閾値をカスタマイズする。 e.g. +100% 以上
+- mode-line の 0:09/0:05 表示の背景色を段階的に変更する。
+
+

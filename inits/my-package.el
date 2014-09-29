@@ -77,20 +77,25 @@
       (if noerror nil
         (error "Package `%s' is not available for installation"
                (symbol-name feature))))))
+;; * [2014-09-27 土] TODO package-require 引数 filename packagename を
+;; 省略したまま、 noerror t にして使いた
+;; い。
 ;; ----------------------------------------------------------------------
 ;; * [2012-05-31 木] ためしに memory-usage をインストールしてみた。イン
 ;; ストール直後は M-x memory-usage で使える。 Emacs 再起動後は使えない。
 ;; M-x package-list-packages で memory-usage を選択しても、ヘルプが表示
 ;; されない。 ~/.emacs.d/elpa/memory-usage-0.1 に配置されているようだ。
-;; とりあえず、このディレクトリを手動で load すれば暫定運用可能か。
+;; とりあえず、このディレクトリを手動で load すれば暫定運用可能
+;; か。
 ;; ----------------------------------------------------------------------
-;; * [2012-06-04 月] 『実践入門』 p.120 コマンドから直接インストールする。
-;; M-x list-packages によって一度パッケージリストを取得している場合、次のコマンドによってインストールできます。
-;; M-x package-install RET multi-term RET
-;; これは、次のS式を評価するのと同じです。
-;; (package-install 'multi-term)
-;; (package-install 'bm)
-;; 先ほどと同じように M-x package-initialize すると、すぐに multi-term の機能を利用できるようになります。
+;; * [2012-06-04 月] 『実践入門』 p.120 コマンドから直接インストールす
+;; る。M-x list-packages によって一度パッケージリストを取得している場合、
+;; 次のコマンドによってインストールできます。M-x package-install RET
+;; multi-term RETこれは、次のS式を評価するのと同じです。
+;; (package-install 'multi-term) (package-install 'bm)先ほどと同じよう
+;; に M-x package-initialize すると、すぐに multi-term の機能を利用でき
+;; るようになりま
+;; す。
 ;; ----------------------------------------------------------------------
 ;; TODO http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0
 ;; init-loader.el と package.el を導入して快適 Emacs ライフ - Qiita
