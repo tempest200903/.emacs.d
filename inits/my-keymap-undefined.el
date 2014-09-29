@@ -37,6 +37,7 @@
     (message "indent-new-comment-line C-M-j M-j 片方は要らない。")
     (message "C-x <up> => %s" (key-binding (kbd "C-x <up>")))
     (message "C-x <down> => %s" (key-binding (kbd "C-x <down>")))
+    (message "<C-non-convert> <C-non-convert> => %s" (key-binding (kbd "<C-non-convert> <C-non-convert>")))
     (switch-to-buffer-other-window "*Messages*")
     (end-of-buffer nil)
     (recenter-top-bottom nil)

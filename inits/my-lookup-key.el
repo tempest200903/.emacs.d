@@ -2,9 +2,6 @@
 ;; my-lookup-key.el
 ;; ======================================================================
 
-(global-set-key (kbd "<C-non-convert>") (lookup-key global-map (kbd "C-x")))
-;; 使用例 (global-set-key (kbd "C-x C-f") (kbd "<C-non-convert> C-f")
-
 (global-set-key (kbd "<non-convert> x") (lookup-key global-map (kbd "C-x")))
 ;; 使用例 (global-set-key (kbd "C-x f") (kbd "<non-convert> f")
 
@@ -17,15 +14,18 @@
 (global-set-key (kbd "<non-convert> z") (lookup-key global-map (kbd "C-z")))
 ;; 使用例 (global-set-key (kbd "C-z b") (kbd "<non-convert> z b")
 
+(global-set-key (kbd "<C-non-convert>") (lookup-key global-map (kbd "C-x 5")))
+;; 使用例 (global-set-key (kbd "C-x 5 C-f") (kbd "<C-non-convert> C-f")
+
+;; <C-copy> は Ctrl+ひらがな のこと。
+(global-set-key (kbd "<C-copy>") (lookup-key global-map (kbd "C-x 4")))
+;; 使用例 (global-set-key (kbd "C-x 4 C-f") (kbd "<C-copy> C-f")
+
 (global-set-key (kbd "<C-convert>") (lookup-key global-map (kbd "M-s M-q")))
 ;; 使用例 (global-set-key (kbd "M-s M-q M-s") (kbd "<C-convert> M-s")
 
 (global-set-key (kbd "<S-convert>") (lookup-key global-map (kbd "C-x r")))
 ;; 使用例 (global-set-key (kbd "C-x r s") (kbd "<S-convert> s")
-
-;; <C-copy> は Ctrl+ひらがな のこと。
-(global-set-key (kbd "<C-copy>") (lookup-key global-map (kbd "C-x 4")))
-;; 使用例 (global-set-key (kbd "C-x 4 C-f") (kbd "<C-copy> C-f")
 
 ;; TODO [2014-09-28 日]
 ;; http://www.emacswiki.org/PrefixKey
