@@ -253,7 +253,8 @@
 ;; | C-M-q | indent-pp-sexp | quoted-insert     |
 ;; | C-z q | empty          | indent-pp-sexp    |
 (define-key global-map (kbd "C-q")                  'my-other-window-or-split)
-(define-key global-map (kbd "C-M-q")                'quoted-insert)
+;; (define-key global-map (kbd "C-M-q")                'quoted-insert)
+(bind-key* "C-M-q" 'quoted-insert)
 (define-key global-map (kbd "C-z q")                'indent-pp-sexp)
 ;; ----------------------------------------------------------------------
 ;; * [2012-01-27 金]
