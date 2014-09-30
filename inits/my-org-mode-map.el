@@ -84,5 +84,10 @@
 ;; エラーメッセージは ` Symbol's value as variable is void: org-agenda-mode-map `.
 ;; これは起動時には org-agenda-mode-map がまだ存在しないため。
 ;; ----------------------------------------------------------------------
-;; * [2014-09-18 木] my-pandoc-mode-package
+;; * [2014-09-18 木] my-pandoc-mode-package.el
 (my-bind-key-with-autoload "my-pandoc-mode-package" "C-z C-e t" 'my-pandoc-compile-org-to-textile org-mode-map)
+
+;; ----------------------------------------------------------------------
+;; * [2014-09-30 火] my-kill-ring-save.el
+;; (bind-key "C-c M-w" 'my-kill-ring-save-or-copy-org-link-target org-mode-map)
+(my-bind-key-with-autoload "my-kill-ring-save" "C-c M-w" 'my-kill-ring-save-or-copy-org-link-target org-mode-map)

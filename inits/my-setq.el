@@ -5,10 +5,6 @@
 ;; cf. url: http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; ------------------------------------------------------------------
-;; * [2010-10-18 月] 対応するカッコをハイライト
-;; cf. url: http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html
-(show-paren-mode 1)
-;; ------------------------------------------------------------------
 ;; ;; * [2010-10-18 月] ;; cf. WEB+DB PRESS Vol.58 ;; url:
 ;; http://gihyo.jp/magazine/wdpress/archive/2010/vol58 ;; p.77 フレーム
 ;; タイトルを変更する。;; ;; ** 変更前のデフォルト値は;;

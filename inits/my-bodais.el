@@ -9,4 +9,4 @@
   (occur module-id)
   (next-error)
   )
-(global-set-key (kbd "C-z C-:")         'my-bodais-module-dictionary-lookup)
+(global-set-key (kbd "C-z C-x C-:")         'my-bodais-module-dictionary-lookup)

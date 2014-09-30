@@ -257,9 +257,9 @@
 ;; ----------------------------------------------------------------------
 ;; * [2012-01-27 金]
 (define-key global-map (kbd "M-w")                  'my-kill-ring-save-or-ffap-copy-string-as-kill)
-;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/toggle-ext-regexp と衝突するので変更する。
-;; (define-key global-map (kbd "M-s M-x")              'my-kill-buffer-file-name)
-(define-key global-map (kbd "C-z f")              'my-kill-buffer-file-name)
+;; (define-key global-map (kbd "C-z f")              'my-kill-buffer-file-name)
+(my-bind-key-with-autoload "my-kill-ring-save" "C-z C-:" 'my-seq-kill-buffer-file-name)
+;; C-z C-: 1回目で my-kill-buffer-file-name, 2回目で my-kill-buffer-base-name, 3回目で my-kill-buffer-dir-name
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-06 土]

@@ -15,6 +15,7 @@
                           ("package-require" . font-lock-keyword-face)
                           ("require" . font-lock-keyword-face)
                           ("load" . font-lock-keyword-face)
+                          ("define-sequential-command" . font-lock-keyword-face)
                           ))
 ;; ----------------------------------------------------------------------
 ;; * [2012-06-04 月] n:/download/Emacs/sample_emacs_d/github.com.shishi/shishi-.emacs.d-9d470cf/inits/60-emacs-lisp-mode.el
@@ -47,7 +48,23 @@
     (eval-buffer)
     )
   )
-;; 
+
+;; ----------------------------------------------------------------------
+;; * [2014-09-30 火]
+
+(defun my-debug-on-error-t () "(setq debug-on-error t)"
+  (interactive)
+  (setq debug-on-error t)
+  )
+
+(defun my-debug-on-quit-t () "(setq debug-on-quit t)"
+  (interactive)
+  (setq debug-on-quit t)
+  )
+
+;; Tips. ある関数に対して debug を実行する二番目の方法は、関数を呼び出
+;; す時 にデバッグに入る方法である。それには debug-on-entry を使う。
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木]
 (provide 'my-emacs-lisp-mode)
