@@ -2,12 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("try-to-add-imenu"
- (filename . "~/github/znz/dot-emacs/init.el.d/50imenu.el")
- (front-context-string . "try-to-add-imenu")
- (rear-context-string . "enuMode\n (defun ")
- (position . 53))
-("my-emacs-customize"
+(("my-emacs-customize"
  (filename . "~/.emacs.d/memo/my-emacs-customize.org.txt")
  (front-context-string . "\n#+LAST_UPDATED:")
  (rear-context-string . "-emacs-customize")
@@ -22,11 +17,6 @@
  (front-context-string . "myorg-update-par")
  (rear-context-string . ".com/\n;; (defun ")
  (position . 3166))
-("(require 'point-undo)"
- (filename . "~/github/nanasess/dot.emacs/init.el")
- (front-context-string . "\n;; (define-key ")
- (rear-context-string . "ire 'point-undo)")
- (position . 12680))
 ("~/.emacs.d/inits"
  (filename . "~/.emacs.d/inits/")
  (front-context-string . ":\n  total used i")

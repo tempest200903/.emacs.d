@@ -1,0 +1,12 @@
+ls
+dir c:/
+dir c:\\
+dir 'C:\'
+pushd c:/tool/gnupack/home/github
+git 
+git clone https://github.com/fujimisakari/.emacs.d/tree/master/inits
+git clone https://github.com/fujimisakari/.emacs.d
+mkdir fujimisakari
+ls
+mv .emacs.d/ fujimisakari/
+cd fujimisakari/.emacs.d/

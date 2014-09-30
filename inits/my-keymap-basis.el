@@ -137,7 +137,8 @@
 ;; Shift 押したまま <f12> y で計算結果を buffer に貼り付け。
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-20 火] 行末尾空白を削除する。
-(define-key global-map (kbd "C-x <C-backspace>")    'delete-trailing-whitespace)
+;; (define-key global-map (kbd "C-x <C-backspace>")    'delete-trailing-whitespace)
+(my-bind-key-with-autoload "my-delete-trailing-whitespace" "C-x <C-backspace>" 'my-delete-trailing-whitespace)
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-22 木] elisp ソースコードブラウズ用。他の言語でも使えるか？
 (define-key global-map (kbd "M-g M-.")              'find-function-at-point)
@@ -179,7 +180,7 @@
 ;; (kbd "C-h h") で起動しないようにする。
 (define-key global-map (kbd "C-h h")                'backward-delete-char-untabify) ;; backspace キーと同じ。なぜか、かな漢字変換Onでも入力できる。
 ;; ----------------------------------------------------------------------
-;; * [2013-10-31 木] 
+;; * [2013-10-31 木]
 (define-key global-map (kbd "C-z C-w")              'my-copy-line)
 (define-key global-map (kbd "C-z C-k")              'kill-whole-line)
 					; Tips. C-z C-k C-; C-; ... で範囲拡大。
@@ -199,13 +200,13 @@
 (my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-k" 'my-delete-current-buffer-file)
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
-;; (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines) 
-;; (define-key global-map (kbd "C-z C-q")              'my-truncate-lines-mode) 
+;; (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines)
+;; (define-key global-map (kbd "C-z C-q")              'my-truncate-lines-mode)
 (my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-truncate-lines-mode)
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-07 火]
-(define-key global-map (kbd "C-z C-x C-i")          'tabify) 
-(define-key global-map (kbd "C-z C-i")              'untabify) 
+(define-key global-map (kbd "C-z C-x C-i")          'tabify)
+(define-key global-map (kbd "C-z C-i")              'untabify)
 (define-key global-map (kbd "C-z C-y")              'picture-duplicate-line)
 ;; ----------------------------------------------------------------------
 ;; * [2014-02-20 木] my-occur.el から移転。
@@ -306,6 +307,16 @@
 ;; * [2014-09-18 木] my-wc.el
 (my-bind-key-with-autoload "my-wc"   "C-z C-x l"    'my-region-command-wc-to-minibuffer)
 (my-bind-key-with-autoload "my-calc" "C-z *"        'my-calc-hour-in-outline)
+
+;; ----------------------------------------------------------------------
+;; * [2014-09-30 火] Tips
+;; http://d.hatena.ne.jp/kitokitoki/searchdiary?word=%2A%5Bemacs%5D
+;; 1.何らかの emacs 内 grep 的なコマンド
+;; 2. M-x occur で、欲しい単語でさらに絞り込み
+;; 3. e で編集モードにする
+;; 4. M-x delete-matching-lines で欲しくない単語を除外
+;; 5. C-c C-c で編集モード終了。
+(define-key occur-mode-map (kbd "C-z C-x C-k") 'delete-matching-lines)
 
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-dired-mode-map")

@@ -66,6 +66,7 @@
 (when t    "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
 ;; ** emacs-lisp-mode
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
+(when t    "2014-09-30" (load "~/.emacs.d/inits/my-show-paren-mode")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * require after init
 ;; (when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive")) ;; homw など重い lisp を遅延評価するため必要。

@@ -2,6 +2,7 @@
 ;; my-org-hook.el
 ;; #+LAST_UPDATED: 2014-08-28
 ;; ======================================================================
+
 ;; * [2011-11-16 水] 
 (defun my-org-dblock-update-arg ()
   "clock-in/clock-out したときに (org-dblock-update ARG) {C-u C-c C-x C-u} を実行したい。"
