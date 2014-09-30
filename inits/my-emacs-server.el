@@ -8,7 +8,11 @@
 ;; るのが邪魔な場合は、.emacs にそれを回避する設定を追加するBuffer
 ;; `hogehoge' still has clients; kill it? (yes or no)
 ;;
-(server-start)
+;; cf. https://gist.github.com/kawacho/264d31130a10c7f2ed77
+;; 
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 (remove-hook 'kill-buffer-query-functions
 	     'server-kill-buffer-query-function)
 

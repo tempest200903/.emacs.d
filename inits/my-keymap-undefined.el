@@ -38,6 +38,7 @@
     (message "C-x <up> => %s" (key-binding (kbd "C-x <up>")))
     (message "C-x <down> => %s" (key-binding (kbd "C-x <down>")))
     (message "<C-non-convert> <C-non-convert> => %s" (key-binding (kbd "<C-non-convert> <C-non-convert>")))
+    (message "M-g M-w => %s" (key-binding (kbd "M-g M-w")))
     (switch-to-buffer-other-window "*Messages*")
     (end-of-buffer nil)
     (recenter-top-bottom nil)

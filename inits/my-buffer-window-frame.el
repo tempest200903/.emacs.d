@@ -228,4 +228,7 @@
 ;; (define-key global-map (kbd "<S-non-convert>") 'color-theme-emacs-21)
 ;; [2014-09-16 火] フレームサイズが戻ってしまう。
 (define-key global-map (kbd "<M-pause>") 'color-theme-vim-colors)
-(define-key global-map (kbd "<C-non-convert> <C-non-convert>") 'my-reset-frame5)
+;; (define-key global-map (kbd "<C-non-convert> <C-non-convert>") 'my-reset-frame5)
+(define-key global-map (kbd "<non-convert> <non-convert>") 'my-reset-frame5)
+
+

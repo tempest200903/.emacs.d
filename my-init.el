@@ -33,7 +33,7 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server"))
 (when t    "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
-(when t    "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
+(when nil  "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
 (when nil  "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
 (when nil  "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
 (when nil  "2014-09-08" (load "~/.emacs.d/inits/my-visible-mark")) ;; 故障するので使用中止。
@@ -46,9 +46,9 @@
 (when t    "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-explorer")) ;; 実験中
 (when t    "2014-09-26" (load "~/.emacs.d/inits/my-textile-mode-package")) ;; 実験中
 (when t    "2014-09-26" (load "~/.emacs.d/inits/my-foreign-regexp")) ;; 実験中
-(when t    "2014-09-27" (load "~/.emacs.d/inits/my-uniquify")) ;; 実験中
-(when t    "2014-09-27" (load "~/.emacs.d/inits/my-hiwin")) ;; 実験中
-(when t    "2014-09-28" (load "~/.emacs.d/inits/my-auto-complete-package")) ;; 実験中
+(when nil  "2014-09-27" (load "~/.emacs.d/inits/my-uniquify")) ;; 実験中
+(when nil  "2014-09-27" (load "~/.emacs.d/inits/my-hiwin")) ;; 実験中
+(when nil  "2014-09-28" (load "~/.emacs.d/inits/my-auto-complete-package")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * anything
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))
@@ -64,8 +64,6 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-speed"))
 (when t    "2014-09-19" (load "~/.emacs.d/inits/my-org-countdown")) ;; 実験中
 (when t    "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
-;; ** howm-mode
-(when t    "2014-09-08" (load "~/.emacs.d/inits/my-howm-keymap"))
 ;; ** emacs-lisp-mode
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 ;; ----------------------------------------------------------------------

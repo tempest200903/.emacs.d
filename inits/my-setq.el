@@ -101,3 +101,7 @@
 ;; * [2014-09-28 日] https://github.com/znz/dot-emacs/blob/8434c73ba833791eedc1411360e10441e52b370e/init.el.d/50window.el
 ;; helpなどのwindowを自動的にリサイズ
 (temp-buffer-resize-mode t)
+;; ----------------------------------------------------------------------
+;; * [2014-09-30 火] iswitchb-mode
+;; cf. https://gist.github.com/kawacho/264d31130a10c7f2ed77
+(iswitchb-mode +1)
