@@ -1,7 +1,10 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-yank-special.el
-;; =============================================================================
 ;; 入力支援自作コマンド。
+;; =============================================================================
+
+(require 'my-prefix-arg-commands)
+
 ;; ----------------------------------------------------------------------
 ;; * [2011-10-31 月] 入力支援
 ;; DONE my-yank-special.el として独立させる。
@@ -82,14 +85,14 @@
   )
 ;; ----------------------------------------------------------------------
 ;; * [2014-08-06 水] org-mode ディレクティブ
-(defun my-yank-org-example-arg (&optional arg) "my-yank-org-example or my-yank-org-quote"
-  (interactive "p")
-  ;; my-yank-org-src
-  (cond
-   ((equal arg 4) (my-yank-org-quote))
-   ((equal arg 16) (my-yank-org-src))
-   (t (my-yank-org-example)))
-  )
+
+(prefix-arg-commands-create my-yank-org-example-arg
+                            '(my-yank-org-example
+                              my-yank-org-quote
+                              my-yank-org-src
+                              )
+                            )
+
 (defun my-yank-org-example () "前後に #+BEGIN_EXAMPLE と #+END_EXAMPLE をつけて yank する。"
   (interactive "*")
   (my-yank-with-bracket "#+BEGIN_EXAMPLE\n" "\n#+END_EXAMPLE\n")
@@ -102,7 +105,10 @@
   (interactive "*")
   (my-yank-with-bracket "#+BEGIN_SRC\n" "\n#+END_SRC\n")
   )
+
 ;; TODO BEGIN_EXAMPLE など他のディレクティブを追加する。
 ;; TODO my-yank-special.el にも類似のコマンドがある。マージするべし。
+;; TODO yasnippet で実現する。
+
 ;; ----------------------------------------------------------------------
 (provide 'my-yank-special)

@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-org-mode-hyperlink.el
 ;; ======================================================================
+
+(require 'my-prefix-arg-commands)
+
 ;; * [2011-07-08 金] "Convert to Link" 
 ;; cf. n:/tool/emacs-23.2/site-lisp/org-7.3/lisp/org-mouse.el defun org-mouse-context-menu
 ;; リージョン選択してから <MOUSE-3> を押すとポップアップメニューが出る。
@@ -12,30 +15,33 @@
   )
 ;; ----------------------------------------------------------------------
 ;; * [2011-07-08 金] 〔〕 を挿入する。 org-mode とは関係ないので独立させる。 anything で選択式にしてほしい。
-(defun my-insert-shell-bracket (&optional arg)
-  (interactive "p")
-  (if (equal arg 4) (my-org-yank-DOUBLE-ANGLE-BRACKET)
-    (my-org-yank-TORTOISE-SHELL-BRACKET)
-    )
-  )
+(prefix-arg-commands-create my-insert-shell-bracket
+                            '(my-org-yank-TORTOISE-SHELL-BRACKET
+                              my-org-yank-DOUBLE-ANGLE-BRACKET
+                              )
+                            )
+
 (defun my-org-yank-DOUBLE-ANGLE-BRACKET ()  "前後に 《 と 》 をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "《" (current-kill 0) "》")))
   )
+
 (defun my-org-yank-TORTOISE-SHELL-BRACKET () "前後に 〔 と 〕 をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "〔" (current-kill 0) "〕")))
   )
+
 ;; TODO my-yank-special.el にも類似のコマンドがある。マージするべし。
+
 ;; ----------------------------------------------------------------------
 ;; * [2011-08-25 木] org-mouse-yank-link と同じことをキーボードで行う。
-(defun my-org-yank-link-arg (&optional arg) "my-org-yank-link or my-org-yank-file-link"
-  (interactive "p")
-  (cond
-   ((equal arg 4) (my-org-yank-file-link))
-   ((equal arg 16) (my-org-yank-shell-link))
-   (t (my-org-yank-link)))
-    )
+;; C-u なし my-org-yank-link; C-u 1回 my-org-yank-file-link; C-u 2回 my-org-yank-shell-link
+(prefix-arg-commands-create my-org-yank-link-univ
+                            '(my-org-yank-link
+                              my-org-yank-file-link
+                              my-org-yank-shell-link
+                              )
+                            )
 (defun my-org-yank-link ()  "前後に [[ と ]] をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "[[" (current-kill 0) "]]")))

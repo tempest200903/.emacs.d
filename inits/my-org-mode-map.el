@@ -28,9 +28,9 @@
 
 (define-key global-map (kbd "C-z C-u") 'org-time-stamp-inactive)
 ;;
-;; cf. http://orgmode.org/manual/Activation.html#Activation 
+;; cf. http://orgmode.org/manual/Activation.html#Activation
 ;; org-iswitchb はほとんど使わない。 howm でファイル名が日付始まりなので。
-(define-key global-map (kbd "C-c b")   'org-iswitchb) 
+(define-key global-map (kbd "C-c b")   'org-iswitchb)
 ;; ----------------------------------------------------------------------
 ;; * [2013-04-03 水] org-mode-map 初期化
 ;; ** outline 関連
@@ -45,7 +45,8 @@
 (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
 ;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
 ;; ** yank 関連
-(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-arg) 
+(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-arg)
+(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-univ)
 (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
 (define-key org-mode-map (kbd "C-c c") 'my-insert-clocktable)
 ;; org-evaluate-time-range をデフォルトの C-c C-y から C-c y に移動した。
@@ -73,13 +74,13 @@
 (defun my-workmanager-init ()
   "my-workmanager 初期化"
   ;; default org-agenda-sunrise-sunset を上書きする。
-  (define-key org-agenda-mode-map (kbd "S") 'my-workmanager-write-file) 
+  (define-key org-agenda-mode-map (kbd "S") 'my-workmanager-write-file)
   ;; default org-agenda-convert-date を上書きする。
-  (define-key org-agenda-mode-map (kbd "C") 'my-workmanager-collect) 
+  (define-key org-agenda-mode-map (kbd "C") 'my-workmanager-collect)
   )
 (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-map-init)
 (add-hook 'org-agenda-mode-hook 'my-workmanager-init)
-;; 
+;;
 ;; hook しないでいきなり define-key すると、起動時にエラー発生。
 ;; エラーメッセージは ` Symbol's value as variable is void: org-agenda-mode-map `.
 ;; これは起動時には org-agenda-mode-map がまだ存在しないため。
