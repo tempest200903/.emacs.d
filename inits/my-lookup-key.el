@@ -14,12 +14,11 @@
 (global-set-key (kbd "<non-convert> z") (lookup-key global-map (kbd "C-z")))
 ;; 使用例 (global-set-key (kbd "C-z b") (kbd "<non-convert> z b")
 
+(global-set-key (kbd "<non-convert> 4") (lookup-key global-map (kbd "C-x 4")))
+;; 使用例 (global-set-key (kbd "C-x 4 C-f") (kbd "<non-convert> C-f")
+
 (global-set-key (kbd "<C-non-convert>") (lookup-key global-map (kbd "C-x 5")))
 ;; 使用例 (global-set-key (kbd "C-x 5 C-f") (kbd "<C-non-convert> C-f")
-
-;; <C-copy> は Ctrl+ひらがな のこと。
-(global-set-key (kbd "<C-copy>") (lookup-key global-map (kbd "C-x 4")))
-;; 使用例 (global-set-key (kbd "C-x 4 C-f") (kbd "<C-copy> C-f")
 
 (global-set-key (kbd "<C-convert>") (lookup-key global-map (kbd "M-s M-q")))
 ;; 使用例 (global-set-key (kbd "M-s M-q M-s") (kbd "<C-convert> M-s")

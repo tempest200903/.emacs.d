@@ -150,7 +150,7 @@
   else                  M-n     outline-previous-visible-heading
 - M-]                           next-error
 *** attachment 関連
-**** TODO クリップボード内容を読み取って attachment に貼り付ける 
+**** TODO クリップボード内容を読み取って attachment に貼り付ける
 **** TODO マウスで attachment を開けるようにする
 **** TODO speed-command で attachment を開く
 *** その他
@@ -347,7 +347,7 @@
 - M-x org-next-link {It is bound to M-g M-n} すれば一発で全て閉じる。このほうが楽。
 **** TODO schedule や deadline の repeat で休日をスキップしたい
     [2011-11-14 月 10:42]
-- 例えば、 DEADLINE: <2011-11-11 金> SCHEDULED: <2011-11-11 金>
+- 例えば、 DEADLINE: < 2011-11-11 金 > SCHEDULED: < 2011-11-11 金 >
   のような指定でインクリメントすると土曜日になる。このとき、休日ならスキップしたい。
 **** TODO 〔org-mode ハイパーリンク アクセスログ〕                 :wishlist:
     [2011-11-30 水 10:06]
@@ -732,7 +732,7 @@
 **** TODO org export textile wiki
 **** TODO 〔1週間前の議事録を開くリンク〕
 - 実現方法
-  - org-agenda-view で1週間前の agenda log を開いく。
+  - org-agenda-view で1週間前の agenda log を開く。
   - リンク元のタグ文字列で occur する。
 **** TODO 〔clone するときに Reschedule log を除去してほしい〕     :wishlist:
 - org-log-reschedule を time にしておくと、 Reschedule log が記録される。
@@ -747,7 +747,7 @@
 **** TODO subtree を一括して todo status 変更するコマンド
      [2014-09-25 木]
 **** TODO write-file するついでに sn か en にも保存する。
-- [2014-09-25 木] 
+- [2014-09-25 木]
 - [[~/.emacs.d/inits/my-timemanager.el]]
 *** estimate 関連
 **** TODO 実績時間が見積もり時間より大幅に大きい／少ないときに警告する
@@ -756,4 +756,47 @@
 - 閾値をカスタマイズする。 e.g. +100% 以上
 - mode-line の 0:09/0:05 表示の背景色を段階的に変更する。
 
+*** yasnippet 関連
+**** TODO yas/new-snippet
+   [2014-10-01 水 10:32]
+clocktable => "#+BEGIN: clocktable :maxlevel 6 :scope file" "\n" "#+END:"
+clocktable
+c
+**** tips With having fun: Org Mode での yasnippet を利用した入力支援
+- http://bhby39.blogspot.jp/2012/01/yasnippet.html
+  "<s <Tab>" と入力すれば、
+  #+begin_src  <- カーソル位置はココ
+  #+end_src
+  が挿入される。
 
+*** keymap
+**** TODO org-clock-goto を2回連続実行したら元の位置に戻る
+     DEADLINE: <2014-11-01 土>
+     [2014-10-01 水 17:57]
+- M-g M-j runs the command org-clock-goto
+
+*** org-agenda-view 関連
+**** TODO org todo item それぞれについて deadline までの残り日数を表示、ソートする
+     :LOGBOOK:
+     CLOCK: [2014-10-02 木 11:05]--[2014-10-02 木 11:16] =>  0:11
+     :END:
+     [2014-10-02 木 10:49]
+- アルゴリズム
+  - 以下の条件で抽出する。
+    - todo-status is "TODO"
+    - schedule is "today"
+  - 残り日数を計算する。
+    - 残り日数 = deadline - today
+- 実装
+  - 抽出条件1 (org-tags-view t "SCHEDULED=\"<today>\"+DEADLINE=\"<today>\"")
+  - 抽出条件2 (org-tags-view t "SCHEDULED=\"<today>\"+DEADLINE=\"<tomorrow>\"")
+- 参考
+  - http://orgmode.org/worg/org-tutorials/org-custom-agenda-commands.html
+  - http://d.hatena.ne.jp/tamura70/20100215/org
+    #+BEGIN_QUOTE
+    「C-c a M」とタイプして「-SCHEDULED>="now"」の検索条件を入れると，スケジュールの決まっていないTODOおよびスケジュールが現在以前のTODOがアジェンダ表示されるので，これらのスケジュールを設定する．
+    なお，以下のように設定しておけば「C-c a x」で表示される．
+    (setq org-agenda-custom-commands
+      '(("x" "Unscheduled TODO" tags-todo "-SCHEDULED>=\"<now>\"" nil)))
+    #+END_QUOTE
+- goto: [[file:~/.emacs.d/inits/my-org-mode-dn2.el::org-agenda-custom-commands]]

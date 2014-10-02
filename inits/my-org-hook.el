@@ -62,12 +62,13 @@
   )
 ;;
 ;; ----------------------------------------------------------------------
-;; [2014-08-28 木] org-agenda-mode ON にするとき、 hl-line-mode ON にする。
-(defun my-org-agenda-mode-enables-hl-line-mode ()
+;; [2014-08-28 木] org-agenda-mode と一緒に使うマイナーモード。
+(defun my-org-agenda-mode-minor-hook ()
   "org-agenda-mode 初期化"
   (hl-line-mode 1)
+  (linum-mode 1)
   )
-(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-enables-hl-line-mode)
+(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-minor-hook)
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-15 月] checkbox の個数が増減したら cookies を更新する。
 ;; http://whattheemacsd.com/

@@ -49,3 +49,4 @@
 (provide 'my-toggle-truncate-lines)
 ;; ----------------------------------------------------------------------
 ;; * [2014-02-21 金] TODO mode-line に truncate-lines を表示する。
+(my-truncate-lines-mode-off)

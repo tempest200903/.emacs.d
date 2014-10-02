@@ -111,12 +111,12 @@
 ;; ----------------------------------------------------------------------
 ;; * [2011-12-05 月] M-% は押しにくいので alias.
 ;; しかし、 isearch-map では M-% を使わないと引継ぎできない。 isearch-map でも押しやすいキーで引継ぎしたい。
-;; (define-key global-map (kbd "M-s M-q")              nil)
-(define-key global-map (kbd "M-s M-q M-s")              'query-replace)
+;; (define-key global-map (kbd "M-s M-q M-s")              'query-replace)
+(bind-key "M-s q"                                       'query-replace)
 
 ;; ~/.emacs.d/keymap/foreign-regexp-search-map.txt の foreign-regexp/isearch-forward と衝突するので変更する。
-;; (define-key global-map (kbd "M-s M-s M-q")          'query-replace-regexp)
-(define-key global-map (kbd "M-s M-q M-r")          'query-replace-regexp)
+;; (define-key global-map (kbd "M-s M-q M-r")          'query-replace-regexp)
+(bind-key "M-s r"                                       'query-replace-regexp)
 
 ;; かな漢字変換が on のとき M-s o すると minibuffer に o が入力されてしまうのを回避する。
 
@@ -317,7 +317,9 @@
 ;; 3. e で編集モードにする
 ;; 4. M-x delete-matching-lines で欲しくない単語を除外
 ;; 5. C-c C-c で編集モード終了。
-(define-key occur-mode-map (kbd "C-z C-x C-k") 'delete-matching-lines)
+(bind-key "C-z C-x C-k" 'delete-matching-lines)
+;; (bind-key "C-z C-x C-k" 'moccur-flush-lines occur-mode-map)
+;; TODO moccur-flush-lines と delete-matching-lines は何が違う？
 
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-dired-mode-map")

@@ -45,8 +45,13 @@
 (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
 ;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
 ;; ** yank 関連
-(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-arg)
-(define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-univ)
+
+;; (define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-arg)
+;; (define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-univ)
+(my-bind-key-with-autoload "my-org-mode-hyperlink" "C-c C-y" 'my-org-yank-link-univ)
+
+(my-bind-key-with-autoload "my-org-mode-hyperlink" "C-c C-o" 'my-org-yank-elisp-moccur-link)
+
 (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
 (define-key org-mode-map (kbd "C-c c") 'my-insert-clocktable)
 ;; org-evaluate-time-range をデフォルトの C-c C-y から C-c y に移動した。

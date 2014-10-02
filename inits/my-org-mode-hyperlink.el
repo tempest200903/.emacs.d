@@ -70,6 +70,15 @@
 ;; my-org-yank-link-arg などで入力文字列末尾に改行文字がある場合は chomp する。
 ;; echo-args-clip.bat バッチファイルで @echo %*|clip のようにすると末尾に改行文字がついてしまう。
 ;; チケットやメールなど外部からマウスでコピーすると末尾に改行文字がついてしまう。
+
+;; ----------------------------------------------------------------------
+;; * [2014-10-02 木] TODO - [[elisp:(moccur "WORK" nil)]] を yank するコマンド。
+
+(defun my-org-yank-elisp-moccur-link () "前後に [[elisp:(moccur と ]] をつけて yank する。"
+  (interactive "*")
+  (progn (insert-for-yank (concat "[[elisp:(progn (moccur \"" (current-kill 0) "\" nil))]]")))
+  )
+
 ;; ----------------------------------------------------------------------
 (provide 'my-org-mode-hyperlink)
 ;; ----------------------------------------------------------------------

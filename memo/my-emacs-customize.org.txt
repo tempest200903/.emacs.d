@@ -571,6 +571,9 @@ Loading vc-svn...done
 - M-x howm-list-grep {It is bound to C-@ g, C-c , g}
   WORD1.*WORD2 と入力すれば、実現可能。ただし、これでは単語入れ替わりはマッチしない。
   \(WORD1.*WORD2\|WORD2.*WORD1\) が必要。
+*** TODO 毎月 howm-directory, howm-search-other-dir を自動的に更新する
+    [2014-10-01 水 10:03]
+
 ** occur 関連                                                    :occur_mode:
    [2011-08-30 火 14:29]
 *** DONE occur 第2引数 NLINES
@@ -2143,5 +2146,9 @@ openwith.el:144:1:Error: End of file during parsing
 *** TODO [#B] rename 固有名詞
     DEADLINE: <2014-10-07 火>
 - ~/.emacs.d/inits/my-bodais.el
+*** TODO 分割方向を自動判別してほしい
+    [2014-10-01 水 11:17]
+- [[file:~/.emacs.d/inits/my-other-window-or-split.el::my-other-window-or-split]]
+- フレームの横幅が閾値以上なら左右に分割、未満ならば上下に分割。
 * tail
   [2011-08-25 木 17:38]
