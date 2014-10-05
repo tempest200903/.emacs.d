@@ -630,6 +630,7 @@ Loading vc-svn...done
 - occur はこれで実現できそう。
   - M-| (shell-command-on-region) grep -n java | grep -v javascript
 - moccur はどうする？
+  - moccur したあと、 M-x occur-edit-mode M-x delete-matching-lines M-x occur-cease-edit
 *** TODO occur で grep -v するコマンドを自作する
 #+BEGIN_EXAMPLE
 (defun occur-reverse (&optional ARGS)

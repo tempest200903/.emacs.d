@@ -1,0 +1,5 @@
+2014-10-05    <s@G>
+
+	* .gitignore: `elisp-objects` を追加。 psession.el が保存する場所。
+
+
