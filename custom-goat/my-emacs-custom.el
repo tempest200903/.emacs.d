@@ -22,10 +22,12 @@
  '(inhibit-startup-echo-area-message -1)
  '(inhibit-startup-screen t)
  '(nxml-child-indent 2)
- '(org-agenda-files (quote ("~/github/github.org.txt" "~/.emacs.d/memo/my-emacs-customize.org.txt" "~/.emacs.d/memo/my-emacs-task.org.txt" "~/.emacs.d/memo/my-emacs-migemo.org.txt" "~/.emacs.d/memo/my-schedule-sample.org.txt")))
+ '(org-agenda-files (quote ("~/.emacs.d/memo/my-emacs-task.org.txt" "~/.emacs.d/memo/my-emacs-customize-org-mode.org.txt" "~/.emacs.d/memo/my-emacs-customize.org.txt")))
+ '(org-clock-into-drawer "LOGBOOK")
  '(org-link-to-org-use-id nil)
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
+ '(org-src-fontify-natively t)
  '(org-startup-folded nil)
  '(org-use-speed-commands t)
  '(org-yank-folded-subtrees nil)
@@ -56,6 +58,7 @@
 ;; '(org-link-to-org-use-id nil) ;; nil にするとリンクを作るとき ID を使わない。
 ;; '(dired-dwim-target t) ;; t にすると copy, rename のターゲットのデフォルト値に隣のウィンドウの dired ディレクトリを与える。
 ;; '(compilation-read-command nil) ;; t にすると、毎回 command を minibuffer から入力する。 nil にすると　minibuffer から入力しない。ただし、 C-u をつけると minibuffer から入力する。
+;; '(org-src-fontify-natively t) ; t にすると、 #+BEGIN_SRC #+END_SRC src ブロック内部のフォントを着色する。
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-02 土] M-x customize で設定できない変数。
 (setq howm-search-other-dir t)

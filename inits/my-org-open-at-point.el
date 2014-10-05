@@ -1,58 +1,57 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
-;; ======================================================================
-;; * [2012-02-02 木] C-c C-o org-open-at-point で指を酷使するのを避ける。
-;;
-;; my-org-open-at-point => 必ず set-mark-command する。
-;; org-open-at-point => 同じバッファにジャンプする場合は mark しない。異なるバッファにジャンプする場合は mark する。
-;; 
-;; {emacs lisp tips} コマンド引数を引き継ぐには call-interactively を使う。
-;; 例えば、 C-u M-x my-org-open-at-point とすると、 
-;; `C-u M-x org-open-at-point` or `C-u M-x org-self-insert-command`
-;; と同じようになる。
-(defun my-org-open-at-point (&optional ARG)
-  "point が org-link である場合、 mark してから org-open-at-point, さもなくば org-self-insert-command."
-  (interactive)
-  (message
-   (if (or
-        (face-contains (get-text-property (point) 'face) 'org-link)
-        (face-contains (get-text-property (point) 'face) 'org-date)
-        (face-contains (get-text-property (point) 'face) 'org-tag)
-        )
-       ;; {Note}(get-text-property (point) 'face) は単体の face または list を返す。
-       ;; {Todo} 3個の or を face-contains で吸収するべし。
-       (progn
-         (call-interactively 'set-mark-command) 
-         (call-interactively 'set-mark-command) 
-         (call-interactively 'org-open-at-point) 
-         )
-     (progn
-       (call-interactively 'org-self-insert-command) 
-       )  
-     )
-   )
+;; my-org-open-at-point.el
+
+;; ======================================================================
+;; * [2014-10-05 〔org-open-at-point アクセスログ〕
+
+(require 'psession)
+
+(defvar my-org-open-at-point-accesslog-hash-table nil "アクセスログデータベース")
+
+(defun my-org-open-at-point-accesslog-init ()
+  "アクセスログデータベースを初期化する"
+  (setq my-org-open-at-point-accesslog-hash-table (make-hash-table :test 'equal))
   )
 
-(define-key org-mode-map (kbd "S-SPC") 'my-org-open-at-point)
+(defun increment (int-value-or-nil) "整数インクリメント。 nil を入力したら 1 を返す。"
+  (if int-value-or-nil
+      (+ 1 int-value-or-nil)
+    1)
+  )
 
-(defun face-contains (property criteria)
-  "property は単体の face または list 。"
-  (if (listp property)
-      (memq criteria property)
-    (eq criteria property)
+(defun my-org-open-at-point-accesslog-countup ()
+  "org-open-at-point でジャンプ先のファイルのアクセスログを記録する"
+  (let* (
+        (source-file-name (buffer-file-name)) ; ジャンプ元のファイル。
+        (access-count (increment (gethash source-file-name my-org-open-at-point-accesslog-hash-table)))
+        )
+    (puthash source-file-name 1 my-org-open-at-point-accesslog-hash-table)
+    (message "## %s:%s" source-file-name access-count)
     )
   )
 
-;; ----------------------------------------------------------------------
-;; * [2012-06-25 月] C-u C-u C-c C-o と同じことをマウスで行う。
-;; (org-open-at-point &optional IN-EMACS REFERENCE-BUFFER)
+(add-hook 'org-follow-link-hook 'my-org-open-at-point-accesslog-countup)
+
+;; http://d.hatena.ne.jp/rubikitch/20100201/elispsyntax
+;; ハッシュの値を表示するために自分で関数を定義する必要がある
+(defun print-hash (hash)
+  (with-temp-buffer
+    (loop initially (insert "{")
+          for k being the hash-keys in hash using (hash-values v) do
+          (insert " " (prin1-to-string k) " => " (prin1-to-string v) ",")
+          finally   (delete-backward-char 2) (insert " }"))
+    (buffer-string)))
+(print-hash my-org-open-at-point-accesslog-hash-table)
+
+;; ----------------------------------------------------------------------
+;; (describe-function 'org-open-at-point)
+;; org-open-at-point is an interactive compiled Lisp function in
+;; `org.el'.
+;; (org-open-at-point &optional ARG REFERENCE-BUFFER)
+;; Open link at or after point.
+;; If there is no link at point, this function will search forward up to
+;; the end of the current line.
+;; Normally, files will be opened by an appropriate application.  If the
+;; optional prefix argument ARG is non-nil, Emacs will visit the file.
 ;; With a double prefix argument, try to open outside of Emacs, in the
 ;; application the system uses for this file type.
-(defun org-open-at-point-prefix-argument2 (&optional ARG)
-  ""
-  (interactive)
-  (org-open-at-point t)
-  )
-(define-key org-mode-map (kbd "<H-mouse-1>") 'org-open-at-point-prefix-argument2)
-
-;; (define-key org-mode-map (kbd "<H-mouse-1>") (kbd "C-u C-u C-c C-o"))
-;; NG
