@@ -540,11 +540,12 @@
   - etc
 - 実現方法
   - graphviz
-**** TODO org-open-at-point, ffap-copy-string-as-kill の日本語対応 :wishlist:
+**** PENDING org-open-at-point, ffap-copy-string-as-kill の日本語対応 :wishlist:
     :LOGBOOK:
     TIMESTAMP: [2012-04-10 火 10:28]
     :END:
 - coding を適切に設定すれば可能？ 実験してみる。
+- とりあえず、 [[file:~/.emacs.d/inits/my-kill-ring-save.el::my-kill-ring-save-or-copy-org-link-target]] をしばらく使ってみる。
 **** TODO org-open-at-point, ffap-copy-string-as-kill の dirname 版 :wishlist:
     :LOGBOOK:
     TIMESTAMP: [2012-04-10 火 10:27]

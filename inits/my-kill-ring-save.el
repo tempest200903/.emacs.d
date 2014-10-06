@@ -121,6 +121,7 @@
     link-target
     )
   )
+
 (defun my-kill-ring-save-or-copy-org-link-target (&optional univ-arg)
   "1. リージョンがアクティブならリージョンを kill-ring-save 。
    2. リージョンが非アクティブかつ org link があるなら my-copy-org-link-target 。
