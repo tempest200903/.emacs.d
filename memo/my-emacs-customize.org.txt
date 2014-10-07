@@ -1014,6 +1014,16 @@ shell-command-on-region: Args out of range: 0, 100
 - http://www.bookshelf.jp/soft/meadow_26.html
   - M-x list-faces-display で「 ruler 」を探してそのフェイスを設定すればいい
   - フェイス名クリックで詳細画面に遷移する。
+*** TODO アクティブ buffer と非アクティブ bufffer の face を改善する
+    [2014-10-03 金 11:27]
+- mode-line も。
+** foreign-regexp
+- [[~/.emacs.d/vendor/elpa/foreign-regexp-20140823.1742/foreign-regexp.el]]
+*** TODO M-x highlight-regexp の foreign-regexp 版がほしい
+    [2014-10-03 金 13:24]
+- M-x highlight-regexp でやってもいいが、正規表現のエスケープが面倒。
+
+
 ** ブラウザ関連
    [2011-10-20 木 15:23]
 *** google 検索

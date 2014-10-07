@@ -28,19 +28,23 @@
   (catch 'error (org-speed-move-safe (quote outline-previous-visible-heading)))
   )
 ;; ----------------------------------------------------------------------
-;; * [2014-08-06 水] SCHEDULE をリセットして今日の日付にする。
+;; * [2014-08-06 水] 
 (defun my-org-reset-schedule-today (arg)
-  "speed command"
+  "SCHEDULE をリセットして今日の日付にする。"
   (interactive "p")
   (org-schedule t)
   (org-schedule nil ".")
-)
+  )
 (defun my-org-reset-schedule-tomorrow (arg)
-  "speed command"
+  "SCHEDULE をリセットして明日の日付にする。"
   (interactive "p")
   (org-schedule t)
-  (org-schedule nil "+3d")
-)
+  (if arg
+      (org-schedule nil (format "+%sd" arg))
+    (org-schedule nil "+1d")
+    )
+  )
+
 ;; TODO 1日後が土曜日、日曜日なら次の月曜日にする。もしくは arg で数値を指定可能にする。
 ;; ----------------------------------------------------------------------
 ;; speed 空いているキー

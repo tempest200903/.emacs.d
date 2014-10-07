@@ -106,14 +106,18 @@
 (defun my-org-timer-done ()
   ""
   (message "my-org-timer-done")
-  (set-face-foreground 'mode-line-inactive "white")
-  (set-face-background 'mode-line-inactive "blue")
+  (when nil
+    (set-face-foreground 'mode-line "white")
+    (set-face-background 'mode-line "blue")
+    ) ; 調整中
   )
 (defun my-org-timer-start ()
   ""
   (message "my-org-timer-start")
-  (set-face-foreground 'mode-line-inactive "blue")
-  (set-face-background 'mode-line-inactive "white")
+  (when nil
+    (set-face-foreground 'mode-line "RoyalBlue3")
+    (set-face-background 'mode-line "LightGoldenrod1")
+    ) ; 調整中
   )
 (add-hook 'org-timer-done-hook 'my-org-timer-done)
 (add-hook 'org-timer-start-hook 'my-org-timer-start)

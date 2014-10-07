@@ -4,16 +4,18 @@
 ;; * [2011-02-28]
 ;; url:http://ubulog.blogspot.com/2007/09/emacsonoff.html
 ;; 折り返し表示ON/OFF
-;; (defun my-toggle-truncate-lines ()
-;;   "折り返し表示をトグル動作します."
-;;   (interactive)
-;;   (if truncate-lines
-;;       (setq truncate-lines nil)
-;;     (setq truncate-lines t)
-;;     )
-;;   (recenter)
-;;   )
 ;; ----------------------------------------------------------------------
+
+(defun my-toggle-truncate-lines ()
+  "折り返し表示をトグル動作します."
+  (interactive)
+  (if truncate-lines
+      (setq truncate-lines nil)
+    (setq truncate-lines t)
+    )
+  (recenter)
+  )
+
 ;; * [2014-09-22 月] 自作マイナーモード。
 (defun my-truncate-lines-mode-on () ""
   (message "truncate-lines *ON*")
@@ -39,8 +41,8 @@
                               ()
                               ;; body
                               (if my-truncate-lines-mode
-                                  (my-truncate-lines-mode-off)
-                                (my-truncate-lines-mode-on)
+                                  (my-truncate-lines-mode-on)
+                                (my-truncate-lines-mode-off)
                                 )
                               )
 ;; cf. http://tech.feedforce.jp/emacs-minor-mode.html

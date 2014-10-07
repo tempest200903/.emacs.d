@@ -44,8 +44,8 @@
 (when nil  "2014-09-20" (load "~/.emacs.d/inits/my-calc")) ;; 実験中
 (when t    "2014-09-23" (load "~/.emacs.d/inits/my-shell")) ;; 実験中
 (when t    "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-explorer")) ;; 実験中
-(when t    "2014-09-26" (load "~/.emacs.d/inits/my-textile-mode-package")) ;; 実験中
-(when t    "2014-09-26" (load "~/.emacs.d/inits/my-foreign-regexp")) ;; 実験中
+(when nil  "2014-09-26" (load "~/.emacs.d/inits/my-textile-mode-package")) ;; 実験中
+(when nil  "2014-09-26" (load "~/.emacs.d/inits/my-foreign-regexp")) ;; 実験中
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-uniquify")) ;; 実験中
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-hiwin")) ;; 実験中
 (when nil  "2014-09-28" (load "~/.emacs.d/inits/my-auto-complete-package")) ;; 実験中
@@ -66,7 +66,7 @@
 (when t    "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
 ;; ** emacs-lisp-mode
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
-(when t    "2014-09-30" (load "~/.emacs.d/inits/my-show-paren-mode")) ;; 実験中
+(when nil  "2014-09-30" (load "~/.emacs.d/inits/my-show-paren-mode")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * require after init
 ;; (when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive")) ;; homw など重い lisp を遅延評価するため必要。

@@ -1,5 +1,8 @@
 # -*- coding: utf-8-unix;  -*-
-* my-emacs-customize
+* 〈my-emacs-customize-org-mode〉
+  :PROPERTIES:
+  :CATEGORY: 〈my-emacs-customize-org-mode〉
+  :END:
 #+LAST_UPDATED: 2014-09-03
 ** org-mode                                                        :org_mode:
 *** DONE org-mode 導入
@@ -347,7 +350,7 @@
 - M-x org-next-link {It is bound to M-g M-n} すれば一発で全て閉じる。このほうが楽。
 **** TODO schedule や deadline の repeat で休日をスキップしたい
     [2011-11-14 月 10:42]
-- 例えば、 DEADLINE: < 2011-11-11 金 > SCHEDULED: < 2011-11-11 金 >
+- 例えば、 DEADLINE < 2011-11-11 金 > SCHEDULED < 2011-11-11 金 >
   のような指定でインクリメントすると土曜日になる。このとき、休日ならスキップしたい。
 **** TODO 〔org-mode ハイパーリンク アクセスログ〕                 :wishlist:
     [2011-11-30 水 10:06]
@@ -768,13 +771,15 @@ c
   #+begin_src  <- カーソル位置はココ
   #+end_src
   が挿入される。
-
+**** TODO checkbox snippet
+     [2014-10-03 金 10:21]
+- [ ] checkbox [0/1]
+  - [ ] [[*%E3%80%94PS25%20ticket2784%20%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/%E7%95%B0%E5%B8%B8%E7%B3%BB/%E3%83%A2%E3%83%87%E3%83%AB%E3%80%95][〔PS25 ticket2784 スコアリング/異常系/モデル〕]]
 *** keymap
 **** TODO org-clock-goto を2回連続実行したら元の位置に戻る
      DEADLINE: <2014-11-01 土>
      [2014-10-01 水 17:57]
 - M-g M-j runs the command org-clock-goto
-
 *** org-agenda-view 関連
 **** TODO org todo item それぞれについて deadline までの残り日数を表示、ソートする
      :LOGBOOK:
@@ -800,3 +805,6 @@ c
       '(("x" "Unscheduled TODO" tags-todo "-SCHEDULED>=\"<now>\"" nil)))
     #+END_QUOTE
 - goto: [[file:~/.emacs.d/inits/my-org-mode-dn2.el::org-agenda-custom-commands]]
+*** scheduled, deadline 関連
+**** TODO scheduled, deadline 両方を一度に変更するコマンド
+- 例。 scheduled, deadline 両方を +4d する。
