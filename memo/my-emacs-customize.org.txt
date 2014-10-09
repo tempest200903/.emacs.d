@@ -2172,10 +2172,15 @@ openwith.el:144:1:Error: End of file during parsing
 *** TODO rename 固有名詞
     DEADLINE: <2014-10-11 土>
 - ~/.emacs.d/inits/my-bodais.el
-*** TODO 分割方向を自動判別してほしい
+*** DONE 分割方向を自動判別してほしい
+    :LOGBOOK:
+    CLOCK: [2014-10-09 木 23:45]--[2014-10-10 金 00:01] =>  0:16
+    :END:
     [2014-10-01 水 11:17]
 - [[file:~/.emacs.d/inits/my-other-window-or-split.el::my-other-window-or-split]]
 - フレームの横幅が閾値以上なら左右に分割、未満ならば上下に分割。
+- http://shibayu36.hatenablog.com/entry/2012/12/18/161455
+  - emacsのwindow幅に合わせて、分割数を変える - $shibayu36->blog;
 ** after-save-hook
 *** TODO サイズが0ならばファイルを削除する
 - ユーザに問い合わせてから削除。 C-u 付きなら問い合わせなし。
