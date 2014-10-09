@@ -2151,7 +2151,7 @@ openwith.el:144:1:Error: End of file during parsing
   - 課題 年月をまたがる場合。
 - 生成した正規表現を occur, moccur, grep-find, howm-grep に渡す。
 *** TODO rename 固有名詞
-    DEADLINE: <2014-10-07 火>
+    DEADLINE: <2014-10-11 土>
 - ~/.emacs.d/inits/my-bodais.el
 *** TODO 分割方向を自動判別してほしい
     [2014-10-01 水 11:17]
