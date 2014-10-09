@@ -14,6 +14,14 @@
   "Return face used at point."
   (interactive)
   (describe-face (get-char-property (point) 'face)))
+
+(require 'my-prefix-arg-commands)
+(prefix-arg-commands-create my-describe-face-at-point-command-prefix-arg
+                            '(my-describe-face-at-point-briefly
+                              my-describe-face-at-point
+                              )
+                            )
+
 ;; ----------------------------------------------------------------------
 (provide 'my-describe)
 ;; ----------------------------------------------------------------------

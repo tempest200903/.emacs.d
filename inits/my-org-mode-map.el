@@ -44,13 +44,10 @@
 (define-key org-mode-map (kbd "C-z C-]") (kbd "C-u C-c C-c M-m C-a C-@ C-@")) ;; alias of C-u C-c C-c
 (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
 ;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
+
 ;; ** yank 関連
-
-;; (define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-arg)
-;; (define-key org-mode-map (kbd "C-c C-y") 'my-org-yank-link-univ)
-(my-bind-key-with-autoload "my-org-mode-hyperlink" "C-c C-y" 'my-org-yank-link-univ)
-
-(my-bind-key-with-autoload "my-org-mode-hyperlink" "C-c C-o" 'my-org-yank-elisp-moccur-link)
+(my-bind-key-with-autoload "my-org-mode-hyperlink" "C-c C-y" 'my-org-yank-link-univ org-mode-map)
+(my-bind-key-with-autoload "my-org-mode-hyperlink" "C-c e" 'my-org-yank-elisp-moccur-link org-mode-map)
 
 (define-key org-mode-map (kbd "C-c y") 'org-evaluate-time-range)
 (define-key org-mode-map (kbd "C-c c") 'my-insert-clocktable)
@@ -62,29 +59,58 @@
 ;; * [2014-05-08 木] my-org-mode-hyperlink.el
 (define-key org-mode-map (kbd "C-.") 'org-mark-ring-goto)
 (define-key org-mode-map (kbd "C-,") 'org-open-at-point)
-(define-key org-mode-map (kbd "C-c C-o") nil) ;; 他の用途に使うつもり。
+;; (define-key org-mode-map (kbd "C-c C-o") nil) ;; 他の用途に使うつもり。
+(my-bind-key-with-autoload "my-kill-ring-save" "C-c C-o" 'my-copy-org-link-target-and-w32-shell-execute org-mode-map)
 (define-key org-mode-map (kbd "C-z C-c C-y") 'my-insert-shell-bracket)
 (define-key org-mode-map (kbd "C-z #") 'my-yank-org-example-arg)
+
+(define-key org-mode-map (kbd "C-c 1") 'my-org-reset-schedule-today)
+(define-key org-mode-map (kbd "C-c 2") 'my-org-reset-schedule-tomorrow)
+(define-key org-mode-map (kbd "C-z 1") 'my-org-reset-deadline-today)
+(define-key org-mode-map (kbd "C-z 2") 'my-org-reset-deadline-tomorrow)
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-04-03 水] org-agenda-mode-map 初期化
 (defun my-org-agenda-mode-map-init ()
   "org-agenda-mode-map 初期化"
-  (define-key org-agenda-mode-map (kbd "`") 'org-agenda-deadline) ;; alias of C-c C-d
-  (define-key org-agenda-mode-map (kbd "@") 'org-agenda-schedule) ;; alias of C-c C-s
-  (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ;; alias of C-c C-x C-c
-  (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-reset-schedule-today)
-  (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-reset-schedule-tomorrow)
-  (bind-key "C-," 'org-open-at-point org-mode-map) ;; alias of C-c C-o
+  (define-key org-agenda-mode-map (kbd "d") 'org-agenda-deadline) ; alias of C-c C-d ; org-agenda-day-view を上書き。
+  (define-key org-agenda-mode-map (kbd "s") 'org-agenda-schedule) ; alias of C-c C-s
+  (define-key org-agenda-mode-map (kbd "S") 'org-save-all-org-buffers) ; "s" から "S" に移転。
+  (define-key org-agenda-mode-map (kbd "_") 'org-agenda-day-view) ; "d" から "_" に移転。
+  (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ; alias of C-c C-x C-c
+  (define-key org-agenda-mode-map (kbd "C-c 1") 'my-org-agenda-reset-schedule-today)
+  (define-key org-agenda-mode-map (kbd "C-c 2") 'my-org-agenda-reset-schedule-tomorrow)
+  (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-agenda-reset-deadline-today)
+  (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-agenda-reset-deadline-tomorrow)
+  ;; ** [2014-10-08 水] TODO key map 見直し。
+  ;; d d => 通常の org-agenda-deadline
+  ;; d 0 => deadline +0d
+  ;; d 1 => deadline +1d
+  ;; d w => deadline +1w
+  ;; d m => deadline +1m
+  ;; s s => 通常の org-agenda-schedule
+  ;; s 0 => schedule +0d
+  ;; s 1 => schedule +1d
+  ;; s w => schedule +1w
+  ;; s m => deadline +1m
+
+
+  (bind-key "C-," 'org-open-at-point org-mode-map) ; alias of C-c C-o
   )
-(defun my-workmanager-init ()
-  "my-workmanager 初期化"
+(defun my-timemanager-init ()
+  "my-timemanager 初期化"
+
   ;; default org-agenda-sunrise-sunset を上書きする。
-  (define-key org-agenda-mode-map (kbd "S") 'my-workmanager-write-file)
+  (my-bind-key-with-autoload "my-timemanager" "N" 'my-timemanager-write-file org-agenda-mode-map)
+
   ;; default org-agenda-convert-date を上書きする。
-  (define-key org-agenda-mode-map (kbd "C") 'my-workmanager-collect)
+  (my-bind-key-with-autoload "my-timemanager" "C" 'my-timemanager-collect org-agenda-mode-map)
+
+  ;; default org-agenda-phases-of-moon を上書きする
+  (my-bind-key-with-autoload "my-timemanager" "M" 'my-timemanager-show-closed-project org-agenda-mode-map)
   )
 (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-map-init)
-(add-hook 'org-agenda-mode-hook 'my-workmanager-init)
+(add-hook 'org-agenda-mode-hook 'my-timemanager-init)
 ;;
 ;; hook しないでいきなり define-key すると、起動時にエラー発生。
 ;; エラーメッセージは ` Symbol's value as variable is void: org-agenda-mode-map `.

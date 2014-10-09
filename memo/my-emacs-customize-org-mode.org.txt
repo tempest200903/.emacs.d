@@ -1,5 +1,8 @@
 # -*- coding: utf-8-unix;  -*-
-* my-emacs-customize
+* 〈my-emacs-customize-org-mode〉
+  :PROPERTIES:
+  :CATEGORY: 〈my-emacs-customize-org-mode〉
+  :END:
 #+LAST_UPDATED: 2014-09-03
 ** 〈org-mode〉                                                        :org_mode:
    :PROPERTIES:
@@ -772,13 +775,15 @@ c
   #+begin_src  <- カーソル位置はココ
   #+end_src
   が挿入される。
-
+**** TODO checkbox snippet
+     [2014-10-03 金 10:21]
+- [ ] checkbox [0/1]
+  - [ ] [[*%E3%80%94PS25%20ticket2784%20%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/%E7%95%B0%E5%B8%B8%E7%B3%BB/%E3%83%A2%E3%83%87%E3%83%AB%E3%80%95][〔PS25 ticket2784 スコアリング/異常系/モデル〕]]
 *** keymap
 **** TODO org-clock-goto を2回連続実行したら元の位置に戻る
      DEADLINE: <2014-11-01 土>
      [2014-10-01 水 17:57]
 - M-g M-j runs the command org-clock-goto
-
 *** org-agenda-view 関連
 **** TODO org todo item それぞれについて deadline までの残り日数を表示、ソートする
      :LOGBOOK:
@@ -804,7 +809,6 @@ c
       '(("x" "Unscheduled TODO" tags-todo "-SCHEDULED>=\"<now>\"" nil)))
     #+END_QUOTE
 - goto: [[file:~/.emacs.d/inits/my-org-mode-dn2.el::org-agenda-custom-commands]]
-
 **** org-mark-entry-for-agenda-action                                  :tips:
 - http://orgmode.org/manual/Inserting-deadline_002fschedule.html
   - C-c C-x C-k     (org-mark-entry-for-agenda-action)
@@ -913,3 +917,9 @@ You can customize this variable.
 - Non-nil :: バッファを変更したら一時的なハイライトを除去する。
 - nil :: ハイライトを除去するには C-c C-c を入力する必要がある。
 - (setq org-remove-highlights-with-change nil)
+=======
+**** TODO estimate がついていないエントリを強調表示する
+     [2014-10-09 木 10:23]
+*** scheduled, deadline 関連
+**** TODO scheduled, deadline 両方を一度に変更するコマンド
+- 例。 scheduled, deadline 両方を +4d する。

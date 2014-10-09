@@ -396,6 +396,9 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
   - cf. http://deeeet.com/writing/2014/09/10/microservices/
   - cf. http://martinfowler.com/articles/microservices.html
 - ~/.emacs.d/inits/my-microservices.el
+**** 〔現状-d2014-10-09〕
+     [2014-10-09 木 10:23]
+- 発生1回。
 *** server-start 不具合
     :LOGBOOK:
     TIMESTAMP: [2013-02-07 木 15:30]
@@ -459,4 +462,6 @@ Debugger entered--Lisp error: (file-error "make server process failed" "invalid 
   ず、 (delete-selection-mode -1) を入れてリージョンを削除しないように
   しておく。 delete-selection-mode 変更後は emacs 再起動しておくのが無
   難。とりあえずこれで誤って消してしまう問題は回避できた。
+*** PENDING 〔文字が正しく描画されない不具合〕
+    [2014-10-08 水 10:00]
 * tail

@@ -167,13 +167,18 @@
 (define-key global-map (kbd "C-h C-x C-b")          'describe-prefix-bindings)
 (define-key global-map (kbd "C-h C-z C-f")          'describe-face)
 (define-key global-map (kbd "C-h C-l C-f")          'list-faces-display)
+(define-key global-map (kbd "C-h C-l C-c")          'list-colors-display)
 (define-key global-map (kbd "C-h C-x C-t")          'describe-text-properties)
 (define-key global-map (kbd "C-h C-x C-u")          'customize)
 (define-key global-map (kbd "C-h C-x C-o")          'org-customize)
 (define-key global-map (kbd "C-h C-x C-s")          'customize-save-customized)
-(when (require                                      'my-describehilit-chg nil t)
-  (define-key global-map (kbd "C-h C-x C-f")        'describe-face-at-point)
-  )
+
+;; (when (require                                      'my-describehilit-chg nil t)
+;;   (define-key global-map (kbd "C-h C-x C-f")        'describe-face-at-point)
+;;   )
+(my-bind-key-with-autoload "my-describehilit-chg" "C-h C-x C-f" 'my-describe-face-at-point-command-prefix-arg)
+;; TODO (provide 'my-describehilit-chg) が行方不明。
+
 ;; ----------------------------------------------------------------------
 ;; * [2011-09-30 金] view-hello-file を実行するとハングアップする。
 ;; emacs 起動直後ならハングアップはしないが1秒待たされる。とりあえず、
@@ -190,19 +195,25 @@
 (define-key global-map (kbd "C-/")                  'undo)
 (define-key global-map (kbd "C-x C-/")              'redo)
 (define-key global-map (kbd "C-z a r")              'align-regexp)
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金]
 (define-key global-map (kbd "C-w")                  'kill-region-or-backward-kill-word)
 (define-key global-map (kbd "C-z C-d")              'kill-word-at-point)
+;; M-d (kill-word) と C-z C-d (kill-word-at-point) は何が違う？
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-03 日] my-rename-file-and-buffer.el
 (my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-w" 'my-rename-file-and-buffer)
 (my-bind-key-with-autoload "my-rename-file-and-buffer" "C-x RET C-k" 'my-delete-current-buffer-file)
+
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
 ;; (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines)
 ;; (define-key global-map (kbd "C-z C-q")              'my-truncate-lines-mode)
-(my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-truncate-lines-mode)
+;; (my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-truncate-lines-mode)
+(my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-toggle-truncate-lines)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-01-07 火]
 (define-key global-map (kbd "C-z C-x C-i")          'tabify)
@@ -318,8 +329,9 @@
 ;; 4. M-x delete-matching-lines で欲しくない単語を除外
 ;; 5. C-c C-c で編集モード終了。
 (bind-key "C-z C-x C-k" 'delete-matching-lines)
+(bind-key "C-z C-x C-l" 'flush-lines)
 ;; (bind-key "C-z C-x C-k" 'moccur-flush-lines occur-mode-map)
-;; TODO moccur-flush-lines と delete-matching-lines は何が違う？
+;; TODO flush-lines, moccur-flush-lines, delete-matching-lines は何が違う？
 
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-dired-mode-map")

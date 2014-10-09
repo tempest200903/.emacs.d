@@ -2,6 +2,9 @@
 ;; #+LAST_UPDATED: 2013-09-12
 ;; my-kill-ring-save.el
 ;; ======================================================================
+
+(require 'my-elisp-lang)
+
 ;; * [2012-01-27 金] mark-active かそうでないかで2種類の動作をする。
 ;; my-ffap-copy-string-as-kill.el と同様。
 (defun my-kill-ring-save-or-ffap-copy-string-as-kill (&optional univ-arg)
@@ -99,21 +102,33 @@
 ;;   "C:\temp\a\b\プロジェクト" までしか選択しない。
 ;; org link のリンク先を確実に読み取るコマンドがほしい。
 
-(defun scan-line ()
-  "point 位置にある行を読み取る。"
-  (thing-at-point 'line)
+(defun scan-url-or-line ()
+  "point 位置に URL がある場合は URL を返す。 else point 位置にある行を返す。"
+  (or
+   (ffap-url-at-point)
+   (thing-at-point 'line)
+   )
   )
+
 (defun scan-link-target (line)
-  "link-target を抽出する"
-  (if (string-match "\\[\\[\\(.*\\)\\]\\]" line)
-      (match-string 1 line)
+  "link-target を抽出する。 line が http で始まる場合、 line を返す。
+   line が [[ ... ]] を含む場合、 ... を返す。
+   "
+  (cond
+   ;; ((string-match (concat "^http.*://") line) line)
+   ((string/starts-with line "http://") line)
+   ((string/starts-with line "https://") line)
+   ((string/starts-with line "ftp://") line)
+   ((string-match "\\[\\[\\(.*\\)\\]\\]" line) (match-string 1 line))
+   (t nil)
     )
   )
+
 (defun my-copy-org-link-target ()
   "org link のリンク先を読み取って kill-ring-save する"
   (interactive)
   (let* (
-         (line          (scan-line))
+         (line          (scan-url-or-line))
          (link-target   (scan-link-target line))
          )
     (message "link-target =: {%s}" link-target)
@@ -133,6 +148,27 @@
     (my-copy-org-link-target)
     )
   )
+
+(require 'my-os-type)
+
+(defun my-copy-org-link-target-and-w32-shell-execute ()
+  "org link のリンク先を読み取って kill-ring-save し、w32-shell-execute する。"
+  (interactive)
+  (let* (
+         (line          (scan-url-or-line))
+         (link-target   (scan-link-target line))
+         )
+    (message "link-target =: {%s}" link-target)
+    (kill-new link-target)
+    link-target
+    (when (os-win?)
+      (shell-command (format "C:/Cygwin/bin/cygstart.exe %s" link-target))
+      )
+    )
+  )
+
+;; ** [2014-10-07 火] TODO DRY! my-copy-org-link-target-and-w32-shell-execute の前半は my-copy-org-link-target と同じ。
+;; ** [2014-10-07 火] TODO ファイルが存在しないと失敗する。ファイルが存在しないことが分かるように表示してほしい。
 
 ;; ----------------------------------------------------------------------
 (provide 'my-kill-ring-save) ;; goto my-autoload.el

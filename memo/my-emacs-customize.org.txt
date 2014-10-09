@@ -1018,6 +1018,16 @@ shell-command-on-region: Args out of range: 0, 100
 - http://www.bookshelf.jp/soft/meadow_26.html
   - M-x list-faces-display で「 ruler 」を探してそのフェイスを設定すればいい
   - フェイス名クリックで詳細画面に遷移する。
+*** TODO アクティブ buffer と非アクティブ bufffer の face を改善する
+    [2014-10-03 金 11:27]
+- mode-line も。
+** foreign-regexp
+- [[~/.emacs.d/vendor/elpa/foreign-regexp-20140823.1742/foreign-regexp.el]]
+*** TODO M-x highlight-regexp の foreign-regexp 版がほしい
+    [2014-10-03 金 13:24]
+- M-x highlight-regexp でやってもいいが、正規表現のエスケープが面倒。
+
+
 ** ブラウザ関連
    [2011-10-20 木 15:23]
 *** google 検索
@@ -1914,7 +1924,8 @@ shell-command-on-region: Args out of range: 0, 100
   - to-stringに "\1", "\2"みたいなのがあったとき, 展開されていなかった問題を修正しました.
   - perl 正規表現置換の \1, \2 と同様。
 - 標準コマンド M-x shell-command-on-region sed や perl でできる。
-** TODO メール検索
+** メール関連
+*** TODO メール検索
    :LOGBOOK:
    TIMESTAMP: [2012-07-13 金 10:10]
    :END:
@@ -1925,6 +1936,14 @@ shell-command-on-region: Args out of range: 0, 100
   - mail subject {xxx}
   - occur や howm の入力が楽。
 - 前者に統一したほうがいいか？ 「 occur や howm の入力が楽。」は検索コマンドを自作すれば解決する。
+- 案1 org-open-at-point
+  - org-mode で [ [mail-search?subject=議事録] ] と記しておく。
+  - M-x org-open-at-point 実行したら検索開始。
+  - 検索結果を M-x grep と同様に表示する。
+*** TODO メール作成
+    [2014-10-09 木 09:59]
+- 案1 テンプレートを選択してメール作成。
+- 案2 メール検索バッファで選択したメールを雛形にしてメール作成。
 ** migemo                                                            :migemo:
 - goto: [[~/.emacs.d/memo/my-emacs-migemo.org.txt]]
 ** TODO iedt-mode
@@ -2157,5 +2176,8 @@ openwith.el:144:1:Error: End of file during parsing
     [2014-10-01 水 11:17]
 - [[file:~/.emacs.d/inits/my-other-window-or-split.el::my-other-window-or-split]]
 - フレームの横幅が閾値以上なら左右に分割、未満ならば上下に分割。
+** after-save-hook
+*** TODO サイズが0ならばファイルを削除する
+- ユーザに問い合わせてから削除。 C-u 付きなら問い合わせなし。
 * tail
   [2011-08-25 木 17:38]
