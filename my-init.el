@@ -27,23 +27,23 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-setq"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-child-process"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server"))
-(when t    "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-child-process"))
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server"))
+(when nil  "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when nil  "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
 (when nil  "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
 (when nil  "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
 (when nil  "2014-09-08" (load "~/.emacs.d/inits/my-visible-mark")) ;; 故障するので使用中止。
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中。
-(when t    "2014-09-08" (load "~/.emacs.d/inits/my-os-windows-ime")) ;; 実験中。
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-color"))
-(when t    "2014-09-26" (load "~/.emacs.d/inits/my-sequential-command")) ;; 実験中
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-migemo")) ;; 実験中。
+(when nil  "2014-09-08" (load "~/.emacs.d/inits/my-os-windows-ime")) ;; 実験中。
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-color"))
+(when nil  "2014-09-26" (load "~/.emacs.d/inits/my-sequential-command")) ;; 実験中
 (when nil  "2014-09-20" (load "~/.emacs.d/inits/my-calc")) ;; 実験中
-(when t    "2014-09-23" (load "~/.emacs.d/inits/my-shell")) ;; 実験中
-(when t    "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-explorer")) ;; 実験中
+(when nil  "2014-09-23" (load "~/.emacs.d/inits/my-shell")) ;; 実験中
+(when nil  "2014-09-22" (load "~/.emacs.d/inits/my-os-windows-explorer")) ;; 実験中
 (when nil  "2014-09-26" (load "~/.emacs.d/inits/my-textile-mode-package")) ;; 実験中
 (when nil  "2014-09-26" (load "~/.emacs.d/inits/my-foreign-regexp")) ;; 実験中
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-uniquify")) ;; 実験中
@@ -62,10 +62,10 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-clock"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-hook"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-speed"))
-(when t    "2014-09-19" (load "~/.emacs.d/inits/my-org-countdown")) ;; 実験中
-(when t    "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
+(when nil  "2014-09-19" (load "~/.emacs.d/inits/my-org-countdown")) ;; 実験中
+(when nil  "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
 ;; ** emacs-lisp-mode
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 (when nil  "2014-09-30" (load "~/.emacs.d/inits/my-show-paren-mode")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * require after init

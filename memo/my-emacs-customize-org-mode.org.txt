@@ -805,6 +805,8 @@ c
       '(("x" "Unscheduled TODO" tags-todo "-SCHEDULED>=\"<now>\"" nil)))
     #+END_QUOTE
 - goto: [[file:~/.emacs.d/inits/my-org-mode-dn2.el::org-agenda-custom-commands]]
+**** TODO estimate がついていないエントリを強調表示する
+     [2014-10-09 木 10:23]
 *** scheduled, deadline 関連
 **** TODO scheduled, deadline 両方を一度に変更するコマンド
 - 例。 scheduled, deadline 両方を +4d する。

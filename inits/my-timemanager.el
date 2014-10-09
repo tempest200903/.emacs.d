@@ -3,6 +3,13 @@
 ;; my-timemanager.el
 ;; ======================================================================
 
+;; (defun my-find-file-and-clear (filepath)
+;;   (find-file file-path)
+;;   (mark-whole-buffer)
+;;   (when buffer-read-only (toggle-read-only))
+;;   (kill-region (mark) (point))
+;;   )
+
 (defun my-timemanager-write-file ()
   "org-agenda 1日分をファイルに保存する。欠点： org file にジャンプできない。"
   (interactive)
@@ -13,8 +20,9 @@
     (mark-whole-buffer)
     (copy-to-register (get-register register-name) (mark) (point))
     (find-file file-path)
-    (mark-whole-buffer)
-    (kill-region (mark) (point))
+    (kill-buffer (get-buffer file-path))
+    (delete-file file-path)
+    (find-file file-path)
     (insert-register (get-register register-name))
     (save-buffer nil)
     (toggle-read-only 1)
@@ -22,7 +30,11 @@
   (org-agenda-mode)
   )
 
-;; [2014-07-03 木]
+;; ** [2014-10-08 水] TODO 事前に file-path の中身を空にするべし。
+
+;; ----------------------------------------------------------------------
+
+;; ** [2014-07-03 木]
 ;; 1. (shell-command "n:/work/myscript/ruby/workmanager_time_collect.bat") かつ、 workmanager_time_collect.bat から emacs 以外のエディタを起動すると、 emacs がハングアップしない。
 ;; 2. (shell-command "n:/work/myscript/ruby/workmanager_time_collect.bat") かつ、 workmanager_time_collect.bat から emacsclient を起動すると、 emacs がハングアップする。
 ;; 3. (shell-command "N:/tool/bluewind/bluewind.exe /paste n:/work/myscript/ruby/workmanager_time_collect.bat") かつ、 workmanager_time_collect.bat から emacsclient を起動すると、 emacs がハングアップしない。
@@ -67,11 +79,11 @@
 (defun my-timemanager-show-closed-project ()
   "close になったプロジェクトを抽出して表示する。"
   (interactive)
-  (let ((regexp-closed-project "Clocked:.*:(WMP140011|WMP140084|WMP140125|WMP140081):"))
+  (let ((regexp-closed-project "Clocked:.*:\(WMP140011\|WMP140084\|WMP140125\|WMP140081\):"))
     (when (switch-to-buffer (get-buffer "*Org Agenda*"))
       (my-org-agenda-show-log-on)
-      (foreign-regexp/occur regexp-closed-project)
-      (when nil (highlight-regexp regexp-closed-project "hi-yellow")) ; org-agenda-mode では highlight できない？
+      (occur regexp-closed-project)
+      (when t (highlight-regexp regexp-closed-project "hi-yellow")) ; org-agenda-mode では highlight できない？
       )
     )
   )

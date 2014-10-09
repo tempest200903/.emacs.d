@@ -167,7 +167,8 @@
     )
   )
 
-;; TODO DRY! my-copy-org-link-target-and-w32-shell-execute の前半は my-copy-org-link-target と同じ。
+;; ** [2014-10-07 火] TODO DRY! my-copy-org-link-target-and-w32-shell-execute の前半は my-copy-org-link-target と同じ。
+;; ** [2014-10-07 火] TODO ファイルが存在しないと失敗する。ファイルが存在しないことが分かるように表示してほしい。
 
 ;; ----------------------------------------------------------------------
 (provide 'my-kill-ring-save) ;; goto my-autoload.el
