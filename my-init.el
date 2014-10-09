@@ -49,6 +49,7 @@
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-uniquify")) ;; 実験中
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-hiwin")) ;; 実験中
 (when nil  "2014-09-28" (load "~/.emacs.d/inits/my-auto-complete-package")) ;; 実験中
+(when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ;; 実験中
 ;; ----------------------------------------------------------------------
 ;; * anything
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))

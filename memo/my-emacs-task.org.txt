@@ -85,8 +85,6 @@
 - バッチファイルを経由してファイルサーバファイルを開く。
   - 例 N:\Isf-mine\情報エンジニアリング部\［0］bodais\【編集中】P部・研究所への展開の流れ.txt.proxy.bat を経由してファイルサーバファイルを開く。
   - 例 @myscript\dos\fileserver-localopen.bat \\Isf-mine\情報エンジニアリング部\[0]bodais\【編集中】P部・研究所への展開の流れ.txt
-** TODO 〔my-date-replace.el〕
-- [[~/.emacs.d/inits/my-date-replace.el]]
 ** CANCELLED 〔howm メモを一括検索・一括置換したい〕
    CLOSED: [2014-09-10 水 18:29]
 - 目的：howm メモを一括検索・一括置換したい
@@ -167,11 +165,16 @@ $ ruby -e 'a = "10:37".split(/:/); b = "1:52".split(/:/); a[0]=a[0].to_i; a[1]=a
   を見たが、オプションが見当たらない。
 *** pandoc の問題2
 - "_" アンダーバーを置換するが、置換しないでほしい。
-** TODO アクセスログ
+** TODO 〔org-open-at-point アクセスログ〕
+   :LOGBOOK:
+   CLOCK: [2014-10-05 日 17:35]--[2014-10-05 日 17:43] =>  0:08
+   CLOCK: [2014-10-05 日 15:47]--[2014-10-05 日 16:30] =>  0:43
    [2014-09-10 水 18:27]
-- org-mode link のアクセスログを記録する。
+   :END:
+- org-open-at-point のアクセスログを記録する。
 - アクセスカウントを集計する。どこからどこへ何回アクセスしたか。
-** TODO org-mode 残り時間自動計算
+- [[file:~/.emacs.d/inits/my-accesslog.el::%E3%80%94org-open-at-point%20%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%80%95][file:~/.emacs.d/inits/my-accesslog.el::〔org-open-at-point アクセスログ〕]]
+** TODO 〔org-mode 残り時間自動計算〕
    [2014-09-10 水 19:12]
 - [[elisp:(progn (find-file "n:/howm/2014/09/2014-09-08-185130.howm.txt") (occur "残り時間"))]]
 ** TODO bookmark file を PC 毎に分離したい
@@ -329,4 +332,3 @@ BEGIN で C-c C-c すると、 ```org-babel-execute-src-block: No org-babel-exec
    DEADLINE: <2014-10-30 木>
 - [[~/.emacs.d/inits/my-anything-static-keywords.el]]
   - アドレスなどをリポジトリ外部に置く。
-

@@ -1,5 +1,8 @@
 # -*- coding: utf-8-unix;  -*-
-* my-emacs-customize
+* 〈my-emacs-customize〉
+  :PROPERTIES:
+  :CATEGORY: 〈my-emacs-customize〉
+  :END:
 #+LAST_UPDATED: 2014-09-03
 ** DONE カスタマイズリセット
    [2011-08-18 木 10:00]
@@ -627,6 +630,7 @@ Loading vc-svn...done
 - occur はこれで実現できそう。
   - M-| (shell-command-on-region) grep -n java | grep -v javascript
 - moccur はどうする？
+  - moccur したあと、 M-x occur-edit-mode M-x delete-matching-lines M-x occur-cease-edit
 *** TODO occur で grep -v するコマンドを自作する
 #+BEGIN_EXAMPLE
 (defun occur-reverse (&optional ARGS)
@@ -1590,22 +1594,25 @@ shell-command-on-region: Args out of range: 0, 100
   - .emacs.d/init.el を複数のプラットフォームで安定して動かすためのplatform-p - おんがえしの日記
 *** Windows 依存
     [2011-12-15 木 12:26]
-**** TODO ファイルシステム
+**** DONE パス名の区切り文字を変換するコマンド cygpath
     :LOGBOOK:
+    CLOCK: [2014-10-06 月 21:49]--[2014-10-06 月 22:19] =>  0:30
     CLOCK: [2011-12-15 木 12:26]--[2011-12-15 木 13:01] =>  0:35
     :END:
     [2011-12-15 木 12:26]
-- パス名の区切り文字を変換するコマンドがほしい。 cygpath のようなもの。
+- パス名の区切り文字を変換するコマンド。 cygpath と同じ機能。
 - 例
   - p1 [[~/work/y2011/1112URI/20111215-theme/output/output_shopdata-tc101.tsv]]
   - p2 [[n:\work\y2011\1112URI\20111215-theme\output\output_shopdata-tc101.tsv]]
   - p1 から p2 へ変換する。 vise versa
 - dired, anything-find-files, recentf などから利用したい。
-**** TODO SendTo
+- [[file:~/.emacs.d/inits/my-cygpath.el::my-cygpath.el]]
+**** TODO SendTo で任意のファイルを Emacs に送る
      :LOGBOOK:
      TIMESTAMP: [2013-05-09 木 12:55]
      :END:
 - NPO法人「大雪りばぁねっと。」関連の事件から学ぶこと：　追補 - blechmusikの日記 - http://blechmusik.hatenablog.jp/entry/2013/05/04/003700
+  - Send Toで送るよう指定されたファイルをいわば Emacs.exe 上に擬似的にドラッグ&ドロップすることで実現する。挙動を厳密に説明すると、指定したEmacs.exeが起動していればその Emacs.exe にドラッグ&ドロップするが、もしも起動していなければ、起動させた上でファイルをドラッグ&ドロップする。
 - http://blechmusik.xii.jp/resources/app/ahk_scripts/DropFile/
 - ショートカット, bluewind { N:\tool\DropFile\DropFile.exe Emacs N:\tool\gnupack\gnupack_basic-8.00\app\emacs\emacs\bin\emacs.exe }
 ** crush
@@ -1655,7 +1662,7 @@ shell-command-on-region: Args out of range: 0, 100
   - case B. utf-8-unix ならば変更しない。
   - case C. 不明ならば変更しない。
   - どの case を選択したかレポートする。
-*** TODO インストール自動化
+*** DONE インストール自動化
     :LOGBOOK:
     TIMESTAMP: [2012-04-04 水 17:38]
     :END:
@@ -2162,7 +2169,7 @@ openwith.el:144:1:Error: End of file during parsing
   - 正規表現: 2014-09-[20,21,22,23,24,25,26,27]
   - 課題 年月をまたがる場合。
 - 生成した正規表現を occur, moccur, grep-find, howm-grep に渡す。
-*** TODO [#B] rename 固有名詞
+*** TODO rename 固有名詞
     DEADLINE: <2014-10-07 火>
 - ~/.emacs.d/inits/my-bodais.el
 *** TODO 分割方向を自動判別してほしい

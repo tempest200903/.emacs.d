@@ -10,3 +10,4 @@
   (next-error)
   )
 (global-set-key (kbd "C-z C-x C-:")         'my-bodais-module-dictionary-lookup)
+;; * TODO [2014-10-04 土] カーソル位置にある thing を拾ってデフォルト値にする。
