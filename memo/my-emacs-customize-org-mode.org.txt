@@ -353,7 +353,7 @@
 - M-x org-next-link {It is bound to M-g M-n} すれば一発で全て閉じる。このほうが楽。
 **** TODO schedule や deadline の repeat で休日をスキップしたい
     [2011-11-14 月 10:42]
-- 例えば、 DEADLINE < 2011-11-11 金 > SCHEDULED < 2011-11-11 金 >
+- 例えば、 DEADLINE:  2011-11-11 金  SCHEDULED:  2011-11-11 金
   のような指定でインクリメントすると土曜日になる。このとき、休日ならスキップしたい。
 **** TODO 〔org-mode ハイパーリンク アクセスログ〕                 :wishlist:
     [2011-11-30 水 10:06]
@@ -809,6 +809,115 @@ c
       '(("x" "Unscheduled TODO" tags-todo "-SCHEDULED>=\"<now>\"" nil)))
     #+END_QUOTE
 - goto: [[file:~/.emacs.d/inits/my-org-mode-dn2.el::org-agenda-custom-commands]]
+**** org-mark-entry-for-agenda-action                                  :tips:
+- http://orgmode.org/manual/Inserting-deadline_002fschedule.html
+  - C-c C-x C-k     (org-mark-entry-for-agenda-action)
+    - Mark the current entry for agenda action. After you have marked
+      the entry like this, you can open the agenda or the calendar to
+      find an appropriate date. With the cursor on the selected date,
+      press k s or k d to schedule the marked item.
+- 使い方
+  1. いずれかのエントリ1個を指定して C-c C-x C-k (org-mark-entry-for-agenda-action) 。このエントリが記憶される。
+  2. C-c > (org-goto-calendar) または org-agenda-view でいずれかの日付を指定する。
+  3. k (org-agenda-action) を入力する。 mini buffer に
+     Select action: [m]ark | [s]chedule [d]eadline [r]emember [c]apture [ ]show
+     と表示が出る。
+  4. s または d を入力すると、そのエントリの schedule または deadline が、指定した日付に変更される。
+- メリット
+  1. 1つのエントリに schedule と deadline 両方を指定する場合。 C-c C-s C-c C-d より多少キーストロークが少ない。
+  2. org-agenda-view で他の schedule, deadline を見ながら日付を決定できる。
+***** A
+      SCHEDULED: <2014-10-12 日>
+***** B
+***** C
+*** clock 関連
+**** DONE 〔org-clock-modeline-total〕
+     :LOGBOOK:
+     CLOCK: [2014-10-08 水 00:44]--[2014-10-08 水 00:46] =>  0:02
+     CLOCK: [2014-10-01 水 00:34]--[2014-10-01 水 00:44] =>  0:10
+     :END:
+     :PROPERTIES:
+     :LAST_REPEAT: [2014-10-08 水 00:46]
+     :END:
+#+BEGIN_QUOTE
+org-clock-modeline-total is a variable defined in `org-clock.el'.
+Its value is auto
+
+Documentation:
+Default setting for the time included for the modeline clock.
+This can be overruled locally using the CLOCK_MODELINE_TOTAL property.
+Allowed values are:
+
+current  Only the time in the current instance of the clock
+today    All time clocked into this task today
+repeat   All time clocked into this task since last repeat
+all      All time ever recorded for this task
+auto     Automatically, either `all', or `repeat' for repeating tasks
+
+You can customize this variable.
+#+END_QUOTE
+#+BEGIN_EXAMPLE
+current  今回開始した時刻計測インスタンスぶんのみを表示する。
+today    今日開始した時刻計測インスタンスぶんのみを表示する。
+repeat   このタスクの最後のリピートぶんのみを表示する。
+all      すべての時刻計測を表示する。。
+auto     all または repeat
+#+END_EXAMPLE
+- 実験 (setq org-clock-modeline-total 'today)
+- 自分の用途では、 C-c C-x C-d (org-clock-display) で表示する時間は日付毎に分離したい。
+  面倒だが、 org-clock-modeline-total は頼らずにエントリを日付毎に分離していく。
+- http://hpcgi1.nifty.com/spen/index.cgi?OrgMode%2FOrganize_Your_Life_In_Plain_Text!(2)
+  - 私はOrg-modeの説明費やすのは１日１時間と区切り、合計時間に制限を設定しています。
+  - グローバル変数の代わりに、エントリのプロパティに :CLOCK_MODELINE_TOTAL: today と指定する方法もある。
+***** sample
+****** current
+       SCHEDULED: <2014-10-08 水 +1m>
+       :LOGBOOK:
+       CLOCK: [2014-10-05 日 00:00]--[2014-10-05 日 00:10] =>  0:10
+       :PROPERTIES:
+       :Effort:   1:00
+       :END:
+****** CLOCK_MODELINE_TOTAL today
+       SCHEDULED: <2014-10-08 水 +1m>
+       :LOGBOOK:
+       CLOCK: [2014-10-05 日 00:00]--[2014-10-05 日 00:10] =>  0:10
+       :PROPERTIES:
+       :CLOCK_MODELINE_TOTAL: today
+       :Effort:   1:00
+       :END:
+****** DONE CLOCK_MODELINE_TOTAL repeat
+       SCHEDULED: <2014-11-08 土 +1m>
+       - State "DONE"       from ""           [2014-10-08 水 01:08]
+       :LOGBOOK:
+       CLOCK: [2014-10-08 水 01:08]--[2014-10-08 水 22:55] => 21:47
+       CLOCK: [2014-10-05 日 00:00]--[2014-10-05 日 00:10] =>  0:10
+       :PROPERTIES:
+       :CLOCK_MODELINE_TOTAL: today
+       :Effort:   1:00
+       :LAST_REPEAT: [2014-10-08 水 01:08]
+       :END:
+**** TODO 〔org-remove-highlights-with-change〕
+     DEADLINE: <2014-10-08 水> SCHEDULED: <2014-10-08 水>
+     :LOGBOOK:
+     CLOCK: [2014-10-08 水 00:46]--[2014-10-08 水 00:58] =>  0:12
+     :END:
+#+BEGIN_QUOTE
+org-remove-highlights-with-change is a variable defined in `org.el'.
+Its value is t
+
+Documentation:
+Non-nil means any change to the buffer will remove temporary highlights.
+Such highlights are created by `org-occur' and `org-clock-display'.
+When nil, `C-c C-c needs to be used to get rid of the highlights.
+The highlights created by `org-preview-latex-fragment' always need
+`C-c C-c' to be removed.
+
+You can customize this variable.
+#+END_QUOTE
+- Non-nil :: バッファを変更したら一時的なハイライトを除去する。
+- nil :: ハイライトを除去するには C-c C-c を入力する必要がある。
+- (setq org-remove-highlights-with-change nil)
+=======
 **** TODO estimate がついていないエントリを強調表示する
      [2014-10-09 木 10:23]
 *** scheduled, deadline 関連
