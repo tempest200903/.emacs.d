@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
 ;; my-init.el
-;; #+LAST_UPDATED: 2014-09-25
+;; #+LAST_UPDATED: 2014-10-09
 ;; ----------------------------------------------------------------------
 ;; * benchmark
 (when t "2014-09-14" (load "~/.emacs.d/inits/my-benchmark"))
@@ -27,11 +27,11 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-setq"))
-(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-child-process"))
+(when t    "2014-10-09" (load "~/.emacs.d/inits/my-child-process")) ; M-x compile するために必要！
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
-(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server"))
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server")) ; workmanager_time_collect.bat から戻ってくるときに使う。 DropFile.exe を使えば不要？
 (when nil  "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when nil  "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
 (when nil  "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
