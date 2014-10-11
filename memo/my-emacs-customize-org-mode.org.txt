@@ -149,6 +149,13 @@
      [2011-08-29 月 11:20]
 - '(org-clock-into-drawer "LOGBOOK")
 - [[file:~/.emacs.d/my-emacs-custom.el::org-clock-into-drawer]]
+**** TODO タスクシュートの「常に仕事の終わる時刻をリアルタイムに把握する」
+     [2014-10-10 金 00:06]
+- タスクシュートの「常に仕事の終わる時刻をリアルタイムに把握する」 emacs org-mode で実現したい！
+- cf. https://www.evernote.com/shard/s5/nl/409467/31f3b6e5-10de-417a-a467-fec734f44235
+- 実現方法
+  - org-agenda-mode で . (org-agenda-goto-today) に hook してトリガーを引く。
+  - [[~/.emacs.d/inits/my-taskchute.el]]
 *** DONE speed-command
     CLOSED: [2011-12-17 土 10:55]
     [2011-09-16 金 09:59]

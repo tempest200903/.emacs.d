@@ -36,3 +36,4 @@
               (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)
               ))
   )
+

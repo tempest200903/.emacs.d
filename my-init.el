@@ -1,6 +1,6 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
 ;; my-init.el
-;; #+LAST_UPDATED: 2014-09-25
+;; #+LAST_UPDATED: 2014-10-11
 ;; ----------------------------------------------------------------------
 ;; * benchmark
 (when t "2014-09-14" (load "~/.emacs.d/inits/my-benchmark"))
