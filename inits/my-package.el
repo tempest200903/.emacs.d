@@ -23,6 +23,11 @@
 ;; (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
 ;; MELPA については http://d.hatena.ne.jp/tuto0621/20120613/1339607400 にも記述がある。
 ;;     (add-to-list 'package-archives '("MELPA" . "http://melpa.milkbox.net/packages/"))
+;; * [2014-10-11 土]
+;; http://d.hatena.ne.jp/syohex/20141011/1412996912
+;; marmaladeは最近はあまり使われていないので, melpa-stableにした方がよいです. 
+;; marmaladeにしかないパッケージがあれば別ですが, 安定版を使うという用途であれば
+;; melpa-stableの方がよいです.
 
 (when (not (require 'package nil t))
   (progn

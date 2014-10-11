@@ -562,7 +562,7 @@ Loading vc-svn...done
 - from: N:\download\Emacs\plugin\howm\howm-1.3.9.1.tar.gz
 - to: N:\.emacs\howm-1.3.9.1
 - [[file:~/.emacs.d/inits/my-howm.el::require]]
-*** VERIFY 2単語のAND検索
+*** DONE 2単語のAND検索
     [2011-10-26 水 12:45]
 - google のように、2単語のAND検索をしたい。
 - 1文書のAND検索なら M-x howm-list-grep-fixed {It is bound to C-@ s} したあと、
@@ -571,12 +571,10 @@ Loading vc-svn...done
 - デフォルトではスペース入力不可。
   (minibuffer-complete-word) It is bound to SPC, <menu-bar> <minibuf> <space>.
   が割り当てられているから。
-- M-x howm-list-grep {It is bound to C-@ g, C-c , g}
-  WORD1.*WORD2 と入力すれば、実現可能。ただし、これでは単語入れ替わりはマッチしない。
-  \(WORD1.*WORD2\|WORD2.*WORD1\) が必要。
+- (setq moccur-split-word t) してから M-x moccur で複数の単語をスペースで区切って入力すればよい。
+  登場順序が逆でもヒットする。
 *** TODO 毎月 howm-directory, howm-search-other-dir を自動的に更新する
     [2014-10-01 水 10:03]
-
 ** occur 関連                                                    :occur_mode:
    [2011-08-30 火 14:29]
 *** DONE occur 第2引数 NLINES
@@ -2128,7 +2126,7 @@ openwith.el:144:1:Error: End of file during parsing
 - [[~/.emacs.d/inits/my-xdoc2txt.el]]
 *** TODO moccur-use-xdoc2txt の使い方を調べる
     :LOGBOOK:
-    CLOCK: [2014-10-10 金 00:42]
+    CLOCK: [2014-10-10 金 00:42]--[2014-10-10 金 01:00] =>  0:18
     [2014-10-10 金 00:43]
     :END:
 - (setq moccur-use-xdoc2txt t)
@@ -2203,6 +2201,11 @@ openwith.el:144:1:Error: End of file during parsing
 - フレームの横幅が閾値以上なら左右に分割、未満ならば上下に分割。
 - http://shibayu36.hatenablog.com/entry/2012/12/18/161455
   - emacsのwindow幅に合わせて、分割数を変える - $shibayu36->blog;
+*** TODO カーソル位置にある数値を増減する
+    :LOGBOOK:
+    CLOCK: [2014-10-11 土 21:33]
+    :END:
+- [[file:~/.emacs.d/inits/my-evil-numbers.el::evil-numbers]]
 ** after-save-hook
 *** TODO サイズが0ならばファイルを削除する
 - ユーザに問い合わせてから削除。 C-u 付きなら問い合わせなし。
