@@ -17,7 +17,6 @@
       )
     )
   (other-window 1)
-  (my-shrink-other-window-if-larger-than-buffer)
   )
 
 (defun my-other-window-or-split (&optional arg)

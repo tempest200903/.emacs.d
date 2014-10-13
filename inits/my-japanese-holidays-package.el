@@ -1,15 +1,15 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
 ;; my-japanese-holidays-package.el
+
 ;; ======================================================================
 ;; * [2014-09-11 木] インストール
 ;; (package-install 'japanese-holidays)
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-11 木] 設定
 ;; ~/.emacs.d/vendor/elpa/japanese-holidays-readme.txt
+;; ~/.emacs.d/vendor/elpa/japanese-holidays-20140620.559/japanese-holidays.el
 ;;
-(when (and
-       (package-require 'japanese-holidays nil nil t)
-       t)
+(when (package-require 'japanese-holidays nil nil t)
   (eval-after-load "holidays"
     '(progn
        (require 'japanese-holidays)
@@ -29,4 +29,4 @@
 ;;
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-11 木] TODO 固有の稼働日、非稼働日を設定したい。
-;; * [2014-09-11 木] TODO auto-load 遅延評価したい。軽いからしなくてもいいか？
+

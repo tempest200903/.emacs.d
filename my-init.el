@@ -16,23 +16,25 @@
 (load custom-file)
 ;; ----------------------------------------------------------------------
 ;; * global
+;; define-key よりさきに unset-key する必要がある。
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key"))
 ;; package を利用するファイルより先に load する必要がある。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-package"))
 ;; auto-install を利用するファイルより先に load する必要がある。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-auto-install"))
+;; M-x shell に必要。
+(when t    "2014-10-13" (load "~/.emacs.d/inits/my-child-process"))
+
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-coding-system"))
-;; define-key よりさきに unset-key する必要がある。
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key"))
+(when t    "2014-10-11" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-setq"))
-(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-child-process"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server"))
-(when nil  "2014-09-09" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when nil  "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
 (when nil  "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
 (when nil  "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
@@ -49,7 +51,9 @@
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-uniquify")) ;; 実験中
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-hiwin")) ;; 実験中
 (when nil  "2014-09-28" (load "~/.emacs.d/inits/my-auto-complete-package")) ;; 実験中
-(when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ;; 実験中
+(when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ;; 実験中。 psession を使うと起動に時間がかかる。
+(when t    "2014-10-13" (load "~/.emacs.d/inits/my-mode-line")) ;; 実験中
+
 ;; ----------------------------------------------------------------------
 ;; * anything
 ;; (when t    "2013-10-29" (load "~/.emacs.d/inits/my-anything-basis"))
@@ -63,6 +67,7 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-clock"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-hook"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-speed"))
+(when t    "2014-10-11" (load "~/.emacs.d/inits/my-org-agenda-holidays")) ; 実験中
 (when nil  "2014-09-19" (load "~/.emacs.d/inits/my-org-countdown")) ;; 実験中
 (when nil  "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
 ;; ** emacs-lisp-mode
