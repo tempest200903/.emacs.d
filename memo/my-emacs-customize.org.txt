@@ -643,6 +643,24 @@ shell-command-on-region grep -nv a
 (Shell command failed with error)
 shell-command-on-region: Args out of range: 0, 100
 #+END_EXAMPLE
+*** DONE region active である場合、取り込んで occur に入力する
+    CLOSED: [2014-10-09 木 11:29]
+    [2014-10-09 木 11:23]
+- occur-by-moccur で十分か？
+*** TODO moccur で前後を表示するために .*PATTERN.* とするのが面倒
+    [2014-10-09 木 11:39]
+*** TODO moccur-use-xdoc2txt を調べる
+    DEADLINE: <2014-11-09 日>
+    [2014-10-09 木 11:41]
+- [[file:~/.emacs.d/custom-dn2/my-emacs-custom.el::moccur-use-xdoc2txt]]
+;; * '(moccur-use-xdoc2txt t)
+;; [2014-10-09 木]
+;; Documentation:
+;; Non-nil means to use xdoc2txt.
+;; xdoc2txt is Windows software to convert Word/Excel/PDF etc to Text file.
+;; http://www31.ocn.ne.jp/~h_ishida/xdoc2txt.html (Japanese site)
+;; Non-nil にすると xdoc2txt を使う。
+;; M-x shell で xdoc2txt が正常に動作しておく必要がある？
 ** rename-buffer 関連
    [2011-09-16 金 10:45]
 *** DONE rename-uniquely

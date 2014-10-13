@@ -123,3 +123,11 @@
 ;; * [2014-09-30 火] my-kill-ring-save.el
 ;; (bind-key "C-c M-w" 'my-kill-ring-save-or-copy-org-link-target org-mode-map)
 (my-bind-key-with-autoload "my-kill-ring-save" "C-c M-w" 'my-kill-ring-save-or-copy-org-link-target org-mode-map)
+
+;; ----------------------------------------------------------------------
+;; * [2014-10-09 木] alias
+(defalias 'oti 'org-table-import)
+(defalias 'ote 'org-table-export)
+
+(define-key org-mode-map (kbd "C-c t i") 'org-table-import)
+(define-key org-mode-map (kbd "C-c t e") 'org-table-export)

@@ -66,7 +66,6 @@
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-01 金] mode 切り替え関連。
 (define-key global-map (kbd "C-z l")                'linum-mode)
-(define-key global-map (kbd "C-z C-\\")             'cua-selection-mode)
 (define-key global-map (kbd "C-z g")                'graphviz-dot-mode)
 (define-key global-map (kbd "C-z t")                'orgtbl-mode)
 (define-key global-map (kbd "C-z h")                'hl-line-mode)
@@ -227,7 +226,12 @@
 (define-key global-map (kbd "M-g M-o")              'my-occur-or-switch-to-buffer)
 (define-key global-map (kbd "M-g M-m")              'my-moccur-or-switch-to-buffer)
 (define-key global-map (kbd "M-s M-m")              'moccur)
-(define-key global-map (kbd "M-s .")                'my-moccur-today)
+
+;; (define-key global-map (kbd "M-s .")                'my-moccur-today)
+(my-bind-key-with-autoload "my-color-moccur" "M-s ." 'my-moccur-today)
+
+(my-bind-key-with-autoload "my-color-moccur" "M-s M-i" 'occur-by-moccur)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-03-19 水] Emacs から エクスプローラを起動するユーティリティ。
 (define-key global-map (kbd "C-z e")                'my-explorer-current-directory)
@@ -345,4 +349,5 @@
 (load "~/.emacs.d/inits/my-lookup-key")
 (load "~/.emacs.d/inits/my-cygpath-keymap-autoload")
 (load "~/.emacs.d/inits/my-evil-numbers-keymap-autoload")
-
+(load "~/.emacs.d/inits/my-goto-last-change-keymap-autoload")
+(load "~/.emacs.d/inits/my-cua-selection-mode-keymap")
