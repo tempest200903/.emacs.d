@@ -52,7 +52,7 @@
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-uniquify")) ;; 実験中
 (when nil  "2014-09-27" (load "~/.emacs.d/inits/my-hiwin")) ;; 実験中
 (when nil  "2014-09-28" (load "~/.emacs.d/inits/my-auto-complete-package")) ;; 実験中
-(when t    "2014-10-10" (load "~/.emacs.d/inits/my-iswitchb")) ;; 実験中
+(when nil  "2014-10-10" (load "~/.emacs.d/inits/my-iswitchb")) ;; 実験中
 (when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ;; 実験中。 psession を使うと起動に時間がかかる。
 (when t    "2014-10-13" (load "~/.emacs.d/inits/my-mode-line")) ;; 実験中
 

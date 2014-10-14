@@ -12,14 +12,14 @@
 - [2012-07-03 火 16:24] 試用開始。
 - 手順
   1. cd N:\tool\gnupack\gnupack_basic-8.00\home\.emacs.d ; svn commit
-  2. cd N:\.eamcs.d ; checkout file:///N:/SVNrepo/.emacs.d/trunk 
+  2. cd N:\.eamcs.d ; checkout file:///N:/SVNrepo/.emacs.d/trunk
   Completed: At revision: 3329
 ** 〔gnupack version〕
 *** DONE 〔gnupack version 7.02〕
     CLOSED: [2012-01-20 金 16:29]
    [2011-11-21 月 10:27]
 **** emacs version
-- verison gnupack (GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600)  of 2011-08-15 on GNUPACK) 
+- verison gnupack (GNU Emacs 23.3.1 (i386-mingw-nt5.1.2600)  of 2011-08-15 on GNUPACK)
 **** directory
 - from: N:\download\Emacs\gnupack
 - to: N:\tool\gnupack\gnupack_basic-7.02
@@ -120,7 +120,7 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
      :LOGBOOK:
      TIMESTAMP: [2012-06-26 火 11:24]
      :END:
-- M-x grep 
+- M-x grep
   - grep -nH メニュー
   - 0 matches
 - M-x rgrep
@@ -171,7 +171,7 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
     :END:
 - cd N:\tool\gnupack\gnupack_basic-10.02
 - gnupack 10.02 付属の emacs をリネーム。
-  before N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs 
+  before N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs
   after  N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs-24.2-20120922
 - 暫定ビルドの emacs をリネーム
   before N:\tool\gnupack\gnupack_basic-10.02\app\emacs\emacs-24.2-20121201
@@ -188,9 +188,9 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
   - [[*%E3%80%94howm-list-grep-fixed%20%E4%B8%8D%E5%85%B7%E5%90%88%E3%80%95][〔howm-list-grep-fixed 不具合〕]] 不具合発生する。
   - [[*%E3%80%94gnupack%20version%208.00%E3%80%95][〔gnupack version 8.00〕]] に戻そう。
 **** install
-- [[N:\download\Emacs\gnupack\emacs-24.2-20121201.exe]] 
+- [[N:\download\Emacs\gnupack\emacs-24.2-20121201.exe]]
 *** PENDING 〔gnupack version 11 のリリースノートを読む〕
-    DEADLINE: <2013-11-17 日>
+    DEADLINE: <2015-10-14 水>
     :LOGBOOK:
     - New deadline from "2013-10-12 土" on [2013-10-15 火 10:11]
     :END:
@@ -260,7 +260,7 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
 - 以下のメッセージが多数出る。
   # /usr/bin/find: paths must precede expression: 2011/.svn
   # Usage: /usr/bin/find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path...] [expression]
-***** emacs version 24.1.1 my-init.el revision 3329 
+***** emacs version 24.1.1 my-init.el revision 3329
       :LOGBOOK:
       TIMESTAMP: [2012-07-03 火 16:35]
       :END:
@@ -284,7 +284,7 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
 - testcase.1 英数字文字列を検索する場合
   - [2012-07-03 火 16:22] 英数字文字列を検索する場合、正しくマッチする。 /dev/null メッセージはでない。
 - testcase.2 日本語文字列を検索する場合
-  - [2012-07-03 火 16:22] 日本語文字列を検索する場合、マッチしない。 no matches found. 
+  - [2012-07-03 火 16:22] 日本語文字列を検索する場合、マッチしない。 no matches found.
 - goto [[*%E3%80%94emacs%20version%2024.1.1%E3%80%95][〔emacs version 24.1.1〕]]
 - [2012-07-23 月 15:46] (regrep) S式を C-x C-e (eval-last-sexp) すると失敗するが、 M-x rgrep なら失敗しない。
 ***** 〔gnupack version 9.00〕
@@ -406,7 +406,7 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
 - [[file:~/.emacs.d/inits/my-emacs-server.el::server-start]]
 - M-x server-start
 - [[*%E3%80%94gnupack%20version%208.00%E3%80%95][〔gnupack version 8.00〕]] + .emacs.d (revision 3637) では下記エラーが発生して失敗する。
-#+BEGIN_EXAMPLE 
+#+BEGIN_EXAMPLE
 Debugger entered--Lisp error: (file-error "make server process failed" "invalid argument" :name "server" :server t :noquery t :sentinel server-sentinel :filter server-process-filter :coding raw-text-unix :family ipv4 :service t :host "127.0.0.1" :plist (:authenticated nil))
   make-network-process(:name "server" :server t :noquery t :sentinel server-sentinel :filter server-process-filter :coding raw-text-unix :family ipv4 :service t :host "127.0.0.1" :plist (:authenticated nil))
   apply(make-network-process :name "server" :server t :noquery t :sentinel server-sentinel :filter server-process-filter :coding raw-text-unix (:family ipv4 :service t :host "127.0.0.1" :plist (:authenticated nil)))
@@ -440,7 +440,7 @@ Debugger entered--Lisp error: (file-error "make server process failed" "invalid 
 - auto-save-mode off で様子を見る。
   - (auto-save-mode -1)
 *** PENDING 〔org-open-at-point したときにリージョンアクティブになる〕
-    [2014-05-08 木] 
+    [2014-05-08 木]
 - org-open-at-point したときに、リンク先バッファで元いた位置からリンク
   先位置までを選択してリージョンアクティブになる現象が発生。このまま文
   字入力するとリージョンを削除してしまうので困る。
@@ -464,4 +464,23 @@ Debugger entered--Lisp error: (file-error "make server process failed" "invalid 
   難。とりあえずこれで誤って消してしまう問題は回避できた。
 *** PENDING 〔文字が正しく描画されない不具合〕
     [2014-10-08 水 10:00]
+** PENDING 〔Org-mode〕
+*** PENDING 〔Org-mode version 8.2.8〕
+   DEADLINE: <2014-12-14 日>
+   :LOGBOOK:
+   CLOCK: [2014-10-14 火 10:00]--[2014-10-14 火 10:10] =>  0:10
+   :END:
+- Org-mode version 8.2.8 (8.2.8-elpa @ n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/vendor/elpa/org-20141006/)
+- dn2 環境で org-clock-in が異常。コマンドは成功するが、 drawer の中身が空。
+- dn2 環境で org-end-of-line が異常。コマンドが失敗する。 org-element-timestamp-parser: Wrong type argument: stringp, nil
+- 暫定対処
+  - いったん、前のバージョンに戻す。
+  - rm -rf n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/vendor/elpa/org-20141006
+- Org-mode version 7.8.11
+  - 解消した。
+*** 〔Org-mode version 8.0.3〕
+- http://rubikitch.com/2014/10/13/org-src/
+  - org-mode、お前の実力はそんなもんか!？ | るびきち「日刊Emacs」
+- BEGIN_EXAMPLE END_EXAMPLE block の行頭に * や #+ があると、エクスポート結果が崩れる。
+- INCLUDE をつかって別ファイルから include すれば回避可能。
 * tail

@@ -1,3 +1,7 @@
+2014-10-14    <nakamura@PRO-NAKAMURA>
+
+	* my-init.el: rm -rf n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/vendor/elpa/org-20141006
+
 2014-10-05    <s@G>
 
 	* .gitignore: `elisp-objects` を追加。 psession.el が保存する場所。

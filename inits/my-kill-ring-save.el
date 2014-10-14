@@ -75,6 +75,7 @@
   my-kill-buffer-dir-name
   )
 
+;; * TODO dired でも my-kill-buffer-file-name を使いたい。
 ;; ----------------------------------------------------------------------
 ;; * wishlist
 ;; ** [2014-09-18 木] TODO file-name を扱うコマンド全般について、

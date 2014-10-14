@@ -78,10 +78,10 @@
   (define-key org-agenda-mode-map (kbd "S") 'org-save-all-org-buffers) ; "s" から "S" に移転。
   (define-key org-agenda-mode-map (kbd "_") 'org-agenda-day-view) ; "d" から "_" に移転。
   (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ; alias of C-c C-x C-c
-  (define-key org-agenda-mode-map (kbd "C-c 1") 'my-org-agenda-reset-schedule-today)
-  (define-key org-agenda-mode-map (kbd "C-c 2") 'my-org-agenda-reset-schedule-tomorrow)
-  (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-agenda-reset-deadline-today)
-  (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-agenda-reset-deadline-tomorrow)
+  (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-agenda-reset-schedule-today)
+  (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-agenda-reset-schedule-tomorrow)
+  (define-key org-agenda-mode-map (kbd "C-c 1") 'my-org-agenda-reset-deadline-today)
+  (define-key org-agenda-mode-map (kbd "C-c 2") 'my-org-agenda-reset-deadline-tomorrow)
   ;; ** [2014-10-08 水] TODO key map 見直し。
   ;; d d => 通常の org-agenda-deadline
   ;; d 0 => deadline +0d

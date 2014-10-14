@@ -834,7 +834,6 @@ c
   1. 1つのエントリに schedule と deadline 両方を指定する場合。 C-c C-s C-c C-d より多少キーストロークが少ない。
   2. org-agenda-view で他の schedule, deadline を見ながら日付を決定できる。
 ***** A
-      SCHEDULED: <2014-10-12 日>
 ***** B
 ***** C
 *** clock 関連
@@ -979,7 +978,7 @@ You can customize this variable.
   - [[file:~/.emacs.d/inits/my-org-agenda-holidays.el::defun%20org-agenda-holidays][file:~/.emacs.d/inits/my-org-agenda-holidays.el::defun org-agenda-holidays]]
 - 成功した。日本の祝日ではない。 calendar-list-holidays の方の問題か？
 **** TODO japanese-holiday ファイルを howm から ~/.emacs.d/ に移転する
-     DEADLINE: <2014-10-14 火>
+     DEADLINE: <2014-10-18 土>
      :LOGBOOK:
      CLOCK: [2014-10-11 土 22:24]--[2014-10-11 土 22:25] =>  0:01
      :END:

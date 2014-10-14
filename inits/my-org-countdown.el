@@ -17,14 +17,14 @@
    )
   )
 ;; デバッグ用→ (my-org-timer-start-safe -769.5)
-(defun my-org-timer-start-safe (OFFSET)
-  "OFFSET が数値ならば org-timer-start. さもなくば何もしない"
-  (if OFFSET
-      (if (numberp OFFSET)
-          (org-timer-start (floor OFFSET))
-        (message "OFFSET is not number: {%s}" OFFSET)
+(defun my-org-timer-start-safe (offset)
+  "offset が数値ならば org-timer-start. さもなくば何もしない"
+  (if offset
+      (if (numberp offset)
+          (org-timer-start (floor offset))
+        (message "offset is not number: {%s}" offset)
         )
-    (message "OFFSET is nil")
+    (message "offset is nil")
     )
   )
 ;; ** [2014-09-24 水] TODO ステータスが DONE である行をスキップする。
@@ -67,14 +67,14 @@
   (when time-string
     (let* (
            ;; 今日の日付。 TODO: DRY
-           (YEAR        (string-to-number (format-time-string "%Y" (current-time))))
-           (MONTH       (string-to-number (format-time-string "%m" (current-time))))
-           (DAY         (string-to-number (format-time-string "%d" (current-time))))
-           (SECOND      0)
-           (MINUTE      (string-to-number (elt (split-string time-string ":") 1)))
-           (HOUR        (string-to-number (elt (split-string time-string ":") 0)))
+           (year        (string-to-number (format-time-string "%Y" (current-time))))
+           (month       (string-to-number (format-time-string "%m" (current-time))))
+           (day         (string-to-number (format-time-string "%d" (current-time))))
+           (second      0)
+           (minute      (string-to-number (elt (split-string time-string ":") 1)))
+           (hour        (string-to-number (elt (split-string time-string ":") 0)))
            ;; schedule-time を秒に変換する。とりあえず日付は今日に決め打ち。
-           (result      (float-time (encode-time SECOND MINUTE HOUR DAY MONTH YEAR)))
+           (result      (float-time (encode-time second minute hour day month year)))
            )
       (when t (message " my-org-countdown-conver-to-float result{%s}" result)) ; ←デバッグ用。
       result
