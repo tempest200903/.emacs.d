@@ -348,6 +348,6 @@
 (load "~/.emacs.d/inits/my-keymap-superhyper")
 (load "~/.emacs.d/inits/my-lookup-key")
 (load "~/.emacs.d/inits/my-cygpath-keymap-autoload")
+(load "~/.emacs.d/inits/my-evil-numbers-keymap-autoload")
 (load "~/.emacs.d/inits/my-goto-last-change-keymap-autoload")
 (load "~/.emacs.d/inits/my-cua-selection-mode-keymap")
-

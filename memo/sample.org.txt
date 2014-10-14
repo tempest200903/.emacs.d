@@ -1,7 +1,66 @@
-- sample
-  1. 会議A
-     - (1.2 h)
-  2. 会議B
-     - (1.3 h)
-  3. 会議B
-     - (1.4 h)
+* taskbook
+** TODO task1001
+   SCHEDULED: <2014-10-10 金>
+   :LOGBOOK:
+   CLOCK: [2014-10-10 金 00:20]--[2014-10-10 金 00:25] =>  0:05
+   :END:
+   :PROPERTIES:
+   :Effort:   10
+   :END:
+** DONE task1002
+   SCHEDULED: <2014-10-10 金>
+   :LOGBOOK:
+   CLOCK: [2014-10-10 金 00:00]--[2014-10-10 金 00:20] =>  0:20
+   :END:
+   :PROPERTIES:
+   :Effort:   20
+   :END:
+** PENDING task1003
+   SCHEDULED: <2014-10-10 金>
+   :LOGBOOK:
+   CLOCK: [2014-10-10 金 00:25]--[2014-10-10 金 00:30] =>  0:05
+   :END:
+   :PROPERTIES:
+   :Effort:   30
+   :END:
+** TODO task1004
+   SCHEDULED: <2014-10-10 金>
+   :PROPERTIES:
+   :Effort:   40
+   :END:
+** TODO task1005
+   SCHEDULED: <2014-10-10 金>
+   :PROPERTIES:
+   :Effort:   50
+   :END:
+** TODO task1006
+   SCHEDULED: <2014-10-10 金>
+   :PROPERTIES:
+   :Effort:   60
+   :END:
+** TODO task1007
+   SCHEDULED: <2014-10-10 金>
+   :PROPERTIES:
+   :Effort:   70
+   :END:
+** TODO task1008
+   SCHEDULED: <2014-10-10 金>
+   :PROPERTIES:
+   :Effort:   80
+   :END:
+** TODO task1009
+   SCHEDULED: <2014-10-10 金>
+   :PROPERTIES:
+   :Effort:   90
+   :END:
+** TODO task1010
+   SCHEDULED: <2014-10-10 金>
+   :PROPERTIES:
+   :Effort:   100
+   :END:
+*** L3
+**** L4
+***** L5
+****** L6
+
+

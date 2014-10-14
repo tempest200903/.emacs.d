@@ -9,6 +9,7 @@
 ;; `hogehoge' still has clients; kill it? (yes or no)
 ;;
 ;; cf. https://gist.github.com/kawacho/264d31130a10c7f2ed77
+;; cf. http://d.hatena.ne.jp/syohex/20141011/1412996912
 ;; 
 (require 'server)
 (unless (server-running-p)

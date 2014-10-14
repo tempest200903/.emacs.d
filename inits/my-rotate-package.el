@@ -8,37 +8,40 @@
 ;; http://a-newcomer.com/56
 ;; https://github.com/daic-h/emacs-rotate
 ;; ----------------------------------------------------------------------
-(when (and
-       (package-require 'rotate nil nil t)
-       t)
+(when (package-require 'rotate nil nil t)
+
+  (defun my-rotate-window-or-layout-or-tiled (&optional arg)
+    "no arg rotate-window, arg rotate-layout, double arg rotate:tiled."
+    (interactive "p")
+    (cond
+     ((equal arg 4) (my-toggle-window-split))
+     ((equal arg 16) (rotate:tiled))
+     ((equal arg 64) (rotate-layout))
+     (t (rotate-window))
+     )
+    (my-shrink-other-window-if-larger-than-buffer)
+    )
+
+  (defun my-rotate-horizontal (&optional arg)
+    "no arg rotate:main-horizontal, arg rotate:even-horizontal."
+    (interactive "p")
+    (cond
+     ((equal arg 4) (rotate:even-horizontal))
+     (t (rotate:main-horizontal))
+     )
+    )
+
+  (defun my-rotate-vertical (&optional arg)
+    "no arg rotate:main-vertical, arg rotate:even-vertical."
+    (interactive "p")
+    (cond
+     ((equal arg 4) (rotate:even-vertical))
+     (t (rotate:main-vertical))
+     )
+    )
+
   )
-;; ----------------------------------------------------------------------
-(defun my-rotate-window-or-layout-or-tiled (&optional arg)
-  "no arg rotate-window, arg rotate-layout, double arg rotate:tiled."
-  (interactive "p")
-  (cond
-   ((equal arg 4) (my-toggle-window-split))
-   ((equal arg 16) (rotate:tiled))
-   ((equal arg 64) (rotate-layout))
-   (t (rotate-window))
-   )
-  )
-(defun my-rotate-horizontal (&optional arg)
-  "no arg rotate:main-horizontal, arg rotate:even-horizontal."
-  (interactive "p")
-  (cond
-   ((equal arg 4) (rotate:even-horizontal))
-   (t (rotate:main-horizontal))
-   )
-  )
-(defun my-rotate-vertical (&optional arg)
-  "no arg rotate:main-vertical, arg rotate:even-vertical."
-  (interactive "p")
-  (cond
-   ((equal arg 4) (rotate:even-vertical))
-   (t (rotate:main-vertical))
-   )
-  )
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-16 火] http://whattheemacsd.com/
 ;; http://whattheemacsd.com/
@@ -66,6 +69,7 @@
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
+
 ;; ----------------------------------------------------------------------
 (provide 'my-rotate-package)
 ;; ----------------------------------------------------------------------

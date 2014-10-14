@@ -28,7 +28,7 @@
     CLOSED: [2012-01-20 金 16:29]
     [2012-01-20 金 16:20]
 - GNU Emacs では ATOK インライン表示できない。 gnupack emacs では ATOK インライン表示できる。
-**** DONE shell 
+**** DONE 〔apply: Spawning child process: invalid argument〕
     CLOSED: [2012-01-20 金 16:29]
     [2012-01-20 金 16:23]
 - 現象 M-x shell を実行すると、シェルが実行されない。 *Messages* には "apply: Spawning child process: invalid argument" と出力する。

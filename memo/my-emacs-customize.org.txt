@@ -562,7 +562,7 @@ Loading vc-svn...done
 - from: N:\download\Emacs\plugin\howm\howm-1.3.9.1.tar.gz
 - to: N:\.emacs\howm-1.3.9.1
 - [[file:~/.emacs.d/inits/my-howm.el::require]]
-*** VERIFY 2単語のAND検索
+*** DONE 2単語のAND検索
     [2011-10-26 水 12:45]
 - google のように、2単語のAND検索をしたい。
 - 1文書のAND検索なら M-x howm-list-grep-fixed {It is bound to C-@ s} したあと、
@@ -571,12 +571,10 @@ Loading vc-svn...done
 - デフォルトではスペース入力不可。
   (minibuffer-complete-word) It is bound to SPC, <menu-bar> <minibuf> <space>.
   が割り当てられているから。
-- M-x howm-list-grep {It is bound to C-@ g, C-c , g}
-  WORD1.*WORD2 と入力すれば、実現可能。ただし、これでは単語入れ替わりはマッチしない。
-  \(WORD1.*WORD2\|WORD2.*WORD1\) が必要。
+- (setq moccur-split-word t) してから M-x moccur で複数の単語をスペースで区切って入力すればよい。
+  登場順序が逆でもヒットする。
 *** TODO 毎月 howm-directory, howm-search-other-dir を自動的に更新する
     [2014-10-01 水 10:03]
-
 ** occur 関連                                                    :occur_mode:
    [2011-08-30 火 14:29]
 *** DONE occur 第2引数 NLINES
@@ -1039,13 +1037,23 @@ shell-command-on-region: Args out of range: 0, 100
 *** TODO アクティブ buffer と非アクティブ bufffer の face を改善する
     [2014-10-03 金 11:27]
 - mode-line も。
-** foreign-regexp
+** 正規表現 regexp
+*** foreign-regexp
 - [[~/.emacs.d/vendor/elpa/foreign-regexp-20140823.1742/foreign-regexp.el]]
-*** TODO M-x highlight-regexp の foreign-regexp 版がほしい
+**** TODO M-x highlight-regexp の foreign-regexp 版がほしい
     [2014-10-03 金 13:24]
 - M-x highlight-regexp でやってもいいが、正規表現のエスケープが面倒。
 
-
+**** RegexpOpt                                                         :tips:
+     [2014-10-10 金 01:28]
+- http://www.emacswiki.org/emacs/RegexpOpt
+  - (regexp-opt '("alex" "albert" "alois" "bummer"))
+    を入力すると、
+    "\\(?:al\\(?:bert\\|ex\\|ois\\)\\|bummer\\)"
+    が返る関数。
+- 正規表現の OR を翻訳してくれる。
+- http://yhash.hatenablog.com/entry/2012/07/14/124448
+  - (rx (or "foo" "bar"))			; => "\\(?:bar\\|foo\\)"
 ** ブラウザ関連
    [2011-10-20 木 15:23]
 *** google 検索
@@ -1787,7 +1795,10 @@ shell-command-on-region: Args out of range: 0, 100
   - ウィンドウ操作の履歴をundo/redoする winner.el。例えば意図せずウィン
     ドウを閉じてしまったときに、ウィンドウを復活させたりすることができ
     るのが winner.el です。
-*** TODO 分割したバッファを入れ替える
+*** DONE 分割したバッファを入れ替える
+    :LOGBOOK:
+    CLOCK: [2014-10-10 金 00:01]--[2014-10-10 金 00:02] =>  0:01
+    :END:
     [2014-08-26 火 10:13]
 - http://d.hatena.ne.jp/supermassiveblackhole/20100625/1277436024
   - Emacsで2分割したバッファを入れ替える - Everyday Programmer
@@ -1800,6 +1811,7 @@ shell-command-on-region: Args out of range: 0, 100
 - https://github.com/daic-h/emacs-rotate
   - daic-h/emacs-rotate
 - [2014-08-26 火 10:13] これがよさそうだ。あとで試す。 http://a-newcomer.com/56
+- [[file:~/.emacs.d/inits/my-rotate-package.el::rotate-window]]
 ** emacs.exe クラッシュ記録
    :LOGBOOK:
    TIMESTAMP: [2012-05-16 水 19:33]
@@ -2130,6 +2142,14 @@ openwith.el:144:1:Error: End of file during parsing
   - 23.6.3.1 Word や Excel のファイル内容を表示 (2005/02/17)
 - C:\tool\xdoc2txt\command\xdoc2txt.exe
 - [[~/.emacs.d/inits/my-xdoc2txt.el]]
+*** TODO moccur-use-xdoc2txt の使い方を調べる
+    :LOGBOOK:
+    CLOCK: [2014-10-10 金 00:42]--[2014-10-10 金 01:00] =>  0:18
+    [2014-10-10 金 00:43]
+    :END:
+- (setq moccur-use-xdoc2txt t)
+*** TODO howm-grep を xdoc2txt と連携する
+    [2014-10-10 金 00:43]
 *** eml
 - https://github.com/redtower/rc/blob/master/emacs.d/bin/xdoc2txt.txt
   - 	.eml	OutlookExpressのMailエクスポート形式
@@ -2190,10 +2210,20 @@ openwith.el:144:1:Error: End of file during parsing
 *** TODO rename 固有名詞
     DEADLINE: <2014-10-11 土>
 - ~/.emacs.d/inits/my-bodais.el
-*** TODO 分割方向を自動判別してほしい
+*** DONE 分割方向を自動判別してほしい
+    :LOGBOOK:
+    CLOCK: [2014-10-09 木 23:45]--[2014-10-10 金 00:01] =>  0:16
+    :END:
     [2014-10-01 水 11:17]
 - [[file:~/.emacs.d/inits/my-other-window-or-split.el::my-other-window-or-split]]
 - フレームの横幅が閾値以上なら左右に分割、未満ならば上下に分割。
+- http://shibayu36.hatenablog.com/entry/2012/12/18/161455
+  - emacsのwindow幅に合わせて、分割数を変える - $shibayu36->blog;
+*** DONE カーソル位置にある数値を増減する
+    :LOGBOOK:
+    CLOCK: [2014-10-11 土 21:33]--[2014-10-11 土 21:41] =>  0:08
+    :END:
+- [[file:~/.emacs.d/inits/my-evil-numbers.el::evil-numbers]]
 ** after-save-hook
 *** TODO サイズが0ならばファイルを削除する
 - ユーザに問い合わせてから削除。 C-u 付きなら問い合わせなし。

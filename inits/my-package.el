@@ -23,6 +23,12 @@
 ;; (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
 ;; MELPA については http://d.hatena.ne.jp/tuto0621/20120613/1339607400 にも記述がある。
 ;;     (add-to-list 'package-archives '("MELPA" . "http://melpa.milkbox.net/packages/"))
+;; * [2014-10-11 土]
+;; http://d.hatena.ne.jp/syohex/20141011/1412996912
+;; marmaladeは最近はあまり使われていないので, melpa-stableにした方がよいです. 
+;; marmaladeにしかないパッケージがあれば別ですが, 安定版を使うという用途であれば
+;; melpa-stableの方がよいです.
+
 (when (not (require 'package nil t))
   (progn
     (message "require package false")
@@ -31,6 +37,7 @@
     (message "~/.emacs.d/auto-install/package.el")
     )
   )
+
 (when (require 'package nil t)
   (progn
     (message "require package true")
@@ -42,8 +49,11 @@
     (setq package-user-dir (concat user-emacs-directory "vendor/elpa"))
     ;;インストールしたパッケージにロードパスを通してロードする
     (package-initialize)
+
+    (add-hook 'package-menu-mode-hook (lambda() (hl-line-mode 1)))
     )
   )
+
 ;; * [2014-09-13 土] https://twitter.com/edd_ess/status/508511577021374464
 ;; #emacs is marmalade down?
 ;; http://marmalade-repo.org/packages/ が応答なし。
@@ -54,6 +64,7 @@
 ;; これで、init.el 次回起動時に勝手にインストールして require してくれる。
 ;; 仮にパッケージ消えててインストールがコケても、`when' 
 ;; のボディー部分が走らないだけになる。
+
 (defun package-require (feature &optional filename packagename noerror)
   "《require》 の代わりに使う関数。PACKAGENAME(or FEATURE) が未イ
   ンストール時は、《require》 する前に《package-install》 によるパッ
@@ -77,6 +88,7 @@
       (if noerror nil
         (error "Package `%s' is not available for installation"
                (symbol-name feature))))))
+
 ;; * [2014-09-27 土] TODO package-require 引数 filename packagename を
 ;; 省略したまま、 noerror t にして使いた
 ;; い。
