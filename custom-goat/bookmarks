@@ -2,11 +2,26 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
- (filename . "~/org/notes.org")
- (front-context-string . "** TODO task\n   ")
+(("org-capture-last-stored-marker"
+ (filename . "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/notes.org")
+ (front-context-string . "** TODO aaa\n   [")
+ (rear-context-string . "/notes.org\"))]]\n")
+ (position . 394))
+("org-refile-last-stored"
+ (filename . "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/notes.org")
+ (front-context-string . "** TODO aaa\n   [")
+ (rear-context-string . "/notes.org\"))]]\n")
+ (position . 394))
+("Tasks"
+ (filename . "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/notes.org")
+ (front-context-string . "Tasks\n** TODO aa")
  (rear-context-string)
- (position . 9))
+ (position . 3))
+("org-capture-last-stored"
+ (filename . "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/interrupt.org")
+ (front-context-string . "*** TODO p7\n    ")
+ (rear-context-string . "-10-15 水 00:12]\n")
+ (position . 651))
 ("my-emacs-customize"
  (filename . "~/.emacs.d/memo/my-emacs-customize.org.txt")
  (front-context-string . "\n#+LAST_UPDATED:")

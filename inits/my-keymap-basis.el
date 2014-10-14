@@ -44,6 +44,11 @@
 ;; (define-key global-map (kbd "C-x 4 C-j")         'dired-jump-other-window) ;; dired-x.el にて定義済み。
 (define-key global-map (kbd "C-z C-j")              'dired-jump-other-window) ;; alias
 (define-key global-map (kbd "C-z C-x C-d")          'make-directory)
+;; clone-indirect-buffer 系統
+(define-key global-map (kbd "C-x n i")              'clone-indirect-buffer)
+(when nil
+  (define-key global-map (kbd "C-x 4 c")            'clone-indirect-buffer-other-window) ; 定義済み。
+  )
 ;; その他
 (define-key global-map (kbd "M-s M-w")              'ffap-copy-string-as-kill) ;; ファイルパスを kill-ring にコピーする。 see my-kill-ring-save-or-ffap-copy-string-as-kill
 (define-key global-map (kbd "M-s M-u")              'ffap-menu) ;; ffap.el で <C-S-mouse-3> に割り当て済み。

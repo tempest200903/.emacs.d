@@ -55,6 +55,7 @@
  '(org-use-speed-commands t)
  '(org-yank-folded-subtrees nil)
  '(reb-re-syntax (quote foreign-regexp))
+ '(recenter-redisplay t)
  '(recentf-max-saved-items 200)
  '(recentf-mode t)
  '(show-paren-mode t)

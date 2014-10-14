@@ -26,6 +26,9 @@
   %U" :clock-in t :clock-resume t)
         ("a" "active" item (file+headline (concat org-directory "/task.org") "active")
          "[ ] %K")
+        ("i" "task inbox" entry (file+headline (concat org-directory "/task.org") "inbox")
+         "* TODO  %?
+  %U" :clock-in t :clock-resume t)
         )
       )
 

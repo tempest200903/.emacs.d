@@ -2230,5 +2230,11 @@ openwith.el:144:1:Error: End of file during parsing
 ** after-save-hook
 *** TODO サイズが0ならばファイルを削除する
 - ユーザに問い合わせてから削除。 C-u 付きなら問い合わせなし。
+** narrow-indirect
+- [[file:~/.emacs.d/inits/my-indirect-mode.el::narrow-indirect]]
+#+BEGIN_SRC ruby
+puts "narrow-indirect"
+#+END_SRC
+
 * tail
   [2011-08-25 木 17:38]

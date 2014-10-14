@@ -231,4 +231,8 @@
 ;; (define-key global-map (kbd "<C-non-convert> <C-non-convert>") 'my-reset-frame5)
 (define-key global-map (kbd "<non-convert> <non-convert>") 'my-reset-frame5)
 
-
+;; * [2014-10-15 水] M-x my-reset-frame5 の代わりに、
+;; (setq recenter-redisplay t) にしておいて C-l (recenter-top-bottom) すれば十分だろうか？
+;; ~/.emacs.d/custom-dn2/my-emacs-custom.el
+;; ~/.emacs.d/custom-goat/my-emacs-custom.el
+;; '(recenter-redisplay t)
