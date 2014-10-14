@@ -256,7 +256,10 @@ Loading vc-svn...done
 *** DONE カーソルと一緒に行/領域を動かす
    [2011-08-24 水 16:37]
 - [[file:~/.emacs.d/inits/my-move-region.el::exchange-lines-up]]
-*** VERIFY cua-selection-mode
+*** DONE 〔cua-selection-mode〕
+    :LOGBOOK:
+    CLOCK: [2014-10-14 火 22:50]--[2014-10-14 火 23:02] =>  0:12
+    :END:
    [2011-08-25 木 12:59]
 - [[file:~/.emacs.d/inits/my-cua-mode.el::my-cua-selection-mode]]
 - [X] messages に cua-mode on/off を表示してほしい。

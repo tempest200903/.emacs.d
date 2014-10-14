@@ -4,7 +4,12 @@
 ;; ======================================================================
 ;; * [2014-10-05 日] 〔org-open-at-point アクセスログ〕
 
-(require 'my-psession-package)
+;; ** [2014-10-14 火] TODO psession デメリット
+;; 1. 起動に時間がかかりすぎる。
+;; 他の方法を探すべし。
+(when nil
+  (require 'my-psession-package)
+  )
 
 ;; これを psession-object-to-save-alist に追加する。
 ;; (describe-variable 'psession-object-to-save-alist)

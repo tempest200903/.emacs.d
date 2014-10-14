@@ -999,3 +999,8 @@ You can customize this variable.
 *** TODO 〔特定のファイルから指定したキーワードを含む行を抽出するハイパーリンクを生成するコマンド〕
 - 例 [[elisp:(progn (find-file "dictionary.csv") (occur "mp306\\|mp307\\|mp308"))]]
 
+*** org-capture
+**** TODO 〔org-capture テンプレートを用意する〕
+     :LOGBOOK:
+     CLOCK: [2014-10-14 火 22:52]--[2014-10-14 火 22:53] =>  0:01
+     :END:
