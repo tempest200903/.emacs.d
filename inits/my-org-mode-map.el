@@ -96,6 +96,9 @@
 
 
   (bind-key "C-," 'org-open-at-point org-mode-map) ; alias of C-c C-o
+
+  (my-bind-key-with-autoload "my-org-countdown" "C-c ." 'my-org-countdown-start org-agenda-mode-map)
+
   )
 (defun my-timemanager-init ()
   "my-timemanager 初期化"

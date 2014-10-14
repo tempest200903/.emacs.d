@@ -871,15 +871,15 @@ auto     all または repeat
   - グローバル変数の代わりに、エントリのプロパティに :CLOCK_MODELINE_TOTAL: today と指定する方法もある。
 ***** sample
 ****** current
-       SCHEDULED: <2014-10-08 水 +1m>
        :LOGBOOK:
+       - Not scheduled, was "2014-10-08 水 +1m" on [2014-10-10 金 14:16]
        CLOCK: [2014-10-05 日 00:00]--[2014-10-05 日 00:10] =>  0:10
        :PROPERTIES:
        :Effort:   1:00
        :END:
 ****** CLOCK_MODELINE_TOTAL today
-       SCHEDULED: <2014-10-08 水 +1m>
        :LOGBOOK:
+       - Not scheduled, was "2014-10-08 水 +1m" on [2014-10-10 金 14:16]
        CLOCK: [2014-10-05 日 00:00]--[2014-10-05 日 00:10] =>  0:10
        :PROPERTIES:
        :CLOCK_MODELINE_TOTAL: today
@@ -897,8 +897,9 @@ auto     all または repeat
        :LAST_REPEAT: [2014-10-08 水 01:08]
        :END:
 **** TODO 〔org-remove-highlights-with-change〕
-     DEADLINE: <2014-10-08 水> SCHEDULED: <2014-10-08 水>
+     DEADLINE: <2014-11-10 月>
      :LOGBOOK:
+     - Not scheduled, was "2014-10-08 水" on [2014-10-10 金 14:16]
      CLOCK: [2014-10-08 水 00:46]--[2014-10-08 水 00:58] =>  0:12
      :END:
 #+BEGIN_QUOTE
@@ -923,3 +924,6 @@ You can customize this variable.
 *** scheduled, deadline 関連
 **** TODO scheduled, deadline 両方を一度に変更するコマンド
 - 例。 scheduled, deadline 両方を +4d する。
+*** TODO 〔特定のファイルから指定したキーワードを含む行を抽出するハイパーリンクを生成するコマンド〕
+- 例 [[elisp:(progn (find-file "dictionary.csv") (occur "mp306\\|mp307\\|mp308"))]]
+

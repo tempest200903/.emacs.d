@@ -5,6 +5,8 @@
 (require 'org)
 ;; * [2014-09-19 金] "次の SCHEDULE までの秒数をカウントダウンする"
 ;; デバッグ用→ (my-org-timer-start-safe -1250.2650)
+;; 使い方 *Org Agenda* buffer で M-x my-org-countdown-start
+
 (defun my-org-countdown-start ()
   "次の SCHEDULE までの秒数をカウントダウンする"
   (interactive)

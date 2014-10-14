@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-iswitchb.el
 ;; ======================================================================
 ;; * [2010-11-02 火] iswitchb 導入
 ;; cf. url: http://www.bookshelf.jp/soft/meadow_28.html#SEC363
@@ -27,12 +28,12 @@
 ;; http://aikotobaha.blogspot.com/2010/08/gnupack-ntemacs23-dotemacs.html
 ;; C-f, C-b, C-n, C-p で候補を切り替えることができるように。
 ;; 感想。体験中。やや使いづらい？
-(when nil
-  (add-hook 'iswitchb-define-mode-map-hook
-            (lambda ()
-              (define-key iswitchb-mode-map "\C-n" 'iswitchb-next-match)
-              (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
-              (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
-              (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)
-              ))
+
+(defun my-iswitchb-mode-map-init ()
+  (define-key iswitchb-mode-map (kbd "C-n") 'iswitchb-next-match)
+  (define-key iswitchb-mode-map (kbd "C-p") 'iswitchb-prev-match)
+  (define-key iswitchb-mode-map (kbd "C-f") 'iswitchb-next-match)
+  (define-key iswitchb-mode-map (kbd "C-b") 'iswitchb-prev-match)
   )
+
+(add-hook 'iswitchb-minibuffer-setup-hook 'my-iswitchb-mode-map-init)
