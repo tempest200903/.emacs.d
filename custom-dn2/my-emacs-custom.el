@@ -39,6 +39,7 @@
  '(org-clock-out-remove-zero-time-clocks t)
  '(org-columns-default-format "%99ITEM %TODO %3PRIORITY %TAGS %17Effort{:} %CLOCKSUM")
  '(org-deadline-warning-days 1)
+ '(org-directory "N:/howm")
  '(org-display-internal-link-with-indirect-buffer t)
  '(org-emphasis-alist (quote (("＊" bold "<b>" "</b>") ("／" italic "<i>" "</i>") ("＿" underline "<span style=\"text-decoration:underline;\">" "</span>") ("＝" org-code "<code>" "</code>" verbatim) ("～" org-verbatim "<code>" "</code>" verbatim) ("＋" (:strike-through t) "<del>" "</del>"))))
  '(org-link-file-path-type (quote absolute))

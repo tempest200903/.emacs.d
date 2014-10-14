@@ -6,9 +6,7 @@
 (when t "2014-09-14" (load "~/.emacs.d/inits/my-benchmark"))
 ;; ----------------------------------------------------------------------
 ;; * load path
-;; (when t    "2013-10-29" (add-to-list 'load-path "~/.emacs.d/manual-install"))
 (when t    "2014-09-06" (add-to-list 'load-path "~/.emacs.d/inits"))
-;; (when t    "2013-11-09" (add-to-list 'load-path "~/.emacs.d/elpa/anything-20130606.946"))
 ;; ----------------------------------------------------------------------
 ;; ** custom
 (setq emacs_custom (getenv "EMACS_CUSTOM"))
@@ -35,7 +33,7 @@
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
-(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server")) ; workmanager_time_collect.bat から戻ってくるときに使う。 DropFile.exe を使えば不要？
+(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server")) ; workmanager_time_collect.bat から戻ってくるときに使う。 DropFile.exe を使えば不要。
 (when nil  "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
 (when nil  "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中
 (when nil  "2014-09-09" (load "~/.emacs.d/inits/my-markdown-mode-package")) ;; 実験中
@@ -55,6 +53,7 @@
 (when nil  "2014-10-10" (load "~/.emacs.d/inits/my-iswitchb")) ;; 実験中
 (when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ;; 実験中。 psession を使うと起動に時間がかかる。
 (when t    "2014-10-13" (load "~/.emacs.d/inits/my-mode-line")) ;; 実験中
+(when t    "2014-10-15" (load "~/.emacs.d/inits/my-org-capture")) ;; 実験中
 
 ;; ----------------------------------------------------------------------
 ;; * anything
@@ -75,9 +74,6 @@
 ;; ** emacs-lisp-mode
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 (when nil  "2014-09-30" (load "~/.emacs.d/inits/my-show-paren-mode")) ;; 実験中
-;; ----------------------------------------------------------------------
-;; * require after init
-;; (when t    "2013-12-05" (load "~/.emacs.d/inits/my-require-interactive")) ;; homw など重い lisp を遅延評価するため必要。
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-25 木] 実験中。
 ;; http://d.hatena.ne.jp/ramen26/20101202/1291294660

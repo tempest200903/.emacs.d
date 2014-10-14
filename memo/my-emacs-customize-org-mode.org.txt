@@ -998,9 +998,30 @@ You can customize this variable.
 - 例。 scheduled, deadline 両方を +4d する。
 *** TODO 〔特定のファイルから指定したキーワードを含む行を抽出するハイパーリンクを生成するコマンド〕
 - 例 [[elisp:(progn (find-file "dictionary.csv") (occur "mp306\\|mp307\\|mp308"))]]
-
 *** org-capture
 **** TODO 〔org-capture テンプレートを用意する〕
      :LOGBOOK:
-     CLOCK: [2014-10-14 火 22:52]--[2014-10-14 火 22:53] =>  0:01
+     CLOCK: [2014-10-14 火 23:57]--[2014-10-15 水 00:07] =>  0:10
+     CLOCK: [2014-10-14 火 23:19]--[2014-10-14 火 23:30] =>  0:11
      :END:
+***** 要件定義
+割り込みで作業中断する時に、割り込み理由毎にテンプレートを用意する。
+例、電話、人名、など。
+自動 org-clock-in
+Tag :interrupt:
+ワンタッチで入力できるキーにする。 caps lock - a
+***** 起動方法A
+- [[~/.emacs.d/inits/my-org-capture.el]]
+  - (define-key global-map (kbd "<oem-attn> j") 'org-capture)
+***** 起動方法B
+- *Org Agenda* buffer にて k c と入力する。
+- 選択されたキャプチャテンプレートに挿入されるタイムスタンプは、現在の
+  日付ではなくアジェンダ内のカーソルがある位置の日付がデフォルトになり
+  ます。
+*** DONE org-mode.org を readlists.com で epub に変換する
+    :LOGBOOK:
+    CLOCK: [2014-10-14 火 23:03]--[2014-10-14 火 23:19] =>  0:16
+    :END:
+- see my evernote
+  - orgmodeorg-d20141014.epub
+  - Worg-d20141014.epub
