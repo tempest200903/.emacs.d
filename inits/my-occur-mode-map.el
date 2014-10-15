@@ -14,7 +14,19 @@
 
 ;; ----------------------------------------------------------------------
 
-;; * [2014-08-30 土] memo
+(autoload 'my-occur-menu-init "my-occur.el")
+(add-hook 'occur-mode-hook                      'my-occur-menu-init)
+(add-hook 'grep-mode-hook                       'my-occur-menu-init)
+(add-hook 'occur-mode-hook                      'shrink-window-if-larger-than-buffer)
+(add-hook 'grep-mode-hook                       'shrink-window-if-larger-than-buffer)
+(add-hook 'occur-mode-find-occurrence-hook      'shrink-window-if-larger-than-buffer)
+
+;; * [2014-10-15 水] TODO occur や grep buffer を shrink したい。
+;; 上記の hook では実現できない。
+
+;; ----------------------------------------------------------------------
+
+;; * [2014-08-30 土] idea
 ;; idea.1 (kbd "M-s M-g ***") を prefix にする。 
 ;; idea.1 (kbd "M-g M-s ***") を prefix にする。 
 ;; idea.1 (kbd "M-s M-s ***") を prefix にする。 

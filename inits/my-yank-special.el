@@ -79,10 +79,17 @@
   (interactive "*")
   (my-yank-with-bracket "[[elisp:(org-occur-in-agenda-files \"" "\" 1)]]")
   )
+
 (defun my-yank-with-erb-print () "yank with erb print"
   (interactive "*")
   (my-yank-with-bracket "<%= " " %>")
   )
+
+(defun my-yank-with-org-bold () "yank with org bold"
+  (interactive "*")
+  (my-yank-with-bracket " ＊" "＊ ")
+  )
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-08-06 水] org-mode ディレクティブ
 

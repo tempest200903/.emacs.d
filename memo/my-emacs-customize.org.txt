@@ -664,6 +664,12 @@ shell-command-on-region: Args out of range: 0, 100
 ;; http://www31.ocn.ne.jp/~h_ishida/xdoc2txt.html (Japanese site)
 ;; Non-nil にすると xdoc2txt を使う。
 ;; M-x shell で xdoc2txt が正常に動作しておく必要がある？
+*** DONE 2単語のAND検索
+    CLOSED: [2014-10-15 水 14:28]
+- (setq moccur-split-word t) M-x moccur
+*** TODO 2単語のOR検索
+    [2014-10-15 水 14:28]
+- [[file:~/.emacs.d/inits/my-occur.el::2%E5%8D%98%E8%AA%9E%E3%81%AEOR%E6%A4%9C%E7%B4%A2][file:~/.emacs.d/inits/my-occur.el::2単語のOR検索]]
 ** rename-buffer 関連
    [2011-09-16 金 10:45]
 *** DONE rename-uniquely
@@ -2236,5 +2242,10 @@ openwith.el:144:1:Error: End of file during parsing
 puts "narrow-indirect"
 #+END_SRC
 
+** readlists で読む
+*** TODO emacs-wiki を readlists で読む
+    [2014-10-15 水 14:30]
+- [ ] http://www.emacswiki.org/emacs/%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E3%83%BB%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE
+  - EmacsWiki: カテゴリ・正規表現
 * tail
   [2011-08-25 木 17:38]

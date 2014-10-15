@@ -22,6 +22,8 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-auto-install"))
 ;; M-x shell に必要。
 (when t    "2014-10-13" (load "~/.emacs.d/inits/my-child-process"))
+;; occur したあと org-open-at-point すると window が3つになる。このとき occur window 占有面積が広すぎる。
+(when t    "2014-10-15" (load "~/.emacs.d/inits/my-popwin-package"))
 
 (when t    "2014-09-08" (load "~/.emacs.d/inits/my-coding-system"))
 (when t    "2014-10-11" (load "~/.emacs.d/inits/my-recentf-mode"))
@@ -32,7 +34,6 @@
 (when t    "2014-10-09" (load "~/.emacs.d/inits/my-child-process")) ; M-x compile するために必要！
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-redo"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-goto-last-change"))
-(when nil  "2014-09-06" (load "~/.emacs.d/inits/my-popwin-package"))
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-server")) ; workmanager_time_collect.bat から戻ってくるときに使う。 DropFile.exe を使えば不要。
 (when nil  "2014-09-11" (load "~/.emacs.d/inits/my-japanese-holidays-package"))
 (when nil  "2014-09-13" (load "~/.emacs.d/inits/my-point-undo-package")) ;; 実験中

@@ -235,7 +235,8 @@
 ;; (define-key global-map (kbd "M-s .")                'my-moccur-today)
 (my-bind-key-with-autoload "my-color-moccur" "M-s ." 'my-moccur-today)
 
-(my-bind-key-with-autoload "my-color-moccur" "M-s M-i" 'occur-by-moccur)
+;; (define-key global-map (kbd                              "M-s M-c") 'occur-by-moccur)
+(my-bind-key-with-autoload "my-color-moccur" "M-s M-c" 'occur-by-moccur)
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-03-19 水] Emacs から エクスプローラを起動するユーティリティ。
@@ -256,6 +257,8 @@
 (define-key global-map (kbd "C-z C-,")              'my-yank-with-xml-comment)
 (define-key global-map (kbd "C-z C-.")              'my-yank-with-xml-tag)
 (define-key global-map (kbd "C-z C--")              'my-yank-with-erb-print)
+(define-key global-map (kbd "C-z *")                'my-yank-with-org-bold)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-04-17 木] my-date.el
 ;; query-replace の入力中 minibuffer では M-s が予約済みなので、他のキーを割り当てる。
@@ -327,7 +330,7 @@
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-18 木] my-wc.el
 (my-bind-key-with-autoload "my-wc"   "C-z C-x l"    'my-region-command-wc-to-minibuffer)
-(my-bind-key-with-autoload "my-calc" "C-z *"        'my-calc-hour-in-outline)
+(my-bind-key-with-autoload "my-calc" "C-z C-x *"    'my-calc-hour-in-outline)
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-30 火] Tips
@@ -345,6 +348,7 @@
 ;; ----------------------------------------------------------------------
 (load "~/.emacs.d/inits/my-dired-mode-map")
 (load "~/.emacs.d/inits/my-emacs-lisp-mode-map")
+(load "~/.emacs.d/inits/my-occur-mode-map")
 (load "~/.emacs.d/inits/my-loccur-keymap-autoload")
 (load "~/.emacs.d/inits/my-visual-regexp-keymap-autoload")
 (load "~/.emacs.d/inits/my-rotate-keymap-autoload")
@@ -356,3 +360,4 @@
 (load "~/.emacs.d/inits/my-evil-numbers-keymap-autoload")
 (load "~/.emacs.d/inits/my-goto-last-change-keymap-autoload")
 (load "~/.emacs.d/inits/my-cua-selection-mode-keymap")
+(load "~/.emacs.d/inits/my-narrow-indirect-keymap-autoload")

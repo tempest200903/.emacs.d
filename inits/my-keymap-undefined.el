@@ -47,3 +47,6 @@
     (recenter-top-bottom nil)
     )
   )
+
+;; M-o facemenu-keymap
+;; いくつか空きがある。 occur 系列をここに入れるか？

@@ -103,24 +103,27 @@
 (add-hook 'org-clock-out-hook 'delete-trailing-whitespace)
 ;; ----------------------------------------------------------------------
 ;; [2014-09-20 土] 実験中。
-(defun my-org-timer-done ()
-  ""
-  (message "my-org-timer-done")
-  (when nil
-    (set-face-foreground 'mode-line "white")
-    (set-face-background 'mode-line "blue")
-    ) ; 調整中
+(when nil
+
+  (defun my-org-timer-done ()
+    ""
+    (message "my-org-timer-done")
+    (when nil
+      (set-face-foreground 'mode-line "white")
+      (set-face-background 'mode-line "blue")
+      ) ; 調整中
+    )
+  (defun my-org-timer-start ()
+    ""
+    (message "my-org-timer-start")
+    (when nil
+      (set-face-foreground 'mode-line "RoyalBlue3")
+      (set-face-background 'mode-line "LightGoldenrod1")
+      ) ; 調整中
+    )
+  (add-hook 'org-timer-done-hook 'my-org-timer-done)
+  (add-hook 'org-timer-start-hook 'my-org-timer-start)
   )
-(defun my-org-timer-start ()
-  ""
-  (message "my-org-timer-start")
-  (when nil
-    (set-face-foreground 'mode-line "RoyalBlue3")
-    (set-face-background 'mode-line "LightGoldenrod1")
-    ) ; 調整中
-  )
-(add-hook 'org-timer-done-hook 'my-org-timer-done)
-(add-hook 'org-timer-start-hook 'my-org-timer-start)
 
 ;; (org-timer-start -60)
 ;; org-timer-done-hook

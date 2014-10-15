@@ -1018,6 +1018,11 @@ Tag :interrupt:
 - 選択されたキャプチャテンプレートに挿入されるタイムスタンプは、現在の
   日付ではなくアジェンダ内のカーソルがある位置の日付がデフォルトになり
   ます。
+**** TODO my-org-insert-link-dailyplan
+     DEADLINE: <2015-10-15 木>
+     [2014-10-15 水 10:42]
+- [[file:~/.emacs.d/inits/my-org-capture.el::my-org-insert-link-dailyplan]]
+  - ;; [2014-10-15 水] TODO org-insert-link でユーザからの入力待ちになる。これを自動化したい。
 *** DONE org-mode.org を readlists.com で epub に変換する
     :LOGBOOK:
     CLOCK: [2014-10-14 火 23:03]--[2014-10-14 火 23:19] =>  0:16

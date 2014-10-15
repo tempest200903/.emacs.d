@@ -129,8 +129,15 @@
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-10-09 木] alias
-(defalias 'oti 'org-table-import)
-(defalias 'ote 'org-table-export)
+(defalias 'oti 'org-table-import) ; 短縮形。
+(defalias 'ote 'org-table-export) ; 短縮形。
 
 (define-key org-mode-map (kbd "C-c t i") 'org-table-import)
 (define-key org-mode-map (kbd "C-c t e") 'org-table-export)
+
+;; ----------------------------------------------------------------------
+;; * [2014-10-15 水] my-org-timer.el
+
+(my-bind-key-with-autoload "my-org-timer" "C-c C-x h" 'my-org-timer-start-hour org-mode-map)
+(my-bind-key-with-autoload "my-org-timer" "C-c C-x m" 'my-org-timer-start-minute org-mode-map)
+

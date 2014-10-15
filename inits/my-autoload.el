@@ -173,7 +173,7 @@
 (autoload 'moccur-grep                                   "my-color-moccur" nil t)
 (autoload 'moccur-grep-find                              "my-color-moccur" nil t)
 (autoload 'dmoccur                                       "my-color-moccur" nil t)
-(define-key global-map (kbd                              "M-s M-c") 'occur-by-moccur)
+
 
 ;; (define-key global-map (kbd                              "M-s M-g") 'nonincremental-repeat-search-forward) ;; デフォルト
 
