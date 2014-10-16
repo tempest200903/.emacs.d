@@ -872,6 +872,9 @@ shell-command-on-region: Args out of range: 0, 100
     [2011-12-22 木 11:43]
 *** TODO count-lines-page で計測したファイル行数を mode-line に表示してほしい :wishlist:
 - 更新はリアルタイムでなくても save-buffer するときで十分。 after-save-hook ?
+*** PENDING 〔kill-ring が変化したら文字数や行数をカウントする〕
+    [2014-10-16 木 13:20]
+- M-w / C-w 直後に char / line count を表示する advice
 ** メニューバー関連
    [2011-09-14 水 10:45]
 - 参考: imenu.el
@@ -2126,8 +2129,9 @@ openwith.el:144:1:Error: End of file during parsing
 *** DONE package japanese-holiday
     [2014-09-11 木 00:23]
 - M-x package-install japanese-holiday
-*** TODO holiday.org を生成するバッチコマンド
+*** PENDING holiday.org を生成するバッチコマンド
     [2014-09-18 木 22:30]
+- グループウェアからエクスポートした csv ファイルを入力して、稼働日・非稼働日の予定を組み立てる。
 ** view-mode
 *** DONE 読み取り専用属性onであるファイルを開いたら view-mode on にする
    [2011-08-25 木 14:16]

@@ -54,7 +54,6 @@
 (when nil  "2014-10-10" (load "~/.emacs.d/inits/my-iswitchb")) ;; 実験中
 (when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ;; 実験中。 psession を使うと起動に時間がかかる。
 (when t    "2014-10-13" (load "~/.emacs.d/inits/my-mode-line")) ;; 実験中
-(when t    "2014-10-15" (load "~/.emacs.d/inits/my-org-capture")) ;; 実験中
 
 ;; ----------------------------------------------------------------------
 ;; * anything
@@ -69,9 +68,10 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-clock"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-hook"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-speed"))
+(when t    "2014-10-16" (load "~/.emacs.d/inits/my-org-countdown")) ; 軽い。
 (when t    "2014-10-11" (load "~/.emacs.d/inits/my-org-agenda-holidays")) ; 実験中
-(when nil  "2014-09-19" (load "~/.emacs.d/inits/my-org-countdown")) ;; 実験中
 (when nil  "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
+(when t    "2014-10-15" (load "~/.emacs.d/inits/my-org-capture")) ; 実験中
 ;; ** emacs-lisp-mode
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 (when nil  "2014-09-30" (load "~/.emacs.d/inits/my-show-paren-mode")) ;; 実験中

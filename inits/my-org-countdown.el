@@ -3,6 +3,7 @@
 ;; #+LAST_UPDATED: 2014-09-19
 ;; ======================================================================
 (require 'org)
+
 ;; * [2014-09-19 金] "次の SCHEDULE までの秒数をカウントダウンする"
 ;; デバッグ用→ (my-org-timer-start-safe -1250.2650)
 ;; 使い方 *Org Agenda* buffer で M-x my-org-countdown-start
@@ -96,18 +97,7 @@
   "docstring"
   (my-org-countdown-start)
   )
-;; ----------------------------------------------------------------------
-;; デバッグ用。
-(when nil
-  (progn
-    (defun a () "" (interactive) (my-org-countdown-scan-next-schedule-time))
-    (defun b () "" (interactive) (org-timer-stop) (my-eval-buffer-or-region nil))
-    (defun c () "" (interactive) (org-timer-stop) (eval-buffer))
-    (define-key emacs-lisp-mode-map (kbd "<f8>") 'c)
-    (define-key global-map (kbd "<f9>") 'my-org-countdown-start)
-    (define-key global-map (kbd "<f10>") 'a)
-    )
-  )
+
 ;; ----------------------------------------------------------------------
 (provide 'my-org-countdown)
 ;; ----------------------------------------------------------------------

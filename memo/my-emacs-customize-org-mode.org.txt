@@ -1023,6 +1023,7 @@ Tag :interrupt:
      [2014-10-15 水 10:42]
 - [[file:~/.emacs.d/inits/my-org-capture.el::my-org-insert-link-dailyplan]]
   - ;; [2014-10-15 水] TODO org-insert-link でユーザからの入力待ちになる。これを自動化したい。
+*** TODO 〔毎日 interrupt 時間を esitmate する仕組みを作る〕
 *** DONE org-mode.org を readlists.com で epub に変換する
     :LOGBOOK:
     CLOCK: [2014-10-14 火 23:03]--[2014-10-14 火 23:19] =>  0:16
@@ -1030,3 +1031,12 @@ Tag :interrupt:
 - see my evernote
   - orgmodeorg-d20141014.epub
   - Worg-d20141014.epub
+*** jump 関連
+- [[file:~/.emacs.d/inits/my-org-jump.el::my-org-next-timestamp]]
+;; * [2014-10-16 木] TODO C-u ありなら property をスキップする。 ( LOGBOOK の中や DEADLINE など をスキップする)
+;; * [2014-10-16 木] TODO my-org-next-checkbox, my-org-previous-checkbox
+*** 未整理
+**** PENDING あとで読む
+- https://github.com/fniessen/emacs-leuven/blob/master/org-custom-agenda-views.el
+- http://orgmode.org/worg/agenda-optimization.html
+

@@ -399,6 +399,10 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
 **** 〔現状-d2014-10-09〕
      [2014-10-09 木 10:23]
 - 発生1回。
+**** 〔現状-d2014-10-16〕
+     [2014-10-16 木 18:10]
+- (require 'org-mouse) した後、発生1回。
+- なるべくこれを require しないようにする。
 *** server-start 不具合
     :LOGBOOK:
     TIMESTAMP: [2013-02-07 木 15:30]

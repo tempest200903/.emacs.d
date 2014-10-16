@@ -9,6 +9,7 @@
 ;; [2014-09-06 土] * require
 (require 'org)
 (org-version) ;; "Org-mode version 7.8.11"
+
 ;; ----------------------------------------------------------------------
 ;; [2014-09-06 土] * global
 ;; 『Emacs org-modeを使ってみる: (1) インストール - 屯遁のパズルとプログラミングの日記』
@@ -40,10 +41,18 @@
 (define-key org-mode-map (kbd "C-c C-x l") 'my-org-convert-to-link) "前提: my-org-mode-hyperlink.el"
 (define-key org-mode-map (kbd "M-g M-p") 'org-previous-link)
 (define-key org-mode-map (kbd "M-g M-n") 'org-next-link)
+
+;; ----------------------------------------------------------------------
 ;; ** checkbox 関連
-(define-key org-mode-map (kbd "C-z C-]") (kbd "C-u C-c C-c M-m C-a C-@ C-@")) ;; alias of C-u C-c C-c
+;; alias of C-u C-c C-c
+;; チェックボックスあり/なしを toggl する。
+(define-key org-mode-map (kbd "C-z C-]") (kbd "C-u C-c C-c M-m C-a C-@ C-@")) 
+
 (define-key org-mode-map (kbd "C-c C-x r") 'org-reset-checkbox-state-subtree)
-;; tips C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。
+
+(define-key org-mode-map (kbd "C-c C-]") 'org-mouse-insert-checkbox)
+;; tips (require 'org-mouse) C-u M-x org-mouse-insert-checkbox で checkbox を消去できる。 version 7.8.11 ではできなかった。
+;; (kbd "C-z C-]") があれば org-mouse-insert-checkbox は不要か。
 
 ;; ** yank 関連
 (my-bind-key-with-autoload "my-org-mode-hyperlink" "C-c C-y" 'my-org-yank-link-univ org-mode-map)
@@ -97,8 +106,6 @@
 
   (bind-key "C-," 'org-open-at-point org-mode-map) ; alias of C-c C-o
 
-  (my-bind-key-with-autoload "my-org-countdown" "C-c ." 'my-org-countdown-start org-agenda-mode-map)
-
   )
 (defun my-timemanager-init ()
   "my-timemanager 初期化"
@@ -124,7 +131,9 @@
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-30 火] my-kill-ring-save.el
-;; (bind-key "C-c M-w" 'my-kill-ring-save-or-copy-org-link-target org-mode-map)
+
+;; 使いやすいほうを残す。
+(my-bind-key-with-autoload "my-kill-ring-save" "C-c w"   'my-kill-ring-save-or-copy-org-link-target org-mode-map)
 (my-bind-key-with-autoload "my-kill-ring-save" "C-c M-w" 'my-kill-ring-save-or-copy-org-link-target org-mode-map)
 
 ;; ----------------------------------------------------------------------
@@ -140,4 +149,10 @@
 
 (my-bind-key-with-autoload "my-org-timer" "C-c C-x h" 'my-org-timer-start-hour org-mode-map)
 (my-bind-key-with-autoload "my-org-timer" "C-c C-x m" 'my-org-timer-start-minute org-mode-map)
+
+;; ----------------------------------------------------------------------
+;; * [2014-10-16 木] my-org-jump.el
+
+(my-bind-key-with-autoload "my-org-jump" "C-c n" 'my-org-next-timestamp         org-mode-map)
+(my-bind-key-with-autoload "my-org-jump" "C-c p" 'my-org-previous-timestamp     org-mode-map)
 
