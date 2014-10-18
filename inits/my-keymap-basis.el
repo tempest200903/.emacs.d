@@ -258,6 +258,11 @@
 (define-key global-map (kbd "C-z C-.")              'my-yank-with-xml-tag)
 (define-key global-map (kbd "C-z C--")              'my-yank-with-erb-print)
 (define-key global-map (kbd "C-z *")                'my-yank-with-org-bold)
+(define-key global-map (kbd "C-z o")                'my-yank-with-link-occur)
+
+;; (define-key global-map (kbd "C-z m")                'my-yank-with-link-moccur)
+;; * [2014-10-18 土] TODO my-yank-with-link-moccur を作る。
+;; bookmark-set を C-z m から他の kbd に移す。
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-04-17 木] my-date.el

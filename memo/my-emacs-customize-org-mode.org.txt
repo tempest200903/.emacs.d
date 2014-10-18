@@ -70,6 +70,10 @@
 - 移動やコピーしたあとで相対パスが残っているとリンク切れになる。
 - [[file:~/.emacs.d/my-emacs-custom.el::org-link-file-path-type]]
   - デフォルト値 adaptive を absolute に変更する。
+**** TODO org link を cygpath 変換する。
+     DEADLINE: <2015-10-17 土>
+     [2014-10-17 金 11:21]
+- [[file:~/.emacs.d/inits/my-cygpath.el::org%20link%20%E3%82%92%20cygpath%20%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E3%80%82][file:~/.emacs.d/inits/my-cygpath.el::org link を cygpath 変換する。]]
 *** outline 関連
 **** DONE org-insert-heading するときに不活性タイムスタンプを挿入する
    [2011-08-24 水 10:25]

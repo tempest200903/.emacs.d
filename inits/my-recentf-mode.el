@@ -14,9 +14,9 @@
 ;; 自動保存
 ;; ----------------------------------------------------------------------
 (when (package-require 'recentf-ext)
-  (setq recentf-max-saved-items 100)
-  (setq recentf-max-menu-items 20)
-  (setq recentf-auto-cleanup 'never)
+  ;; (setq recentf-max-saved-items 300) ; M-x customize で指定する。
+  ;; (setq recentf-max-menu-items 1)   ; M-x customize で指定する。
+  ;; (setq recentf-auto-cleanup 'never)
   (setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
   (recentf-mode 1)
   )

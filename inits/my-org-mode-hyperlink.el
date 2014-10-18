@@ -74,9 +74,25 @@
 ;; ----------------------------------------------------------------------
 ;; * [2014-10-02 木] TODO - [[elisp:(moccur "WORK" nil)]] を yank するコマンド。
 
-(defun my-org-yank-elisp-moccur-link () "前後に [[elisp:(moccur と ]] をつけて yank する。"
+(defun my-org-yank-elisp-moccur-link ()
+  "前後に [[elisp:(moccur と ]] をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "[[elisp:(progn (moccur \"" (current-kill 0) "\" nil))]]")))
+  )
+
+;; ----------------------------------------------------------------------
+;; * [2014-10-18 土] 
+
+(defun my-org-yank-elisp-moccur-link ()
+  ""
+  (interactive)
+  (org-store-link nil)
+  (my-other-window-or-split nil)
+  (my-org-clock-goto-default nil)
+  (outline-next-visible-heading 1)
+  (open-line 1)
+  (insert "- ")
+  (org-insert-link)
   )
 
 ;; ----------------------------------------------------------------------

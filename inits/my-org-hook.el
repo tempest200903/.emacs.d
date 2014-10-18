@@ -27,6 +27,10 @@
 (add-hook 'org-clock-in-hook 'org-agenda-file-to-front)
 ;; (add-hook 'org-clock-out-hook 'org-agenda-file-to-front)
 ;; [2014-05-09 金] org-clock-out したときに、バッファの一部を削除してしまう不具合が発生。 hook 無効にして様子を見る。
+
+;; [2014-10-18 土]
+(add-hook 'org-clock-in-hook 'recentf-track-opened-file)
+
 ;; ----------------------------------------------------------------------
 ;; [2012-03-01 木] org-clock-in に org-mark-ring-push する。
 ;; (add-hook 'org-clock-in-hook 'org-mark-ring-push)

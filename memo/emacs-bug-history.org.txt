@@ -403,6 +403,9 @@ HOME=N:\tool\gnupack\gnupack_basic-8.00\home でやる。
      [2014-10-16 木 18:10]
 - (require 'org-mouse) した後、発生1回。
 - なるべくこれを require しないようにする。
+**** 〔現状-d2014-10-17〕
+     [2014-10-17 金 15:37]
+- (require 'org-mouse) する前に発生1回。
 *** server-start 不具合
     :LOGBOOK:
     TIMESTAMP: [2013-02-07 木 15:30]

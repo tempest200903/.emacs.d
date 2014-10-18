@@ -6,12 +6,10 @@
 (when t "2014-09-14" (load "~/.emacs.d/inits/my-benchmark"))
 ;; ----------------------------------------------------------------------
 ;; * load path
-(when t    "2014-09-06" (add-to-list 'load-path "~/.emacs.d/inits"))
+(add-to-list 'load-path "~/.emacs.d/inits")
 ;; ----------------------------------------------------------------------
 ;; ** custom
-(setq emacs_custom (getenv "EMACS_CUSTOM"))
-(setq custom-file (concat user-emacs-directory emacs_custom "/my-emacs-custom.el"))
-(load custom-file)
+(load "~/.emacs.d/inits/my-custom-file")
 ;; ----------------------------------------------------------------------
 ;; * global
 ;; define-key よりさきに unset-key する必要がある。
@@ -72,6 +70,7 @@
 (when t    "2014-10-11" (load "~/.emacs.d/inits/my-org-agenda-holidays")) ; 実験中
 (when nil  "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
 (when t    "2014-10-15" (load "~/.emacs.d/inits/my-org-capture")) ; 実験中
+(when t    "2014-10-18" (load "~/.emacs.d/inits/my-org-mode-hilight")) ; 実験中
 ;; ** emacs-lisp-mode
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-emacs-lisp-mode"))
 (when nil  "2014-09-30" (load "~/.emacs.d/inits/my-show-paren-mode")) ;; 実験中

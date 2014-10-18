@@ -137,6 +137,10 @@
     link-target
     )
   )
+;; * [2014-10-18 土] TODO [[file://fs/{4}/資料][file://fs/{4}/資料]] 形式のリンクを変換する。
+;; 1. file: をはずす。
+;; 2. / を \ に置換する。
+;; 3. {4} を [4] に置換する。
 
 (defun my-kill-ring-save-or-copy-org-link-target (&optional univ-arg)
   "1. リージョンがアクティブならリージョンを kill-ring-save 。
