@@ -1,8 +1,16 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-win-switch.el
 ;; ======================================================================
 ;; * [2011-08-30 火] win-switch 導入
-(require 'win-switch)
+;; ~/.emacs.d/vendor/elpa/win-switch-20130202.937/win-switch.el
+
+(when (require 'my-package nil t)
+  (when (package-require 'win-switch nil nil t)
+    )
+  )
+
 (global-set-key (kbd "<C-f8>") 'win-switch-dispatch)
+
 ;; ------------------------------------------------------------
 ;; cheatsheet
 ;; url: http://www.emacswiki.org/emacs/WinSwitch

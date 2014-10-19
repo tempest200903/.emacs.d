@@ -49,7 +49,8 @@
  '(scroll-bar-mode (quote left))
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(w32-symlinks-handle-shortcuts t))
+ '(w32-symlinks-handle-shortcuts t)
+ '(win-switch-window-threshold 1))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

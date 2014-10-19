@@ -1895,6 +1895,9 @@ shell-command-on-region: Args out of range: 0, 100
 ** 未整理
    [2011-08-29 月 15:54]
 *** TODO win-switch
+    :LOGBOOK:
+    CLOCK: [2014-10-19 日 22:37]
+    :END:
 - url: http://www.emacswiki.org/emacs/WinSwitch
 - M-x auto-install-from-emacswiki "win-switch.el"
 - [[file:~/.emacs.d/auto-install/win-switch.el::win-switch]]
@@ -1988,9 +1991,9 @@ shell-command-on-region: Args out of range: 0, 100
 - 案2 メール検索バッファで選択したメールを雛形にしてメール作成。
 ** migemo                                                            :migemo:
 - goto: [[~/.emacs.d/memo/my-emacs-migemo.org.txt]]
-** TODO iedt-mode
+** DONE iedt-mode
    :LOGBOOK:
-   CLOCK: [2014-10-19 日 22:06]
+   CLOCK: [2014-10-19 日 22:06]--[2014-10-19 日 22:36] =>  0:30
    TIMESTAMP: [2012-07-27 金 14:56]
    :END:
 - http://d.hatena.ne.jp/tototoshi/20120717/1342531319

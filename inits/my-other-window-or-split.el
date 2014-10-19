@@ -16,7 +16,8 @@
       (split-window-vertically)
       )
     )
-  (other-window 1)
+  ; (other-window 1)
+  (win-switch-dispatch)
   )
 
 (defun my-other-window-or-split (&optional arg)
