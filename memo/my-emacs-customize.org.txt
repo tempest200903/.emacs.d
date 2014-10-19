@@ -1894,9 +1894,9 @@ shell-command-on-region: Args out of range: 0, 100
 - SVG ファイルを Firefox は表示できる。かなり遠回りか？
 ** 未整理
    [2011-08-29 月 15:54]
-*** TODO win-switch
+*** DONE win-switch
     :LOGBOOK:
-    CLOCK: [2014-10-19 日 22:37]
+    CLOCK: [2014-10-19 日 22:37]--[2014-10-19 日 22:49] =>  0:12
     :END:
 - url: http://www.emacswiki.org/emacs/WinSwitch
 - M-x auto-install-from-emacswiki "win-switch.el"
