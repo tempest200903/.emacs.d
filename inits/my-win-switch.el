@@ -11,6 +11,9 @@
 
 (global-set-key (kbd "<C-f8>") 'win-switch-dispatch)
 
+;; Tips
+;; (setq win-switch-window-threshold 1)
+
 ;; ------------------------------------------------------------
 ;; cheatsheet
 ;; url: http://www.emacswiki.org/emacs/WinSwitch

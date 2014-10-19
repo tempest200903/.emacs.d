@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("my-iedit-mode-keymap-autoload.el"
+(("my-direx-keymap-autoload.el"
+ (filename . "~/.emacs.d/inits/my-direx-keymap-autoload.el")
+ (front-context-string . "my-direx-keymap-")
+ (rear-context-string . "acs-Lisp -*-\n;; ")
+ (position . 52))
+("my-iedit-mode-keymap-autoload.el"
  (filename . "~/.emacs.d/inits/my-iedit-mode-keymap-autoload.el")
  (front-context-string . "el\n;; 関連 my-iedi")
  (rear-context-string . "keymap-autoload.")

@@ -5,5 +5,15 @@
 ;; ======================================================================
 
 (let ((file "my-dired-k-package"))
-  (my-bind-key-with-autoload file "g" 'dired-k dired-mode-map )
+  (my-bind-key-with-autoload file "K" 'dired-k dired-mode-map )
+  (eval-after-load "direx"
+    (quote
+     (progn
+       (when (require 'dired-k nil t)
+         (define-key direx:direx-mode-map (kbd "K") 'direx-k ) ; PENDING autoload 失敗する。
+         )
+       )
+     )
+    )
   )
+
