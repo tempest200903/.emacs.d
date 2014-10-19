@@ -372,5 +372,6 @@
 (load "~/.emacs.d/inits/my-narrow-indirect-keymap-autoload")
 (load "~/.emacs.d/inits/my-iedit-mode-keymap-autoload")
 (load "~/.emacs.d/inits/my-cycle-buffer-keymap-autoload")
+(load "~/.emacs.d/inits/my-dired-k-keymap-autoload")
 
 

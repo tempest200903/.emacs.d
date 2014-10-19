@@ -549,6 +549,15 @@ Loading vc-svn...done
   - dired は w でカーソル位置(もしくはマークしているファイル)のファイル
     名を killing できる。このとき、プレフィックスが 0 であればフルパス
     を killing するのだ
+*** TODO dired-k
+    :LOGBOOK:
+    CLOCK: [2014-10-19 日 22:58]--[2014-10-19 日 23:07] =>  0:09
+    :END:
+- http://rubikitch.com/2014/10/19/dired-k/
+  - emacs dired-k.el : dired/direxでサイズ・最終更新時刻・git statusで色をつける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット | るびきち「日刊Emacs」
+  - ファイルサイズ, 最終更新時刻, gitの状態(コミットされた・変更済み・管理されていない) でそれぞれ色をつけてくれます。
+  - diredのgは本来再描画ですが、dired-kに割り当てれば再描画＋色付けをしてくれるので便利です。
+- ~/.emacs.d/inits/my-dired-k-package.el
 ** org-mode                                                        :org_mode:
 - goto: [[file:~/.emacs.d/memo/my-emacs-customize-org-mode.org.txt::*org-mode][org-mode]]
 ** ポップアップメニュー
