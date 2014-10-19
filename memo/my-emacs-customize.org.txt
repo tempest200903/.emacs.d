@@ -1990,6 +1990,7 @@ shell-command-on-region: Args out of range: 0, 100
 - goto: [[~/.emacs.d/memo/my-emacs-migemo.org.txt]]
 ** TODO iedt-mode
    :LOGBOOK:
+   CLOCK: [2014-10-19 日 22:06]
    TIMESTAMP: [2012-07-27 金 14:56]
    :END:
 - http://d.hatena.ne.jp/tototoshi/20120717/1342531319

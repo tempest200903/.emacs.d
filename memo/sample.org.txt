@@ -1,6 +1,6 @@
 * taskbook
 ** TODO task1001
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-10 金 23:20>
    :LOGBOOK:
    CLOCK: [2014-10-10 金 00:20]--[2014-10-10 金 00:25] =>  0:05
    :END:
@@ -16,7 +16,7 @@
    :Effort:   20
    :END:
 ** PENDING task1003
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-10 金 23:25>
    :LOGBOOK:
    CLOCK: [2014-10-10 金 00:25]--[2014-10-10 金 00:30] =>  0:05
    :END:
@@ -24,37 +24,37 @@
    :Effort:   30
    :END:
 ** TODO task1004
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-10 金 23:30>
    :PROPERTIES:
    :Effort:   40
    :END:
 ** TODO task1005
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-10 金 23:40>
    :PROPERTIES:
    :Effort:   50
    :END:
 ** TODO task1006
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-10 金 23:45>
    :PROPERTIES:
    :Effort:   60
    :END:
 ** TODO task1007
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-10 金 23:50>
    :PROPERTIES:
    :Effort:   70
    :END:
 ** TODO task1008
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-10 金 23:55>
    :PROPERTIES:
    :Effort:   80
    :END:
 ** TODO task1009
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-10-18 土 00:00>
    :PROPERTIES:
    :Effort:   90
    :END:
 ** TODO task1010
-   SCHEDULED: <2014-10-10 金>
+   SCHEDULED: <2014-11-11 火 00:05>
    :PROPERTIES:
    :Effort:   100
    :END:

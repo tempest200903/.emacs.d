@@ -10,7 +10,11 @@
 
 ;; ----------------------------------------------------------------------
 (define-key global-map (kbd "<f5>")                 'repeat)
-(define-key global-map (kbd "C-;")                  'repeat)
+;; (kbd "C-;") は (require 'iedit) で上書きされてしまうため、移動する。
+;; (define-key global-map (kbd "C-;")                  'repeat) 
+(define-key global-map (kbd "M-t")                  'repeat)
+;; (kbd "M-t") を repeat で使うため、transpose-words を移動する。
+(define-key global-map (kbd "C-z M-t")              'transpose-words)
 (define-key global-map (kbd "C-z C-t")              'transpose-chars) ;; C-t を anything-command-map-prefix-key で使うため移動した。
 ;; ----------------------------------------------------------------------
 ;; * [2011-08-24 水] ffap.el カーソル位置付近にあるファイルパスを取り込む
@@ -366,3 +370,6 @@
 (load "~/.emacs.d/inits/my-goto-last-change-keymap-autoload")
 (load "~/.emacs.d/inits/my-cua-selection-mode-keymap")
 (load "~/.emacs.d/inits/my-narrow-indirect-keymap-autoload")
+(load "~/.emacs.d/inits/my-iedit-mode-keymap-autoload")
+
+

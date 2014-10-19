@@ -840,6 +840,46 @@ c
 ***** A
 ***** B
 ***** C
+**** DONE org-agenda-write
+     :LOGBOOK:
+     CLOCK: [2014-10-18 土 23:12]--[2014-10-18 土 23:32] =>  0:20
+     :END:
+- org-agenda-write
+#+BEGIN_QUOTE
+(org-agenda-write FILE &optional OPEN NOSETTINGS)
+Write the current buffer (an agenda view) as a file.
+Depending on the extension of the file name, plain text (.txt),
+HTML (.html or .htm) or Postscript (.ps) is produced.
+If the extension is .ics, run icalendar export over all files used
+to construct the agenda and limit the export to entries listed in the
+agenda now.
+#+END_QUOTE
+- HTML 書き出しには htmlize.el が必要
+- [[file:~/.emacs.d/inits/my-htmlize-package.el::my-htmlize-package.el]]
+**** PENDING org-agenda-custom-commands
+     :LOGBOOK:
+     CLOCK: [2014-10-18 土 23:30]--[2014-10-18 土 23:55] =>  0:25
+     :END:
+- バッチ処理で1日ごと、1週間ごとに書き出してアーカイブする。
+- cf. 2013/03/15-org-mode/org-ja.pdf occur org-agenda-custom-commands
+- [[file:~/.emacs.d/inits/my-org-agenda-experimental.el::org-agenda-custom-commands]]
+- [X] goat-pc にて、バッチ処理の実験に成功。
+- [ ] dn2 にて実験する。
+**** DONE org-store-agenda-views
+     :LOGBOOK:
+     CLOCK: [2014-10-18 土 23:55]--[2014-10-19 日 00:00] =>  0:05
+     :END:
+     [2014-10-18 土 23:21]
+- C-: e
+- [X] goat-pc にて、バッチ処理の実験に成功。
+- [ ] dn2 にて実験する。
+**** PENDING org-batch-store-agenda-views
+     :LOGBOOK:
+     CLOCK: [2014-10-19 日 00:00]--[2014-10-19 日 00:09] =>  0:09
+     :END:
+- [[file:~/.emacs.d/inits/my-org-agenda-experimental.el::org-agenda-custom-commands]]
+- [X] goat-pc にて、バッチ処理の実験に成功。
+- [ ] dn2 にて実験する。
 *** clock 関連
 **** DONE 〔org-clock-modeline-total〕
      :LOGBOOK:
@@ -1043,4 +1083,3 @@ Tag :interrupt:
 **** PENDING あとで読む
 - https://github.com/fniessen/emacs-leuven/blob/master/org-custom-agenda-views.el
 - http://orgmode.org/worg/agenda-optimization.html
-

@@ -26,7 +26,8 @@
  '(message-log-max 1000)
  '(moccur-use-xdoc2txt t)
  '(nxml-child-indent 2)
- '(org-agenda-files (quote ("f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/task.org" "~/.emacs.d/memo/my-emacs-customize-org-mode.org.txt" "~/.emacs.d/memo/my-emacs-customize.org.txt" "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/アドベントカレンダーをepubに変換してiPadで読む-m2014-10.org.txt" "~/.emacs.d/memo/sample.org.txt")))
+ '(org-agenda-files (quote ("~/.emacs.d/memo/my-emacs-customize.org.txt" "~/.emacs.d/memo/my-emacs-customize-org-mode.org.txt" "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/task.org" "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/アドベントカレンダーをepubに変換してiPadで読む-m2014-10.org.txt" "~/.emacs.d/memo/sample.org.txt")))
+ '(org-agenda-span (quote day))
  '(org-clock-in-switch-to-state "TODO")
  '(org-clock-into-drawer "LOGBOOK")
  '(org-clock-out-remove-zero-time-clocks t)
@@ -83,5 +84,7 @@
 ;; bookmark-default-file デフォルト値 ~/.emacs.d/bookmarks から変更する。
 (require 'bookmark)
 (setq bookmark-default-file (concat "~/.emacs.d/" emacs_custom "/bookmarks"))
+
 ;; ----------------------------------------------------------------------
 (setenv "PATH" (concat (getenv "PATH") ";C:/Ruby193/bin"))
+

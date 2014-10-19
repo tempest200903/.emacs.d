@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored-marker"
+(("my-iedit-mode-keymap-autoload.el"
+ (filename . "~/.emacs.d/inits/my-iedit-mode-keymap-autoload.el")
+ (front-context-string . "el\n;; 関連 my-iedi")
+ (rear-context-string . "keymap-autoload.")
+ (position . 82))
+("org-capture-last-stored-marker"
  (filename . "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/notes.org")
  (front-context-string . "** TODO aaa\n   [")
  (rear-context-string . "/notes.org\"))]]\n")
