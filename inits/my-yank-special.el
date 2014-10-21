@@ -71,10 +71,17 @@
   (interactive "*")
   (my-yank-with-bracket "<" ">")
   )
+
 (defun my-yank-with-link-occur () "yank with link occur"
   (interactive "*")
   (my-yank-with-bracket "[[elisp:(occur \"" "\")]]")
   )
+
+(defun my-yank-with-link-moccur () "yank with link moccur"
+  (interactive "*")
+  (my-yank-with-bracket "[[elisp:(moccur \"" "\" nil)]]")
+  )
+
 (defun my-yank-with-link-org-occur () "yank with link org-occur"
   (interactive "*")
   (my-yank-with-bracket "[[elisp:(org-occur-in-agenda-files \"" "\" 1)]]")

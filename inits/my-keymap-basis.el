@@ -58,7 +58,7 @@
 (define-key global-map (kbd "M-s M-u")              'ffap-menu) ;; ffap.el で <C-S-mouse-3> に割り当て済み。
 (define-key global-map (kbd "M-s M-]")              'ffap-next)
 (define-key global-map (kbd "C-z C-s")              'save-some-buffers) ;; alias of C-x s
-(define-key global-map (kbd "C-z m")                'bookmark-set) ;; alias of C-x r m
+;; (define-key global-map (kbd "C-z m")                'bookmark-set) ;; alias of C-x r m ; ~/.emacs.d/inits/my-lookup-key.el (global-set-key (kbd "<S-convert>") ctl-x-r-map) により、 (kbd "<S-convert> m") に割り当て済み。
 (define-key global-map (kbd "C-z i")                'insert-register) ;; alias of C-x r i
 (define-key global-map (kbd "M-g M-g")              'my-goto-line-with-linum-mode)
 ;; ----------------------------------------------------------------------
@@ -263,10 +263,10 @@
 (define-key global-map (kbd "C-z C--")              'my-yank-with-erb-print)
 (define-key global-map (kbd "C-z *")                'my-yank-with-org-bold)
 (define-key global-map (kbd "C-z o")                'my-yank-with-link-occur)
+(define-key global-map (kbd "C-z m")                'my-yank-with-link-moccur)
 
-;; (define-key global-map (kbd "C-z m")                'my-yank-with-link-moccur)
 ;; * [2014-10-18 土] TODO my-yank-with-link-moccur を作る。
-;; bookmark-set を C-z m から他の kbd に移す。
+;; DONE bookmark-set を C-z m から他の kbd に移す。
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-04-17 木] my-date.el

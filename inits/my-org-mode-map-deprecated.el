@@ -53,7 +53,6 @@
 ;; (kbd "C-x C-:") は空いている。
 ;; ----------------------------------------------------------------------
 ;; * [2014-04-11 金] my-yank-special.el
-(define-key org-mode-map (kbd "C-z M-s M-o") 'my-yank-with-link-occur)
 (define-key org-mode-map (kbd "C-z C-o") nil)
 (define-key org-mode-map (kbd "C-z M-s M-a") 'my-yank-with-link-org-occur)
 ;; ----------------------------------------------------------------------

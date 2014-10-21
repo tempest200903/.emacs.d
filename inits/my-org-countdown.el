@@ -15,17 +15,18 @@
    (my-org-countdown-calc-time-diff
     (my-org-countdown-conver-to-float
      (my-org-countdown-scan-next-schedule-time)))
+   300
    )
   )
-;; デバッグ用→ (my-org-timer-start-safe -769.5)
-(defun my-org-timer-start-safe (offset)
-  "offset が数値ならば org-timer-start. さもなくば何もしない"
-  (if offset
-      (if (numberp offset)
-          (org-timer-start (floor offset))
-        (message "offset is not number: {%s}" offset)
+;; デバッグ用→ (my-org-timer-start-safe -600 60)
+(defun my-org-timer-start-safe (timer-offset buffer-seconds)
+  "timer-offset が数値ならば org-timer-start. さもなくば何もしない. buffer-seconds 秒ぶん前倒しにする."
+  (if timer-offset
+      (if (numberp timer-offset)
+          (org-timer-start (floor (+ timer-offset buffer-seconds)))
+        (message "timer-offset is not number: {%s}" timer-offset)
         )
-    (message "offset is nil")
+    (message "timer-offset is nil")
     )
   )
 ;; ** [2014-09-24 水] TODO ステータスが DONE である行をスキップする。

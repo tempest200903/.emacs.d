@@ -12,9 +12,11 @@
 
 (setq org-default-notes-file (concat org-directory "/inbox.org"))
 (define-key global-map (kbd "<non-convert> <non-convert>") 'org-capture)
-(define-key global-map (kbd "<pause> <pause> ") (lambda () (interactive) (org-capture nil "p")))
-(define-key global-map (kbd "<non-convert> m") (lambda () (interactive) (org-capture nil "m")))
-(define-key global-map (kbd "<non-convert> d") (lambda () (interactive) (org-capture nil "d")))
+(when nil
+  (define-key global-map (kbd "<pause> <pause> ") (lambda () (interactive) (org-capture nil "p")))
+  (define-key global-map (kbd "<non-convert> m") (lambda () (interactive) (org-capture nil "m")))
+  (define-key global-map (kbd "<non-convert> d") (lambda () (interactive) (org-capture nil "d")))
+  )
 
 (setq org-capture-templates
       '(
@@ -22,7 +24,10 @@
          "* TODO  %?
   %U" :clock-in t :clock-resume t
   )
-        ("m" "mail interrupt" entry (file+headline (concat org-directory "/interrupt.org") "mail")
+        ("e" "email interrupt" entry (file+headline (concat org-directory "/interrupt.org") "email")
+         "* TODO  %?
+  %U" :clock-in t :clock-resume t)
+        ("m" "meeting interrupt" entry (file+headline (concat org-directory "/interrupt.org") "meeting")
          "* TODO  %?
   %U" :clock-in t :clock-resume t)
         ("a" "active" item (file+headline (concat org-directory "/task.org") "active")

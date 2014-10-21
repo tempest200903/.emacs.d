@@ -31,6 +31,12 @@
 ;; [2014-10-18 土]
 (add-hook 'org-clock-in-hook 'recentf-track-opened-file)
 
+;; [2014-10-20 月]
+(defun hl-line-mode-on () ""
+  (hl-line-mode 1)
+  )
+(add-hook 'org-clock-in-hook 'hl-line-mode-on)
+
 ;; ----------------------------------------------------------------------
 ;; [2012-03-01 木] org-clock-in に org-mark-ring-push する。
 ;; (add-hook 'org-clock-in-hook 'org-mark-ring-push)
@@ -101,6 +107,9 @@
 (require 'bind-key)
 (bind-key "C-k" 'my-org-kill-line org-mode-map)
 (bind-key "C-y" 'my-org-yank org-mode-map)
+
+;; TODO hook.el から分離する。
+
 ;; ----------------------------------------------------------------------
 ;; [2012-02-28 火] org-clock-in/out delete-trailing-whitespace する。
 (add-hook 'org-clock-in-hook 'delete-trailing-whitespace)

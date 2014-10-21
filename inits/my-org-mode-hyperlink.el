@@ -42,6 +42,10 @@
                               my-org-yank-shell-link
                               )
                             )
+
+;; * TODO prefix-arg-commands-create で定義したコマンドは describe-function から定義元ファイルにジャンプできない。
+;; prefix-arg-commands-create を使わないほうがいいか。
+
 (defun my-org-yank-link ()  "前後に [[ と ]] をつけて yank する。"
   (interactive "*")
   (progn (insert-for-yank (concat "[[" (current-kill 0) "]]")))
@@ -54,6 +58,8 @@
   (interactive "*")
   (progn (insert-for-yank (concat "[[shell:cygstart " (current-kill 0) "]]")))
   )
+
+;; TODO my-org-yank-link
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-08 月 13:10] TODO fileserver-localopen.bat で開くリンクを挿入する。
 ;; input: \\fileserver\a\b.xls

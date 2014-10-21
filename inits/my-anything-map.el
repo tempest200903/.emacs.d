@@ -10,7 +10,7 @@
 (define-key my-anything-map (kbd "SPC") 'anything-execute-anything-command)
 (define-key my-anything-map (kbd "C-t") 'anything-at-point)
                                         ; when C-u is pressed, the initial input is the symbol at point.
-(define-key my-anything-map (kbd "C-q") 'anything-resume)
+(define-key my-anything-map (kbd "C-u") 'anything-resume)
                                         ; 直前に利用した Anything コマンドの結果を再現してくれます。
 (define-key my-anything-map (kbd "C-l") 'anything-bookmarks)
 (define-key my-anything-map (kbd "C-k") 'anything-for-files)

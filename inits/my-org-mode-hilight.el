@@ -6,8 +6,10 @@
 (defun my-org-mode-hilight-category ()
   "カテゴリをハイライトする"
   (interactive)
-  (highlight-regexp "〈.*〉" "hi-blue")
-  (highlight-regexp "〔.*〕" "hi-pink")
+  (unhighlight-regexp "〈[^〉]*〉")
+  (unhighlight-regexp "〔[^〕].*〕")
+  (highlight-regexp "〈[^〉]*〉" "hi-blue")
+  (highlight-regexp "〔[^〕].*〕" "hi-pink")
   )
 ;; * [2014-10-18 土] TODO 2回実行で unhighlight-regexp 。トグルする。
 

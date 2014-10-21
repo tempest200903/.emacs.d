@@ -2271,5 +2271,9 @@ puts "narrow-indirect"
     [2014-10-15 水 14:30]
 - [ ] http://www.emacswiki.org/emacs/%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E3%83%BB%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE
   - EmacsWiki: カテゴリ・正規表現
+** TODO prefix-arg-commands-create デメリット
+   [2014-10-20 月 19:10]
+- prefix-arg-commands-create で定義したコマンドは describe-function から定義元ファイルにジャンプできない。 prefix-arg-commands-create を使わないほうがいいか。 
+- 例 [[file:~/.emacs.d/inits/my-org-mode-hyperlink.el::prefix-arg-commands-create]]
 * tail
   [2011-08-25 木 17:38]

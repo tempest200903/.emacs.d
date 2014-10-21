@@ -23,6 +23,7 @@
 (global-set-key (kbd "<C-convert>") (lookup-key global-map (kbd "M-s M-q")))
 ;; 使用例 (global-set-key (kbd "M-s M-q M-s") (kbd "<C-convert> M-s")
 
+(global-set-key (kbd "<S-convert>") ctl-x-r-map)
 (global-set-key (kbd "<S-convert>") (lookup-key global-map (kbd "C-x r")))
 ;; 使用例 (global-set-key (kbd "C-x r s") (kbd "<S-convert> s")
 

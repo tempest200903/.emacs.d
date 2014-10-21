@@ -1081,5 +1081,18 @@ Tag :interrupt:
 ;; * [2014-10-16 木] TODO my-org-next-checkbox, my-org-previous-checkbox
 *** 未整理
 **** PENDING あとで読む
+     [2014-10-10 金 19:01]
 - https://github.com/fniessen/emacs-leuven/blob/master/org-custom-agenda-views.el
 - http://orgmode.org/worg/agenda-optimization.html
+**** PENDING org-reset-checkbox-state-subtree と同様のことを todo status に対して行うコマンド
+     [2014-10-20 月 19:01]
+**** PENDING region に存在する checkbox をつけられる行全てに checkbox をつける。
+     [2014-10-20 月 19:01]
+- 先頭スペースでインデント＋list記号にマッチする行全てに C-z C-]
+**** PENDING agenda view からの remote operation でタスクを完了するときにも実行したい
+     [2014-10-21 火 10:17]
+- 今は、1日/1週ごとにタスクを clone する elisp を手動で実行している。
+- 例 [[elisp:(progn (org-ctrl-c-ctrl-c nil) (outline-previous-visible-heading 1) (org-todo "DONE") (org-clone-subtree-with-time-shift 1 "+1d") (org-forward-same-level 1) (org-reset-checkbox-state-subtree) (org-todo 1))]]
+- agenda view からの remote operation でタスクを完了するときにも実行したい。
+- タスクを完了するときに drawer に記した elisp を実行する hook を用意すれば可能か？
+
