@@ -1101,3 +1101,6 @@ Tag :interrupt:
 **** PENDING リージョンに含まれるリンクを全て開く my-copy-org-link-target-and-w32-shell-execute
      [2014-10-21 火 10:35]
 - [[file:~/.emacs.d/inits/my-kill-ring-save.el::my-copy-org-link-target-and-w32-shell-execute]]
+**** PENDING agenda view で位置を揃えて表示したい
+     [2014-10-22 水 10:50]
+- 案1 category の桁数を揃えるコマンド
