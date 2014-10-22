@@ -73,8 +73,9 @@
 ;; * [2014-09-25 木] TODO write-file するついでに sn か en にも保存する。
 
 ;; ----------------------------------------------------------------------
-;; * [2014-10-03 金] TODO close になったプロジェクトを抽出して表示する。
+;; * [2014-10-03 金] TODO close になったプロジェクトを抽出して警告つきで表示する。
 ;; 例 (progn (switch-to-buffer (get-buffer "*Org Agenda*")) (foreign-regexp/occur "Clocked:.*(WMP140011|WMP140084|WMP140125|WMP140081)"))
+;; * [2014-10-21 火] TODO 作業時間が 4h 以上を抽出して警告つきで表示する。
 
 (defun my-timemanager-show-closed-project ()
   "close になったプロジェクトを抽出して表示する。"
@@ -83,7 +84,7 @@
     (when (switch-to-buffer (get-buffer "*Org Agenda*"))
       (my-org-agenda-show-log-on)
       (occur regexp-closed-project)
-      (when t (highlight-regexp regexp-closed-project "hi-yellow")) ; org-agenda-mode では highlight できない？
+      (when nil (highlight-regexp regexp-closed-project "hi-yellow")) ; org-agenda-mode では highlight できない？
       )
     )
   )

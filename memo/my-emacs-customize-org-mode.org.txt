@@ -1095,4 +1095,9 @@ Tag :interrupt:
 - 例 [[elisp:(progn (org-ctrl-c-ctrl-c nil) (outline-previous-visible-heading 1) (org-todo "DONE") (org-clone-subtree-with-time-shift 1 "+1d") (org-forward-same-level 1) (org-reset-checkbox-state-subtree) (org-todo 1))]]
 - agenda view からの remote operation でタスクを完了するときにも実行したい。
 - タスクを完了するときに drawer に記した elisp を実行する hook を用意すれば可能か？
-
+**** PENDING SCHEDULED=<today> and タスクステータスがついていないエントリを抽出する org-agenda-custom-commands
+     [2014-10-21 火 10:25]
+- [[file:~/.emacs.d/inits/my-org-mode-dn2.el::org-agenda-custom-commands]]
+**** PENDING リージョンに含まれるリンクを全て開く my-copy-org-link-target-and-w32-shell-execute
+     [2014-10-21 火 10:35]
+- [[file:~/.emacs.d/inits/my-kill-ring-save.el::my-copy-org-link-target-and-w32-shell-execute]]

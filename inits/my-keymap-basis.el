@@ -227,6 +227,7 @@
 (define-key global-map (kbd "C-z C-x C-i")          'tabify)
 (define-key global-map (kbd "C-z C-i")              'untabify)
 (define-key global-map (kbd "C-z C-y")              'picture-duplicate-line)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-02-20 木] my-occur.el から移転。
 (define-key global-map (kbd "M-s M-b")              'multi-occur-in-matching-buffers)
