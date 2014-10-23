@@ -1104,3 +1104,11 @@ Tag :interrupt:
 **** PENDING agenda view で位置を揃えて表示したい
      [2014-10-22 水 10:50]
 - 案1 category の桁数を揃えるコマンド
+**** PENDING 日付フォーマット
+     [2014-10-22 水 11:11]
+- org-mode 標準から他のフォーマットに変換する。逆変換する。
+**** PENDING 拡張子が .bat なら cp932-dos で開く／保存する。
+     [2014-10-22 水 11:17]
+- before-find-file-hook, 
+- before-save-hook, set-buffer-file-coding-system
+

@@ -80,6 +80,7 @@
 (defun my-timemanager-show-closed-project ()
   "close になったプロジェクトを抽出して表示する。"
   (interactive)
+  (delete-other-windows)
   (let ((regexp-closed-project "Clocked:.*:\(WMP140011\|WMP140084\|WMP140125\|WMP140081\):"))
     (when (switch-to-buffer (get-buffer "*Org Agenda*"))
       (my-org-agenda-show-log-on)
@@ -95,3 +96,4 @@
     (org-agenda-log-mode)
     )
   )
+

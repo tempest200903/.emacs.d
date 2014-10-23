@@ -2257,6 +2257,11 @@ openwith.el:144:1:Error: End of file during parsing
     CLOCK: [2014-10-11 土 21:33]--[2014-10-11 土 21:41] =>  0:08
     :END:
 - [[file:~/.emacs.d/inits/my-evil-numbers.el::evil-numbers]]
+*** TODO eval した結果で置き換える
+    DEADLINE: <2015-10-22 木>
+    [2014-10-22 水 19:13]
+- "(+ 3.5 1.2)" の末尾にカーソルを置いてコマンド実行したら、
+  "(+ 3.5 1.2)" を除去して "4.7 h" を insert する。
 ** after-save-hook
 *** TODO サイズが0ならばファイルを削除する
 - ユーザに問い合わせてから削除。 C-u 付きなら問い合わせなし。
@@ -2265,7 +2270,6 @@ openwith.el:144:1:Error: End of file during parsing
 #+BEGIN_SRC ruby
 puts "narrow-indirect"
 #+END_SRC
-
 ** readlists で読む
 *** TODO emacs-wiki を readlists で読む
     [2014-10-15 水 14:30]

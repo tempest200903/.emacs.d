@@ -1,5 +1,5 @@
-#+LAST_UPDATED: 2013-10-28
-* 〔my-gnupack-customize〕                                          :private:
+#+LAST_UPDATED: 2014-10-23
+* 〈my-gnupack-customize〉                                          :private:
   :PROPERTIES:
   :CATEGORY: 〈my-gnupack-customize〉
   :END:
@@ -249,3 +249,9 @@
   (外部プロセスに渡せる文字列は cp932 に制限される)。
   #+END_EXAMPLE
 
+** config.ini を把握する
+*** TODO 〔config.ini LANG を把握する〕
+- http://aikotobaha.blogspot.jp/2014/05/gnupack-devel-1200.html
+  - OSSはアルミニウムの翼で飛ぶ: gnupack devel 12.00 非公式アップデート
+  - LANG           = ja_JP.UTF-8
+    - この変更の影響を把握する
