@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-ime-indicator.el
 ;; ======================================================================
 ;; * [2011-09-05 月] 自作マイナーモード。IME on/off を mode-line に表示したい。
 ;; - 「IME on/off を mode-line に表示する」だけのモードを用意しておいて、
@@ -55,6 +56,10 @@
   (interactive)
   (ime-indicator-mode 0)
   )
-;;
-(define-key global-map (kbd "<M-kanji>") 'ime-indicator-mode-on)
-(define-key global-map (kbd "<non-convert>") 'ime-indicator-mode-off)
+
+;; * [2014-10-23 木] windows が制御しているので、 define-key しても効果がない？
+(when nil
+  (define-key global-map (kbd "<m-kanji>") 'ime-indicator-mode-on)
+  (define-key global-map (kbd "<non-convert>") 'ime-indicator-mode-off)
+  )
+(define-key global-map (kbd "<kanji>") 'ime-indicator-mode)

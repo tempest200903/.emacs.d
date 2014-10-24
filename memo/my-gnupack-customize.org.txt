@@ -251,7 +251,14 @@
 
 ** config.ini を把握する
 *** TODO 〔config.ini LANG を把握する〕
+    DEADLINE: <2015-10-23 金>
+    [2014-10-23 木 10:13]
 - http://aikotobaha.blogspot.jp/2014/05/gnupack-devel-1200.html
   - OSSはアルミニウムの翼で飛ぶ: gnupack devel 12.00 非公式アップデート
   - LANG           = ja_JP.UTF-8
     - この変更の影響を把握する
+*** TODO gnupack devel 12.00 非公式アップデート を試す
+    DEADLINE: <2015-10-23 金>
+    [2014-10-23 木 10:13]
+- http://aikotobaha.blogspot.jp/2014/05/gnupack-devel-1200.html
+- http://aikotobaha.blogspot.jp/search/label/gnupack

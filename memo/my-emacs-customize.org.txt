@@ -453,7 +453,8 @@ Loading vc-svn...done
     [2011-12-14 水 18:02]
 - http://d.hatena.ne.jp/rubikitch/20111211/smalldisplay
 - [[file:~/.emacs.d/inits/my-buffer-window-frame.el::switch-to-last-buffer]]
-*** TODO cycle-buffer.el
+*** DONE cycle-buffer.el
+    CLOSED: [2014-10-23 木 12:36]
     [2011-12-14 水 18:20]
 - http://www.emacswiki.org/emacs/cycle-buffer.el
 - http://www.emacswiki.org/emacs/CycleBuffer
@@ -668,18 +669,56 @@ shell-command-on-region: Args out of range: 0, 100
 - occur-by-moccur で十分か？
 *** TODO moccur で前後を表示するために .*PATTERN.* とするのが面倒
     [2014-10-09 木 11:39]
-*** TODO moccur-use-xdoc2txt を調べる
+*** TODO 〔moccur-use-xdoc2txt を調べる〕
     DEADLINE: <2014-11-09 日>
     [2014-10-09 木 11:41]
-- [[file:~/.emacs.d/custom-dn2/my-emacs-custom.el::moccur-use-xdoc2txt]]
-;; * '(moccur-use-xdoc2txt t)
-;; [2014-10-09 木]
-;; Documentation:
-;; Non-nil means to use xdoc2txt.
-;; xdoc2txt is Windows software to convert Word/Excel/PDF etc to Text file.
-;; http://www31.ocn.ne.jp/~h_ishida/xdoc2txt.html (Japanese site)
-;; Non-nil にすると xdoc2txt を使う。
-;; M-x shell で xdoc2txt が正常に動作しておく必要がある？
+- http://www31.ocn.ne.jp/~h_ishida/xdoc2txt.html (Japanese site)
+- Non-nil にすると xdoc2txt を使う。
+- moccur-use-xdoc2txt
+  - [[file:~/.emacs.d/vendor/elpa/color-moccur-20140425.1602/color-moccur.el::defcustom%20moccur-use-xdoc2txt][file:~/.emacs.d/vendor/elpa/color-moccur-20140425.1602/color-moccur.el::defcustom moccur-use-xdoc2txt]]
+    #+BEGIN_QUOTE
+    (defcustom moccur-use-xdoc2txt
+      (if
+          (and
+           (locate-library "xdoc2txt.exe" nil exec-path)
+           (if (file-name-extension shell-file-name)
+               (locate-library shell-file-name nil exec-path)
+             (locate-library (concat shell-file-name ".exe") nil exec-path)))
+          t
+        nil)
+      "Non-nil means to use xdoc2txt.
+    xdoc2txt is Windows software to convert Word/Excel/PDF etc to Text file.
+    http://www31.ocn.ne.jp/~h_ishida/xdoc2txt.html (Japanese site)"
+      :group 'color-moccur
+      :type 'boolean
+      )
+    #+END_QUOTE
+- (locate-library "xdoc2txt.exe" nil exec-path) => nil
+  - [[n:/work/y2014/1403PCM/pro-nakamura/emacs-path.org.txt]]
+    - (getenv "PATH")
+    - ここに N:\tool\xdoc2txt が含まれているか？ => no
+  - [[n:/work/y2014/1403PCM/pro-nakamura/path.txt]]
+    - ここに N:\tool\xdoc2txt が含まれているか？ => no
+  - システムのプロパティで PATH に N:\tool\xdoc2txt を追加する。
+  - [[file:n:/howm/2014/07/2014-07-03-185232.howm.txt::*%E3%80%94add%20PATH%20for%20xdoc2txt%E3%80%95][〔add PATH for xdoc2txt〕]]
+  - 暫定処置 (add-to-list 'exec-path "N:/tool/xdoc2txt")
+  - (locate-library "xdoc2txt.exe" nil exec-path) => "n:/tool/xdoc2txt/xdoc2txt.exe"
+- [[file:~/.emacs.d/vendor/elpa/color-moccur-20140425.1602/color-moccur.el::defun%20moccur-grep-xdoc2txt-p][file:~/.emacs.d/vendor/elpa/color-moccur-20140425.1602/color-moccur.el::defun moccur-grep-xdoc2txt-p]]
+  #+BEGIN_QUOTE
+  ;;; moccur-grep
+  (defun moccur-grep-xdoc2txt-p (filename)
+    (if (and
+         moccur-run-meadow-onwin
+         moccur-use-xdoc2txt
+         (moccur-grep-correspond-ext-p
+          filename moccur-grep-xdoc2txt-exts))
+        t
+      nil))
+  #+END_QUOTE
+  - moccur-run-meadow-onwin => nil
+  - meadow だけで動作することを仮定している？
+  - 暫定処置 (setq moccur-run-meadow-onwin t)
+  - (moccur-grep-xdoc2txt-p "N:/temp/dummy1.xlsx") => t
 *** DONE 2単語のAND検索
     CLOSED: [2014-10-15 水 14:28]
 - (setq moccur-split-word t) M-x moccur
@@ -2262,6 +2301,10 @@ openwith.el:144:1:Error: End of file during parsing
     [2014-10-22 水 19:13]
 - "(+ 3.5 1.2)" の末尾にカーソルを置いてコマンド実行したら、
   "(+ 3.5 1.2)" を除去して "4.7 h" を insert する。
+*** TODO relative-line-numbers.el
+    [2014-10-23 木 10:55]
+- http://rubikitch.com/2014/10/20/relative-line-numbers/
+  - emacs relative-line-numbers.el : 画面左に相対行番号をつけよう！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット | るびきち「日刊Emacs」
 ** after-save-hook
 *** TODO サイズが0ならばファイルを削除する
 - ユーザに問い合わせてから削除。 C-u 付きなら問い合わせなし。

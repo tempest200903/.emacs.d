@@ -1,0 +1,4 @@
+
+- grepWin では xlsx などバイナリファイル検索できるか？ => できない。
+- emacs (require 'moccur) (setq moccur-use-xdoc2txt t)
+
