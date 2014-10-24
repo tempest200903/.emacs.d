@@ -1,0 +1,12 @@
+* my-moccur-use-xdoc2txt
+#+BEGIN_SRC emacs-lisp
+  (save-excursion
+    (setq moccur-run-meadow-onwin t)
+    (message "v1 {%s}" (moccur-grep-xdoc2txt-p "N:/temp/dummy/dummy1.xlsx"))
+    (dmoccur "N:/temp/dummy/" "dum" nil)
+    )
+  
+#+END_SRC
+
+#+RESULTS:
+

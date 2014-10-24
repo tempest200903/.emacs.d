@@ -29,7 +29,7 @@
 ;; for other customisable variables.
 ;;
 
-(when (require 'cycle-buffer nil t)
+(when (not (require 'cycle-buffer nil t))
   (message "install-elisp-from-emacswiki cycle-buffer.el")
   (install-elisp-from-emacswiki "cycle-buffer.el")
   )

@@ -719,6 +719,7 @@ shell-command-on-region: Args out of range: 0, 100
   - meadow だけで動作することを仮定している？
   - 暫定処置 (setq moccur-run-meadow-onwin t)
   - (moccur-grep-xdoc2txt-p "N:/temp/dummy1.xlsx") => t
+- [[file:~/.emacs.d/inits/my-moccur-use-xdoc2txt.org::*my-moccur-use-xdoc2txt][my-moccur-use-xdoc2txt]]
 *** DONE 2単語のAND検索
     CLOSED: [2014-10-15 水 14:28]
 - (setq moccur-split-word t) M-x moccur

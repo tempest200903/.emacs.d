@@ -1072,6 +1072,9 @@ Tag :interrupt:
 - [[file:~/.emacs.d/inits/my-org-capture.el::my-org-insert-link-dailyplan]]
   - ;; [2014-10-15 水] TODO org-insert-link でユーザからの入力待ちになる。これを自動化したい。
 *** TODO 〔毎日 interrupt 時間を esitmate する仕組みを作る〕
+    [2014-10-24 金 10:23]
+    DEADLINE: <2015-10-24 土>
+- ログから interrupt 時間を集計する。曜日ごとに平均値を算出する。
 *** DONE org-mode.org を readlists.com で epub に変換する
     :LOGBOOK:
     CLOCK: [2014-10-14 火 23:03]--[2014-10-14 火 23:19] =>  0:16

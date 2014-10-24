@@ -375,3 +375,4 @@
 (load "~/.emacs.d/inits/my-cycle-buffer-keymap-autoload")
 (load "~/.emacs.d/inits/my-dired-k-keymap-autoload")
 (load "~/.emacs.d/inits/my-direx-keymap-autoload")
+(load "~/.emacs.d/inits/my-view-mode-keymap")
