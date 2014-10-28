@@ -46,12 +46,11 @@
    [2011-08-25 木 10:31]
 - ガベージコレクションの開始と終了を Message に表示する。
 - [[file:~/.emacs.d/my-emacs-custom.el::garbage-collection-messages]]
-** CANCELLED MS-IME
-   CLOSED: [2011-08-26 金 14:25]
+** TODO IME 関連
    [2011-08-26 金 12:22]
 - http://www-tsujii.is.s.u-tokyo.ac.jp/~yoshinag/tips/dot_emacs.html
-*** CANCELLED IME on/off を mode-line に表示したい。
-    CLOSED: [2011-10-27 木 10:48]
+*** DONE IME on/off を mode-line に表示したい。
+    CLOSED: [2014-10-27 月 13:09]
     [2011-09-05 月 12:26]
 - bookshelf のカスタマイズド Meadow でないと無理そうだ。
 - 「IME on/off を mode-line に表示する」だけのモードを用意しておいて、
@@ -76,7 +75,10 @@
   - [ ] 問題点。 mode-line の face は全ウィンドウ共通なので、ウィンドウを移ると整合性を維持できない。
   - [ ] 問題点。 easy-mmode-define-minor-mode の「モード行への表示」を使っても、整合性を維持できない？
   - [ ] バッファ変数に持つべきか？
-- 実現が難しいので cancelled.
+*** TODO IME on/off を mini buffer に表示しない。
+- [[file:~/.emacs.d/inits/my-ime-indicator.el::ime-indicator-mode]]
+  - [2014-10-27 月 13:08] mini buffer で mode 変更するとき、 message が出ると mini buffer 文字列が見えなくなって邪魔なので。 message させないようにしたい。
+
 ** 小規模な elisp
 *** DONE emacs 基礎
    [2011-08-18 木 10:20]
@@ -2281,7 +2283,7 @@ openwith.el:144:1:Error: End of file during parsing
   - 課題 年月をまたがる場合。
 - 生成した正規表現を occur, moccur, grep-find, howm-grep に渡す。
 *** TODO rename 固有名詞
-    DEADLINE: <2014-10-11 土>
+    DEADLINE: <2015-10-27 火>
 - ~/.emacs.d/inits/my-bodais.el
 *** DONE 分割方向を自動判別してほしい
     :LOGBOOK:
@@ -2321,7 +2323,7 @@ puts "narrow-indirect"
   - EmacsWiki: カテゴリ・正規表現
 ** TODO prefix-arg-commands-create デメリット
    [2014-10-20 月 19:10]
-- prefix-arg-commands-create で定義したコマンドは describe-function から定義元ファイルにジャンプできない。 prefix-arg-commands-create を使わないほうがいいか。 
+- prefix-arg-commands-create で定義したコマンドは describe-function から定義元ファイルにジャンプできない。 prefix-arg-commands-create を使わないほうがいいか。
 - 例 [[file:~/.emacs.d/inits/my-org-mode-hyperlink.el::prefix-arg-commands-create]]
 * tail
   [2011-08-25 木 17:38]

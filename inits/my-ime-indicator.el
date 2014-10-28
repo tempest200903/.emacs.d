@@ -35,8 +35,8 @@
                               ;; body
                               (progn
                                 (if ime-indicator-mode
-                                    (progn (set-cursor-color "DarkOrange") (message "IME *ON*"))
-                                  (progn (set-cursor-color "DarkSlateGray") (message "IME =off="))
+                                    (progn (set-cursor-color "DarkOrange"))
+                                  (progn (set-cursor-color "DarkSlateGray"))
                                   )
                                 )
                               )
