@@ -10,7 +10,11 @@
 ;; ~/.emacs.d/custom-goat/my-emacs-custom.el
 ;; '(org-directory "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes")
 
-(setq org-default-notes-file (concat org-directory "/inbox.org"))
+;; 起動時エラー。
+;; Symbol's value as variable is void: howm-directory
+;; 起動時には howm-directory がないので失敗する？
+
+(setq org-default-notes-file (concat howm-directory "/inbox.org"))
 (define-key global-map (kbd "<non-convert> <non-convert>") 'org-capture)
 (when nil
   (define-key global-map (kbd "<pause> <pause> ") (lambda () (interactive) (org-capture nil "p")))
@@ -20,19 +24,19 @@
 
 (setq org-capture-templates
       '(
-        ("p" "phone interrupt" entry (file+headline (concat org-directory "/interrupt.org") "phone")
+        ("p" "phone interrupt" entry (file+headline (concat howm-directory "/interrupt.org") "phone")
          "* TODO  %?
   %U" :clock-in t :clock-resume t
   )
-        ("e" "email interrupt" entry (file+headline (concat org-directory "/interrupt.org") "email")
+        ("e" "email interrupt" entry (file+headline (concat howm-directory "/interrupt.org") "email")
          "* TODO  %?
   %U" :clock-in t :clock-resume t)
-        ("m" "meeting interrupt" entry (file+headline (concat org-directory "/interrupt.org") "meeting")
+        ("m" "meeting interrupt" entry (file+headline (concat howm-directory "/interrupt.org") "meeting")
          "* TODO  %?
   %U" :clock-in t :clock-resume t)
-        ("a" "active" item (file+headline (concat org-directory "/task.org") "active")
+        ("a" "active" item (file+headline (concat howm-directory "/task.org") "active")
          "[ ] %K")
-        ("i" "task inbox" entry (file+headline (concat org-directory "/task.org") "inbox")
+        ("i" "task inbox" entry (file+headline (concat howm-directory "/task.org") "inbox")
          "* TODO  %?
   %U" :clock-in t :clock-resume t)
         ("d" "dailyplan" item (file+headline "n:/howm/2014/10/2014-10-01-100529.howm.txt" "inbox")

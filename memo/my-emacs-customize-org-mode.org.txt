@@ -824,6 +824,9 @@ c
       '(("x" "Unscheduled TODO" tags-todo "-SCHEDULED>=\"<now>\"" nil)))
     #+END_QUOTE
 - goto: [[file:~/.emacs.d/inits/my-org-mode-dn2.el::org-agenda-custom-commands]]
+***** TODO org-agenda-custom-commands ソートする。第1キー DEADLINE, 第2キー SCHEDULED
+      DEADLINE: <2015-10-29 木>
+      [2014-10-29 水]
 **** org-mark-entry-for-agenda-action                                  :tips:
 - http://orgmode.org/manual/Inserting-deadline_002fschedule.html
   - C-c C-x C-k     (org-mark-entry-for-agenda-action)
@@ -1090,6 +1093,13 @@ Tag :interrupt:
 - [[file:~/.emacs.d/inits/my-org-jump.el::my-org-next-timestamp]]
 ;; * [2014-10-16 木] TODO C-u ありなら property をスキップする。 ( LOGBOOK の中や DEADLINE など をスキップする)
 ;; * [2014-10-16 木] TODO my-org-next-checkbox, my-org-previous-checkbox
+*** org-export 関連
+**** TODO org-export-icalendar に DEADLINE と SCHEDULED 両方を反映する
+     DEADLINE: <2015-10-29 木>
+     [2014-10-29 水 10:56]
+- org-export-icalendar-combine-agenda-files
+  - 現状、 DEADLINE だけ反映される。 SCHEDULED は反映されない。
+  - 両方反映したい。
 *** 未整理
 **** PENDING あとで読む
      [2014-10-10 金 19:01]
