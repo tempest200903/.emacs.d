@@ -596,7 +596,10 @@ Loading vc-svn...done
 - (setq moccur-split-word t) してから M-x moccur で複数の単語をスペースで区切って入力すればよい。
   登場順序が逆でもヒットする。
 *** TODO 毎月 howm-directory, howm-search-other-dir を自動的に更新する
+    DEADLINE: <2014-11-30 日>
     [2014-10-01 水 10:03]
+- [[file:~/.emacs.d/custom-dn2/my-emacs-custom.el::howm-directory]]
+- もしくは、起動時に日付を読み取って howm-directory に反映する。
 ** occur 関連                                                    :occur_mode:
    [2011-08-30 火 14:29]
 *** DONE occur 第2引数 NLINES

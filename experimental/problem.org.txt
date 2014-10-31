@@ -1,0 +1,20 @@
+* problem
+** problem1
+*** 現象
+$ ./org-export-icalendar.sh
+Cannot open load file: ~/.emacs.d/experimental/init.el
+*** 処置
+echo $HOME => /cygdrive/c/Users/nakamura
+export HOME=N:/tool/gnupack/gnupack_devel-11.00/home
+** problem1
+*** 現象
+$ ./org-export-icalendar.sh
+bash HOME =>  N:/tool/gnupack/gnupack_devel-11.00/home
+in emacs getenv HOME => N:\tool\gnupack\gnupack_devel-11.00\home
+BEGIN ~/.emacs.d/experimental/init.el
+non-existent agenda file ~/org/* experimental. [R]emove from list or [A]bort?
+R
+Removed file: ~/org/* experimental
+non-existent agenda file ~/org/** ex-m2014-10. [R]emove from list or [A]bort?
+Abort
+*** 処置

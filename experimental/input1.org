@@ -1,0 +1,7 @@
+* experimental
+** ex-m2014-10
+*** ex-d2014-10-30
+    DEADLINE: <2014-10-31 金> SCHEDULED: <2014-10-30 木>
+** ex-m2014-11
+*** ex-d2014-11-30
+    DEADLINE: <2014-11-30 日> SCHEDULED: <2014-11-30 日>

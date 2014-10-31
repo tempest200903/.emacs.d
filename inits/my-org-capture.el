@@ -14,7 +14,7 @@
 ;; Symbol's value as variable is void: howm-directory
 ;; 起動時には howm-directory がないので失敗する？
 
-(setq org-default-notes-file (concat howm-directory "/inbox.org"))
+(setq org-default-notes-file (concat "N:/howm/inbox.org"))
 (define-key global-map (kbd "<non-convert> <non-convert>") 'org-capture)
 (when nil
   (define-key global-map (kbd "<pause> <pause> ") (lambda () (interactive) (org-capture nil "p")))
@@ -22,16 +22,18 @@
   (define-key global-map (kbd "<non-convert> d") (lambda () (interactive) (org-capture nil "d")))
   )
 
+(setq my-caputre-interrupt-file ("N:/howm/2014/10/interrupt-m2014-10.org"))
+
 (setq org-capture-templates
       '(
-        ("p" "phone interrupt" entry (file+headline (concat howm-directory "/interrupt.org") "phone")
+        ("p" "phone interrupt" entry (file+headline my-caputre-interrupt-file "phone")
          "* TODO  %?
   %U" :clock-in t :clock-resume t
   )
-        ("e" "email interrupt" entry (file+headline (concat howm-directory "/interrupt.org") "email")
+        ("e" "email interrupt" entry (file+headline my-caputre-interrupt-file "email")
          "* TODO  %?
   %U" :clock-in t :clock-resume t)
-        ("m" "meeting interrupt" entry (file+headline (concat howm-directory "/interrupt.org") "meeting")
+        ("m" "meeting interrupt" entry (file+headline my-caputre-interrupt-file "meeting")
          "* TODO  %?
   %U" :clock-in t :clock-resume t)
         ("a" "active" item (file+headline (concat howm-directory "/task.org") "active")
