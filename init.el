@@ -7,7 +7,7 @@
 ;; [2013-11-11 月] ~/.emacs.d/inits/my-workmanager.el my-workmanager-write-file が utf-8 の代わりに sjis で出力してしまうので支障がある。有効に戻す。
 ;; (load "~/.emacs.d/gnupack-init")
 ;;
-(load "~/.emacs.d/my-init")
+(load "~/.emacs.d/inits/my-init")
 ;; ----------------------------------------------------------------------
 ;; * disabled
 (put 'scroll-left 'disabled nil)
