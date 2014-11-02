@@ -26,7 +26,7 @@
  '(message-log-max 1000)
  '(moccur-use-xdoc2txt t)
  '(nxml-child-indent 2)
- '(org-agenda-files (quote ("~/.emacs.d/memo/my-emacs-customize.org.txt" "~/.emacs.d/memo/my-emacs-customize-org-mode.org.txt" "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/task.org" "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/アドベントカレンダーをepubに変換してiPadで読む-m2014-10.org.txt" "~/.emacs.d/memo/sample.org.txt")))
+ '(org-agenda-files (quote (#("f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/20141012-ガントチャート.org.txt" 59 74 (charset cp932-2-byte)) "~/.emacs.d/memo/my-emacs-customize.org.txt" "~/.emacs.d/memo/my-emacs-customize-org-mode.org.txt" "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/task.org" "f:/goat-pc-data/mydropbox/Dropbox/trunksync/notes/アドベントカレンダーをepubに変換してiPadで読む-m2014-10.org.txt" "~/.emacs.d/memo/sample.org.txt")))
  '(org-agenda-span (quote day))
  '(org-clock-in-switch-to-state "TODO")
  '(org-clock-into-drawer "LOGBOOK")
@@ -78,8 +78,11 @@
 (setq howm-search-path '("~/howm"))
 ;; * [2013-11-10 日] c:/tool/gnupack/home/.emacs.d/inits/my-gtags.el
 (setq my-gtags-command ""C:/tool/gnupack/app/cygwin/local/bin/gtags.exe"")
+
 ;; * [2013-11-12 火] gp では howm 有効、 dn2 では howm 無効。
-(require 'my-howm)
+;; (require 'my-howm)
+(my-idle-require 'my-howm)
+
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-11 木] bookmark file を PC 毎に分離したい。
 ;; bookmark-default-file デフォルト値 ~/.emacs.d/bookmarks から変更する。

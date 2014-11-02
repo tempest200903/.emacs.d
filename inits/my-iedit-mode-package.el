@@ -13,4 +13,3 @@
   (when (package-require 'iedit nil nil t)
     )
   )
-

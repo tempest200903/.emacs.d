@@ -8,16 +8,22 @@
 ;; * load path
 (add-to-list 'load-path "~/.emacs.d/inits")
 ;; ----------------------------------------------------------------------
-;; ** custom
+;; * load
+;; package を利用するファイルより先に load する必要がある。
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-package"))
+;; auto-install を利用するファイルより先に load する必要がある。
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-auto-install"))
+;;
+(when t    "2014-11-02" (load "~/.emacs.d/inits/my-idle-require"))
+;; ----------------------------------------------------------------------
+;; * custom
 (load "~/.emacs.d/inits/my-custom-file")
 ;; ----------------------------------------------------------------------
 ;; * global
 ;; define-key よりさきに unset-key する必要がある。
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-unset-key"))
-;; package を利用するファイルより先に load する必要がある。
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-package"))
-;; auto-install を利用するファイルより先に load する必要がある。
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-auto-install"))
+;; define-key を含むので unset-key より後ろに配置する。
+(when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 ;; M-x shell に必要。
 (when t    "2014-10-13" (load "~/.emacs.d/inits/my-child-process"))
 ;; occur したあと org-open-at-point すると window が3つになる。このとき occur window 占有面積が広すぎる。
@@ -27,7 +33,6 @@
 (when t    "2014-10-11" (load "~/.emacs.d/inits/my-recentf-mode"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-keymap-basis"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-buffer-window-frame"))
-(when t    "2014-09-06" (load "~/.emacs.d/inits/my-autoload"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-setq"))
 (when t    "2014-10-09" (load "~/.emacs.d/inits/my-child-process")) ; M-x compile するために必要！
 
@@ -36,7 +41,9 @@
 (when t    "2014-10-23" (load "~/.emacs.d/inits/my-ime-indicator"))
 
 
-(when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ;; 実験中。 psession を使うと起動に時間がかかる。
+;; (when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ; 実験中。 psession を使うと起動に時間がかかる。
+   (when t    "2014-10-05" (my-idle-require "my-accesslog")) ; 実験中。 psession を使うと起動に時間がかかる。
+
 (when t    "2014-10-13" (load "~/.emacs.d/inits/my-mode-line")) ;; 実験中
 
 (when nil  "2014-09-06" (load "~/.emacs.d/inits/my-redo"))

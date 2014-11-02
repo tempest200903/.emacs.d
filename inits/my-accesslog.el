@@ -77,3 +77,7 @@
 ;; optional prefix argument ARG is non-nil, Emacs will visit the file.
 ;; With a double prefix argument, try to open outside of Emacs, in the
 ;; application the system uses for this file type.
+
+;; ----------------------------------------------------------------------
+(message "loaded my-accesslog")
+(provide 'my-accesslog)
