@@ -49,3 +49,6 @@
   "Display the holidays for the 3 months around the cursor date."
   (interactive)
   (org-agenda-execute-calendar-command 'calendar-list-holidays))
+
+;; ----------------------------------------------------------------------
+(provide 'my-org-agenda-holidays)

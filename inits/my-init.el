@@ -79,7 +79,10 @@
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-hook"))
 (when t    "2014-09-06" (load "~/.emacs.d/inits/my-org-speed"))
 (when t    "2014-10-16" (load "~/.emacs.d/inits/my-org-countdown")) ; 軽い。
-(when t    "2014-10-11" (load "~/.emacs.d/inits/my-org-agenda-holidays")) ; 実験中
+
+;; (when t    "2014-10-11" (load "~/.emacs.d/inits/my-org-agenda-holidays")) ; 実験中
+   (when t    "2014-10-11" (my-idle-require "my-org-agenda-holidays")) ; 実験中
+
 (when nil  "2014-09-26" (load "~/.emacs.d/inits/my-org-clone-subtree")) ;; 実験中
 (when nil  "2014-10-15" (load "~/.emacs.d/inits/my-org-capture")) ; 実験中
 (when nil  "2014-10-18" (load "~/.emacs.d/inits/my-org-mode-hilight")) ; 実験中
