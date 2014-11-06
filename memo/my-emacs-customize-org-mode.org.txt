@@ -1050,7 +1050,6 @@ You can customize this variable.
 **** 
 - Reschedule した回数が閾値を越えたら警告sる
 
-
 *** TODO 〔特定のファイルから指定したキーワードを含む行を抽出するハイパーリンクを生成するコマンド〕
 - 例 [[elisp:(progn (find-file "dictionary.csv") (occur "mp306\\|mp307\\|mp308"))]]
 *** org-capture
@@ -1100,6 +1099,11 @@ Tag :interrupt:
 - org-export-icalendar-combine-agenda-files
   - 現状、 DEADLINE だけ反映される。 SCHEDULED は反映されない。
   - 両方反映したい。
+*** org-table 関連
+**** TODO チートシート＆スニペットを作る
+     DEADLINE: <2015-11-05 木>
+- e.g. この列を合計する式を挿入する。
+- yasnippet or anything でスニペットを呼び出す。
 *** 未整理
 **** PENDING あとで読む
      [2014-10-10 金 19:01]

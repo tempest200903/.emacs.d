@@ -86,7 +86,7 @@
   (define-key org-agenda-mode-map (kbd "s") 'org-agenda-schedule) ; alias of C-c C-s
   (define-key org-agenda-mode-map (kbd "S") 'org-save-all-org-buffers) ; "s" から "S" に移転。
   (define-key org-agenda-mode-map (kbd "_") 'org-agenda-day-view) ; "d" から "_" に移転。
-  (define-key org-agenda-mode-map (kbd "|") 'org-agenda-columns) ; alias of C-c C-x C-c
+  (define-key org-agenda-mode-map (kbd "\"") 'org-agenda-columns) ; alias of C-c C-x C-c
   (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-agenda-reset-schedule-today)
   (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-agenda-reset-schedule-tomorrow)
   (define-key org-agenda-mode-map (kbd "C-c 1") 'my-org-agenda-reset-deadline-today)
