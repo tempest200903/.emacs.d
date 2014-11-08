@@ -73,40 +73,41 @@
 (define-key org-mode-map (kbd "C-z C-c C-y") 'my-insert-shell-bracket)
 (define-key org-mode-map (kbd "C-z #") 'my-yank-org-example-arg)
 
-(define-key org-mode-map (kbd "C-c 1") 'my-org-reset-schedule-today)
-(define-key org-mode-map (kbd "C-c 2") 'my-org-reset-schedule-tomorrow)
-(define-key org-mode-map (kbd "C-z 1") 'my-org-reset-deadline-today)
-(define-key org-mode-map (kbd "C-z 2") 'my-org-reset-deadline-tomorrow)
+(define-key org-mode-map (kbd "C-z 1") 'my-org-reset-schedule-today)
+(define-key org-mode-map (kbd "C-z 2") 'my-org-reset-schedule-tomorrow)
+(define-key org-mode-map (kbd "C-c 1") 'my-org-reset-deadline-today)
+(define-key org-mode-map (kbd "C-c 2") 'my-org-reset-deadline-tomorrow)
 
 ;; ----------------------------------------------------------------------
 ;; * [2013-04-03 水] org-agenda-mode-map 初期化
 (defun my-org-agenda-mode-map-init ()
   "org-agenda-mode-map 初期化"
-  (define-key org-agenda-mode-map (kbd "d") 'org-agenda-deadline) ; alias of C-c C-d ; org-agenda-day-view を上書き。
-  (define-key org-agenda-mode-map (kbd "s") 'org-agenda-schedule) ; alias of C-c C-s
   (define-key org-agenda-mode-map (kbd "S") 'org-save-all-org-buffers) ; "s" から "S" に移転。
   (define-key org-agenda-mode-map (kbd "_") 'org-agenda-day-view) ; "d" から "_" に移転。
   (define-key org-agenda-mode-map (kbd "\"") 'org-agenda-columns) ; alias of C-c C-x C-c
-  (define-key org-agenda-mode-map (kbd "C-z 1") 'my-org-agenda-reset-schedule-today)
-  (define-key org-agenda-mode-map (kbd "C-z 2") 'my-org-agenda-reset-schedule-tomorrow)
-  (define-key org-agenda-mode-map (kbd "C-c 1") 'my-org-agenda-reset-deadline-today)
-  (define-key org-agenda-mode-map (kbd "C-c 2") 'my-org-agenda-reset-deadline-tomorrow)
-  ;; ** [2014-10-08 水] TODO key map 見直し。
-  ;; d d => 通常の org-agenda-deadline
-  ;; d 0 => deadline +0d
-  ;; d 1 => deadline +1d
-  ;; d w => deadline +1w
-  ;; d m => deadline +1m
-  ;; s s => 通常の org-agenda-schedule
-  ;; s 0 => schedule +0d
-  ;; s 1 => schedule +1d
-  ;; s w => schedule +1w
-  ;; s m => deadline +1m
 
+  (let ((file "my-org-mode-schedule"))
+    ;; org-save-all-org-buffers を上書き。
+    (define-key org-agenda-mode-map (kbd "s") nil) 
+    (my-bind-key-with-autoload file "s s" 'org-agenda-schedule                   org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s 1" 'my-org-agenda-reset-schedule-today    org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s 2" 'my-org-agenda-reset-schedule-tomorrow org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s w" 'my-org-agenda-reset-schedule-1week    org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s m" 'my-org-agenda-reset-schedule-1month   org-agenda-mode-map)
+
+    ;; org-agenda-day-view を上書き
+    (define-key org-agenda-mode-map (kbd "d") nil)
+    (my-bind-key-with-autoload file "d d" 'org-agenda-deadline                   org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d 1" 'my-org-agenda-reset-deadline-today    org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d 2" 'my-org-agenda-reset-deadline-tomorrow org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d w" 'my-org-agenda-reset-deadline-1week    org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d m" 'my-org-agenda-reset-deadline-1month   org-agenda-mode-map)
+    )
 
   (bind-key "C-," 'org-open-at-point org-mode-map) ; alias of C-c C-o
 
   )
+
 (defun my-timemanager-init ()
   "my-timemanager 初期化"
 

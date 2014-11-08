@@ -1136,4 +1136,16 @@ Tag :interrupt:
      [2014-10-22 水 11:17]
 - before-find-file-hook, 
 - before-save-hook, set-buffer-file-coding-system
+*** ガントチャート
+**** PENDING 〔PERT 図、ガントチャートを生成するツールがほしい〕       :idea:
+     DEADLINE: <2015-11-07 土>
+     [2014-11-07 金 13:50]
+- 何らかの方法でタスクの前後関係を定義しておく。
+  - e.g. Makefile 依存関係
+  - e.g. graphviz
+  - e.g. org outline で、 level 3 がフェーズ、 level 4 が AI 。 level 3 は並列、 level 4 は直列に進む。
+- org file を入力すると PERT 図、ガントチャートを生成するツールがほしい。
+- 「次に着手するべきアクションは何か？」に応答するコマンドがほしい。
+  - クリティカルパスに影響するアクションを優先する。
+
 

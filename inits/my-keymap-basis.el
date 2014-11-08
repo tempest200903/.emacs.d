@@ -181,9 +181,6 @@
 (define-key global-map (kbd "C-h C-x C-o")          'org-customize)
 (define-key global-map (kbd "C-h C-x C-s")          'customize-save-customized)
 
-;; (when (require                                      'my-describehilit-chg nil t)
-;;   (define-key global-map (kbd "C-h C-x C-f")        'describe-face-at-point)
-;;   )
 (my-bind-key-with-autoload "my-describehilit-chg" "C-h C-x C-f" 'my-describe-face-at-point-command-prefix-arg)
 ;; TODO (provide 'my-describehilit-chg) が行方不明。
 
@@ -217,9 +214,6 @@
 
 ;; ----------------------------------------------------------------------
 ;; * [2013-11-07 木] my-toggle-truncate-lines.el
-;; (define-key global-map (kbd "C-z C-q")              'my-toggle-truncate-lines)
-;; (define-key global-map (kbd "C-z C-q")              'my-truncate-lines-mode)
-;; (my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-truncate-lines-mode)
 (my-bind-key-with-autoload "my-toggle-truncate-lines" "C-z C-q" 'my-toggle-truncate-lines)
 
 ;; ----------------------------------------------------------------------
@@ -237,10 +231,8 @@
 (define-key global-map (kbd "M-g M-m")              'my-moccur-or-switch-to-buffer)
 (define-key global-map (kbd "M-s M-m")              'moccur)
 
-;; (define-key global-map (kbd "M-s .")                'my-moccur-today)
 (my-bind-key-with-autoload "my-color-moccur" "M-s ." 'my-moccur-today)
 
-;; (define-key global-map (kbd                              "M-s M-c") 'occur-by-moccur)
 (my-bind-key-with-autoload "my-color-moccur" "M-s M-c" 'occur-by-moccur)
 
 ;; ----------------------------------------------------------------------
