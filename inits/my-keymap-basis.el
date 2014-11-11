@@ -13,6 +13,7 @@
 ;; (kbd "C-;") は (require 'iedit) で上書きされてしまうため、移動する。
 ;; (define-key global-map (kbd "C-;")                  'repeat) 
 (define-key global-map (kbd "M-t")                  'repeat)
+(define-key global-map (kbd "C-\\")                 'repeat) ; toggle-input-method を上書き。
 ;; (kbd "M-t") を repeat で使うため、transpose-words を移動する。
 (define-key global-map (kbd "C-z M-t")              'transpose-words)
 (define-key global-map (kbd "C-z C-t")              'transpose-chars) ;; C-t を anything-command-map-prefix-key で使うため移動した。

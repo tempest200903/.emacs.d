@@ -1747,20 +1747,6 @@ shell-command-on-region: Args out of range: 0, 100
 *** terminal で利用できないキー
 - [[~/.emacs.d/memo/emacs-in-terminal.org.txt]] : terminal で利用できないキー
 - これを考慮してキーバインドを最適化する。
-*** TODO 文字コード
-    :LOGBOOK:
-    TIMESTAMP: [2012-03-14 水 16:18]
-    :END:
-- ;; -*- coding: utf-8-dos; mode: Emacs-Lisp -*-
-  にしていると unix で warning が出て邪魔。 utf-8-unix に統一したらどうか？
-- 一括変換するスクリプトを用意する。
-  - [[N:\4-project\myscript\cygwin\dos2unix_for_emacs.sh]]
-- アルゴリズム
-  - coding を grep で調べる。
-  - case A. utf-8-dos ならば utf-8-unix に書き換えてリダイレクト。リダイレクトしたついでに LF になる。
-  - case B. utf-8-unix ならば変更しない。
-  - case C. 不明ならば変更しない。
-  - どの case を選択したかレポートする。
 *** DONE インストール自動化
     :LOGBOOK:
     TIMESTAMP: [2012-04-04 水 17:38]
@@ -2328,5 +2314,27 @@ puts "narrow-indirect"
    [2014-10-20 月 19:10]
 - prefix-arg-commands-create で定義したコマンドは describe-function から定義元ファイルにジャンプできない。 prefix-arg-commands-create を使わないほうがいいか。
 - 例 [[file:~/.emacs.d/inits/my-org-mode-hyperlink.el::prefix-arg-commands-create]]
+** coding 関連 
+*** TODO 文字コード coding
+    :LOGBOOK:
+    TIMESTAMP: [2012-03-14 水 16:18]
+    :END:
+- ;; -*- coding: utf-8-dos; mode: Emacs-Lisp -*-
+  にしていると unix で warning が出て邪魔。 utf-8-unix に統一したらどうか？
+- 一括変換するスクリプトを用意する。
+  - [[N:\4-project\myscript\cygwin\dos2unix_for_emacs.sh]]
+- アルゴリズム
+  - coding を grep で調べる。
+  - case A. utf-8-dos ならば utf-8-unix に書き換えてリダイレクト。リダイレクトしたついでに LF になる。
+  - case B. utf-8-unix ならば変更しない。
+  - case C. 不明ならば変更しない。
+  - どの case を選択したかレポートする。
+*** TODO 〔ファイル名末尾が .sh であるバッファを保存する前に、 coding を付与する〕
+    DEADLINE: <2015-11-08 日>
+    [2014-11-08 土 14:46]
+- トリガー
+  - before-save-hook
+- アクション
+  - ファイル名末尾が .sh であるならば、先頭に "-*- coding: utf-8-unix -*-" を付与する。
 * tail
   [2011-08-25 木 17:38]

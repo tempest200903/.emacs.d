@@ -22,7 +22,7 @@
   (define-key global-map (kbd "<non-convert> d") (lambda () (interactive) (org-capture nil "d")))
   )
 
-(setq my-caputre-interrupt-file ("N:/howm/2014/10/interrupt-m2014-10.org"))
+(setq my-caputre-interrupt-file "N:/howm/2014/11/interrupt-m2014-11.org")
 
 (setq org-capture-templates
       '(

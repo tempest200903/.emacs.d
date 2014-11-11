@@ -4,8 +4,9 @@
 ;; ======================================================================
 ;; * [2014-08-06 水] SCHEDULE をリセットして今日の日付にする。
 ;; ** [2014-10-01 水] TODO 1日後が土曜日、日曜日なら次の月曜日にする。もしくは arg で数値を指定可能にする。
-;; ** [2014-10-08 水] TODO my-org-reset-schedule-today, my-org-reset-schedule-tomorrow を *Org Agenda* buffer で使えるようにする。
-;; ** [2014-10-08 水] TODO today の代わりに +1w, +2w, +1m 版を用意する。
+;; ** [2014-10-08 水] DONE my-org-reset-schedule-today, my-org-reset-schedule-tomorrow を *Org Agenda* buffer で使えるようにする。
+;; ** [2014-10-08 水] DONE today の代わりに +1w, +2w, +1m 版を用意する。
+;; ** [2014-11-10 月] TODO DRY
 
 (defun my-org-reset-schedule-today (arg)
   "SCHEDULE をリセットして今日の日付にする。"
@@ -34,13 +35,35 @@
   (message "my-org-agenda-reset-schedule-today")
   )
 
-(defun my-org-agenda-reset-schedule-tomorrow (arg)
+(defun my-org-agenda-reset-schedule-tomorrow1 (arg)
   "SCHEDULE をリセットして明日の日付にする。"
   (interactive "p")
   (org-agenda-schedule t)
   (if arg
       (org-agenda-schedule nil (format "+%sd" arg))
     (org-agenda-schedule nil "+1d")
+    )
+  (message "my-org-agenda-reset-schedule-tomorrow1")
+  )
+
+(defun my-org-agenda-reset-schedule-tomorrow2 (arg)
+  "SCHEDULE をリセットして明日の日付にする。"
+  (interactive "p")
+  (org-agenda-schedule t)
+  (if arg
+      (org-agenda-schedule nil (format "+%sd" arg))
+    (org-agenda-schedule nil "+2d")
+    )
+  (message "my-org-agenda-reset-schedule-tomorrow")
+  )
+
+(defun my-org-agenda-reset-schedule-tomorrow3 (arg)
+  "SCHEDULE をリセットして明日の日付にする。"
+  (interactive "p")
+  (org-agenda-schedule t)
+  (if arg
+      (org-agenda-schedule nil (format "+%sd" arg))
+    (org-agenda-schedule nil "+3d")
     )
   (message "my-org-agenda-reset-schedule-tomorrow")
   )
@@ -95,13 +118,35 @@
   (message "my-org-agenda-reset-deadline-today")
   )
 
-(defun my-org-agenda-reset-deadline-tomorrow (arg)
+(defun my-org-agenda-reset-deadline-tomorrow1 (arg)
   "DEADLINE をリセットして明日の日付にする。"
   (interactive "p")
   (org-agenda-deadline t)
   (if arg
       (org-agenda-deadline nil (format "+%sd" arg))
     (org-agenda-deadline nil "+1d")
+    )
+  (message "my-org-agenda-reset-deadline-tomorrow1")
+  )
+
+(defun my-org-agenda-reset-deadline-tomorrow2 (arg)
+  "DEADLINE をリセットして明日の日付にする。"
+  (interactive "p")
+  (org-agenda-deadline t)
+  (if arg
+      (org-agenda-deadline nil (format "+%sd" arg))
+    (org-agenda-deadline nil "+2d")
+    )
+  (message "my-org-agenda-reset-deadline-tomorrow")
+  )
+
+(defun my-org-agenda-reset-deadline-tomorrow3 (arg)
+  "DEADLINE をリセットして明日の日付にする。"
+  (interactive "p")
+  (org-agenda-deadline t)
+  (if arg
+      (org-agenda-deadline nil (format "+%sd" arg))
+    (org-agenda-deadline nil "+3d")
     )
   (message "my-org-agenda-reset-deadline-tomorrow")
   )

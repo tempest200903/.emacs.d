@@ -82,26 +82,42 @@
 ;; * [2013-04-03 水] org-agenda-mode-map 初期化
 (defun my-org-agenda-mode-map-init ()
   "org-agenda-mode-map 初期化"
-  (define-key org-agenda-mode-map (kbd "S") 'org-save-all-org-buffers) ; "s" から "S" に移転。
+  ;; (define-key org-agenda-mode-map (kbd "Z") nil)
+  (define-key org-agenda-mode-map (kbd "Z D") 'org-agenda-toggle-diary) ; "D" から移転。
+  (define-key org-agenda-mode-map (kbd "Z S") 'org-save-all-org-buffers) ; "s" から移転。
   (define-key org-agenda-mode-map (kbd "_") 'org-agenda-day-view) ; "d" から "_" に移転。
   (define-key org-agenda-mode-map (kbd "\"") 'org-agenda-columns) ; alias of C-c C-x C-c
 
   (let ((file "my-org-mode-schedule"))
     ;; org-save-all-org-buffers を上書き。
-    (define-key org-agenda-mode-map (kbd "s") nil) 
-    (my-bind-key-with-autoload file "s s" 'org-agenda-schedule                   org-agenda-mode-map)
-    (my-bind-key-with-autoload file "s 1" 'my-org-agenda-reset-schedule-today    org-agenda-mode-map)
-    (my-bind-key-with-autoload file "s 2" 'my-org-agenda-reset-schedule-tomorrow org-agenda-mode-map)
-    (my-bind-key-with-autoload file "s w" 'my-org-agenda-reset-schedule-1week    org-agenda-mode-map)
-    (my-bind-key-with-autoload file "s m" 'my-org-agenda-reset-schedule-1month   org-agenda-mode-map)
+    (define-key org-agenda-mode-map (kbd "s") nil)
+
+    ;; * [2014-11-10 月] TODO 
+    ;; (my-bind-key-with-autoload file "S" 'org-agenda-schedule                    org-agenda-mode-map)
+    ;; (my-bind-key-with-autoload file "1 s" 'my-org-agenda-reset-schedule-today     org-agenda-mode-map)
+    ;; (my-bind-key-with-autoload file "2 s" 'my-org-agenda-reset-schedule-tomorrow1 org-agenda-mode-map)
+    ;; (my-bind-key-with-autoload file "3 s" 'my-org-agenda-reset-schedule-tomorrow2 org-agenda-mode-map)
+    ;; (my-bind-key-with-autoload file "4 s" 'my-org-agenda-reset-schedule-tomorrow3 org-agenda-mode-map)
+    ;; (my-bind-key-with-autoload file "7 s" 'my-org-agenda-reset-schedule-1week     org-agenda-mode-map)
+    ;; (my-bind-key-with-autoload file "9 s" 'my-org-agenda-reset-schedule-1month    org-agenda-mode-map)
+
+    (my-bind-key-with-autoload file "S" 'org-agenda-schedule                    org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s 1" 'my-org-agenda-reset-schedule-today     org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s 2" 'my-org-agenda-reset-schedule-tomorrow1 org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s 3" 'my-org-agenda-reset-schedule-tomorrow2 org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s 4" 'my-org-agenda-reset-schedule-tomorrow3 org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s w" 'my-org-agenda-reset-schedule-1week     org-agenda-mode-map)
+    (my-bind-key-with-autoload file "s m" 'my-org-agenda-reset-schedule-1month    org-agenda-mode-map)
 
     ;; org-agenda-day-view を上書き
     (define-key org-agenda-mode-map (kbd "d") nil)
-    (my-bind-key-with-autoload file "d d" 'org-agenda-deadline                   org-agenda-mode-map)
-    (my-bind-key-with-autoload file "d 1" 'my-org-agenda-reset-deadline-today    org-agenda-mode-map)
-    (my-bind-key-with-autoload file "d 2" 'my-org-agenda-reset-deadline-tomorrow org-agenda-mode-map)
-    (my-bind-key-with-autoload file "d w" 'my-org-agenda-reset-deadline-1week    org-agenda-mode-map)
-    (my-bind-key-with-autoload file "d m" 'my-org-agenda-reset-deadline-1month   org-agenda-mode-map)
+    (my-bind-key-with-autoload file "D" 'org-agenda-deadline                    org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d 1" 'my-org-agenda-reset-deadline-today     org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d 2" 'my-org-agenda-reset-deadline-tomorrow1 org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d 3" 'my-org-agenda-reset-deadline-tomorrow2 org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d 4" 'my-org-agenda-reset-deadline-tomorrow3 org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d w" 'my-org-agenda-reset-deadline-1week     org-agenda-mode-map)
+    (my-bind-key-with-autoload file "d m" 'my-org-agenda-reset-deadline-1month    org-agenda-mode-map)
     )
 
   (bind-key "C-," 'org-open-at-point org-mode-map) ; alias of C-c C-o
