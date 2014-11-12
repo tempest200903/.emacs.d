@@ -79,6 +79,18 @@
 - [[file:~/.emacs.d/inits/my-ime-indicator.el::ime-indicator-mode]]
   - [2014-10-27 月 13:08] mini buffer で mode 変更するとき、 message が出ると mini buffer 文字列が見えなくなって邪魔なので。 message させないようにしたい。
 
+** 矩形編集
+*** DONE 〔cua-selection-mode〕
+    :LOGBOOK:
+    CLOCK: [2014-10-14 火 22:50]--[2014-10-14 火 23:02] =>  0:12
+    :END:
+   [2011-08-25 木 12:59]
+- [[file:~/.emacs.d/inits/my-cua-mode.el::my-cua-selection-mode]]
+- [X] messages に cua-mode on/off を表示してほしい。
+- [X] mode-line に cua-mode on/off を表示してほしい。
+  - [[file:~/.emacs.d/inits/my-cua-mode.el::easy-mmode-define-minor-mode]]
+*** TODO 〔downcase-word, upcase-word, capitalize-word の矩形編集 〕
+    [2014-11-11 火 10:19]
 ** 小規模な elisp
 *** DONE emacs 基礎
    [2011-08-18 木 10:20]
@@ -258,15 +270,6 @@ Loading vc-svn...done
 *** DONE カーソルと一緒に行/領域を動かす
    [2011-08-24 水 16:37]
 - [[file:~/.emacs.d/inits/my-move-region.el::exchange-lines-up]]
-*** DONE 〔cua-selection-mode〕
-    :LOGBOOK:
-    CLOCK: [2014-10-14 火 22:50]--[2014-10-14 火 23:02] =>  0:12
-    :END:
-   [2011-08-25 木 12:59]
-- [[file:~/.emacs.d/inits/my-cua-mode.el::my-cua-selection-mode]]
-- [X] messages に cua-mode on/off を表示してほしい。
-- [X] mode-line に cua-mode on/off を表示してほしい。
-  - [[file:~/.emacs.d/inits/my-cua-mode.el::easy-mmode-define-minor-mode]]
 *** DONE 前回セッションのカーソル位置を復元したい
    CLOSED: [2011-08-25 木 17:13]
    [2011-08-25 木 17:10]
