@@ -36,6 +36,9 @@
         ("m" "meeting interrupt" entry (file+headline my-caputre-interrupt-file "meeting")
          "* TODO  %?
   %U" :clock-in t :clock-resume t)
+        ("t" "toilet interrupt" entry (file+headline my-caputre-interrupt-file "toilet")
+         "* TODO  %?
+  %U" :clock-in t :clock-resume t)
         ("a" "active" item (file+headline (concat howm-directory "/task.org") "active")
          "[ ] %K")
         ("i" "task inbox" entry (file+headline (concat howm-directory "/task.org") "inbox")

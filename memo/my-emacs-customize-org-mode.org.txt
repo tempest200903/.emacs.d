@@ -1046,9 +1046,13 @@ You can customize this variable.
 - org-schedule だけでなく org-deadline, org-clone-subtree-with-time-shift も同様。
 *** scheduled, deadline 関連
 **** TODO scheduled, deadline 両方を一度に変更するコマンド
+     [2014-10-12 日 10:55]
 - 例。 scheduled, deadline 両方を +4d する。
-**** 
-- Reschedule した回数が閾値を越えたら警告sる
+**** TODO Reschedule した回数が閾値を越えたら警告する
+     [2014-10-12 日 10:55]
+- Reschedule した回数が閾値を越えたら警告する
+**** TODO deadline より scheduled が後なら警告する
+     [2014-11-12 水 10:55]
 
 *** TODO 〔特定のファイルから指定したキーワードを含む行を抽出するハイパーリンクを生成するコマンド〕
 - 例 [[elisp:(progn (find-file "dictionary.csv") (occur "mp306\\|mp307\\|mp308"))]]
