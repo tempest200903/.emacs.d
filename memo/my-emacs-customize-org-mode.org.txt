@@ -74,6 +74,14 @@
      DEADLINE: <2015-10-17 土>
      [2014-10-17 金 11:21]
 - [[file:~/.emacs.d/inits/my-cygpath.el::org%20link%20%E3%82%92%20cygpath%20%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E3%80%82][file:~/.emacs.d/inits/my-cygpath.el::org link を cygpath 変換する。]]
+**** PENDING MessageID を指定してコマンドラインからメールを開く
+     [2014-11-14 金 10:25]
+- https://github.com/takaishi/.emacs.d/blob/master/conf.d/30_org-mode.org
+  #+BEGIN_QUOTE
+  Thunderlinkという、MessageIDを指定してコマンドラインからメールを開く
+  ためのThunderbird用アドオンがある。 このアドオンを使って、org-modeか
+  らメールをMessageIDから開くための設定。
+  #+END_QUOTE
 *** outline 関連
 **** DONE org-insert-heading するときに不活性タイムスタンプを挿入する
    [2011-08-24 水 10:25]
@@ -887,6 +895,13 @@ agenda now.
 - [[file:~/.emacs.d/inits/my-org-agenda-experimental.el::org-agenda-custom-commands]]
 - [X] goat-pc にて、バッチ処理の実験に成功。
 - [ ] dn2 にて実験する。
+**** PENDING howm-mode と同様に今日と明日の日付に色をつけて表示する
+     [2014-11-14 金 10:32]
+**** PENDING カテゴリの長さを揃える
+     [2014-11-14 金 10:32]
+- カテゴリの横幅が異なるため。
+
+
 *** clock 関連
 **** DONE 〔org-clock-modeline-total〕
      :LOGBOOK:
@@ -1108,6 +1123,21 @@ Tag :interrupt:
      DEADLINE: <2015-11-05 木>
 - e.g. この列を合計する式を挿入する。
 - yasnippet or anything でスニペットを呼び出す。
+*** effort 関連
+**** PENDING 〔時間計測を開始する前に必ず見積りを行う。サブツリー限定版〕
+     DEADLINE: <2015-11-14 土>
+     [2014-11-14 金 13:36]
+- 全てのファイルで強制するのではなく、レベル1の引き出しに特定の属性がついているサブツリーの範囲内でのみ有効にしたい。
+- [[file:~/.emacs.d/inits/my-org-mode-effort.el::is-set-effort-before-clock-in]]
+**** PENDING 〔effort がついていない場合 mode-line に通常とは異なる配色を表示する〕
+     DEADLINE: <2015-11-14 土>
+     [2014-11-14 金 13:37]
+- error 発生させるのではなく、 mode-line に通常とは異なる配色を表示したい。
+- [[file:~/.emacs.d/inits/my-org-mode-effort.el::is-set-effort-before-clock-in]]
+*** habit 関連
+**** TODO 〔STYLE habit を付与するコマンドが欲しい〕
+     DEADLINE: <2015-01-19 月>
+     [2014-11-19 水 09:57]
 *** 未整理
 **** PENDING あとで読む
      [2014-10-10 金 19:01]

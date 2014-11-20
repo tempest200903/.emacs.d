@@ -18,8 +18,8 @@
 	"VERIFY(v)" 
 	"WAIT(w)" 
 	"EVENT(e)" 
+	"HABIT(h)" 
 	"|" 
-	"RESEARCH(r)" 
 	"CANCELLED(c)" 
 	"DONE(d)")
       org-todo-interpretation 
@@ -36,7 +36,7 @@
 	("PENDING"   :foreground "magenta"       :underline t :weight bold )
 	("WAIT"      :foreground "orange"        :underline t :weight bold )
  	("EVENT"     :foreground "MediumPurple2" :underline t :weight bold )
-	("RESEARCH"  :foreground "cyan1"         :underline t :weight bold )
+	("HABIT"     :foreground "cyan1"         :underline t :weight bold )
 	("CANCELLED" :foreground "seashell"      :underline t :weight bold )
 	("DONE"      :foreground "forest green"  :underline t :weight bold )
 	))

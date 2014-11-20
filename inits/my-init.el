@@ -38,10 +38,10 @@
 
 ;; ないと不便。 load my-os-windows-ime にした直後に別フレームに入力が移るバグ発生。これが原因か！？
 (when nil  "2014-10-23" (load "~/.emacs.d/inits/my-os-windows-ime"))
-(when t    "2014-10-23" (load "~/.emacs.d/inits/my-ime-indicator"))
+(when nil  "2014-10-23" (load "~/.emacs.d/inits/my-ime-indicator"))
 
 ;; (when t    "2014-10-05" (load "~/.emacs.d/inits/my-accesslog")) ; 実験中。 psession を使うと起動に時間がかかる。
-   (when t    "2014-10-05" (my-idle-require "my-accesslog")) ; 実験中。 psession を使うと起動に時間がかかる。
+(when nil  "2014-10-05" (my-idle-require "my-accesslog")) ; 実験中。 psession を使うと起動に時間がかかる。
 
 (when nil  "2014-10-13" (load "~/.emacs.d/inits/my-mode-line")) ;; 実験中
 

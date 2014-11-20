@@ -87,6 +87,7 @@
   (define-key org-agenda-mode-map (kbd "Z S") 'org-save-all-org-buffers) ; "s" から移転。
   (define-key org-agenda-mode-map (kbd "_") 'org-agenda-day-view) ; "d" から "_" に移転。
   (define-key org-agenda-mode-map (kbd "\"") 'org-agenda-columns) ; alias of C-c C-x C-c
+  (define-key org-agenda-mode-map (kbd "<C-tab>") 'org-agenda-columns) ; alias of C-c C-x C-c
 
   (let ((file "my-org-mode-schedule"))
     ;; org-save-all-org-buffers を上書き。
