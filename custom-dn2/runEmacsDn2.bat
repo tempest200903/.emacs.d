@@ -24,4 +24,7 @@
 	start %EMACS_PROGRAM% %DEBUG_INIT%
 	echo %EMACS_PROGRAM% %EMACS_VERSION% >> %SELF_LOG_FILE%
 	echo [%0] {DATE} %DATE% {TIME} %TIME% {ERRORLEVEL} %ERRORLEVEL% >> %SELF_LOG_FILE%
+	
+	pause PRESS ENTER THEN call daily-commit
+	call ..\daily-commit.bat
 	popd
