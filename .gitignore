@@ -9,3 +9,4 @@ vendor/elpa/archives/MELPA/archive-contents
 elisp-objects
 vendor/elpa/archives
 temp
+*.lnk
