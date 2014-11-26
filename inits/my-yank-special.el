@@ -94,7 +94,7 @@
 
 (defun my-yank-with-org-bold () "yank with org bold"
   (interactive "*")
-  (my-yank-with-bracket " ＊" "＊ ")
+  (my-yank-with-bracket " ＊" "＊ ") ; 確実に bold 表示にするため、前後にスペースを入れる。
   )
 
 ;; ----------------------------------------------------------------------
