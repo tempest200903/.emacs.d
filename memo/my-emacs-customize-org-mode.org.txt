@@ -680,11 +680,6 @@
     TIMESTAMP: [2012-07-04 水 11:05]
     :END:
 - はてなブックマークのタグ。
-**** TODO org-todo-list 絞込み
-    :LOGBOOK:
-    TIMESTAMP: [2012-07-04 水 11:10]
-    :END:
-- 例。指定したレベルより深いアイテムを表示しない。
 **** TODO タスク管理ツール
     :LOGBOOK:
     TIMESTAMP: [2012-07-11 水 14:13]
@@ -775,6 +770,17 @@
 **** TODO write-file するついでに sn か en にも保存する。
 - [2014-09-25 木]
 - [[~/.emacs.d/inits/my-timemanager.el]]
+*** org-todo-list 関連
+**** TODO org-todo-list 絞込み
+    :LOGBOOK:
+    TIMESTAMP: [2012-07-04 水 11:10]
+    :END:
+- 例。指定したレベルより深いアイテムを表示しない。
+**** TODO org-todo-list ソート
+     DEADLINE: <2015-11-27 金>
+     [2014-11-27 木 13:09]
+- redmine のグループ条件のようにしたい。
+- WMP タグは排他なので、これで分別すればいいか？
 *** estimate 関連
 **** TODO 実績時間が見積もり時間より大幅に大きい／少ないときに警告する
 - clock-out した時 or コマンド実行時に発動。
