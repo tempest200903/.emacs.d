@@ -755,9 +755,6 @@
 - 実現方法
   - org-agenda-view で1週間前の agenda log を開く。
   - リンク元のタグ文字列で occur する。
-**** TODO 〔clone するときに Reschedule log を除去してほしい〕     :wishlist:
-- org-log-reschedule を time にしておくと、 Reschedule log が記録される。
-- org-clone-subtree-with-time-shift するときに Reschedule log を除去してほしい。
 **** TODO 延期する日数をランダムに決めて org-deadline する         :wishlist:
 - こんなコマンドがほしい
 - M-x my-org-deadline-defer-random で 21～35 日延期する。
@@ -906,7 +903,6 @@ agenda now.
 **** PENDING カテゴリの長さを揃える
      [2014-11-14 金 10:32]
 - カテゴリの横幅が異なるため。
-
 
 *** clock 関連
 **** DONE 〔org-clock-modeline-total〕
@@ -1074,7 +1070,13 @@ You can customize this variable.
 - Reschedule した回数が閾値を越えたら警告する
 **** TODO deadline より scheduled が後なら警告する
      [2014-11-12 水 10:55]
-
+**** TODO 〔clone するときに Reschedule log を除去してほしい〕     :wishlist:
+- org-log-reschedule を time にしておくと、 Reschedule log が記録される。
+- org-clone-subtree-with-time-shift するときに Reschedule log を除去してほしい。
+**** TODO clone するときに祝日や休日を考慮して shift してほしい
+- e.g. ある会議は毎週月曜日開催。休日なら火曜日。
+**** TODO clone するときにカスタムルールに基づいて scheduled, deadline を再設定してほしい
+- e.g. 「通院」予定がある日は scheduled 16:00 。そのほかは scheduled 18:00
 *** TODO 〔特定のファイルから指定したキーワードを含む行を抽出するハイパーリンクを生成するコマンド〕
 - 例 [[elisp:(progn (find-file "dictionary.csv") (occur "mp306\\|mp307\\|mp308"))]]
 *** org-capture
@@ -1140,10 +1142,30 @@ Tag :interrupt:
      [2014-11-14 金 13:37]
 - error 発生させるのではなく、 mode-line に通常とは異なる配色を表示したい。
 - [[file:~/.emacs.d/inits/my-org-mode-effort.el::is-set-effort-before-clock-in]]
+**** PENDING 〔特定の日付の agenda のうち、 status = CANCELLED を抽出して effort を 0 に設定する〕
+- 代替手段
+  - status = CANCELLED に遷移するときにフックして effort を 0 に設定するという方法もある。
+  - 0 にしたくない場合もあるので却下。
+- 実験1
+  - 手順
+    - org-agenda-bulk-mark (M) で CANCELLED 複数アイテムをマーク。
+    - org-agenda-bulk-action (B) で Function org-agenda-set-effort と入力。
+  - 結果
+    - アイテム1個ごとに org-agenda-set-effort を実行することになる。
+    - アイテム1個ごとに org-agenda-set-effort 引数を入力する羽目になる。
+    - やりたいのは org-agenda-set-effort 引数を1回だけ入力すること。
+- 実験2
+  - 引数を 0 に固定した org-agenda-set-effort コマンドを用意する。
+
 *** habit 関連
 **** TODO 〔STYLE habit を付与するコマンドが欲しい〕
      DEADLINE: <2015-01-19 月>
      [2014-11-19 水 09:57]
+*** calendar 関連
+**** TODO calendar で選択した日付を文字列として kill
+     DEADLINE: <2015-12-05 土>
+- 日付フォーマットを選択可能にする。
+- 用途：議事録で日付を特定のフォーマットで記したい。
 *** 未整理
 **** PENDING あとで読む
      [2014-10-10 金 19:01]

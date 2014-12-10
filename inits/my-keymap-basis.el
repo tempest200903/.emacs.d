@@ -312,7 +312,8 @@
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-08 月] migemo
-(define-key global-map (kbd "C-z C-x C-s")          'migemo-isearch-toggle-migemo)
+;; (define-key global-map (kbd "C-z C-x C-s")          'migemo-isearch-toggle-migemo)
+(my-bind-key-with-autoload "my-migemo" "C-z C-x C-s" 'migemo-isearch-toggle-migemo)
 
 ;; ----------------------------------------------------------------------
 ;; * [2014-09-09 火] bm

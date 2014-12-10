@@ -27,3 +27,6 @@
   - Mac の設定 / Ubuntu の設定載っているが Windows の設定は載っていない。
 - http://d.hatena.ne.jp/takehikom/20120318/1332016271
   - Windows では wrap-function-to-control-ime を使って実現するようだ。
+** PENDING isearch の途中で migemo-isearch-toggle-migemo したい
+   DEADLINE: <2015-12-08 火>
+   [2014-12-08 月 13:28]

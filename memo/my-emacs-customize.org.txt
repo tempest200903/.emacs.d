@@ -734,6 +734,11 @@ shell-command-on-region: Args out of range: 0, 100
 *** TODO 2単語のOR検索
     [2014-10-15 水 14:28]
 - [[file:~/.emacs.d/inits/my-occur.el::2%E5%8D%98%E8%AA%9E%E3%81%AEOR%E6%A4%9C%E7%B4%A2][file:~/.emacs.d/inits/my-occur.el::2単語のOR検索]]
+*** PENDING occur 履歴を clibor にインポートする
+    DEADLINE: <2015-12-01 火>
+    [2014-12-01 月 13:22]
+- clibor は「定型文CSV出力/取込」機能がある。
+
 ** rename-buffer 関連
    [2011-09-16 金 10:45]
 *** DONE rename-uniquely
@@ -1372,6 +1377,19 @@ shell-command-on-region: Args out of range: 0, 100
 - w32-use-visible-system-caret
 - w32-font-dialog
 - w32-valid-locales
+*** Font
+- http://www.emacswiki.org/emacs/MsWindowsCustomize
+  - EmacsWiki: Ms Windows Customize
+  - Type (or copy) (w32-select-font) into the scratch buffer followed
+    by ^J. In the dialog window that appears select the desired
+    font. After clicking OK the X-name of the font will be displayed
+    in the scratch buffer, ready to be copied to the clipboard. To set
+    the font using a command line option, proceed as when setting the
+    initial window size and let Target end with -fn "-outline-Lucida
+    Sans Typewriter-normal-r-normal-normal-12-90-96-96-c-*-iso8859-1"
+    (or whichever font name was displayed). See also
+    ChangeFontsPermanentlyOnWindows.
+
 ** ido-mode                                                        :ido_mode:
    [2011-11-17 木 11:07]
 *** ido-mode 導入
@@ -2039,7 +2057,7 @@ shell-command-on-region: Args out of range: 0, 100
     [2014-10-09 木 09:59]
 - 案1 テンプレートを選択してメール作成。
 - 案2 メール検索バッファで選択したメールを雛形にしてメール作成。
-** migemo                                                            :migemo:
+** migemo 関連                                                       :migemo:
 - goto: [[~/.emacs.d/memo/my-emacs-migemo.org.txt]]
 ** DONE iedt-mode
    :LOGBOOK:
@@ -2339,5 +2357,10 @@ puts "narrow-indirect"
   - before-save-hook
 - アクション
   - ファイル名末尾が .sh であるならば、先頭に "-*- coding: utf-8-unix -*-" を付与する。
+** 秀丸ライク
+*** PENDING ファンクションキーボタン
+    DEADLINE: <2015-12-01 火>
+    [2014-12-01 月 11:40]
+- 画面下部にファンクションキーボタンを表示する。 shift/alt/ctrl を押している間、表示を切り替える。
 * tail
   [2011-08-25 木 17:38]

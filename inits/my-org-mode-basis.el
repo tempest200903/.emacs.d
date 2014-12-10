@@ -11,17 +11,19 @@
 ;; * [2010-10-28 木] GTD 
 ;; cf. url: http://hpcgi1.nifty.com/spen/index.cgi?OrgMode%2fManual2#i16
 ;; ショートカットキーは左手だけで入力できるように偏らせている。
+;; cf. https://www.gnu.org/software/emacs/manual/html_node/org/Tracking-TODO-state-changes.html
+;; special markers ‘!’ (for a timestamp) or ‘@’ (for a note with timestamp)
 ;;
 (setq org-todo-keywords 
       '("TODO(t)" 
 	"PENDING(g)" 
 	"VERIFY(v)" 
-	"WAIT(w)" 
+	"WAIT(w@/!)" 
 	"EVENT(e)" 
 	"HABIT(h)" 
 	"|" 
-	"CANCELLED(c)" 
-	"DONE(d)")
+	"CANCELLED(c@/!)" 
+	"DONE(d!)")
       org-todo-interpretation 
       'sequence)
 ;;

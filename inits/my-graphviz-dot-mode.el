@@ -26,4 +26,19 @@
 ;; (define-key map "\C-c\C-c" 'comment-region)
 ;; (define-key map "\C-c\C-u" 'graphviz-dot-uncomment-region)
 ;; ----------------------------------------------------------------------
+;; * [2014-12-05 金] graphviz comile
+;; # (compile "./dot ticket2717-pfd-level1-d20141205")
+;; いちいち dot という名前のシェルスクリプトをあちこちにばら撒くのは面倒。
+;; # (progn (setenv "PATH" (concat (getenv "PATH") ";c:\\tool\\Graphviz2.30\\bin")) (compile (format "dot -Goverlap=false -Nfontname='MS UI Gothic' -Tgif %s.dot -o %s.gif && cygstart 'C:\\Program Files\\IrfanView\\i_view32.exe' %s.gif" "ticket2717-pfd-level1-d20141205" "ticket2717-pfd-level1-d20141205" "ticket2717-pfd-level1-d20141205")))
+;; 長い。短縮する。
+
+(setq my-graphviz-dot-image-viewer "cygstart 'C:\\Program Files\\IrfanView\\i_view32.exe'")
+
+(defun my-graphviz-dot-compile (basename)
+  (progn
+    (setenv "PATH" (concat (getenv "PATH") ";c:\\tool\\Graphviz2.30\\bin"))
+    (compile (format "dot -Goverlap=false -Nfontname='MS UI Gothic' -Tgif %s.dot -o %s.gif && %s %s.gif" basename basename my-graphviz-dot-image-viewer basename)))
+  )
+
+;; ----------------------------------------------------------------------
 (provide 'my-graphviz-dot-mode)
