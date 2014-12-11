@@ -1156,6 +1156,11 @@ Tag :interrupt:
     - やりたいのは org-agenda-set-effort 引数を1回だけ入力すること。
 - 実験2
   - 引数を 0 に固定した org-agenda-set-effort コマンドを用意する。
+**** PENDING 〔agenda view で effort is 0 条件で配色する or 抽出する〕
+     DEADLINE: <2015-12-10 木>
+     [2014-12-10 水 10:11]
+
+
 
 *** habit 関連
 **** TODO 〔STYLE habit を付与するコマンドが欲しい〕
