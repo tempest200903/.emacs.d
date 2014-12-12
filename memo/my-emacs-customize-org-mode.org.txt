@@ -82,6 +82,40 @@
   ためのThunderbird用アドオンがある。 このアドオンを使って、org-modeか
   らメールをMessageIDから開くための設定。
   #+END_QUOTE
+*** TODO org-open-at-point 関連
+**** TODO org-open-at-point を拡張する
+    [2011-12-15 木 12:28]
+- org-open-at-point するときに、 bluewind のように外部プログラムを選択可能にするか、
+  windows エクスプローラのコンテキストメニューを開くようにしたい。
+- とりえあず暫定回避策。 M-s M-w (ffap-copy-string-as-kill) でファイルパスをコピー。
+  bluewind に貼り付ける。
+- anything.el anything-version "1.3.6" ではいろいろなアクションがある。
+- [[mail:foo@example.com]] と同様に [[bluewind:path_to_file]] とかいておけば必ず bluewind で開くようにしたい。
+- 通常の形式のファイルリンクでかいてある場合、
+  - M-x C-, の前につけた C-u の個数でどのプログラムにするか決定する。
+  - もしくは、 org-agenda や org-export のようなメニューから選択。
+  - もしくは、 anything/helm のようなメニューから選択。
+**** PENDING org-open-at-point, ffap-copy-string-as-kill の日本語対応 :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 10:28]
+    :END:
+- coding を適切に設定すれば可能？ 実験してみる。
+- とりあえず、 [[file:~/.emacs.d/inits/my-kill-ring-save.el::my-kill-ring-save-or-copy-org-link-target]] をしばらく使ってみる。
+**** TODO org-open-at-point, ffap-copy-string-as-kill の dirname 版 :wishlist:
+    :LOGBOOK:
+    TIMESTAMP: [2012-04-10 火 10:27]
+    :END:
+- "C:\a\b\c\d.txt" を読み取ったら "C:\a\b\c" を open, copy する。
+- 単に、 ffap-copy-string-as-kill したと、 dirname コマンドを呼び出せばいい。
+**** TODO ffap-next like な org-open-at-point                      :wishlist:
+- ffap-next は URL を前方検索して発見した URL を開く。つまり、カーソルを URL まであらかじめ移動しておく手間が省ける。
+- これと同じことを org-open-at-point でも実現したい。
+**** TODO org-open-at-point で Excel sheet を開く
+1. org file に [[excel:sheets("ブランチ")]] と記す。
+2. org-open-at-point で以下の処理。
+   1. カレント行かその前後に [[.*xls*]] ファイルパスがあれば選択。
+      なければカレントバッファにある [[.*xls*]] をスキャンして全て選択。
+   2. 存在するxlsファイルから、該当するシート名を探し出す。見つけたら開く。
 *** outline 関連
 **** DONE org-insert-heading するときに不活性タイムスタンプを挿入する
    [2011-08-24 水 10:25]
@@ -168,6 +202,11 @@
 - 実現方法
   - org-agenda-mode で . (org-agenda-goto-today) に hook してトリガーを引く。
   - [[~/.emacs.d/inits/my-taskchute.el]]
+**** TODO 直前の clock-out 時刻と現在の clock-in 時刻に差があったら補正するコマンド :wishlist:
+     DEADLINE: <2015-12-11 金>
+     [2014-12-11 木 13:33]
+- ios timenote にある機能と同じ。
+
 *** DONE speed-command
     CLOSED: [2011-12-17 土 10:55]
     [2011-09-16 金 09:59]
@@ -412,18 +451,6 @@
 - 案2 FooBar_20110421.txt 形式の数字部分だけが異なるなら、数値比較して差が少ないファイルを選択する。
 - org-open-at-point する際に、代替ファイルを見つけたら別バッファに表示する。
   - ユーザが選択したファイルをアンカーに反映する。
-**** TODO org-open-at-point を拡張する
-    [2011-12-15 木 12:28]
-- org-open-at-point するときに、 bluewind のように外部プログラムを選択可能にするか、
-  windows エクスプローラのコンテキストメニューを開くようにしたい。
-- とりえあず暫定回避策。 M-s M-w (ffap-copy-string-as-kill) でファイルパスをコピー。
-  bluewind に貼り付ける。
-- anything.el anything-version "1.3.6" ではいろいろなアクションがある。
-- [[mail:foo@example.com]] と同様に [[bluewind:path_to_file]] とかいておけば必ず bluewind で開くようにしたい。
-- 通常の形式のファイルリンクでかいてある場合、
-  - M-x C-, の前につけた C-u の個数でどのプログラムにするか決定する。
-  - もしくは、 org-agenda や org-export のようなメニューから選択。
-  - もしくは、 anything/helm のようなメニューから選択。
 **** DONE org の radio-target を howm-mode と併用する
     CLOSED: [2011-12-17 土 10:12]
     [2011-12-15 木 19:10]
@@ -562,18 +589,6 @@
   - etc
 - 実現方法
   - graphviz
-**** PENDING org-open-at-point, ffap-copy-string-as-kill の日本語対応 :wishlist:
-    :LOGBOOK:
-    TIMESTAMP: [2012-04-10 火 10:28]
-    :END:
-- coding を適切に設定すれば可能？ 実験してみる。
-- とりあえず、 [[file:~/.emacs.d/inits/my-kill-ring-save.el::my-kill-ring-save-or-copy-org-link-target]] をしばらく使ってみる。
-**** TODO org-open-at-point, ffap-copy-string-as-kill の dirname 版 :wishlist:
-    :LOGBOOK:
-    TIMESTAMP: [2012-04-10 火 10:27]
-    :END:
-- "C:\a\b\c\d.txt" を読み取ったら "C:\a\b\c" を open, copy する。
-- 単に、 ffap-copy-string-as-kill したと、 dirname コマンドを呼び出せばいい。
 **** TODO 月次ノートの相互ハイパーリンクを自動化                   :wishlist:
     :LOGBOOK:
     TIMESTAMP: [2012-04-10 火 10:41]
@@ -672,9 +687,6 @@
   - アクティビティを束ねたワークパッケージの進捗率は何％か把握する
   - 進捗率と計画のずれ具合はどうなっているか把握する
   - ずれ具合をイナズマ線的に見える化する
-**** TODO ffap-next like な org-open-at-point                      :wishlist:
-- ffap-next は URL を前方検索して発見した URL を開く。つまり、カーソルを URL まであらかじめ移動しておく手間が省ける。
-- これと同じことを org-open-at-point でも実現したい。
 **** TODO タグのリネーム、マージ                                   :wishlist:
     :LOGBOOK:
     TIMESTAMP: [2012-07-04 水 11:05]
@@ -740,12 +752,6 @@
     :END:
 - org-export-default-language
 - default Its value is "en"
-**** TODO org-open-at-point で Excel sheet を開く
-1. org file に [[excel:sheets("ブランチ")]] と記す。
-2. org-open-at-point で以下の処理。
-   1. カレント行かその前後に [[.*xls*]] ファイルパスがあれば選択。
-      なければカレントバッファにある [[.*xls*]] をスキャンして全て選択。
-   2. 存在するxlsファイルから、該当するシート名を探し出す。見つけたら開く。
 **** DONE org-mouse-show-context-menu                                  :tips:
     CLOSED: [2014-08-12 火 10:25]
 - [[elisp:(org-tags-view t "some_tag")]] と書いてもいいが、マウス右クリックから Display tag を選択してもいい。
@@ -903,6 +909,14 @@ agenda now.
 **** PENDING カテゴリの長さを揃える
      [2014-11-14 金 10:32]
 - カテゴリの横幅が異なるため。
+**** TODO org-agenda-goto でウィンドウ分割をカスタマイズする
+     DEADLINE: <2015-12-11 金>
+     [2014-12-11 木 10:07]
+- 現状、 org-agenda-goto 1回目は上下2分割、 org-agenda-goto 2回目は左右下3分割になる。
+- 常に上下2分割、あるいは、常に左右2分割、のようにカスタマイズしたい。
+- とりあえず、 org-agenda-goto をラップする。
+  - C-u M-x my-org-agenda-goto で (delete-other-windows) (org-agenda-goto) にする。
+- goto: [[~/.emacs.d/inits/my-org-agenda-mode.el]]
 
 *** clock 関連
 **** DONE 〔org-clock-modeline-total〕
@@ -1077,6 +1091,14 @@ You can customize this variable.
 - e.g. ある会議は毎週月曜日開催。休日なら火曜日。
 **** TODO clone するときにカスタムルールに基づいて scheduled, deadline を再設定してほしい
 - e.g. 「通院」予定がある日は scheduled 16:00 。そのほかは scheduled 18:00
+**** TODO 自動リスケジュール機能
+     [2014-12-11 木 10:51]
+- シナリオ1
+  - 〔シュレッダーで紙を破棄する〕を優先度C, 〔会議に出席する〕を優先度Aを設定する。
+  - 「1日の予算時間」－「優先度Aの配分時間」＝「優先度B,Cの予算時間」
+  - 「優先度B,Cの予算時間」が閾値以下である日に優先度の scheduled, deadline が入ったとき、自動的に延期する。
+- 優先度は org-priority ではなくタグでつける。
+- できれば「1日の予算時間」はカスタマイズ可能にしたい。
 *** TODO 〔特定のファイルから指定したキーワードを含む行を抽出するハイパーリンクを生成するコマンド〕
 - 例 [[elisp:(progn (find-file "dictionary.csv") (occur "mp306\\|mp307\\|mp308"))]]
 *** org-capture
@@ -1159,7 +1181,6 @@ Tag :interrupt:
 **** PENDING 〔agenda view で effort is 0 条件で配色する or 抽出する〕
      DEADLINE: <2015-12-10 木>
      [2014-12-10 水 10:11]
-
 
 
 *** habit 関連
@@ -1275,5 +1296,11 @@ File mode specification error: (error ":END: line missing at position 14687")
 - org file を入力すると PERT 図、ガントチャートを生成するツールがほしい。
 - 「次に着手するべきアクションは何か？」に応答するコマンドがほしい。
   - クリティカルパスに影響するアクションを優先する。
-
-
+**** PENDING 〔タスクの前後関係を定義したい〕
+     DEADLINE: <2015-12-11 金>
+     [2014-12-11 木 10:31]
+- e.g. task.A が終了後に task.B を開始する。 (FS前後関係)
+  - task.A が DONE になる前は task.B を PENDING にする。
+    - when task.B を TODO にする { unless task.A = DONE then task.B を PENDING に戻す end }
+  - task.A が DONE になる時に task.B を TODO にする。
+    - when task.A を DONE にする { unless task.B = CANCELLED then task.B = TODO end }

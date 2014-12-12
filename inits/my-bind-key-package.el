@@ -4,6 +4,14 @@
 ;; * [2014-09-13 土] bind-key.el 導入
 ;; http://rubikitch.com/tag/emacs-define-key/
 ;; bind-key* => メジャーモード・マイナーモードに依存しないで常に同じキーに割り当てる
+;; 
+;; 使用例
+;; (global-set-key (kbd "C-c x") 'my-ctrl-c-x-command)
+;; ↓
+;; (bind-key "C-c x" 'my-ctrl-c-x-command)
+;; (define-key some-other-mode-map (kbd "C-c x") 'my-ctrl-c-x-command)
+;; ↓
+;; (bind-key "C-c x" 'my-ctrl-c-x-command some-other-mode-map)
 ;; ----------------------------------------------------------------------
 
 (when (package-require 'bind-key nil nil t)
