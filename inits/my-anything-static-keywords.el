@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8-unix; mode: Emacs-Lisp -*-
+;; my-anything-static-keywords.el
 ;; #+LAST_UPDATED: 2014-06-09
 ;; ============================================================================
 ;; * [2011-12-22 木] 自作 elisp. 固定の文字列を入力する anything-c-source

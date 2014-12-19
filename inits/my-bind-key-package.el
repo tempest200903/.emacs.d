@@ -18,15 +18,22 @@
 
   ;; (autoload FUNCTION FILE &optional DOCSTRING INTERACTIVE TYPE)
   ;; (bind-key KEY-NAME COMMAND &optional KEYMAP)
-  (defun my-bind-key-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP)
+  ;; TODO describe-personal-keybindings 実行するとエラー発生。 KEYMAP1 の指定方法に問題ありそう。
+  (defun my-bind-key-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP1)
     "bind-key-with-autoload"
     (autoload COMMAND FILE)
-    (bind-key KEY-NAME COMMAND KEYMAP)
+    (if KEYMAP1
+          (bind-key KEY-NAME COMMAND KEYMAP1)
+      (bind-key KEY-NAME COMMAND global-map)
+      )
     )
-  (defun my-bind-key*-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP)
+  (defun my-bind-key*-with-autoload (FILE KEY-NAME COMMAND &optional KEYMAP1)
     "bind-key*-with-autoload"
     (autoload COMMAND FILE)
-    (bind-key* KEY-NAME COMMAND KEYMAP)
+    (if KEYMAP1
+        (bind-key* KEY-NAME COMMAND KEYMAP1)
+      (bind-key* KEY-NAME COMMAND )
+      )
     )
 
   ;; bind-key/bind-keysで割り当てたキーバインドをリストする

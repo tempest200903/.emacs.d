@@ -1699,6 +1699,11 @@ shell-command-on-region: Args out of range: 0, 100
 - anything-show-kill-ring, anything-occur あたりは日本語検索することが多い。
 - [[n:/tool/gnupack/gnupack_devel-11.00/home/.emacs.d/inits/my-anything-migemo.el]]
   - ;; [2013-10-03 木] 未完成！ M-x my-anything-migemo しても何も出てこない。
+*** TODO my-anything-keybind.el
+    [2014-12-12 金 10:36]
+- describe-bindings バッファを作って occur する。
+- [[~/.emacs.d/inits/my-anything-keybind.el]]
+
 ** バージョン管理                                           :version_control:
 *** TODO commit
     [2011-12-15 木 11:02]

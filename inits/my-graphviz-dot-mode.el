@@ -37,7 +37,7 @@
 (defun my-graphviz-dot-compile (basename)
   (progn
     (setenv "PATH" (concat (getenv "PATH") ";c:\\tool\\Graphviz2.30\\bin"))
-    (compile (format "dot -Goverlap=false -Nfontname='MS UI Gothic' -Tgif %s.dot -o %s.gif && %s %s.gif" basename basename my-graphviz-dot-image-viewer basename)))
+    (compile (format "dot -Goverlap=false -Gfontname='MS UI Gothic'  -Nfontname='MS UI Gothic' -Tgif %s.dot -o %s.gif && %s %s.gif" basename basename my-graphviz-dot-image-viewer basename)))
   )
 
 ;; ----------------------------------------------------------------------

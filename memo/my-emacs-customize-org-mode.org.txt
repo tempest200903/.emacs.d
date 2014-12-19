@@ -1296,7 +1296,7 @@ File mode specification error: (error ":END: line missing at position 14687")
 - org file を入力すると PERT 図、ガントチャートを生成するツールがほしい。
 - 「次に着手するべきアクションは何か？」に応答するコマンドがほしい。
   - クリティカルパスに影響するアクションを優先する。
-**** PENDING 〔タスクの前後関係を定義したい〕
+**** PENDING 〔タスクの前後関係を定義する〕
      DEADLINE: <2015-12-11 金>
      [2014-12-11 木 10:31]
 - e.g. task.A が終了後に task.B を開始する。 (FS前後関係)
@@ -1304,3 +1304,8 @@ File mode specification error: (error ":END: line missing at position 14687")
     - when task.B を TODO にする { unless task.A = DONE then task.B を PENDING に戻す end }
   - task.A が DONE になる時に task.B を TODO にする。
     - when task.A を DONE にする { unless task.B = CANCELLED then task.B = TODO end }
+**** PENDING 〔タスクの前後関係から重みを測る〕
+- 現在のタスクからマイルストーンまでタスクの前後関係をたどっていくと、
+  - あと何個タスクがあるか？ 個数順にソートして表示する。
+  - それらのタスクの estimate (予測時間)の合計は？ 合計値にソートして表示する
+
