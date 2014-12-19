@@ -1,9 +1,9 @@
 # -*- coding: utf-8-unix;  -*-
+#+LAST_UPDATED: 2014-12-19
 * 〈my-emacs-customize-org-mode〉
   :PROPERTIES:
   :CATEGORY: 〈my-emacs-customize-org-mode〉
   :END:
-#+LAST_UPDATED: 2014-09-03
 ** 〈org-mode〉                                                        :org_mode:
    :PROPERTIES:
    :CATEGORY: 〈org-mode〉
@@ -1308,4 +1308,3 @@ File mode specification error: (error ":END: line missing at position 14687")
 - 現在のタスクからマイルストーンまでタスクの前後関係をたどっていくと、
   - あと何個タスクがあるか？ 個数順にソートして表示する。
   - それらのタスクの estimate (予測時間)の合計は？ 合計値にソートして表示する
-
